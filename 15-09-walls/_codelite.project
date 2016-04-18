@@ -21,20 +21,20 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
-    <File Name="rectangle.hpp"/>
-    <File Name="rectangle.cpp"/>
-    <File Name="line.hpp"/>
-    <File Name="line.cpp"/>
-    <File Name="window.hpp"/>
-    <File Name="window.cpp"/>
+    <File Name="ball.cpp"/>
+    <File Name="ball.hpp"/>
     <File Name="circle.cpp"/>
     <File Name="circle.hpp"/>
-    <File Name="vector.cpp"/>
-    <File Name="vector.hpp"/>
-    <File Name="ball.hpp"/>
-    <File Name="ball.cpp"/>
     <File Name="drawable.cpp"/>
     <File Name="drawable.hpp"/>
+    <File Name="line.cpp"/>
+    <File Name="line.hpp"/>
+    <File Name="rectangle.cpp"/>
+    <File Name="rectangle.hpp"/>
+    <File Name="vector.cpp"/>
+    <File Name="vector.hpp"/>
+    <File Name="window.cpp"/>
+    <File Name="window.hpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

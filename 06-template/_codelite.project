@@ -21,14 +21,14 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
-    <File Name="rectangle.hpp"/>
-    <File Name="rectangle.cpp"/>
-    <File Name="line.hpp"/>
-    <File Name="line.cpp"/>
-    <File Name="window.hpp"/>
-    <File Name="window.cpp"/>
     <File Name="circle.cpp"/>
     <File Name="circle.hpp"/>
+    <File Name="line.cpp"/>
+    <File Name="line.hpp"/>
+    <File Name="rectangle.cpp"/>
+    <File Name="rectangle.hpp"/>
+    <File Name="window.cpp"/>
+    <File Name="window.hpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
