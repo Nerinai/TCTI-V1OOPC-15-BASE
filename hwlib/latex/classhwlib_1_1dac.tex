@@ -1,0 +1,55 @@
+\hypertarget{classhwlib_1_1dac}{}\section{hwlib\+:\+:dac Class Reference}
+\label{classhwlib_1_1dac}\index{hwlib\+::dac@{hwlib\+::dac}}
+
+
+D/A output interface.  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/dac.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \hyperlink{classhwlib_1_1dac_a63d1c11b81be9215e94eb81981045a22}{dac\+\_\+value\+\_\+type}\hypertarget{classhwlib_1_1dac_a63d1c11b81be9215e94eb81981045a22}{}\label{classhwlib_1_1dac_a63d1c11b81be9215e94eb81981045a22}
+
+\begin{DoxyCompactList}\small\item\em the type of the result returned by get() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhwlib_1_1dac_aba799313f06200f44c5146643abe4e08}{set} (\hyperlink{classhwlib_1_1dac_a63d1c11b81be9215e94eb81981045a22}{dac\+\_\+value\+\_\+type} x)=0
+\begin{DoxyCompactList}\small\item\em write a value to the D/A output \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1dac_a09b329cd33da005b6a55bafafba36e62}{dac} (int n\+\_\+bits)\hypertarget{classhwlib_1_1dac_a09b329cd33da005b6a55bafafba36e62}{}\label{classhwlib_1_1dac_a09b329cd33da005b6a55bafafba36e62}
+
+\begin{DoxyCompactList}\small\item\em specify the number of bits \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classhwlib_1_1dac_a70e7117d7f09c795b3dba20290add539}{dac\+\_\+n\+\_\+bits}\hypertarget{classhwlib_1_1dac_a70e7117d7f09c795b3dba20290add539}{}\label{classhwlib_1_1dac_a70e7117d7f09c795b3dba20290add539}
+
+\begin{DoxyCompactList}\small\item\em the number of bits in the result returned by get() \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+D/A output interface. 
+
+This class abstracts the interface to a D\+AC (Digital to Analog Converter). 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::dac@{hwlib\+::dac}!set@{set}}
+\index{set@{set}!hwlib\+::dac@{hwlib\+::dac}}
+\subsubsection[{\texorpdfstring{set(dac\+\_\+value\+\_\+type x)=0}{set(dac_value_type x)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::dac\+::set (
+\begin{DoxyParamCaption}
+\item[{{\bf dac\+\_\+value\+\_\+type}}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1dac_aba799313f06200f44c5146643abe4e08}{}\label{classhwlib_1_1dac_aba799313f06200f44c5146643abe4e08}
+
+
+write a value to the D/A output 
+
+This writes a digital value to the D/A converter, which causes the corresponding analog value to appear on the output pin. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-dac_8hpp}{hwlib-\/dac.\+hpp}\end{DoxyCompactItemize}

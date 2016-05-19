@@ -1,0 +1,74 @@
+\hypertarget{hwlib-ostream_8hpp}{}\section{hwlib-\/ostream.hpp File Reference}
+\label{hwlib-ostream_8hpp}\index{hwlib-\/ostream.\+hpp@{hwlib-\/ostream.\+hpp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhwlib_1_1setw}{hwlib\+::setw}
+\begin{DoxyCompactList}\small\item\em ostream output field width manipulator \end{DoxyCompactList}\item 
+struct \hyperlink{structhwlib_1_1__setbase}{hwlib\+::\+\_\+setbase}
+\item 
+struct \hyperlink{structhwlib_1_1__showpos}{hwlib\+::\+\_\+showpos}
+\item 
+struct \hyperlink{structhwlib_1_1__showbase}{hwlib\+::\+\_\+showbase}
+\item 
+struct \hyperlink{structhwlib_1_1__boolalpha}{hwlib\+::\+\_\+boolalpha}
+\item 
+struct \hyperlink{structhwlib_1_1setfill}{hwlib\+::setfill}
+\begin{DoxyCompactList}\small\item\em ostream filler character manipulator \end{DoxyCompactList}\item 
+struct \hyperlink{structhwlib_1_1__right}{hwlib\+::\+\_\+right}
+\item 
+struct \hyperlink{structhwlib_1_1__left}{hwlib\+::\+\_\+left}
+\item 
+struct \hyperlink{structhwlib_1_1__flush}{hwlib\+::\+\_\+flush}
+\item 
+class \hyperlink{classhwlib_1_1ostream}{hwlib\+::ostream}
+\begin{DoxyCompactList}\small\item\em formatted character output \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacehwlib}{hwlib}
+\begin{DoxyCompactList}\small\item\em hwlib library \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \+\_\+setbase \hyperlink{namespacehwlib_a2f624a643c9c8d30b5e4f3dca914e28e}{hwlib\+::bin} (2)
+\begin{DoxyCompactList}\small\item\em set ostream radix to 2 \end{DoxyCompactList}\item 
+constexpr \+\_\+setbase \hyperlink{namespacehwlib_a9711974fb746e16a55e130b461cad619}{hwlib\+::oct} (8)
+\begin{DoxyCompactList}\small\item\em set ostream radix to 8 \end{DoxyCompactList}\item 
+constexpr \+\_\+setbase \hyperlink{namespacehwlib_ab8f3a2357c88d53861c09dbd17f14f1b}{hwlib\+::dec} (10)
+\begin{DoxyCompactList}\small\item\em set ostream radix to 10 \end{DoxyCompactList}\item 
+constexpr \+\_\+setbase \hyperlink{namespacehwlib_a4726c8f4bef5591b6f6853041328a04f}{hwlib\+::hex} (16)
+\begin{DoxyCompactList}\small\item\em set ostream radix to 16 \end{DoxyCompactList}\item 
+constexpr \+\_\+showpos \hyperlink{namespacehwlib_a7bb9927f52011b4cc4a90b03e98f95fd}{hwlib\+::showpos} (true)
+\begin{DoxyCompactList}\small\item\em enable printing of a leading \textquotesingle{}+\textquotesingle{} \end{DoxyCompactList}\item 
+constexpr \+\_\+showpos \hyperlink{namespacehwlib_accdd72e1358d667a9458767d886b2a53}{hwlib\+::noshowpos} (false)
+\begin{DoxyCompactList}\small\item\em disable printing of a leading \textquotesingle{}+\textquotesingle{} \end{DoxyCompactList}\item 
+constexpr \+\_\+showbase \hyperlink{namespacehwlib_a84adb21b2d054d3b70c6b26af5f44566}{hwlib\+::showbase} (true)
+\begin{DoxyCompactList}\small\item\em enable printing of a leading radix indication \end{DoxyCompactList}\item 
+constexpr \+\_\+showbase \hyperlink{namespacehwlib_af813ae25dc70ae85e2f06dcf81f8963b}{hwlib\+::noshowbase} (false)
+\begin{DoxyCompactList}\small\item\em enable printing of a leading radix indication \end{DoxyCompactList}\item 
+constexpr \+\_\+boolalpha \hyperlink{namespacehwlib_a499e8cd6806e66c4c425b64c9512a21c}{hwlib\+::boolalpha} (true)
+\begin{DoxyCompactList}\small\item\em print a bool value as \textquotesingle{}0\textquotesingle{} or \textquotesingle{}1\textquotesingle{} \end{DoxyCompactList}\item 
+constexpr \+\_\+boolalpha \hyperlink{namespacehwlib_a6fe77cc67d9850cb262eb6e15e37724d}{hwlib\+::noboolalpha} (false)
+\begin{DoxyCompactList}\small\item\em print a bool value as \textquotesingle{}false\textquotesingle{} or \textquotesingle{}true\textquotesingle{} \end{DoxyCompactList}\item 
+void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a10ed5b50cabfea49044e22331ac6f284}{hwlib\+::uart\+\_\+putc\+\_\+bit\+\_\+banged\+\_\+pin} (char c, pin\+\_\+out \&pin)
+\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT putc \end{DoxyCompactList}\item 
+void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_ae568ebef4b8d8a77cecae8cea595896f}{hwlib\+::uart\+\_\+putc} (char c)
+\begin{DoxyCompactList}\small\item\em console character output function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr char \hyperlink{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}{hwlib\+::endl} = \textquotesingle{}\textbackslash{}n\textquotesingle{}\hypertarget{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}{}\label{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}
+
+\begin{DoxyCompactList}\small\item\em end-\/of-\/linbe constant \end{DoxyCompactList}\item 
+constexpr char \hyperlink{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}{hwlib\+::ends} = \textquotesingle{}\textbackslash{}0\textquotesingle{}\hypertarget{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}{}\label{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}
+
+\begin{DoxyCompactList}\small\item\em 0-\/character constant \end{DoxyCompactList}\item 
+constexpr \+\_\+right \hyperlink{namespacehwlib_a26a6aead1d4dc1a990ab77bf2b730740}{hwlib\+::right}
+\begin{DoxyCompactList}\small\item\em align an item right in its field \end{DoxyCompactList}\item 
+constexpr \+\_\+left \hyperlink{namespacehwlib_a7d9a4ef3e66da75048c5b3e67cf401d8}{hwlib\+::left}
+\begin{DoxyCompactList}\small\item\em align an item left in its field \end{DoxyCompactList}\item 
+constexpr \+\_\+flush \hyperlink{namespacehwlib_a648fe94ca9899747a632c23f97007732}{hwlib\+::flush}
+\begin{DoxyCompactList}\small\item\em flush an stream \end{DoxyCompactList}\item 
+cout\+\_\+using\+\_\+uart\+\_\+putc \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_ac985c212834e4eb219aedede6efff2dc}{hwlib\+::cout}
+\begin{DoxyCompactList}\small\item\em embedded output console \end{DoxyCompactList}\end{DoxyCompactItemize}

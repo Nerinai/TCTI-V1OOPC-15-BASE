@@ -1,0 +1,169 @@
+\hypertarget{classhwlib_1_1pcf8574a}{}\section{hwlib\+:\+:pcf8574a Class Reference}
+\label{classhwlib_1_1pcf8574a}\index{hwlib\+::pcf8574a@{hwlib\+::pcf8574a}}
+
+
+\hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} I2C I/O extender  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/pcf8574a.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:pcf8574a\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1pcf8574a}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \+\_\+one\+\_\+pin {\bfseries one\+\_\+pin}\hypertarget{classhwlib_1_1pcf8574a_a626b4018d37bde301afe4cfa2e21cd2e}{}\label{classhwlib_1_1pcf8574a_a626b4018d37bde301afe4cfa2e21cd2e}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1pcf8574a_abbfb14e05ed1afe9915353028264dc7b}{pcf8574a} (\hyperlink{classhwlib_1_1i2c__bus}{i2c\+\_\+bus} \&bus, \hyperlink{hwlib-defines_8hpp_a54998f25522db04b7b797b0fcc9eb3d5}{fast\+\_\+byte} address)
+\begin{DoxyCompactList}\small\item\em construct an interface to a \hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} chip \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1pcf8574a_a1bb2266c127d93fd1d7c0b3f9193817d}{number\+\_\+of\+\_\+pins} () override
+\begin{DoxyCompactList}\small\item\em get number of pins \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1pcf8574a_afeef7665cd9059959588295418c57709}{set} (uint\+\_\+fast8\+\_\+t x) override
+\begin{DoxyCompactList}\small\item\em write to the port \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1pcf8574a_abd2c5f791eced2e91f52db767351f0bd}{get} () override
+\begin{DoxyCompactList}\small\item\em read from the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+one\+\_\+pin \hyperlink{classhwlib_1_1pcf8574a_a3824ca4c8ff662663dba2abf10a4a946}{p0} \{ $\ast$this, 0 \}
+\begin{DoxyCompactList}\small\item\em the open-\/collector pins of the chip \end{DoxyCompactList}\item 
+one\+\_\+pin {\bfseries p1} \{ $\ast$this, 1 \}\hypertarget{classhwlib_1_1pcf8574a_a1adc6413e58a9b827fa996402b18eff7}{}\label{classhwlib_1_1pcf8574a_a1adc6413e58a9b827fa996402b18eff7}
+
+\item 
+one\+\_\+pin {\bfseries p2} \{ $\ast$this, 2 \}\hypertarget{classhwlib_1_1pcf8574a_a73d8c9cd3688de0e3e7fd5cb58b9a2bd}{}\label{classhwlib_1_1pcf8574a_a73d8c9cd3688de0e3e7fd5cb58b9a2bd}
+
+\item 
+one\+\_\+pin {\bfseries p3} \{ $\ast$this, 3 \}\hypertarget{classhwlib_1_1pcf8574a_af74d66fd9f15618691755b2a9df5e7e7}{}\label{classhwlib_1_1pcf8574a_af74d66fd9f15618691755b2a9df5e7e7}
+
+\item 
+one\+\_\+pin {\bfseries p4} \{ $\ast$this, 4 \}\hypertarget{classhwlib_1_1pcf8574a_aa92b5eb9c4662e8693e481e70df36dee}{}\label{classhwlib_1_1pcf8574a_aa92b5eb9c4662e8693e481e70df36dee}
+
+\item 
+one\+\_\+pin {\bfseries p5} \{ $\ast$this, 5 \}\hypertarget{classhwlib_1_1pcf8574a_a1ee5d90ff44bc9ecd36be9a0c631a8be}{}\label{classhwlib_1_1pcf8574a_a1ee5d90ff44bc9ecd36be9a0c631a8be}
+
+\item 
+one\+\_\+pin {\bfseries p6} \{ $\ast$this, 6 \}\hypertarget{classhwlib_1_1pcf8574a_a4702f96da190fda4a82fd5c618c5adad}{}\label{classhwlib_1_1pcf8574a_a4702f96da190fda4a82fd5c618c5adad}
+
+\item 
+one\+\_\+pin {\bfseries p7} \{ $\ast$this, 7 \}\hypertarget{classhwlib_1_1pcf8574a_a57afc965233d2989de8dc9c51fa5faf5}{}\label{classhwlib_1_1pcf8574a_a57afc965233d2989de8dc9c51fa5faf5}
+
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+\hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} I2C I/O extender 
+
+This class implements an interface to a \hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} I2C I/O extender chip.
+
+
+
+A \hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} is an I2C slave that provides 8 open-\/collector input/output pins with weak pull-\/ups. The power supply range is 2.\+5 .. 5.\+5 Volt. Of the 7-\/bit slave address, 3 bits are set by the level of 3 input pins (A0..A2) of the chip.
+
+
+
+The chip has only one register, which can be read and written. When written, it determines the level of the 8 output pins\+: low when the bit is 0, pulled weakly high when the bit is 1. When read, the level of the 8 pins determines the value\+: 0 for a low pin, 1 for a high pin.
+
+
+
+The next code shows a kitt display on 8 L\+E\+Ds connected to the P\+C\+F8574A output pins. Because the output pins are open-\/collector, the L\+E\+Ds are connected to power (instead of to the ground), hence the use of \hyperlink{classhwlib_1_1port__out__invert}{hwlib\+::port\+\_\+out\+\_\+invert()}. 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The pcf8574 (without the -\/a) is the same chip, but with a different I2C bus address.
+
+
+
+references\+:
+\begin{DoxyItemize}
+\item \href{http://www.nxp.com/documents/data_sheet/PCF8574_PCF8574A.pdf}{\tt P\+C\+F8574A data sheet} (pdf) 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{hwlib\+::pcf8574a@{hwlib\+::pcf8574a}!pcf8574a@{pcf8574a}}
+\index{pcf8574a@{pcf8574a}!hwlib\+::pcf8574a@{hwlib\+::pcf8574a}}
+\subsubsection[{\texorpdfstring{pcf8574a(i2c\+\_\+bus \&bus, fast\+\_\+byte address)}{pcf8574a(i2c_bus &bus, fast_byte address)}}]{\setlength{\rightskip}{0pt plus 5cm}hwlib\+::pcf8574a\+::pcf8574a (
+\begin{DoxyParamCaption}
+\item[{{\bf i2c\+\_\+bus} \&}]{bus, }
+\item[{{\bf fast\+\_\+byte}}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhwlib_1_1pcf8574a_abbfb14e05ed1afe9915353028264dc7b}{}\label{classhwlib_1_1pcf8574a_abbfb14e05ed1afe9915353028264dc7b}
+
+
+construct an interface to a \hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} chip 
+
+This constructor creates an interface to a \hyperlink{classhwlib_1_1pcf8574a}{pcf8574a} I2C I/O extender chip from the I2C bus it is connected to and and the chip address. The address is the 3-\/bit address that is determined by the 3 address input pins of the chip. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::pcf8574a@{hwlib\+::pcf8574a}!get@{get}}
+\index{get@{get}!hwlib\+::pcf8574a@{hwlib\+::pcf8574a}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast8\+\_\+t hwlib\+::pcf8574a\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1pcf8574a_abd2c5f791eced2e91f52db767351f0bd}{}\label{classhwlib_1_1pcf8574a_abd2c5f791eced2e91f52db767351f0bd}
+
+
+read from the port 
+
+This function reads and returns the pins that are part of the port. The lowest bit of the result reflects the first pin of the port, etc.
+
+Pins that have been written as 0 will very likley read as 0 too. To read the external input to a pin, the pin must first be written as 1. 
+
+Implements \hyperlink{classhwlib_1_1port__oc_a49f8413dcdc6d9a172c2d9669a2e906e}{hwlib\+::port\+\_\+oc}.
+
+\index{hwlib\+::pcf8574a@{hwlib\+::pcf8574a}!number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}}
+\index{number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}!hwlib\+::pcf8574a@{hwlib\+::pcf8574a}}
+\subsubsection[{\texorpdfstring{number\+\_\+of\+\_\+pins() override}{number_of_pins() override}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast8\+\_\+t hwlib\+::pcf8574a\+::number\+\_\+of\+\_\+pins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1pcf8574a_a1bb2266c127d93fd1d7c0b3f9193817d}{}\label{classhwlib_1_1pcf8574a_a1bb2266c127d93fd1d7c0b3f9193817d}
+
+
+get number of pins 
+
+This function returns the number of pins in the port. 
+
+Implements \hyperlink{classhwlib_1_1port__oc_a44d0dbfde290ad17237ad70c09a4c402}{hwlib\+::port\+\_\+oc}.
+
+\index{hwlib\+::pcf8574a@{hwlib\+::pcf8574a}!set@{set}}
+\index{set@{set}!hwlib\+::pcf8574a@{hwlib\+::pcf8574a}}
+\subsubsection[{\texorpdfstring{set(uint\+\_\+fast8\+\_\+t x) override}{set(uint_fast8_t x) override}}]{\setlength{\rightskip}{0pt plus 5cm}void hwlib\+::pcf8574a\+::set (
+\begin{DoxyParamCaption}
+\item[{uint\+\_\+fast8\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1pcf8574a_afeef7665cd9059959588295418c57709}{}\label{classhwlib_1_1pcf8574a_afeef7665cd9059959588295418c57709}
+
+
+write to the port 
+
+This function writes to the pins that are part of the port. The lowest bit is written to the first pin of the port, etc. 
+
+Implements \hyperlink{classhwlib_1_1port__oc_aefb3d093331e5a87cf2dbe8226dc94ef}{hwlib\+::port\+\_\+oc}.
+
+
+
+\subsection{Member Data Documentation}
+\index{hwlib\+::pcf8574a@{hwlib\+::pcf8574a}!p0@{p0}}
+\index{p0@{p0}!hwlib\+::pcf8574a@{hwlib\+::pcf8574a}}
+\subsubsection[{\texorpdfstring{p0}{p0}}]{\setlength{\rightskip}{0pt plus 5cm}one\+\_\+pin hwlib\+::pcf8574a\+::p0 \{ $\ast$this, 0 \}}\hypertarget{classhwlib_1_1pcf8574a_a3824ca4c8ff662663dba2abf10a4a946}{}\label{classhwlib_1_1pcf8574a_a3824ca4c8ff662663dba2abf10a4a946}
+
+
+the open-\/collector pins of the chip 
+
+The p0 ... p7 attributes represent the 8 open-\/collector output pins of the chip. A write to one of these pins will affect (only) the corresponding output pin of the chip. A read of one of these pins will reflect the status of the corresponding pin of the chip. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-pcf8574a_8hpp}{hwlib-\/pcf8574a.\+hpp}\end{DoxyCompactItemize}

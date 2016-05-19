@@ -1,0 +1,83 @@
+\hypertarget{classhwlib_1_1port__in__invert}{}\section{hwlib\+:\+:port\+\_\+in\+\_\+invert Class Reference}
+\label{classhwlib_1_1port__in__invert}\index{hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}}
+
+
+invert an input port  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/port.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:port\+\_\+in\+\_\+invert\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1port__in__invert}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1port__in__invert_afdf7f63dbf6c202b801742f50b6f5017}{port\+\_\+in\+\_\+invert} (\hyperlink{classhwlib_1_1port__in}{port\+\_\+in} \&port)
+\begin{DoxyCompactList}\small\item\em construct an inverted input port \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__in__invert_a5d05a4afd9990491daee8daa4c048faf}{number\+\_\+of\+\_\+pins} () override
+\begin{DoxyCompactList}\small\item\em get number of pins \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__in__invert_a3100bd433a45e903894f5971ac958459}{get} () override
+\begin{DoxyCompactList}\small\item\em read from the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+invert an input port 
+
+This decorator inverts the result of read operations on an input port\+: When a value would be returned by the original port, the inverted port returns the value with all bits inverted. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}!port\+\_\+in\+\_\+invert@{port\+\_\+in\+\_\+invert}}
+\index{port\+\_\+in\+\_\+invert@{port\+\_\+in\+\_\+invert}!hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}}
+\subsubsection[{\texorpdfstring{port\+\_\+in\+\_\+invert(port\+\_\+in \&port)}{port_in_invert(port_in &port)}}]{\setlength{\rightskip}{0pt plus 5cm}hwlib\+::port\+\_\+in\+\_\+invert\+::port\+\_\+in\+\_\+invert (
+\begin{DoxyParamCaption}
+\item[{{\bf port\+\_\+in} \&}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhwlib_1_1port__in__invert_afdf7f63dbf6c202b801742f50b6f5017}{}\label{classhwlib_1_1port__in__invert_afdf7f63dbf6c202b801742f50b6f5017}
+
+
+construct an inverted input port 
+
+This constructor creates an inverted input port from an existing input port. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}!get@{get}}
+\index{get@{get}!hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+in\+\_\+invert\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1port__in__invert_a3100bd433a45e903894f5971ac958459}{}\label{classhwlib_1_1port__in__invert_a3100bd433a45e903894f5971ac958459}
+
+
+read from the port 
+
+This function reads and returns the pins that are part of the port. The lowest bit of the result reflects the first pin of the port, etc. 
+
+Implements \hyperlink{classhwlib_1_1port__in_a3c0a1346a61c538424048b61c1038e0c}{hwlib\+::port\+\_\+in}.
+
+\index{hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}!number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}}
+\index{number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}!hwlib\+::port\+\_\+in\+\_\+invert@{hwlib\+::port\+\_\+in\+\_\+invert}}
+\subsubsection[{\texorpdfstring{number\+\_\+of\+\_\+pins() override}{number_of_pins() override}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+in\+\_\+invert\+::number\+\_\+of\+\_\+pins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1port__in__invert_a5d05a4afd9990491daee8daa4c048faf}{}\label{classhwlib_1_1port__in__invert_a5d05a4afd9990491daee8daa4c048faf}
+
+
+get number of pins 
+
+This function returns the number of pins in the port. 
+
+Implements \hyperlink{classhwlib_1_1port__in_a3498fc0158e1e460a00d671df629fe22}{hwlib\+::port\+\_\+in}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-port_8hpp}{hwlib-\/port.\+hpp}\end{DoxyCompactItemize}

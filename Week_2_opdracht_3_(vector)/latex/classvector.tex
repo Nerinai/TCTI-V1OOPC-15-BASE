@@ -1,0 +1,164 @@
+\hypertarget{classvector}{}\section{vector Class Reference}
+\label{classvector}\index{vector@{vector}}
+
+
+A\+DT vector.  
+
+
+
+
+{\ttfamily \#include $<$vector.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvector_a7fa147d3199381b9d8b32753bd1a6968}{vector} (int x, int y)
+\item 
+\hyperlink{classvector_a28ed60409cde794caea6a40ec8d832b2}{vector} ()
+\item 
+bool \hyperlink{classvector_a7a25ae23c15974286951c24822c0b7ff}{operator==} (const \hyperlink{classvector}{vector} \&rhs)
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_a40ddf0da0a5525e90a46ce33cd7a866a}{operator+} (const \hyperlink{classvector}{vector} rhs) const 
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_ad62f9ffeab2c2b5963ca90092b89d525}{operator+=} (const \hyperlink{classvector}{vector} \&rhs)
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_ae9c85ef402421e7a14cad83c1b596f38}{operator-\/} (const \hyperlink{classvector}{vector} rhs) const 
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_a3e73e3ef763da682e157866d641b9c33}{operator-\/=} (const \hyperlink{classvector}{vector} \&rhs)
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_a07aa14ad63e3f0281c1af5ef594b0a12}{operator$\ast$} (const int rhs) const 
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_a2e96cf517c90d9cdb8c1160c1295051b}{operator$\ast$=} (const int rhs)
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_a27d19ecae377502ac3d2c0c39837ebcf}{operator/} (const int rhs) const 
+\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_a863c36e83b65a4e18e246be15a488803}{operator/=} (const int rhs)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries x}\hypertarget{classvector_a0403eb3aea23a3009e276fba1d317046}{}\label{classvector_a0403eb3aea23a3009e276fba1d317046}
+
+\item 
+int {\bfseries y}\hypertarget{classvector_aad6de640298eae97ca0a094db5aff477}{}\label{classvector_aad6de640298eae97ca0a094db5aff477}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classvector_a7a6813f75dabd6f9575f9d6f91890255}{operator$<$$<$} (std\+::ostream \&lhs, const \hyperlink{classvector}{vector} \&rhs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A\+DT vector. 
+
+This is an A\+TD that implements two dimensional Vectors. Vectors are stored as two (signed) integers. Apropriate operators and constructors are provided. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{vector@{vector}!vector@{vector}}
+\index{vector@{vector}!vector@{vector}}
+\subsubsection[{\texorpdfstring{vector(int x, int y)}{vector(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}vector\+::vector (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a7fa147d3199381b9d8b32753bd1a6968}{}\label{classvector_a7fa147d3199381b9d8b32753bd1a6968}
+Construcor for initializing a vector. Takes the x and the y integer form user input. \index{vector@{vector}!vector@{vector}}
+\index{vector@{vector}!vector@{vector}}
+\subsubsection[{\texorpdfstring{vector()}{vector()}}]{\setlength{\rightskip}{0pt plus 5cm}vector\+::vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a28ed60409cde794caea6a40ec8d832b2}{}\label{classvector_a28ed60409cde794caea6a40ec8d832b2}
+Constructor for initializing a vector when no user input has been givien Vector will be initialized with x = 0 and y = 0. 
+
+\subsection{Member Function Documentation}
+\index{vector@{vector}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const int rhs) const }{operator*(const int rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const int}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a07aa14ad63e3f0281c1af5ef594b0a12}{}\label{classvector_a07aa14ad63e3f0281c1af5ef594b0a12}
+
+\begin{DoxyItemize}
+\item Operator for vectors Multiplies a vector with an integer. Overload for \char`\"{}vector $\ast$ int\char`\"{} Returns the value without changing the original vector. 
+\end{DoxyItemize}\index{vector@{vector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator$\ast$=(const int rhs)}{operator*=(const int rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const int}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a2e96cf517c90d9cdb8c1160c1295051b}{}\label{classvector_a2e96cf517c90d9cdb8c1160c1295051b}
+$\ast$= operator for vectors Multiplies the vector with an integer. Returns the value stored in the vector used. \index{vector@{vector}!operator+@{operator+}}
+\index{operator+@{operator+}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator+(const vector rhs) const }{operator+(const vector rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf vector}}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a40ddf0da0a5525e90a46ce33cd7a866a}{}\label{classvector_a40ddf0da0a5525e90a46ce33cd7a866a}
+
+\begin{DoxyItemize}
+\item Operator for vectors. Returns the sum of the vectors without changing the original vectors. 
+\end{DoxyItemize}\index{vector@{vector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator+=(const vector \&rhs)}{operator+=(const vector &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf vector} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_ad62f9ffeab2c2b5963ca90092b89d525}{}\label{classvector_ad62f9ffeab2c2b5963ca90092b89d525}
++= Operator for vectors. Reurns the sum of the vectors stored in the lhs value. \index{vector@{vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator-\/(const vector rhs) const }{operator-(const vector rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf vector}}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_ae9c85ef402421e7a14cad83c1b596f38}{}\label{classvector_ae9c85ef402421e7a14cad83c1b596f38}
+
+\begin{DoxyItemize}
+\item Operator for vectors. Returns a vector with the value of the vectors substracted from eachother without changing the original vectors. 
+\end{DoxyItemize}\index{vector@{vector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator-\/=(const vector \&rhs)}{operator-=(const vector &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf vector} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a3e73e3ef763da682e157866d641b9c33}{}\label{classvector_a3e73e3ef763da682e157866d641b9c33}
+-\/= Operator for vectors. Returns the substracted value of the vectors stored in the lhs value. \index{vector@{vector}!operator/@{operator/}}
+\index{operator/@{operator/}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator/(const int rhs) const }{operator/(const int rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{const int}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a27d19ecae377502ac3d2c0c39837ebcf}{}\label{classvector_a27d19ecae377502ac3d2c0c39837ebcf}
+/ Operator for vectors Multiplies a vector with an integer. Overload for \char`\"{}vector / int\char`\"{} Returns the value without changing the original vector. \index{vector@{vector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator/=(const int rhs)}{operator/=(const int rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{const int}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a863c36e83b65a4e18e246be15a488803}{}\label{classvector_a863c36e83b65a4e18e246be15a488803}
+/= operator for vectors Multiplies the vector with an integer. Returns the value stored in the vector used. \index{vector@{vector}!operator==@{operator==}}
+\index{operator==@{operator==}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator==(const vector \&rhs)}{operator==(const vector &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}bool vector\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf vector} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvector_a7a25ae23c15974286951c24822c0b7ff}{}\label{classvector_a7a25ae23c15974286951c24822c0b7ff}
+Operator to compare two vectors. Returns a boolean statement weither the vectors are equal or not. 
+
+\subsection{Friends And Related Function Documentation}
+\index{vector@{vector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{lhs, }
+\item[{const {\bf vector} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classvector_a7a6813f75dabd6f9575f9d6f91890255}{}\label{classvector_a7a6813f75dabd6f9575f9d6f91890255}
+Output operator for vectors. Returns the vector with the annotation style of \char`\"{}(x,y)\char`\"{}. Values are printed as decimal values. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vector_8hpp}{vector.\+hpp}\end{DoxyCompactItemize}

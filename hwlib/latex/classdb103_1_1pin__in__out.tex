@@ -1,0 +1,122 @@
+\hypertarget{classdb103_1_1pin__in__out}{}\section{db103\+:\+:pin\+\_\+in\+\_\+out Class Reference}
+\label{classdb103_1_1pin__in__out}\index{db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}}
+
+
+\hyperlink{classdb103_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for the L\+P\+C1114  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/db103.\+hpp$>$}
+
+Inheritance diagram for db103\+:\+:pin\+\_\+in\+\_\+out\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdb103_1_1pin__in__out}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdb103_1_1pin__in__out_a4c2cd30248539e0e37cf7a95b40c73dd}{pin\+\_\+in\+\_\+out} (int port, int pin)
+\begin{DoxyCompactList}\small\item\em L\+P\+C1114 \hyperlink{classdb103_1_1pin__out}{pin\+\_\+out} constructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classdb103_1_1pin__in__out_af03a8c83335daf7c529a6a73fdfbf1b4}{direction\+\_\+set\+\_\+input} () override
+\begin{DoxyCompactList}\small\item\em set the direction of a pin to input. \end{DoxyCompactList}\item 
+bool \hyperlink{classdb103_1_1pin__in__out_ab76b179e185068c87af404d3e620954e}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\item 
+virtual void \hyperlink{classdb103_1_1pin__in__out_a55b94d79329ccbe2a263e954cccc1ba9}{direction\+\_\+set\+\_\+output} () override
+\begin{DoxyCompactList}\small\item\em set the direction of a pin to output \end{DoxyCompactList}\item 
+void \hyperlink{classdb103_1_1pin__in__out_a45fca06e527503565429a278dc0b1322}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classdb103_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for the L\+P\+C1114 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}!pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}}
+\index{pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}!db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in\+\_\+out(int port, int pin)}{pin_in_out(int port, int pin)}}]{\setlength{\rightskip}{0pt plus 5cm}db103\+::pin\+\_\+in\+\_\+out\+::pin\+\_\+in\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{int}]{port, }
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdb103_1_1pin__in__out_a4c2cd30248539e0e37cf7a95b40c73dd}{}\label{classdb103_1_1pin__in__out_a4c2cd30248539e0e37cf7a95b40c73dd}
+
+
+L\+P\+C1114 \hyperlink{classdb103_1_1pin__out}{pin\+\_\+out} constructor. 
+
+Constructor for an L\+P\+C1114 input pin.
+
+This constructor doesn\textquotesingle{}t set the pin direction to input or output, a direction\+\_\+set function must be called to do so. 
+
+\subsection{Member Function Documentation}
+\index{db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}!direction\+\_\+set\+\_\+input@{direction\+\_\+set\+\_\+input}}
+\index{direction\+\_\+set\+\_\+input@{direction\+\_\+set\+\_\+input}!db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{direction\+\_\+set\+\_\+input() override}{direction_set_input() override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void db103\+::pin\+\_\+in\+\_\+out\+::direction\+\_\+set\+\_\+input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdb103_1_1pin__in__out_af03a8c83335daf7c529a6a73fdfbf1b4}{}\label{classdb103_1_1pin__in__out_af03a8c83335daf7c529a6a73fdfbf1b4}
+
+
+set the direction of a pin to input. 
+
+Calling this function sets the pin identified by p to input. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a54ce1a5086d3c9e7b868511b1d46acd0}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}!direction\+\_\+set\+\_\+output@{direction\+\_\+set\+\_\+output}}
+\index{direction\+\_\+set\+\_\+output@{direction\+\_\+set\+\_\+output}!db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{direction\+\_\+set\+\_\+output() override}{direction_set_output() override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void db103\+::pin\+\_\+in\+\_\+out\+::direction\+\_\+set\+\_\+output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdb103_1_1pin__in__out_a55b94d79329ccbe2a263e954cccc1ba9}{}\label{classdb103_1_1pin__in__out_a55b94d79329ccbe2a263e954cccc1ba9}
+
+
+set the direction of a pin to output 
+
+Calling this function sets the pin identified by p to output. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_ad08a5f5e9a4c3aadaa7c665b98f2418e}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}!get@{get}}
+\index{get@{get}!db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool db103\+::pin\+\_\+in\+\_\+out\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdb103_1_1pin__in__out_ab76b179e185068c87af404d3e620954e}{}\label{classdb103_1_1pin__in__out_ab76b179e185068c87af404d3e620954e}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+Before calling this function the pin direction must have been set to input by calling pin\+\_\+direction\+\_\+set\+\_\+input(). 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a298d32c19a8f94b730d34d4496bcf3ae}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}!set@{set}}
+\index{set@{set}!db103\+::pin\+\_\+in\+\_\+out@{db103\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void db103\+::pin\+\_\+in\+\_\+out\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdb103_1_1pin__in__out_a45fca06e527503565429a278dc0b1322}{}\label{classdb103_1_1pin__in__out_a45fca06e527503565429a278dc0b1322}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin high, a value of false makes it low.
+
+Before calling this function the pin direction must have been set to output by calling \hyperlink{classdb103_1_1pin__in__out_a55b94d79329ccbe2a263e954cccc1ba9}{direction\+\_\+set\+\_\+output()}. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a198c4d27a9783f4c17e8f5dfd9aca6a9}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-db103_8hpp}{hwlib-\/db103.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+Known issue
+
+Nice to haves
+\begin{DoxyItemize}
+\item character console on graphics
+\item rectangle (filled), circle (filled), image (external converter)
+\item graphics 2"4 L\+CD
+\item targets\+: Pi, Liliypad85
+\item A\+D\+S1115
+\item L\+C\+D/button shield
+\item due adc
+\item use and provide ranges (instead of x, y for loops)
+\item time-\/based wait (or at least a now() function)
+\item listener pattern \textquotesingle{}dummy\textquotesingle{} pins?
+\item pcf8591
+\item block-\/write for graphics
+\item faster I2C by exposing the elements, use in oled?
+\end{DoxyItemize}
+
+Quality \& consistency issues
+\begin{DoxyItemize}
+\item main() not (void)
+\item file-\/local objects are not documented? (check ostream)
+\item author \& change date everywhere?
+\item \hyperlink{namespacedb103}{db103} align pin classes
+\item more examples (graphics, ...)
+\item lcd5510 should use S\+PI??
+\item i2c example of address-\/only write
+\item directories opschonen
+\item make full build, clean
+\item test for input, output, oc, analog pins of a chip
+\item rewrite text for uno (due?) IO pins
+\item foto for setups, eg. hc595 (pins!!)
+\item run does not recompile on changed main.\+cpp??
+\item test that all headers can compile {\itshape individually}
+\item rename lcd to something that includes oled
+\item cleanup oled =$>$ ssd1306, provide init code, expose command interface
+\end{DoxyItemize}
+
+Must test
+\begin{DoxyItemize}
+\item H\+D44780 other sizes
+\end{DoxyItemize}
+
+Doxygen issues
+\begin{DoxyItemize}
+\item alphabetical index??
+\item prevent /// -\/ in file listing?
+\item ostream\+::showos \textquotesingle{}functions\textquotesingle{} have no \textquotesingle{}More..." ??
+\item ostream members are listed as related??
+\end{DoxyItemize}
+
+The list of issues, plans, bugs, etc\+:
+\begin{DoxyItemize}
+\item add an I2C temp sensor for Leo of iets anders
+\item I2C read, pcf8574a, demo\+: copy 1 to 2
+\item one\+\_\+pin trick =$>$ defines.\+hpp
+\item use an abstraction instead of copied code in the extenders one\+\_\+pin =$>$ pin\+\_\+out\+\_\+through\+\_\+buffer 
+\end{DoxyItemize}

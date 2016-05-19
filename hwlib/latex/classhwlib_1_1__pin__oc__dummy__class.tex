@@ -1,0 +1,67 @@
+\hypertarget{classhwlib_1_1__pin__oc__dummy__class}{}\section{hwlib\+:\+:\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class Class Reference}
+\label{classhwlib_1_1__pin__oc__dummy__class}\index{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class@{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}}
+
+
+a dummy (do-\/nothing) \hyperlink{classhwlib_1_1pin__oc}{pin\+\_\+oc}  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/pin-\/dummies.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1__pin__oc__dummy__class}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classhwlib_1_1__pin__oc__dummy__class_a10db7f81b4ed0dc0573f039d97c1d69e}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\item 
+bool \hyperlink{classhwlib_1_1__pin__oc__dummy__class_a06d061b7dd08d290e56969e90d4ff255}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+a dummy (do-\/nothing) \hyperlink{classhwlib_1_1pin__oc}{pin\+\_\+oc} 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class@{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}!get@{get}}
+\index{get@{get}!hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class@{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1__pin__oc__dummy__class_a06d061b7dd08d290e56969e90d4ff255}{}\label{classhwlib_1_1__pin__oc__dummy__class_a06d061b7dd08d290e56969e90d4ff255}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+This function can be called after set( false ) has been called on the pin, but then the level will read low (false). Call set( true ) to let the line float (presumably pulled high by a pull-\/up resistor) to read the level put on the line by an external device. 
+
+Implements \hyperlink{classhwlib_1_1pin__oc_aa395bf9608ca48ca07dee2f5dc4612bd}{hwlib\+::pin\+\_\+oc}.
+
+\index{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class@{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}!set@{set}}
+\index{set@{set}!hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class@{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1__pin__oc__dummy__class_a10db7f81b4ed0dc0573f039d97c1d69e}{}\label{classhwlib_1_1__pin__oc__dummy__class_a10db7f81b4ed0dc0573f039d97c1d69e}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin hihg-\/impedance (presumably pulled high by a pull-\/up resistor), a value of false makes it low. 
+
+Implements \hyperlink{classhwlib_1_1pin__oc_a2165622dad253a423d2fa52cbed7c553}{hwlib\+::pin\+\_\+oc}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-pin-dummies_8hpp}{hwlib-\/pin-\/dummies.\+hpp}\end{DoxyCompactItemize}

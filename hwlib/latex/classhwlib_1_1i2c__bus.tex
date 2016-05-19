@@ -1,0 +1,110 @@
+\hypertarget{classhwlib_1_1i2c__bus}{}\section{hwlib\+:\+:i2c\+\_\+bus Class Reference}
+\label{classhwlib_1_1i2c__bus}\index{hwlib\+::i2c\+\_\+bus@{hwlib\+::i2c\+\_\+bus}}
+
+
+i2c bus master interface  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/i2c.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:i2c\+\_\+bus\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1i2c__bus}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhwlib_1_1i2c__bus_ab61d2f9d41ce7c019599fcbb87a420c0}{write} (\hyperlink{hwlib-defines_8hpp_a54998f25522db04b7b797b0fcc9eb3d5}{fast\+\_\+byte} a, const \hyperlink{hwlib-defines_8hpp_ab8ef12fab634c171394422d0ee8baf94}{byte} data\mbox{[}$\,$\mbox{]}, \hyperlink{hwlib-defines_8hpp_a54998f25522db04b7b797b0fcc9eb3d5}{fast\+\_\+byte} n)=0
+\begin{DoxyCompactList}\small\item\em i2c write transaction \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1i2c__bus_a389ef0c95c69657e1b36352f16d824d8}{read} (\hyperlink{hwlib-defines_8hpp_a54998f25522db04b7b797b0fcc9eb3d5}{fast\+\_\+byte} a, \hyperlink{hwlib-defines_8hpp_ab8ef12fab634c171394422d0ee8baf94}{byte} data\mbox{[}$\,$\mbox{]}, \hyperlink{hwlib-defines_8hpp_a54998f25522db04b7b797b0fcc9eb3d5}{fast\+\_\+byte} n)=0
+\begin{DoxyCompactList}\small\item\em i2c read transaction \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+i2c bus master interface 
+
+This class abstracts the interface of a master to an I2C bus.
+
+In its simplest form, an I2C bus has one master and a number of slaves that are connected by two wires\+: S\+CL (clock) and S\+DA (data). Both lines are pulled up by pull-\/up resistor, and can (only) be pulled down by a connected chip (open-\/collector).
+
+
+
+An I2C transaction is either a read transaction or a transaction. In both cases, the transaction starts with the master transmitting a control byte, which contains the address of the slave chip, and one bit that indicates whether it is a read or a write transaction. The bits of a byte are transferred M\+SB (most significant bit) first.
+
+
+
+
+
+Next the slave chip receives (write transaction) or transmits (read transaction) as many bytes as the master asks for.
+
+
+
+At the bit level, master generates clock pulses by pulling the S\+CL line low. While the S\+CL is low, the master or slave can put a bit on the S\+DA line by pulling it down (for a 0) or letting it float (for a 1). The S\+CL line is always driven by the master (unless the slave uses clock-\/stretching), the S\+DA line is driven by the device on the bus that sends the bit.
+
+
+
+Two special conditions are used. To signal the start (S) of a transaction, the sda is pulled low while the clk is high. The reverse is used to indicate a stop (P, the end of a transaction)\+: the dta is released (goes high) while the clock is high.
+
+
+
+Most slave chips that have only one data byte that can be read or written use a single-\/byte read or write transmission to read or write that data byte. Slave chips that have more than one address that can be written often use a write transaction where the first byte(s) written determine the address (within the slave chip), and the subsequent byte(s) are written to that address (and to the next addresses). An I2C read transaction addresses the slave chip, but has no provision to specify an address within the slave chip. A common trick is that a read addresses the last address specified by a (previous) write transaction. Hence to read from address X first a write is done to address X, but the transaaction stops after the X, hence nothing is written, but this sets the address pointer inside the slave chip. Now a read transaction reads from this address.
+
+As always, consult the datasheet of the chip for the details.
+
+The I2C bus was invented by Philips, who had a patent on it. Hence other manufacturers that implemented the I2C bus on their chips had either to pay royalties to Philips, or tried to avoid this by implementing a protocol that was compatible with I2C, without mentioning I2C. The I2C patent has expired, but you can still find many chips that are described as \textquotesingle{}implementing a two-\/wire protocol\textquotesingle{} or something similar. In most cases this means that the chip implements I2C.
+
+references\+:
+\begin{DoxyItemize}
+\item \href{http://www.nxp.com/documents/user_manual/UM10204.pdf}{\tt I2C bus specification and user manual} (pdf)
+\item \href{http://i2c.info/i2c-bus-specification}{\tt I2C Bus Specification} (info page)
+\item \href{https://en.wikipedia.org/wiki/I2C}{\tt I2C Bus} (wikipedia) 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::i2c\+\_\+bus@{hwlib\+::i2c\+\_\+bus}!read@{read}}
+\index{read@{read}!hwlib\+::i2c\+\_\+bus@{hwlib\+::i2c\+\_\+bus}}
+\subsubsection[{\texorpdfstring{read(fast\+\_\+byte a, byte data[], fast\+\_\+byte n)=0}{read(fast_byte a, byte data[], fast_byte n)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::i2c\+\_\+bus\+::read (
+\begin{DoxyParamCaption}
+\item[{{\bf fast\+\_\+byte}}]{a, }
+\item[{{\bf byte}}]{data\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf fast\+\_\+byte}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1i2c__bus_a389ef0c95c69657e1b36352f16d824d8}{}\label{classhwlib_1_1i2c__bus_a389ef0c95c69657e1b36352f16d824d8}
+
+
+i2c read transaction 
+
+This function reads n bytes from the slave at address a to data\mbox{[}\mbox{]}.
+
+Note that n is a byte, hence the maximum number of bytes is 255. 
+
+Implemented in \hyperlink{classhwlib_1_1i2c__bus__bit__banged__scl__sda_a3936c0c4052692b999cf46c9cb12868b}{hwlib\+::i2c\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+scl\+\_\+sda}.
+
+\index{hwlib\+::i2c\+\_\+bus@{hwlib\+::i2c\+\_\+bus}!write@{write}}
+\index{write@{write}!hwlib\+::i2c\+\_\+bus@{hwlib\+::i2c\+\_\+bus}}
+\subsubsection[{\texorpdfstring{write(fast\+\_\+byte a, const byte data[], fast\+\_\+byte n)=0}{write(fast_byte a, const byte data[], fast_byte n)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::i2c\+\_\+bus\+::write (
+\begin{DoxyParamCaption}
+\item[{{\bf fast\+\_\+byte}}]{a, }
+\item[{const {\bf byte}}]{data\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf fast\+\_\+byte}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1i2c__bus_ab61d2f9d41ce7c019599fcbb87a420c0}{}\label{classhwlib_1_1i2c__bus_ab61d2f9d41ce7c019599fcbb87a420c0}
+
+
+i2c write transaction 
+
+This function write n bytes from data\mbox{[}\mbox{]} to the slave at address a.
+
+Note that n is a byte, hence the maximum number of bytes is 255. 
+
+Implemented in \hyperlink{classhwlib_1_1i2c__bus__bit__banged__scl__sda_a7f030dbd80fee19a6e6a9846e998d411}{hwlib\+::i2c\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+scl\+\_\+sda}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-i2c_8hpp}{hwlib-\/i2c.\+hpp}\end{DoxyCompactItemize}

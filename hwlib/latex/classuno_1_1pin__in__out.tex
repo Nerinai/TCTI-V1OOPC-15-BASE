@@ -1,0 +1,139 @@
+\hypertarget{classuno_1_1pin__in__out}{}\section{uno\+:\+:pin\+\_\+in\+\_\+out Class Reference}
+\label{classuno_1_1pin__in__out}\index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+
+
+\hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for a A\+T\+Mega328P  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/uno.\+hpp$>$}
+
+Inheritance diagram for uno\+:\+:pin\+\_\+in\+\_\+out\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classuno_1_1pin__in__out}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classuno_1_1pin__in__out_a91b2aafcc54ded374b14f7a12b18f0f6}{pin\+\_\+in\+\_\+out} (uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classuno_1_1pin__in__out_adeaea8daf6c3a38eb626ef2cac83a696}{pin\+\_\+in\+\_\+out} (\hyperlink{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}{pins} name)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} constructor from an Uno pin name. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classuno_1_1pin__in__out_a3266305bdd8da6ac1cfc5800888b991f}{direction\+\_\+set\+\_\+input} () override
+\begin{DoxyCompactList}\small\item\em set the direction of a pin to input. \end{DoxyCompactList}\item 
+bool \hyperlink{classuno_1_1pin__in__out_a33af53c3055024ab73b1092586dabe60}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\item 
+virtual void \hyperlink{classuno_1_1pin__in__out_aaa337ac985b7181a8012a37bad7d4c60}{direction\+\_\+set\+\_\+output} () override
+\begin{DoxyCompactList}\small\item\em set the direction of a pin to output \end{DoxyCompactList}\item 
+void \hyperlink{classuno_1_1pin__in__out_a54cb255e06318c8fef9f7595c50e3588}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for a A\+T\+Mega328P 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}!pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}}
+\index{pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}!uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in\+\_\+out(uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)}{pin_in_out(uint8_t port_number, uint8_t pin_number)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+in\+\_\+out\+::pin\+\_\+in\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{port\+\_\+number, }
+\item[{uint8\+\_\+t}]{pin\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__in__out_a91b2aafcc54ded374b14f7a12b18f0f6}{}\label{classuno_1_1pin__in__out_a91b2aafcc54ded374b14f7a12b18f0f6}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} constructor. 
+
+Constructor for a A\+T\+Mega328P input/output pin.
+
+The port\+\_\+number and pin\+\_\+number refer to the chip, not to the Arduino board pin names.
+
+This constructor doesn\textquotesingle{}t set the pin direction to input or output, a direction\+\_\+set function must be called to do so. \index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}!pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}}
+\index{pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}!uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in\+\_\+out(pins name)}{pin_in_out(pins name)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+in\+\_\+out\+::pin\+\_\+in\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{{\bf pins}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__in__out_adeaea8daf6c3a38eb626ef2cac83a696}{}\label{classuno_1_1pin__in__out_adeaea8daf6c3a38eb626ef2cac83a696}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} constructor from an Uno pin name. 
+
+This call creates a \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} from an Arduino Uno pin name.
+
+This constructor doesn\textquotesingle{}t set the pin direction to input or output, a direction\+\_\+set function must be called to do so. 
+
+\subsection{Member Function Documentation}
+\index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}!direction\+\_\+set\+\_\+input@{direction\+\_\+set\+\_\+input}}
+\index{direction\+\_\+set\+\_\+input@{direction\+\_\+set\+\_\+input}!uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{direction\+\_\+set\+\_\+input() override}{direction_set_input() override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void uno\+::pin\+\_\+in\+\_\+out\+::direction\+\_\+set\+\_\+input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__in__out_a3266305bdd8da6ac1cfc5800888b991f}{}\label{classuno_1_1pin__in__out_a3266305bdd8da6ac1cfc5800888b991f}
+
+
+set the direction of a pin to input. 
+
+Calling this function sets the pin identified by p to input. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a54ce1a5086d3c9e7b868511b1d46acd0}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}!direction\+\_\+set\+\_\+output@{direction\+\_\+set\+\_\+output}}
+\index{direction\+\_\+set\+\_\+output@{direction\+\_\+set\+\_\+output}!uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{direction\+\_\+set\+\_\+output() override}{direction_set_output() override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void uno\+::pin\+\_\+in\+\_\+out\+::direction\+\_\+set\+\_\+output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__in__out_aaa337ac985b7181a8012a37bad7d4c60}{}\label{classuno_1_1pin__in__out_aaa337ac985b7181a8012a37bad7d4c60}
+
+
+set the direction of a pin to output 
+
+Calling this function sets the pin identified by p to output. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_ad08a5f5e9a4c3aadaa7c665b98f2418e}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}!get@{get}}
+\index{get@{get}!uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool uno\+::pin\+\_\+in\+\_\+out\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__in__out_a33af53c3055024ab73b1092586dabe60}{}\label{classuno_1_1pin__in__out_a33af53c3055024ab73b1092586dabe60}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+Before calling this function the pin direction must have been set to input by calling pin\+\_\+direction\+\_\+set\+\_\+input(). 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a298d32c19a8f94b730d34d4496bcf3ae}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}!set@{set}}
+\index{set@{set}!uno\+::pin\+\_\+in\+\_\+out@{uno\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void uno\+::pin\+\_\+in\+\_\+out\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__in__out_a54cb255e06318c8fef9f7595c50e3588}{}\label{classuno_1_1pin__in__out_a54cb255e06318c8fef9f7595c50e3588}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin high, a value of false makes it low.
+
+Before calling this function the pin direction must have been set to output by calling \hyperlink{classuno_1_1pin__in__out_aaa337ac985b7181a8012a37bad7d4c60}{direction\+\_\+set\+\_\+output()}. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a198c4d27a9783f4c17e8f5dfd9aca6a9}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-uno_8hpp}{hwlib-\/uno.\+hpp}\end{DoxyCompactItemize}

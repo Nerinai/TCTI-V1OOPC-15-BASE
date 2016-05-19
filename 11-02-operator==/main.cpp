@@ -1,4 +1,5 @@
 #include "vector.hpp"
+#include <assert.h>  
 
 bool operator==( const vector & lhs, const vector & rhs ){
    return ( lhs.x == rhs.x ) && ( lhs.y == rhs.y );

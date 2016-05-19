@@ -1,0 +1,42 @@
+\hypertarget{structhwlib_1_1setw}{}\section{hwlib\+:\+:setw Struct Reference}
+\label{structhwlib_1_1setw}\index{hwlib\+::setw@{hwlib\+::setw}}
+
+
+ostream output field width manipulator  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/ostream.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \hyperlink{structhwlib_1_1setw_a673323de9e3a3caa26818d2b2f7eed6e}{setw} (int x)
+\begin{DoxyCompactList}\small\item\em ostream output field width manipulator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+ostream output field width manipulator 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{hwlib\+::setw@{hwlib\+::setw}!setw@{setw}}
+\index{setw@{setw}!hwlib\+::setw@{hwlib\+::setw}}
+\subsubsection[{\texorpdfstring{setw(int x)}{setw(int x)}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr hwlib\+::setw\+::setw (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structhwlib_1_1setw_a673323de9e3a3caa26818d2b2f7eed6e}{}\label{structhwlib_1_1setw_a673323de9e3a3caa26818d2b2f7eed6e}
+
+
+ostream output field width manipulator 
+
+Writing the setw(\+N) manipulator to an ostream sets the minimum width of the field in which the next item is written to N\+: If the item is smaller than N, it will be padded with fill characters.
+
+Setting the field width has an effect only on the next item that is printed, after that the field width resets to its initial value of 0.
+
+The same effect can be achieved by calling stream.\+setw(\+N). 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-ostream_8hpp}{hwlib-\/ostream.\+hpp}\end{DoxyCompactItemize}

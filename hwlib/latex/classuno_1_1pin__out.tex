@@ -1,0 +1,82 @@
+\hypertarget{classuno_1_1pin__out}{}\section{uno\+:\+:pin\+\_\+out Class Reference}
+\label{classuno_1_1pin__out}\index{uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}}
+
+
+\hyperlink{classuno_1_1pin__out}{pin\+\_\+out} implementation for a A\+T\+Mega328P  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/uno.\+hpp$>$}
+
+Inheritance diagram for uno\+:\+:pin\+\_\+out\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classuno_1_1pin__out}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classuno_1_1pin__out_ad2979873a87460afe02fb22c7898d641}{pin\+\_\+out} (uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} constructor from A\+T\+Mega328P port/pin numbers. \end{DoxyCompactList}\item 
+\hyperlink{classuno_1_1pin__out_a6bfc4c926f0d9f1e7835cf822343b67b}{pin\+\_\+out} (\hyperlink{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}{pins} name)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} constructor from an Uno pin name. \end{DoxyCompactList}\item 
+void \hyperlink{classuno_1_1pin__out_acdbf9464c592814d5b345dfb4aaa24c9}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classuno_1_1pin__out}{pin\+\_\+out} implementation for a A\+T\+Mega328P 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}!pin\+\_\+out@{pin\+\_\+out}}
+\index{pin\+\_\+out@{pin\+\_\+out}!uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+out(uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)}{pin_out(uint8_t port_number, uint8_t pin_number)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+out\+::pin\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{port\+\_\+number, }
+\item[{uint8\+\_\+t}]{pin\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__out_ad2979873a87460afe02fb22c7898d641}{}\label{classuno_1_1pin__out_ad2979873a87460afe02fb22c7898d641}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} constructor from A\+T\+Mega328P port/pin numbers. 
+
+This call creates a \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} from an A\+T\+Mega328P port/pin number pair.
+
+This constructor sets the pin direction to output. \index{uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}!pin\+\_\+out@{pin\+\_\+out}}
+\index{pin\+\_\+out@{pin\+\_\+out}!uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+out(pins name)}{pin_out(pins name)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+out\+::pin\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{{\bf pins}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__out_a6bfc4c926f0d9f1e7835cf822343b67b}{}\label{classuno_1_1pin__out_a6bfc4c926f0d9f1e7835cf822343b67b}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} constructor from an Uno pin name. 
+
+This call creates a \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} from an Arduino Uno pin name.
+
+This constructor sets the pin direction to output. 
+
+\subsection{Member Function Documentation}
+\index{uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}!set@{set}}
+\index{set@{set}!uno\+::pin\+\_\+out@{uno\+::pin\+\_\+out}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void uno\+::pin\+\_\+out\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__out_acdbf9464c592814d5b345dfb4aaa24c9}{}\label{classuno_1_1pin__out_acdbf9464c592814d5b345dfb4aaa24c9}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin high, a value of false makes it low. 
+
+Implements \hyperlink{classhwlib_1_1pin__out_af5c3a533f1a00ba973e37e60fb8c08c6}{hwlib\+::pin\+\_\+out}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-uno_8hpp}{hwlib-\/uno.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,82 @@
+\hypertarget{classuno_1_1pin__in}{}\section{uno\+:\+:pin\+\_\+in Class Reference}
+\label{classuno_1_1pin__in}\index{uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}}
+
+
+\hyperlink{classuno_1_1pin__in}{pin\+\_\+in} implementation for a A\+T\+Mega328P  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/uno.\+hpp$>$}
+
+Inheritance diagram for uno\+:\+:pin\+\_\+in\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classuno_1_1pin__in}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classuno_1_1pin__in_ae30fe3acf850d189ef2cd713b6fd73cf}{pin\+\_\+in} (uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} constructor from A\+T\+Mega328P port/pin numbers. \end{DoxyCompactList}\item 
+\hyperlink{classuno_1_1pin__in_a15a9c2466cf7f4576ee8b0674f3c7ec9}{pin\+\_\+in} (\hyperlink{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}{pins} name)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} constructor from an Uno pin name. \end{DoxyCompactList}\item 
+bool \hyperlink{classuno_1_1pin__in_ae5e5e3db2a5616ea3ba147739ac747ef}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classuno_1_1pin__in}{pin\+\_\+in} implementation for a A\+T\+Mega328P 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}!pin\+\_\+in@{pin\+\_\+in}}
+\index{pin\+\_\+in@{pin\+\_\+in}!uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in(uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)}{pin_in(uint8_t port_number, uint8_t pin_number)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+in\+::pin\+\_\+in (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{port\+\_\+number, }
+\item[{uint8\+\_\+t}]{pin\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__in_ae30fe3acf850d189ef2cd713b6fd73cf}{}\label{classuno_1_1pin__in_ae30fe3acf850d189ef2cd713b6fd73cf}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} constructor from A\+T\+Mega328P port/pin numbers. 
+
+This call creates a \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} from an A\+T\+Mega328P port/pin number pair.
+
+This constructor sets the pin direction to input. \index{uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}!pin\+\_\+in@{pin\+\_\+in}}
+\index{pin\+\_\+in@{pin\+\_\+in}!uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in(pins name)}{pin_in(pins name)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+in\+::pin\+\_\+in (
+\begin{DoxyParamCaption}
+\item[{{\bf pins}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__in_a15a9c2466cf7f4576ee8b0674f3c7ec9}{}\label{classuno_1_1pin__in_a15a9c2466cf7f4576ee8b0674f3c7ec9}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} constructor from an Uno pin name. 
+
+This call creates a \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} from an Arduino Uno pin name.
+
+This constructor sets the pin direction to input. 
+
+\subsection{Member Function Documentation}
+\index{uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}!get@{get}}
+\index{get@{get}!uno\+::pin\+\_\+in@{uno\+::pin\+\_\+in}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool uno\+::pin\+\_\+in\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__in_ae5e5e3db2a5616ea3ba147739ac747ef}{}\label{classuno_1_1pin__in_ae5e5e3db2a5616ea3ba147739ac747ef}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned. 
+
+Implements \hyperlink{classhwlib_1_1pin__in_a5cbc123fa14d62c98dd41f7523cf6063}{hwlib\+::pin\+\_\+in}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-uno_8hpp}{hwlib-\/uno.\+hpp}\end{DoxyCompactItemize}

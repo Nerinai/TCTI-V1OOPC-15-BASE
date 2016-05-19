@@ -1,0 +1,103 @@
+\hypertarget{classhwlib_1_1window}{}\section{hwlib\+:\+:window Class Reference}
+\label{classhwlib_1_1window}\index{hwlib\+::window@{hwlib\+::window}}
+
+
+a graphics windows  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/graphics.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1window_a5acfb1afba5adade79ae1576831128f1}{window} (\hyperlink{classhwlib_1_1location}{location} \hyperlink{classhwlib_1_1window_ad2ad5281c9c09d18010b19cb807d3eaa}{size}, \hyperlink{classhwlib_1_1color}{color} \hyperlink{classhwlib_1_1window_a812e3bf440309bf3280d34fa04eeb718}{foreground}, \hyperlink{classhwlib_1_1color}{color} \hyperlink{classhwlib_1_1window_a1ca47e79ec54ea8b2f38b41b42593d2d}{background})\hypertarget{classhwlib_1_1window_a5acfb1afba5adade79ae1576831128f1}{}\label{classhwlib_1_1window_a5acfb1afba5adade79ae1576831128f1}
+
+\begin{DoxyCompactList}\small\item\em construct a window by specifying its size and foreground and background colors. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1window_a65122042afeb55e41e5c03b5c8e26fff}{write} (\hyperlink{classhwlib_1_1location}{location} pos, \hyperlink{classhwlib_1_1color}{color} col)
+\begin{DoxyCompactList}\small\item\em write a pixel \end{DoxyCompactList}\item 
+void {\bfseries write} (\hyperlink{classhwlib_1_1location}{location} pos)\hypertarget{classhwlib_1_1window_ac90b74315df62b9952ce2ee3af95825b}{}\label{classhwlib_1_1window_ac90b74315df62b9952ce2ee3af95825b}
+
+\item 
+virtual void \hyperlink{classhwlib_1_1window_a5e781163353ce26cb4dc5b2cbe40ad05}{clear} ()
+\begin{DoxyCompactList}\small\item\em clear the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classhwlib_1_1location}{location} \hyperlink{classhwlib_1_1window_ad2ad5281c9c09d18010b19cb807d3eaa}{size}
+\begin{DoxyCompactList}\small\item\em the size of the window \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1color}{color} \hyperlink{classhwlib_1_1window_a812e3bf440309bf3280d34fa04eeb718}{foreground}
+\begin{DoxyCompactList}\small\item\em the foreground color of the window \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1color}{color} \hyperlink{classhwlib_1_1window_a1ca47e79ec54ea8b2f38b41b42593d2d}{background}
+\begin{DoxyCompactList}\small\item\em the background color of the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+a graphics windows 
+
+This class abstracts the interface to a graphic window. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::window@{hwlib\+::window}!clear@{clear}}
+\index{clear@{clear}!hwlib\+::window@{hwlib\+::window}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::window\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1window_a5e781163353ce26cb4dc5b2cbe40ad05}{}\label{classhwlib_1_1window_a5e781163353ce26cb4dc5b2cbe40ad05}
+
+
+clear the window 
+
+This function clears the windows by writing the background color to all pixels. The default implementation writes to all pixels in sequence. A concrete window can probably provide a faster implementation. 
+
+Reimplemented in \hyperlink{classhwlib_1_1glcd__oled_a4d3734f822d7f814be2630538cc49911}{hwlib\+::glcd\+\_\+oled}, and \hyperlink{classhwlib_1_1glcd__5510_a533b2663e151bee909543d0038b2cb4d}{hwlib\+::glcd\+\_\+5510}.
+
+\index{hwlib\+::window@{hwlib\+::window}!write@{write}}
+\index{write@{write}!hwlib\+::window@{hwlib\+::window}}
+\subsubsection[{\texorpdfstring{write(location pos, color col)}{write(location pos, color col)}}]{\setlength{\rightskip}{0pt plus 5cm}void hwlib\+::window\+::write (
+\begin{DoxyParamCaption}
+\item[{{\bf location}}]{pos, }
+\item[{{\bf color}}]{col}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhwlib_1_1window_a65122042afeb55e41e5c03b5c8e26fff}{}\label{classhwlib_1_1window_a65122042afeb55e41e5c03b5c8e26fff}
+
+
+write a pixel 
+
+This function writes a the color col to the pixel at location loc. If either the color is transparent, or the location is outside the window the call has no effect. When no locor is specificied, the window\textquotesingle{}s foreground color is used. 
+
+\subsection{Member Data Documentation}
+\index{hwlib\+::window@{hwlib\+::window}!background@{background}}
+\index{background@{background}!hwlib\+::window@{hwlib\+::window}}
+\subsubsection[{\texorpdfstring{background}{background}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color} hwlib\+::window\+::background}\hypertarget{classhwlib_1_1window_a1ca47e79ec54ea8b2f38b41b42593d2d}{}\label{classhwlib_1_1window_a1ca47e79ec54ea8b2f38b41b42593d2d}
+
+
+the background color of the window 
+
+This is the color use by the \hyperlink{classhwlib_1_1window_a5e781163353ce26cb4dc5b2cbe40ad05}{clear()} function. \index{hwlib\+::window@{hwlib\+::window}!foreground@{foreground}}
+\index{foreground@{foreground}!hwlib\+::window@{hwlib\+::window}}
+\subsubsection[{\texorpdfstring{foreground}{foreground}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color} hwlib\+::window\+::foreground}\hypertarget{classhwlib_1_1window_a812e3bf440309bf3280d34fa04eeb718}{}\label{classhwlib_1_1window_a812e3bf440309bf3280d34fa04eeb718}
+
+
+the foreground color of the window 
+
+This color could be used to draw graphics. \index{hwlib\+::window@{hwlib\+::window}!size@{size}}
+\index{size@{size}!hwlib\+::window@{hwlib\+::window}}
+\subsubsection[{\texorpdfstring{size}{size}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf location} hwlib\+::window\+::size}\hypertarget{classhwlib_1_1window_ad2ad5281c9c09d18010b19cb807d3eaa}{}\label{classhwlib_1_1window_ad2ad5281c9c09d18010b19cb807d3eaa}
+
+
+the size of the window 
+
+This is the size of the window\+: the number of pixels in the x and y direction. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-graphics_8hpp}{hwlib-\/graphics.\+hpp}\end{DoxyCompactItemize}

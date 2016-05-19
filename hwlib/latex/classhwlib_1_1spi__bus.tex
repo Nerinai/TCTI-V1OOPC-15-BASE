@@ -1,0 +1,81 @@
+\hypertarget{classhwlib_1_1spi__bus}{}\section{hwlib\+:\+:spi\+\_\+bus Class Reference}
+\label{classhwlib_1_1spi__bus}\index{hwlib\+::spi\+\_\+bus@{hwlib\+::spi\+\_\+bus}}
+
+
+spi bus interface  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/spi.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:spi\+\_\+bus\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1spi__bus}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhwlib_1_1spi__bus_ae6e20e12c547c64b6456997d938b6943}{write\+\_\+and\+\_\+read} (\hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&sel, int n, const \hyperlink{hwlib-defines_8hpp_ab8ef12fab634c171394422d0ee8baf94}{byte} data\+\_\+out\mbox{[}$\,$\mbox{]}, \hyperlink{hwlib-defines_8hpp_ab8ef12fab634c171394422d0ee8baf94}{byte} data\+\_\+in\mbox{[}$\,$\mbox{]})=0
+\begin{DoxyCompactList}\small\item\em spi read-\/and-\/write transaction \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+spi bus interface 
+
+This class abstracts the interface of a master to a S\+PI bus.
+
+The S\+PI (Serial Peripheral Interface) protocol is based on shift registers. The master (in most cases the micro-\/controller) generates clock pulses (S\+C\+LK), and on each pulse one bit of data is transferred from the shift register inside the master to the shift register inside the slave, A\+ND one bit is transferred in the other direction. After N clock pulses, all N data bits in the master and the slave are exchanged. The M\+O\+SI line transfers data from master to slave (Master Out Slave In), the M\+I\+SO (Master In Slave Out) line transfers data from the slave to the master.
+
+
+
+The SS (Slave Select) line is used to signal the start and end of a S\+P\+OI transfer. In most cases, the select line is active low.
+
+
+
+A S\+PI bus can have multiple slaves. All slaves (and the master) share the M\+O\+SI, M\+I\+SO and S\+L\+CK lines. Each slave has a separate SS line, that is used to activate a single slave for a transfer.
+
+
+
+The S\+PI bus is a de-\/facto standard\+: there is no official document that defines it, but various manufacturers agree on how it should work and (more or less!) implement it the same. But there are differences that might give problems\+:
+\begin{DoxyItemize}
+\item the polarity (active low or active high) of the SS line
+\item the initial level of the clock
+\item the polarity of the clock (the clock edge on which the master and slave transfer data)
+\item the (maximum) clock frequency
+\end{DoxyItemize}
+
+As always, consult the datasheet of the chip for the details.
+
+references\+:
+\begin{DoxyItemize}
+\item \href{https://embeddedmicro.com/tutorials/mojo/serial-peripheral-interface-spi}{\tt S\+PI explanation} (Embedded Micro Forum)
+\item \href{https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus}{\tt Serial Peripheral Bus} (wikipedia) 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::spi\+\_\+bus@{hwlib\+::spi\+\_\+bus}!write\+\_\+and\+\_\+read@{write\+\_\+and\+\_\+read}}
+\index{write\+\_\+and\+\_\+read@{write\+\_\+and\+\_\+read}!hwlib\+::spi\+\_\+bus@{hwlib\+::spi\+\_\+bus}}
+\subsubsection[{\texorpdfstring{write\+\_\+and\+\_\+read(pin\+\_\+out \&sel, int n, const byte data\+\_\+out[], byte data\+\_\+in[])=0}{write_and_read(pin_out &sel, int n, const byte data_out[], byte data_in[])=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::spi\+\_\+bus\+::write\+\_\+and\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{{\bf pin\+\_\+out} \&}]{sel, }
+\item[{int}]{n, }
+\item[{const {\bf byte}}]{data\+\_\+out\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf byte}}]{data\+\_\+in\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1spi__bus_ae6e20e12c547c64b6456997d938b6943}{}\label{classhwlib_1_1spi__bus_ae6e20e12c547c64b6456997d938b6943}
+
+
+spi read-\/and-\/write transaction 
+
+This function simultaneously writes n bytes from data\+\_\+out\mbox{[}\mbox{]} to the slave activated by the sel pin, and reads n bytes into data\+\_\+in\mbox{[}\mbox{]}. When data\+\_\+out is a nullptr, all-\/0 bytes are written. When data\+\_\+in is a nullptr, the data that is read is not stored. 
+
+Implemented in \hyperlink{classhwlib_1_1spi__bus__bit__banged__sclk__mosi__miso_aa54c0f670505249860f59d8d62b982ca}{hwlib\+::spi\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+sclk\+\_\+mosi\+\_\+miso}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-spi_8hpp}{hwlib-\/spi.\+hpp}\end{DoxyCompactItemize}

@@ -2,6 +2,7 @@
 #include "catch_with_main.hpp"
 #include "rational.hpp"
 
+
 TEST_CASE( "constructor, two_parameters" ){
    rational v( 3, 4 );
    std::stringstream s;

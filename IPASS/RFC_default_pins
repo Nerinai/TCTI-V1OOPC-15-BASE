@@ -1,0 +1,61 @@
+#ifndef PINBUILD_H
+#define PINBUILD_H
+
+#include "RC522.h"
+#include "NfcControler.h"
+
+/*static hwlib::target::pin_out scl  (hwlib::target::pins::scl);
+static hwlib::target::pin_out mosi (hwlib::target::pins::mosi);
+static hwlib::target::pin_in  miso (hwlib::target::pins::miso);
+static hwlib::spi_bus_bit_banged_sclk_mosi_miso spiBus(scl,
+			mosi,
+			miso);
+
+RC_522 makeRC_522() {
+	return RC_522(
+		hwlib::target::pins::d9,
+		hwlib::target::pins::d10,
+		hwlib::target::pins::d11,
+		spiBus
+	);
+}*/
+
+class default_pins : public NfcControler
+{
+	hwlib::target::pin_out IRQ;
+	hwlib::target::pin_out SDA;
+	hwlib::target::pin_in_out RESET;
+	hwlib::target::pin_out SCL;
+	hwlib::target::pin_out MOSI;
+	hwlib::target::pin_in MISO;
+	hwlib::spi_bus_bit_banged_sclk_mosi_miso spiBus;
+	RC_522 slaaf;
+
+public:
+	/// constructor for default pin configuration for ease of use.
+	/// sets the following pins.
+	/// vIRQ =  pin d9, SDA = pin d10, RESET = d11,
+	/// SCL = pin scl, MOSI = pin mosi, MISO = pin miso.
+	/// SCL, MISO and MOSI are then injected into the spiBus field.*/
+	default_pins():
+	IRQ(hwlib::target::pins::d9),
+	SDA(hwlib::target::pins::d10),
+	RESET(hwlib::target::pins::d11),
+	SCL(hwlib::target::pins::scl),
+	MOSI(hwlib::target::pins::mosi),
+	MISO(hwlib::target::pins::miso),
+	spiBus(SCL, MOSI, MISO),
+	slaaf(IRQ,SDA,RESET,spiBus)
+	{}
+	
+	void blink() override
+	{
+		slaaf.blink();
+	}
+
+	
+	
+};
+
+
+#endif // PINBUILD_H

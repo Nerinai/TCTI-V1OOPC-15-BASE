@@ -1,0 +1,67 @@
+\hypertarget{classhwlib_1_1port__in}{}\section{hwlib\+:\+:port\+\_\+in Class Reference}
+\label{classhwlib_1_1port__in}\index{hwlib\+::port\+\_\+in@{hwlib\+::port\+\_\+in}}
+
+
+input port interface  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/port.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:port\+\_\+in\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1port__in}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__in_a3498fc0158e1e460a00d671df629fe22}{number\+\_\+of\+\_\+pins} ()=0
+\begin{DoxyCompactList}\small\item\em get number of pins \end{DoxyCompactList}\item 
+virtual uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__in_a3c0a1346a61c538424048b61c1038e0c}{get} ()=0
+\begin{DoxyCompactList}\small\item\em read from the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+input port interface 
+
+This is the interface of an input-\/only port. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::port\+\_\+in@{hwlib\+::port\+\_\+in}!get@{get}}
+\index{get@{get}!hwlib\+::port\+\_\+in@{hwlib\+::port\+\_\+in}}
+\subsubsection[{\texorpdfstring{get()=0}{get()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+in\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1port__in_a3c0a1346a61c538424048b61c1038e0c}{}\label{classhwlib_1_1port__in_a3c0a1346a61c538424048b61c1038e0c}
+
+
+read from the port 
+
+This function reads and returns the pins that are part of the port. The lowest bit of the result reflects the first pin of the port, etc. 
+
+Implemented in \hyperlink{classhwlib_1_1port__in__invert_a3100bd433a45e903894f5971ac958459}{hwlib\+::port\+\_\+in\+\_\+invert}, and \hyperlink{classhwlib_1_1port__in__from__pins_af137729dd87345ceb643b9dad3d6d274}{hwlib\+::port\+\_\+in\+\_\+from\+\_\+pins}.
+
+\index{hwlib\+::port\+\_\+in@{hwlib\+::port\+\_\+in}!number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}}
+\index{number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}!hwlib\+::port\+\_\+in@{hwlib\+::port\+\_\+in}}
+\subsubsection[{\texorpdfstring{number\+\_\+of\+\_\+pins()=0}{number_of_pins()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+in\+::number\+\_\+of\+\_\+pins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1port__in_a3498fc0158e1e460a00d671df629fe22}{}\label{classhwlib_1_1port__in_a3498fc0158e1e460a00d671df629fe22}
+
+
+get number of pins 
+
+This function returns the number of pins in the port. 
+
+Implemented in \hyperlink{classhwlib_1_1port__in__invert_a5d05a4afd9990491daee8daa4c048faf}{hwlib\+::port\+\_\+in\+\_\+invert}, and \hyperlink{classhwlib_1_1port__in__from__pins_a7221f55f0bcee8b8aa56203141c90716}{hwlib\+::port\+\_\+in\+\_\+from\+\_\+pins}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-port_8hpp}{hwlib-\/port.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{classhwlib_1_1glcd__5510}{}\section{hwlib\+:\+:glcd\+\_\+5510 Class Reference}
+\label{classhwlib_1_1glcd__5510}\index{hwlib\+::glcd\+\_\+5510@{hwlib\+::glcd\+\_\+5510}}
+
+
+Nokia 5510 B/W graphics L\+CD library.  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/glcd-\/5510.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:glcd\+\_\+5510\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1glcd__5510}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries glcd\+\_\+5510} (\hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&sce, \hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&res, \hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&dc, \hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&sdin, \hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&sclk)\hypertarget{classhwlib_1_1glcd__5510_a689cb8a2f60f76f087b83626b2ca931a}{}\label{classhwlib_1_1glcd__5510_a689cb8a2f60f76f087b83626b2ca931a}
+
+\item 
+void \hyperlink{classhwlib_1_1glcd__5510_a533b2663e151bee909543d0038b2cb4d}{clear} () override
+\begin{DoxyCompactList}\small\item\em clear the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Nokia 5510 B/W graphics L\+CD library. 
+
+This class implements an interface to the type of L\+CD that was used in older Nokia telephones. It is a 84 columns x 48 lines black-\/and-\/white L\+CD.
+
+This type of L\+CD is cheap and available from lots of sources, but the quality is often abominable.
+
+ 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::glcd\+\_\+5510@{hwlib\+::glcd\+\_\+5510}!clear@{clear}}
+\index{clear@{clear}!hwlib\+::glcd\+\_\+5510@{hwlib\+::glcd\+\_\+5510}}
+\subsubsection[{\texorpdfstring{clear() override}{clear() override}}]{\setlength{\rightskip}{0pt plus 5cm}void hwlib\+::glcd\+\_\+5510\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1glcd__5510_a533b2663e151bee909543d0038b2cb4d}{}\label{classhwlib_1_1glcd__5510_a533b2663e151bee909543d0038b2cb4d}
+
+
+clear the window 
+
+This function clears the windows by writing the background color to all pixels. The default implementation writes to all pixels in sequence. A concrete window can probably provide a faster implementation. 
+
+Reimplemented from \hyperlink{classhwlib_1_1window_a5e781163353ce26cb4dc5b2cbe40ad05}{hwlib\+::window}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-glcd-5510_8hpp}{hwlib-\/glcd-\/5510.\+hpp}\end{DoxyCompactItemize}

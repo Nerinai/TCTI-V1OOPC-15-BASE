@@ -1,0 +1,86 @@
+\hypertarget{classdb103_1_1pin__oc}{}\section{db103\+:\+:pin\+\_\+oc Class Reference}
+\label{classdb103_1_1pin__oc}\index{db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}}
+
+
+\hyperlink{classdb103_1_1pin__oc}{pin\+\_\+oc} implementation for the L\+P\+C1114  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/db103.\+hpp$>$}
+
+Inheritance diagram for db103\+:\+:pin\+\_\+oc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdb103_1_1pin__oc}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdb103_1_1pin__oc_aaae7efd6d4586a1207fb05666f4d04d1}{pin\+\_\+oc} (int port, int pin)
+\begin{DoxyCompactList}\small\item\em L\+P\+C1114 \hyperlink{classdb103_1_1pin__oc}{pin\+\_\+oc} constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classdb103_1_1pin__oc_aae586f82351ac94fc52f7fabcb5883d8}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\item 
+void \hyperlink{classdb103_1_1pin__oc_afce9e329b087308a33ae30dbd701b08a}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classdb103_1_1pin__oc}{pin\+\_\+oc} implementation for the L\+P\+C1114 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}!pin\+\_\+oc@{pin\+\_\+oc}}
+\index{pin\+\_\+oc@{pin\+\_\+oc}!db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{pin\+\_\+oc(int port, int pin)}{pin_oc(int port, int pin)}}]{\setlength{\rightskip}{0pt plus 5cm}db103\+::pin\+\_\+oc\+::pin\+\_\+oc (
+\begin{DoxyParamCaption}
+\item[{int}]{port, }
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdb103_1_1pin__oc_aaae7efd6d4586a1207fb05666f4d04d1}{}\label{classdb103_1_1pin__oc_aaae7efd6d4586a1207fb05666f4d04d1}
+
+
+L\+P\+C1114 \hyperlink{classdb103_1_1pin__oc}{pin\+\_\+oc} constructor. 
+
+Constructor for an L\+P\+C1114 input pin.
+
+This constructor sets the pin to high (high-\/impedance). 
+
+\subsection{Member Function Documentation}
+\index{db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}!get@{get}}
+\index{get@{get}!db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool db103\+::pin\+\_\+oc\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdb103_1_1pin__oc_aae586f82351ac94fc52f7fabcb5883d8}{}\label{classdb103_1_1pin__oc_aae586f82351ac94fc52f7fabcb5883d8}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+This function can be called after set( false ) has been called on the pin, but then the level will read low (false). Call set( true ) to let the line float (presumably pulled high by a pull-\/up resistor) to read the level put on the line by an external device. 
+
+Implements \hyperlink{classhwlib_1_1pin__oc_aa395bf9608ca48ca07dee2f5dc4612bd}{hwlib\+::pin\+\_\+oc}.
+
+\index{db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}!set@{set}}
+\index{set@{set}!db103\+::pin\+\_\+oc@{db103\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void db103\+::pin\+\_\+oc\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdb103_1_1pin__oc_afce9e329b087308a33ae30dbd701b08a}{}\label{classdb103_1_1pin__oc_afce9e329b087308a33ae30dbd701b08a}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin hihg-\/impedance (presumably pulled high by a pull-\/up resistor), a value of false makes it low. 
+
+Implements \hyperlink{classhwlib_1_1pin__oc_a2165622dad253a423d2fa52cbed7c553}{hwlib\+::pin\+\_\+oc}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-db103_8hpp}{hwlib-\/db103.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\hypertarget{classhwlib_1_1glcd__oled}{}\section{hwlib\+:\+:glcd\+\_\+oled Class Reference}
+\label{classhwlib_1_1glcd__oled}\index{hwlib\+::glcd\+\_\+oled@{hwlib\+::glcd\+\_\+oled}}
+
+
+Oled B/W graphics L\+CD.  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/glcd-\/oled.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:glcd\+\_\+oled\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1glcd__oled}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries glcd\+\_\+oled} (\hyperlink{classhwlib_1_1i2c__bus}{i2c\+\_\+bus} \&bus, \hyperlink{hwlib-defines_8hpp_a54998f25522db04b7b797b0fcc9eb3d5}{fast\+\_\+byte} address=0x3\+C)\hypertarget{classhwlib_1_1glcd__oled_acc1ace8bf824e79371c7fc6d5642cbf3}{}\label{classhwlib_1_1glcd__oled_acc1ace8bf824e79371c7fc6d5642cbf3}
+
+\item 
+virtual void \hyperlink{classhwlib_1_1glcd__oled_a4d3734f822d7f814be2630538cc49911}{clear} ()
+\begin{DoxyCompactList}\small\item\em clear the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Oled B/W graphics L\+CD. 
+
+This class implements an interface to an 128 x 64 pixel monochrome (on/off) O\+L\+ED display. These displays are available in various colcors (green, red, white, etc.). The interface is I2C. The driver chip is an S\+S\+D1306.
+
+When the P\+CB has regulator (3-\/legged component) the power can be 3 -\/ 5V. If it hasn\textquotesingle{}t, you can use only 3.\+3V.
+
+There are variations of this display with more pins, which have more interface options (S\+PI as alternative interface).
+
+This type of display is reasonably priced and available from lots of sources.
+
+ 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::glcd\+\_\+oled@{hwlib\+::glcd\+\_\+oled}!clear@{clear}}
+\index{clear@{clear}!hwlib\+::glcd\+\_\+oled@{hwlib\+::glcd\+\_\+oled}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::glcd\+\_\+oled\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1glcd__oled_a4d3734f822d7f814be2630538cc49911}{}\label{classhwlib_1_1glcd__oled_a4d3734f822d7f814be2630538cc49911}
+
+
+clear the window 
+
+This function clears the windows by writing the background color to all pixels. The default implementation writes to all pixels in sequence. A concrete window can probably provide a faster implementation. 
+
+Reimplemented from \hyperlink{classhwlib_1_1window_a5e781163353ce26cb4dc5b2cbe40ad05}{hwlib\+::window}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-glcd-oled_8hpp}{hwlib-\/glcd-\/oled.\+hpp}\end{DoxyCompactItemize}

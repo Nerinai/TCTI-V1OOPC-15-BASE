@@ -1,0 +1,103 @@
+\hypertarget{classuno_1_1pin__oc}{}\section{uno\+:\+:pin\+\_\+oc Class Reference}
+\label{classuno_1_1pin__oc}\index{uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}}
+
+
+\hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} implementation for a A\+T\+Mega328P  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/uno.\+hpp$>$}
+
+Inheritance diagram for uno\+:\+:pin\+\_\+oc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classuno_1_1pin__oc}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classuno_1_1pin__oc_a54c12b968556a4fbbc6be72d4c3e8150}{pin\+\_\+oc} (uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classuno_1_1pin__oc_a62007c07ad6ee2928d2263cb3efa3813}{pin\+\_\+oc} (\hyperlink{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}{pins} name)
+\begin{DoxyCompactList}\small\item\em Arduino Uno \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} constructor from an Uno pin name. \end{DoxyCompactList}\item 
+bool \hyperlink{classuno_1_1pin__oc_aed52da1b00bc2cfbb8ef53ce92fdbe79}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\item 
+void \hyperlink{classuno_1_1pin__oc_a4f3191e577d13dab583d5fe86a9d960e}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} implementation for a A\+T\+Mega328P 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}!pin\+\_\+oc@{pin\+\_\+oc}}
+\index{pin\+\_\+oc@{pin\+\_\+oc}!uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{pin\+\_\+oc(uint8\+\_\+t port\+\_\+number, uint8\+\_\+t pin\+\_\+number)}{pin_oc(uint8_t port_number, uint8_t pin_number)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+oc\+::pin\+\_\+oc (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{port\+\_\+number, }
+\item[{uint8\+\_\+t}]{pin\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__oc_a54c12b968556a4fbbc6be72d4c3e8150}{}\label{classuno_1_1pin__oc_a54c12b968556a4fbbc6be72d4c3e8150}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} constructor. 
+
+Constructor for a A\+T\+Mega328P input pin.
+
+The port\+\_\+number and pin\+\_\+number refer to the chip, not to the Arduino board pin names.
+
+This constructor sets the pin to high (high-\/impedance). \index{uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}!pin\+\_\+oc@{pin\+\_\+oc}}
+\index{pin\+\_\+oc@{pin\+\_\+oc}!uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{pin\+\_\+oc(pins name)}{pin_oc(pins name)}}]{\setlength{\rightskip}{0pt plus 5cm}uno\+::pin\+\_\+oc\+::pin\+\_\+oc (
+\begin{DoxyParamCaption}
+\item[{{\bf pins}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classuno_1_1pin__oc_a62007c07ad6ee2928d2263cb3efa3813}{}\label{classuno_1_1pin__oc_a62007c07ad6ee2928d2263cb3efa3813}
+
+
+Arduino Uno \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} constructor from an Uno pin name. 
+
+This call creates a \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} from an Arduino Uno pin name.
+
+This constructor sets the pin to high (high-\/impedance). 
+
+\subsection{Member Function Documentation}
+\index{uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}!get@{get}}
+\index{get@{get}!uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool uno\+::pin\+\_\+oc\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__oc_aed52da1b00bc2cfbb8ef53ce92fdbe79}{}\label{classuno_1_1pin__oc_aed52da1b00bc2cfbb8ef53ce92fdbe79}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+This function can be called after set( false ) has been called on the pin, but then the level will read low (false). Call set( true ) to let the line float (presumably pulled high by a pull-\/up resistor) to read the level put on the line by an external device. 
+
+Implements \hyperlink{classhwlib_1_1pin__oc_aa395bf9608ca48ca07dee2f5dc4612bd}{hwlib\+::pin\+\_\+oc}.
+
+\index{uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}!set@{set}}
+\index{set@{set}!uno\+::pin\+\_\+oc@{uno\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void uno\+::pin\+\_\+oc\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classuno_1_1pin__oc_a4f3191e577d13dab583d5fe86a9d960e}{}\label{classuno_1_1pin__oc_a4f3191e577d13dab583d5fe86a9d960e}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin hihg-\/impedance (presumably pulled high by a pull-\/up resistor), a value of false makes it low. 
+
+Implements \hyperlink{classhwlib_1_1pin__oc_a2165622dad253a423d2fa52cbed7c553}{hwlib\+::pin\+\_\+oc}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-uno_8hpp}{hwlib-\/uno.\+hpp}\end{DoxyCompactItemize}

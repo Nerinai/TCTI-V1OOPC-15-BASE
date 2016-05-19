@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-void f( int x ){
+void f( const int x ){
    // the next line causes a compilation error
    x = x + 5; 
 }

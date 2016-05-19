@@ -1,0 +1,68 @@
+bool contains ( char * s, char * t)
+{
+	if (*s == '\0')
+	{
+		return false;
+	}
+	
+	if(start_with(s,t))
+		{
+			return true;
+		}
+	
+	return contains ( s + 1, t);
+	
+}
+
+int max_intarray (int a[], int l)
+{
+	int result = - MAX-INT;
+	for (int i = 0; i < l; i++)
+	{
+		result = max_int(a[i], result)
+	}
+	return result;
+}
+
+int distance(a[], b[], l)
+{
+	int result = - INT_MAX;
+	for (int i = 0; i < l; i++)
+	{
+		if (abs(a[i] - b[i]) > result)
+		{
+			result = abs(a[i] = b[i]);
+		}
+	}
+	return result;
+}
+
+//zonder abs
+
+int distance (a[], b[], l)
+{
+	int result = -MAX-INT;
+	int betaresult;
+	for (int i = 0; i < l; i++)
+	{
+		betaresult = a[i] - b[i];
+		if (betaresult < 0)
+		{
+			betaresult = betaresult *-1;
+		}
+		if (betaresult > result)
+		{
+			result = betaresult;
+		}
+	}
+}
+
+int bit_mirro(int i)
+
+
+
+
+int ammount_biggest_one(int a[], int len )
+{
+	
+}

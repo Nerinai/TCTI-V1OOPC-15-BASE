@@ -25,16 +25,16 @@
     <File Name="circle.hpp"/>
     <File Name="filled_rectangle.cpp"/>
     <File Name="filled_rectangle.hpp"/>
+    <File Name="house.cpp"/>
+    <File Name="house.hpp"/>
     <File Name="line.cpp"/>
     <File Name="line.hpp"/>
     <File Name="rectangle.cpp"/>
     <File Name="rectangle.hpp"/>
+    <File Name="Triangle.cpp"/>
+    <File Name="Triangle.hpp"/>
     <File Name="window.cpp"/>
     <File Name="window.hpp"/>
-    <File Name="house.hpp"/>
-    <File Name="house.cpp"/>
-    <File Name="Triangle.hpp"/>
-    <File Name="Triangle.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -50,7 +50,7 @@
       <Compiler Options="-g;-O0;-std=c++11" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value=".;../Catch/include"/>
       </Compiler>
-      <Linker Options="-lgdi32" Required="yes"/>
+      <Linker Options="-lgdi32 -static-libgcc -static-libstdc++ " Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">

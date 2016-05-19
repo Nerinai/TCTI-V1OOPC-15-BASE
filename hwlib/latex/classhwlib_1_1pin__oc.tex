@@ -1,0 +1,69 @@
+\hypertarget{classhwlib_1_1pin__oc}{}\section{hwlib\+:\+:pin\+\_\+oc Class Reference}
+\label{classhwlib_1_1pin__oc}\index{hwlib\+::pin\+\_\+oc@{hwlib\+::pin\+\_\+oc}}
+
+
+open-\/collector input/output pin interface  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/pin.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:pin\+\_\+oc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.538461cm]{classhwlib_1_1pin__oc}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classhwlib_1_1pin__oc_aa395bf9608ca48ca07dee2f5dc4612bd}{get} ()=0
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1pin__oc_a2165622dad253a423d2fa52cbed7c553}{set} (bool x)=0
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+open-\/collector input/output pin interface 
+
+This class abstracts the interface for an open-\/collector input/output pin. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::pin\+\_\+oc@{hwlib\+::pin\+\_\+oc}!get@{get}}
+\index{get@{get}!hwlib\+::pin\+\_\+oc@{hwlib\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{get()=0}{get()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool hwlib\+::pin\+\_\+oc\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1pin__oc_aa395bf9608ca48ca07dee2f5dc4612bd}{}\label{classhwlib_1_1pin__oc_aa395bf9608ca48ca07dee2f5dc4612bd}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+This function can be called after set( false ) has been called on the pin, but then the level will read low (false). Call set( true ) to let the line float (presumably pulled high by a pull-\/up resistor) to read the level put on the line by an external device. 
+
+Implemented in \hyperlink{classdue_1_1pin__oc_a7d90e525b3531e099e5ced6f531dff81}{due\+::pin\+\_\+oc}, \hyperlink{classuno_1_1pin__oc_aed52da1b00bc2cfbb8ef53ce92fdbe79}{uno\+::pin\+\_\+oc}, \hyperlink{classdb103_1_1pin__oc_aae586f82351ac94fc52f7fabcb5883d8}{db103\+::pin\+\_\+oc}, and \hyperlink{classhwlib_1_1__pin__oc__dummy__class_a06d061b7dd08d290e56969e90d4ff255}{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}.
+
+\index{hwlib\+::pin\+\_\+oc@{hwlib\+::pin\+\_\+oc}!set@{set}}
+\index{set@{set}!hwlib\+::pin\+\_\+oc@{hwlib\+::pin\+\_\+oc}}
+\subsubsection[{\texorpdfstring{set(bool x)=0}{set(bool x)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::pin\+\_\+oc\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1pin__oc_a2165622dad253a423d2fa52cbed7c553}{}\label{classhwlib_1_1pin__oc_a2165622dad253a423d2fa52cbed7c553}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin hihg-\/impedance (presumably pulled high by a pull-\/up resistor), a value of false makes it low. 
+
+Implemented in \hyperlink{classdue_1_1pin__oc_acfeab83375e9620804e87d695d3ea3b4}{due\+::pin\+\_\+oc}, \hyperlink{classuno_1_1pin__oc_a4f3191e577d13dab583d5fe86a9d960e}{uno\+::pin\+\_\+oc}, \hyperlink{classdb103_1_1pin__oc_afce9e329b087308a33ae30dbd701b08a}{db103\+::pin\+\_\+oc}, and \hyperlink{classhwlib_1_1__pin__oc__dummy__class_a10db7f81b4ed0dc0573f039d97c1d69e}{hwlib\+::\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-pin_8hpp}{hwlib-\/pin.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,106 @@
+\hypertarget{classhwlib_1_1port__oc__invert}{}\section{hwlib\+:\+:port\+\_\+oc\+\_\+invert Class Reference}
+\label{classhwlib_1_1port__oc__invert}\index{hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}}
+
+
+invert an open-\/collector port  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/port.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:port\+\_\+oc\+\_\+invert\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1port__oc__invert}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1port__oc__invert_ac475bce6da1c77573122a4bc23ee7997}{port\+\_\+oc\+\_\+invert} (\hyperlink{classhwlib_1_1port__oc}{port\+\_\+oc} \&port)
+\begin{DoxyCompactList}\small\item\em construct an inverted open-\/collector port \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__oc__invert_a4dc1f8dec0b8a0b443523f29b1f78d65}{number\+\_\+of\+\_\+pins} () override
+\begin{DoxyCompactList}\small\item\em get number of pins \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__oc__invert_ab6d07c63e363949fd852b109b88923f7}{get} () override
+\begin{DoxyCompactList}\small\item\em read from the port \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1port__oc__invert_a1a3a108756e4de47025d6a065c91ff18}{set} (uint\+\_\+fast8\+\_\+t x) override
+\begin{DoxyCompactList}\small\item\em write to the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+invert an open-\/collector port 
+
+This decorator inverts the result of read and write operations on an input port\+:
+\begin{DoxyItemize}
+\item When a value would be returned by the original port, the inverted port returns the value with all bits inverted.
+\item When a value is written to the inverted output port, the inverse of that value is written to the original port. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}!port\+\_\+oc\+\_\+invert@{port\+\_\+oc\+\_\+invert}}
+\index{port\+\_\+oc\+\_\+invert@{port\+\_\+oc\+\_\+invert}!hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}}
+\subsubsection[{\texorpdfstring{port\+\_\+oc\+\_\+invert(port\+\_\+oc \&port)}{port_oc_invert(port_oc &port)}}]{\setlength{\rightskip}{0pt plus 5cm}hwlib\+::port\+\_\+oc\+\_\+invert\+::port\+\_\+oc\+\_\+invert (
+\begin{DoxyParamCaption}
+\item[{{\bf port\+\_\+oc} \&}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhwlib_1_1port__oc__invert_ac475bce6da1c77573122a4bc23ee7997}{}\label{classhwlib_1_1port__oc__invert_ac475bce6da1c77573122a4bc23ee7997}
+
+
+construct an inverted open-\/collector port 
+
+This constructor creates an inverted open-\/collector port from an existing open-\/collector port. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}!get@{get}}
+\index{get@{get}!hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+oc\+\_\+invert\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1port__oc__invert_ab6d07c63e363949fd852b109b88923f7}{}\label{classhwlib_1_1port__oc__invert_ab6d07c63e363949fd852b109b88923f7}
+
+
+read from the port 
+
+This function reads and returns the pins that are part of the port. The lowest bit of the result reflects the first pin of the port, etc.
+
+Pins that have been written as 0 will very likley read as 0 too. To read the external input to a pin, the pin must first be written as 1. 
+
+Implements \hyperlink{classhwlib_1_1port__oc_a49f8413dcdc6d9a172c2d9669a2e906e}{hwlib\+::port\+\_\+oc}.
+
+\index{hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}!number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}}
+\index{number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}!hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}}
+\subsubsection[{\texorpdfstring{number\+\_\+of\+\_\+pins() override}{number_of_pins() override}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+oc\+\_\+invert\+::number\+\_\+of\+\_\+pins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1port__oc__invert_a4dc1f8dec0b8a0b443523f29b1f78d65}{}\label{classhwlib_1_1port__oc__invert_a4dc1f8dec0b8a0b443523f29b1f78d65}
+
+
+get number of pins 
+
+This function returns the number of pins in the port. 
+
+Implements \hyperlink{classhwlib_1_1port__oc_a44d0dbfde290ad17237ad70c09a4c402}{hwlib\+::port\+\_\+oc}.
+
+\index{hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}!set@{set}}
+\index{set@{set}!hwlib\+::port\+\_\+oc\+\_\+invert@{hwlib\+::port\+\_\+oc\+\_\+invert}}
+\subsubsection[{\texorpdfstring{set(uint\+\_\+fast8\+\_\+t x) override}{set(uint_fast8_t x) override}}]{\setlength{\rightskip}{0pt plus 5cm}void hwlib\+::port\+\_\+oc\+\_\+invert\+::set (
+\begin{DoxyParamCaption}
+\item[{uint\+\_\+fast8\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1port__oc__invert_a1a3a108756e4de47025d6a065c91ff18}{}\label{classhwlib_1_1port__oc__invert_a1a3a108756e4de47025d6a065c91ff18}
+
+
+write to the port 
+
+This function writes to the pins that are part of the port. The lowest bit is written to the first pin of the port, etc. 
+
+Implements \hyperlink{classhwlib_1_1port__oc_aefb3d093331e5a87cf2dbe8226dc94ef}{hwlib\+::port\+\_\+oc}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-port_8hpp}{hwlib-\/port.\+hpp}\end{DoxyCompactItemize}

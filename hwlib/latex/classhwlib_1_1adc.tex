@@ -1,0 +1,65 @@
+\hypertarget{classhwlib_1_1adc}{}\section{hwlib\+:\+:adc Class Reference}
+\label{classhwlib_1_1adc}\index{hwlib\+::adc@{hwlib\+::adc}}
+
+
+A/D input interface.  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/adc.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:adc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1adc}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \hyperlink{classhwlib_1_1adc_a7ce65f485597a481a518a4b84073605f}{adc\+\_\+value\+\_\+type}\hypertarget{classhwlib_1_1adc_a7ce65f485597a481a518a4b84073605f}{}\label{classhwlib_1_1adc_a7ce65f485597a481a518a4b84073605f}
+
+\begin{DoxyCompactList}\small\item\em the type of the result returned by \hyperlink{classhwlib_1_1adc_a97c3dee32f72a2e7278e01b1a8e924ec}{get()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classhwlib_1_1adc_a7ce65f485597a481a518a4b84073605f}{adc\+\_\+value\+\_\+type} \hyperlink{classhwlib_1_1adc_a97c3dee32f72a2e7278e01b1a8e924ec}{get} ()=0
+\begin{DoxyCompactList}\small\item\em do an A/D conversion and return the result \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1adc_a7750dfea666ef62fdfb3024cdb66271d}{adc} (int n\+\_\+bits)\hypertarget{classhwlib_1_1adc_a7750dfea666ef62fdfb3024cdb66271d}{}\label{classhwlib_1_1adc_a7750dfea666ef62fdfb3024cdb66271d}
+
+\begin{DoxyCompactList}\small\item\em specify the number of bits \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classhwlib_1_1adc_a913b330f5d2a1f12c51e3411fde38217}{adc\+\_\+n\+\_\+bits}\hypertarget{classhwlib_1_1adc_a913b330f5d2a1f12c51e3411fde38217}{}\label{classhwlib_1_1adc_a913b330f5d2a1f12c51e3411fde38217}
+
+\begin{DoxyCompactList}\small\item\em the number of bits in the result returned by \hyperlink{classhwlib_1_1adc_a97c3dee32f72a2e7278e01b1a8e924ec}{get()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A/D input interface. 
+
+This class abstracts the interface to an A\+DC (Analog to Digital Converter). 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::adc@{hwlib\+::adc}!get@{get}}
+\index{get@{get}!hwlib\+::adc@{hwlib\+::adc}}
+\subsubsection[{\texorpdfstring{get()=0}{get()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf adc\+\_\+value\+\_\+type} hwlib\+::adc\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1adc_a97c3dee32f72a2e7278e01b1a8e924ec}{}\label{classhwlib_1_1adc_a97c3dee32f72a2e7278e01b1a8e924ec}
+
+
+do an A/D conversion and return the result 
+
+This function performs an A/D conversion and returns the result. The lower n\+\_\+bits of the result are the conversion result, the remaining higher bits are 0. 
+
+Implemented in \hyperlink{classdb103_1_1pin__adc_a8f4fbb615cf601059968997e6b0814b3}{db103\+::pin\+\_\+adc}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-adc_8hpp}{hwlib-\/adc.\+hpp}\end{DoxyCompactItemize}

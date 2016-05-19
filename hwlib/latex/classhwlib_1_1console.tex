@@ -1,0 +1,120 @@
+\hypertarget{classhwlib_1_1console}{}\section{hwlib\+:\+:console Class Reference}
+\label{classhwlib_1_1console}\index{hwlib\+::console@{hwlib\+::console}}
+
+
+console interface  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/console.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:console\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhwlib_1_1console}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1console_a3a5cf41b86ef577bf7c6eea606dfb7f5}{console} (int \hyperlink{classhwlib_1_1console_a5dbe79428aadd15210029a76cb3d255d}{columns}, int \hyperlink{classhwlib_1_1console_a7c5ec25f5c780aaa56702778701ee270}{lines})\hypertarget{classhwlib_1_1console_a3a5cf41b86ef577bf7c6eea606dfb7f5}{}\label{classhwlib_1_1console_a3a5cf41b86ef577bf7c6eea606dfb7f5}
+
+\begin{DoxyCompactList}\small\item\em construct a console from its columns (X size) and lines (Y size) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1console_a3a9aa37f895584f4b07baadeb0a8827e}{goto\+\_\+xy} (int new\+\_\+x, int new\+\_\+y)\hypertarget{classhwlib_1_1console_a3a9aa37f895584f4b07baadeb0a8827e}{}\label{classhwlib_1_1console_a3a9aa37f895584f4b07baadeb0a8827e}
+
+\begin{DoxyCompactList}\small\item\em put the cursor (write location) at x, y \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1console_ae265a4538a03a68a0ceadcc5fca153f4}{putc} (char c) override\hypertarget{classhwlib_1_1console_ae265a4538a03a68a0ceadcc5fca153f4}{}\label{classhwlib_1_1console_ae265a4538a03a68a0ceadcc5fca153f4}
+
+\begin{DoxyCompactList}\small\item\em write a single character \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1console_a6cc5c79177e0fa54e8fb0e50e30c1d30}{clear} ()
+\begin{DoxyCompactList}\small\item\em clear the console \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classhwlib_1_1console_a5dbe79428aadd15210029a76cb3d255d}{columns}\hypertarget{classhwlib_1_1console_a5dbe79428aadd15210029a76cb3d255d}{}\label{classhwlib_1_1console_a5dbe79428aadd15210029a76cb3d255d}
+
+\begin{DoxyCompactList}\small\item\em the number of colums in the console \end{DoxyCompactList}\item 
+const int \hyperlink{classhwlib_1_1console_a7c5ec25f5c780aaa56702778701ee270}{lines}\hypertarget{classhwlib_1_1console_a7c5ec25f5c780aaa56702778701ee270}{}\label{classhwlib_1_1console_a7c5ec25f5c780aaa56702778701ee270}
+
+\begin{DoxyCompactList}\small\item\em the number of lines (rows) in the console \end{DoxyCompactList}\item 
+int \hyperlink{classhwlib_1_1console_a609d3968c3bce1f52481f8a5b7536b42}{x}\hypertarget{classhwlib_1_1console_a609d3968c3bce1f52481f8a5b7536b42}{}\label{classhwlib_1_1console_a609d3968c3bce1f52481f8a5b7536b42}
+
+\begin{DoxyCompactList}\small\item\em the current write column; \end{DoxyCompactList}\item 
+int \hyperlink{classhwlib_1_1console_a809dbf940620fe1ef99725f596bf892a}{y}\hypertarget{classhwlib_1_1console_a809dbf940620fe1ef99725f596bf892a}{}\label{classhwlib_1_1console_a809dbf940620fe1ef99725f596bf892a}
+
+\begin{DoxyCompactList}\small\item\em the current write line; \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhwlib_1_1console_aeced637b949acf507d165eace31bc6ce}{putc\+\_\+implementation} (char c)=0
+\begin{DoxyCompactList}\small\item\em the actual writing of a character \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1console_a453717af49292f64a0f51b71f3d02812}{goto\+\_\+xy\+\_\+implementation} (int \hyperlink{classhwlib_1_1console_a609d3968c3bce1f52481f8a5b7536b42}{x}, int \hyperlink{classhwlib_1_1console_a809dbf940620fe1ef99725f596bf892a}{y})
+\begin{DoxyCompactList}\small\item\em change the write location to x, y \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+console interface 
+
+This class implements an interface to a character console.
+
+A console is a rectangular windows of (A\+S\+C\+II) characters. A console implements the ostream interface, but it doesn\textquotesingle{}t scroll\+: while the cursor is outside the visible character area (beyond the end of the line, or beyond the number of lines) any character writes will be ignored. Some characters are treated special\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}~\newline
+\textquotesingle{} clears the rest of the line, and then moves to the first position of the next line
+\item \textquotesingle{}\textquotesingle{} puts the cursor at the start of the current line
+\item \textquotesingle{}{\ttfamily }\textquotesingle{} moves the cursor to the top-\/left position
+\end{DoxyItemize}
+
+The x and y coordinates are 0-\/origin and count to the right and down. In other words, the top-\/left character position is (0,0), and the bottom right character position is (rows -\/ 1, columns -\/ 1).
+
+ 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::console@{hwlib\+::console}!clear@{clear}}
+\index{clear@{clear}!hwlib\+::console@{hwlib\+::console}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::console\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1console_a6cc5c79177e0fa54e8fb0e50e30c1d30}{}\label{classhwlib_1_1console_a6cc5c79177e0fa54e8fb0e50e30c1d30}
+
+
+clear the console 
+
+This function clears the console and puts the cursor at (0,0). The default implementation does this by writing spaces to all locations. A concrete implementation might provide a better (faster) way. 
+
+Reimplemented in \hyperlink{classhwlib_1_1hd44780_a45d4a84c9da66fa350270df482c6e58f}{hwlib\+::hd44780}.
+
+\index{hwlib\+::console@{hwlib\+::console}!goto\+\_\+xy\+\_\+implementation@{goto\+\_\+xy\+\_\+implementation}}
+\index{goto\+\_\+xy\+\_\+implementation@{goto\+\_\+xy\+\_\+implementation}!hwlib\+::console@{hwlib\+::console}}
+\subsubsection[{\texorpdfstring{goto\+\_\+xy\+\_\+implementation(int x, int y)}{goto_xy_implementation(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::console\+::goto\+\_\+xy\+\_\+implementation (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1console_a453717af49292f64a0f51b71f3d02812}{}\label{classhwlib_1_1console_a453717af49292f64a0f51b71f3d02812}
+
+
+change the write location to x, y 
+
+This function is called when the write location is changed {\itshape except} when it is changed to the next x position by a call to putc\+\_\+implementation.
+
+The default implementation does nothing. \index{hwlib\+::console@{hwlib\+::console}!putc\+\_\+implementation@{putc\+\_\+implementation}}
+\index{putc\+\_\+implementation@{putc\+\_\+implementation}!hwlib\+::console@{hwlib\+::console}}
+\subsubsection[{\texorpdfstring{putc\+\_\+implementation(char c)=0}{putc_implementation(char c)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::console\+::putc\+\_\+implementation (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1console_aeced637b949acf507d165eace31bc6ce}{}\label{classhwlib_1_1console_aeced637b949acf507d165eace31bc6ce}
+
+
+the actual writing of a character 
+
+When this function is called, the the current cursor is guaranteed to be within the console, and the character is not one of the special characters (~\newline
+, , {\ttfamily }) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-console_8hpp}{hwlib-\/console.\+hpp}\end{DoxyCompactItemize}

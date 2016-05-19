@@ -1,0 +1,231 @@
+\hypertarget{classhwlib_1_1ostream}{}\section{hwlib\+:\+:ostream Class Reference}
+\label{classhwlib_1_1ostream}\index{hwlib\+::ostream@{hwlib\+::ostream}}
+
+
+formatted character output  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/ostream.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:ostream\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhwlib_1_1ostream}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhwlib_1_1ostream_a3b2b77c9e933b76bd6ddd85b9883a31b}{putc} (char c)=0
+\begin{DoxyCompactList}\small\item\em char output function \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_ab7fd8d969cd3533df36944233da5c64b}{operator$<$$<$} (char c)\hypertarget{classhwlib_1_1ostream_ab7fd8d969cd3533df36944233da5c64b}{}\label{classhwlib_1_1ostream_ab7fd8d969cd3533df36944233da5c64b}
+
+\begin{DoxyCompactList}\small\item\em char output operator \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1ostream_ab4587e3151fc02c5faba3b06522e337f}{flush} (void)
+\begin{DoxyCompactList}\small\item\em flush \end{DoxyCompactList}\item 
+int \hyperlink{classhwlib_1_1ostream_aa4d58cb368e67310cd70bf9cc8579966}{width} (void) const \hypertarget{classhwlib_1_1ostream_aa4d58cb368e67310cd70bf9cc8579966}{}\label{classhwlib_1_1ostream_aa4d58cb368e67310cd70bf9cc8579966}
+
+\begin{DoxyCompactList}\small\item\em return the current field width \end{DoxyCompactList}\item 
+int \hyperlink{classhwlib_1_1ostream_a3f65c4ae6cba8d58e7f5b21f19667c0f}{width} (int x)\hypertarget{classhwlib_1_1ostream_a3f65c4ae6cba8d58e7f5b21f19667c0f}{}\label{classhwlib_1_1ostream_a3f65c4ae6cba8d58e7f5b21f19667c0f}
+
+\begin{DoxyCompactList}\small\item\em set the field width, return the old field width \end{DoxyCompactList}\item 
+int \hyperlink{classhwlib_1_1ostream_a6266f7f74a244b69c33d4c6d9be6c145}{base} (void) const \hypertarget{classhwlib_1_1ostream_a6266f7f74a244b69c33d4c6d9be6c145}{}\label{classhwlib_1_1ostream_a6266f7f74a244b69c33d4c6d9be6c145}
+
+\begin{DoxyCompactList}\small\item\em return the numerical radix \end{DoxyCompactList}\item 
+int \hyperlink{classhwlib_1_1ostream_a0895d45a31d89352d5c167dc0932399b}{base} (int x)\hypertarget{classhwlib_1_1ostream_a0895d45a31d89352d5c167dc0932399b}{}\label{classhwlib_1_1ostream_a0895d45a31d89352d5c167dc0932399b}
+
+\begin{DoxyCompactList}\small\item\em set the numerical radix, return the old numerical radix \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a253a2e284130cc22d3dff3fbf669afae}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, bool x)\hypertarget{classhwlib_1_1ostream_a253a2e284130cc22d3dff3fbf669afae}{}\label{classhwlib_1_1ostream_a253a2e284130cc22d3dff3fbf669afae}
+
+\begin{DoxyCompactList}\small\item\em output operator for bool \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a45bbf00f11c411f55e5eef9b28165fa6}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, const char $\ast$s)\hypertarget{classhwlib_1_1ostream_a45bbf00f11c411f55e5eef9b28165fa6}{}\label{classhwlib_1_1ostream_a45bbf00f11c411f55e5eef9b28165fa6}
+
+\begin{DoxyCompactList}\small\item\em output operator for const char pointer (literal string) \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a28ee741656d0ad9d6a1782823212e7d9}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, int x)\hypertarget{classhwlib_1_1ostream_a28ee741656d0ad9d6a1782823212e7d9}{}\label{classhwlib_1_1ostream_a28ee741656d0ad9d6a1782823212e7d9}
+
+\begin{DoxyCompactList}\small\item\em output operator for integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a5f10f89fa98ac5e5f89cc2af0e9b0b6e}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, short int x)\hypertarget{classhwlib_1_1ostream_a5f10f89fa98ac5e5f89cc2af0e9b0b6e}{}\label{classhwlib_1_1ostream_a5f10f89fa98ac5e5f89cc2af0e9b0b6e}
+
+\begin{DoxyCompactList}\small\item\em output operator for short integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_af269c1256dc5c755fafc13a7b9125187}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, long int x)\hypertarget{classhwlib_1_1ostream_af269c1256dc5c755fafc13a7b9125187}{}\label{classhwlib_1_1ostream_af269c1256dc5c755fafc13a7b9125187}
+
+\begin{DoxyCompactList}\small\item\em output operator for long integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a25a0b9be93f8f9ed789cef2411acbed2}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, long long int x)\hypertarget{classhwlib_1_1ostream_a25a0b9be93f8f9ed789cef2411acbed2}{}\label{classhwlib_1_1ostream_a25a0b9be93f8f9ed789cef2411acbed2}
+
+\begin{DoxyCompactList}\small\item\em output operator for long long integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a2c5c3586c979f880097499e392bcbf54}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, short unsigned int x)\hypertarget{classhwlib_1_1ostream_a2c5c3586c979f880097499e392bcbf54}{}\label{classhwlib_1_1ostream_a2c5c3586c979f880097499e392bcbf54}
+
+\begin{DoxyCompactList}\small\item\em output operator for short unsigned integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_ae70e52926d415af7bfd483c29322f6a1}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, unsigned int x)\hypertarget{classhwlib_1_1ostream_ae70e52926d415af7bfd483c29322f6a1}{}\label{classhwlib_1_1ostream_ae70e52926d415af7bfd483c29322f6a1}
+
+\begin{DoxyCompactList}\small\item\em output operator for unsigned integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a7df95ef6e7402e0238681b5a0ee1a4f6}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, unsigned long int x)\hypertarget{classhwlib_1_1ostream_a7df95ef6e7402e0238681b5a0ee1a4f6}{}\label{classhwlib_1_1ostream_a7df95ef6e7402e0238681b5a0ee1a4f6}
+
+\begin{DoxyCompactList}\small\item\em output operator for unsigned long integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a7ab00ab622e0e7c42198f34597713390}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, unsigned long long x)\hypertarget{classhwlib_1_1ostream_a7ab00ab622e0e7c42198f34597713390}{}\label{classhwlib_1_1ostream_a7ab00ab622e0e7c42198f34597713390}
+
+\begin{DoxyCompactList}\small\item\em output operator for unsigned long long integer \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a62d3d656e6a5021fc4a6aa6940b5641e}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, signed char c)\hypertarget{classhwlib_1_1ostream_a62d3d656e6a5021fc4a6aa6940b5641e}{}\label{classhwlib_1_1ostream_a62d3d656e6a5021fc4a6aa6940b5641e}
+
+\begin{DoxyCompactList}\small\item\em output operator for signed char (prints as integer) \end{DoxyCompactList}\item 
+\hyperlink{classhwlib_1_1ostream}{ostream} \& \hyperlink{classhwlib_1_1ostream_a3fea1f54c018fe926d9c7ee25ebd917a}{operator$<$$<$} (\hyperlink{classhwlib_1_1ostream}{ostream} \&stream, unsigned char c)\hypertarget{classhwlib_1_1ostream_a3fea1f54c018fe926d9c7ee25ebd917a}{}\label{classhwlib_1_1ostream_a3fea1f54c018fe926d9c7ee25ebd917a}
+
+\begin{DoxyCompactList}\small\item\em output operator for unsigned char (prints as integer) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classhwlib_1_1ostream_a5b8e4c021711ab0fbbefcd2df29c03a7}{showpos} (void) const 
+\begin{DoxyCompactList}\small\item\em return the current showpos setting \end{DoxyCompactList}\item 
+bool \hyperlink{classhwlib_1_1ostream_a63eb8b78e5a4a3250043b4b9ecb35f16}{showpos} (bool x)
+\begin{DoxyCompactList}\small\item\em set the showpos setting, return the old showpos setting \end{DoxyCompactList}\item 
+bool \hyperlink{classhwlib_1_1ostream_aa47993e8c6771ed093859416133b3724}{showbase} (void) const 
+\begin{DoxyCompactList}\small\item\em return the current showbae setting \end{DoxyCompactList}\item 
+bool \hyperlink{classhwlib_1_1ostream_ad3290e2669fd1ced136efc657f4478a2}{showbase} (bool x)
+\begin{DoxyCompactList}\small\item\em set the showbase setting, return the old showbase setting \end{DoxyCompactList}\item 
+bool \hyperlink{classhwlib_1_1ostream_aa4ad6c4c344926b02b165e89bddb98b5}{boolalpha} (void) const 
+\begin{DoxyCompactList}\small\item\em return the current boolalpha setting \end{DoxyCompactList}\item 
+bool \hyperlink{classhwlib_1_1ostream_a4b94d035da5b074afee5fdef06dcf737}{boolalpha} (bool x)
+\begin{DoxyCompactList}\small\item\em set the noboolalpha setting, return the old noboolalpha setting \end{DoxyCompactList}\item 
+char \hyperlink{classhwlib_1_1ostream_a11cfd99e60bf22ace9e11c40da61d3ec}{fill} (void) const 
+\begin{DoxyCompactList}\small\item\em return the current fill char setting \end{DoxyCompactList}\item 
+char \hyperlink{classhwlib_1_1ostream_a7d7d3d7d7bd7896c51649a8c9c0a236c}{fill} (char x)
+\begin{DoxyCompactList}\small\item\em set the fill char setting, return the old fill char setting \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+formatted character output 
+
+This class is an std\+::ostream work-\/alike for small embedded systems. Most formatting features of std\+::ostream are supported. Floating point values are not supported.
+
+This class is abstract\+: a concrete subclass must implement \hyperlink{classhwlib_1_1ostream_a3b2b77c9e933b76bd6ddd85b9883a31b}{putc()} (and, when appropriate, \hyperlink{classhwlib_1_1ostream_ab4587e3151fc02c5faba3b06522e337f}{flush()}). 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::ostream@{hwlib\+::ostream}!flush@{flush}}
+\index{flush@{flush}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{flush(void)}{flush(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::ostream\+::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhwlib_1_1ostream_ab4587e3151fc02c5faba3b06522e337f}{}\label{classhwlib_1_1ostream_ab4587e3151fc02c5faba3b06522e337f}
+
+
+flush 
+
+This function waits until all characters are realy written to whatever is their destination. The default implementation assumes that no buffering is done, hence it returns immediately.
+
+Writing the flush constant has the same effect as calling \hyperlink{classhwlib_1_1ostream_ab4587e3151fc02c5faba3b06522e337f}{flush()}. \index{hwlib\+::ostream@{hwlib\+::ostream}!putc@{putc}}
+\index{putc@{putc}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{putc(char c)=0}{putc(char c)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::ostream\+::putc (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1ostream_a3b2b77c9e933b76bd6ddd85b9883a31b}{}\label{classhwlib_1_1ostream_a3b2b77c9e933b76bd6ddd85b9883a31b}
+
+
+char output function 
+
+This function is called by the other functions to output each character. 
+
+Implemented in \hyperlink{classhwlib_1_1console_ae265a4538a03a68a0ceadcc5fca153f4}{hwlib\+::console}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{hwlib\+::ostream@{hwlib\+::ostream}!boolalpha@{boolalpha}}
+\index{boolalpha@{boolalpha}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{boolalpha(void) const }{boolalpha(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool boolalpha (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_aa4ad6c4c344926b02b165e89bddb98b5}{}\label{classhwlib_1_1ostream_aa4ad6c4c344926b02b165e89bddb98b5}
+
+
+return the current boolalpha setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!boolalpha@{boolalpha}}
+\index{boolalpha@{boolalpha}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{boolalpha(bool x)}{boolalpha(bool x)}}]{\setlength{\rightskip}{0pt plus 5cm}bool boolalpha (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_a4b94d035da5b074afee5fdef06dcf737}{}\label{classhwlib_1_1ostream_a4b94d035da5b074afee5fdef06dcf737}
+
+
+set the noboolalpha setting, return the old noboolalpha setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!fill@{fill}}
+\index{fill@{fill}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{fill(void) const }{fill(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}char fill (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_a11cfd99e60bf22ace9e11c40da61d3ec}{}\label{classhwlib_1_1ostream_a11cfd99e60bf22ace9e11c40da61d3ec}
+
+
+return the current fill char setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!fill@{fill}}
+\index{fill@{fill}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{fill(char x)}{fill(char x)}}]{\setlength{\rightskip}{0pt plus 5cm}char fill (
+\begin{DoxyParamCaption}
+\item[{char}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_a7d7d3d7d7bd7896c51649a8c9c0a236c}{}\label{classhwlib_1_1ostream_a7d7d3d7d7bd7896c51649a8c9c0a236c}
+
+
+set the fill char setting, return the old fill char setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!showbase@{showbase}}
+\index{showbase@{showbase}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{showbase(void) const }{showbase(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool showbase (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_aa47993e8c6771ed093859416133b3724}{}\label{classhwlib_1_1ostream_aa47993e8c6771ed093859416133b3724}
+
+
+return the current showbae setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!showbase@{showbase}}
+\index{showbase@{showbase}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{showbase(bool x)}{showbase(bool x)}}]{\setlength{\rightskip}{0pt plus 5cm}bool showbase (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_ad3290e2669fd1ced136efc657f4478a2}{}\label{classhwlib_1_1ostream_ad3290e2669fd1ced136efc657f4478a2}
+
+
+set the showbase setting, return the old showbase setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!showpos@{showpos}}
+\index{showpos@{showpos}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{showpos(void) const }{showpos(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool showpos (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_a5b8e4c021711ab0fbbefcd2df29c03a7}{}\label{classhwlib_1_1ostream_a5b8e4c021711ab0fbbefcd2df29c03a7}
+
+
+return the current showpos setting 
+
+\index{hwlib\+::ostream@{hwlib\+::ostream}!showpos@{showpos}}
+\index{showpos@{showpos}!hwlib\+::ostream@{hwlib\+::ostream}}
+\subsubsection[{\texorpdfstring{showpos(bool x)}{showpos(bool x)}}]{\setlength{\rightskip}{0pt plus 5cm}bool showpos (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{classhwlib_1_1ostream_a63eb8b78e5a4a3250043b4b9ecb35f16}{}\label{classhwlib_1_1ostream_a63eb8b78e5a4a3250043b4b9ecb35f16}
+
+
+set the showpos setting, return the old showpos setting 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-ostream_8hpp}{hwlib-\/ostream.\+hpp}\end{DoxyCompactItemize}

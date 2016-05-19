@@ -1,0 +1,67 @@
+\hypertarget{classhwlib_1_1port__out}{}\section{hwlib\+:\+:port\+\_\+out Class Reference}
+\label{classhwlib_1_1port__out}\index{hwlib\+::port\+\_\+out@{hwlib\+::port\+\_\+out}}
+
+
+output port interface  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/port.\+hpp$>$}
+
+Inheritance diagram for hwlib\+:\+:port\+\_\+out\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhwlib_1_1port__out}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint\+\_\+fast8\+\_\+t \hyperlink{classhwlib_1_1port__out_a8593e2ff755b938797defb06c1e085df}{number\+\_\+of\+\_\+pins} ()=0
+\begin{DoxyCompactList}\small\item\em get number of pins \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhwlib_1_1port__out_ad086f5dd66f293118df6ab979feb64fc}{set} (uint\+\_\+fast8\+\_\+t x)=0
+\begin{DoxyCompactList}\small\item\em write to the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+output port interface 
+
+This is the interface of an output-\/only port. 
+
+\subsection{Member Function Documentation}
+\index{hwlib\+::port\+\_\+out@{hwlib\+::port\+\_\+out}!number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}}
+\index{number\+\_\+of\+\_\+pins@{number\+\_\+of\+\_\+pins}!hwlib\+::port\+\_\+out@{hwlib\+::port\+\_\+out}}
+\subsubsection[{\texorpdfstring{number\+\_\+of\+\_\+pins()=0}{number_of_pins()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual uint\+\_\+fast8\+\_\+t hwlib\+::port\+\_\+out\+::number\+\_\+of\+\_\+pins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1port__out_a8593e2ff755b938797defb06c1e085df}{}\label{classhwlib_1_1port__out_a8593e2ff755b938797defb06c1e085df}
+
+
+get number of pins 
+
+This function returns the number of pins in the port. 
+
+Implemented in \hyperlink{classhwlib_1_1port__out__invert_aae7f6f49900f5e4108595a094f467cb8}{hwlib\+::port\+\_\+out\+\_\+invert}, \hyperlink{classhwlib_1_1hc595_a89c7b21cb99d61c91f764a0fdb7ceb9b}{hwlib\+::hc595}, and \hyperlink{classhwlib_1_1port__out__from__pins_afc18ca0fb161e581efcf88c65c0baebc}{hwlib\+::port\+\_\+out\+\_\+from\+\_\+pins}.
+
+\index{hwlib\+::port\+\_\+out@{hwlib\+::port\+\_\+out}!set@{set}}
+\index{set@{set}!hwlib\+::port\+\_\+out@{hwlib\+::port\+\_\+out}}
+\subsubsection[{\texorpdfstring{set(uint\+\_\+fast8\+\_\+t x)=0}{set(uint_fast8_t x)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void hwlib\+::port\+\_\+out\+::set (
+\begin{DoxyParamCaption}
+\item[{uint\+\_\+fast8\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhwlib_1_1port__out_ad086f5dd66f293118df6ab979feb64fc}{}\label{classhwlib_1_1port__out_ad086f5dd66f293118df6ab979feb64fc}
+
+
+write to the port 
+
+This function writes to the pins that are part of the port. The lowest bit is written to the first pin of the port, etc. 
+
+Implemented in \hyperlink{classhwlib_1_1port__out__invert_a112ff1c0afec7813ce35830f20a3acb3}{hwlib\+::port\+\_\+out\+\_\+invert}, \hyperlink{classhwlib_1_1hc595_ad2b4d6fa77114f1f13348075389efd1c}{hwlib\+::hc595}, and \hyperlink{classhwlib_1_1port__out__from__pins_aefa5fd9f8d8756fb7c07a89eff03caa4}{hwlib\+::port\+\_\+out\+\_\+from\+\_\+pins}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-port_8hpp}{hwlib-\/port.\+hpp}\end{DoxyCompactItemize}

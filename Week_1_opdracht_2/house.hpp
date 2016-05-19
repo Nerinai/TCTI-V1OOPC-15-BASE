@@ -10,15 +10,16 @@
 class house
 {
 private:
+	int ishome;
 	float scale;
-	rectangle house_body, housewindow;
+	rectangle house_body, housewindow, door;
 	Triangle roof;
-	filled_rect darkwindow, door;
+	filled_rect darkwindow;
 	circle dakraam;
 	
 
 public:
-	house(window & w, int x_coord, int y_coord, float scale);
+	house(window & w, int x_coord, int y_coord, float scale, int ishome);
 	void print();
 
 };

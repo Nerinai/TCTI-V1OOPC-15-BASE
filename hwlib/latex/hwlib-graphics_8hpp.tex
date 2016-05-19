@@ -1,0 +1,83 @@
+\hypertarget{hwlib-graphics_8hpp}{}\section{hwlib-\/graphics.hpp File Reference}
+\label{hwlib-graphics_8hpp}\index{hwlib-\/graphics.\+hpp@{hwlib-\/graphics.\+hpp}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhwlib_1_1location}{hwlib\+::location}
+\begin{DoxyCompactList}\small\item\em a pixel coordinate \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1color}{hwlib\+::color}
+\begin{DoxyCompactList}\small\item\em graphics color \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1window}{hwlib\+::window}
+\begin{DoxyCompactList}\small\item\em a graphics windows \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1window__part}{hwlib\+::window\+\_\+part}
+\begin{DoxyCompactList}\small\item\em a \hyperlink{classhwlib_1_1window__part}{window\+\_\+part} (subwindow of a larger window) \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1window__invert}{hwlib\+::window\+\_\+invert}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classhwlib_1_1window__invert}{window\+\_\+invert} (invert writes to a window) \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1drawable}{hwlib\+::drawable}
+\item 
+class \hyperlink{classhwlib_1_1line}{hwlib\+::line}
+\item 
+class \hyperlink{classhwlib_1_1circle}{hwlib\+::circle}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacehwlib}{hwlib}
+\begin{DoxyCompactList}\small\item\em hwlib library \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+constexpr color \hyperlink{namespacehwlib_aa9c056fa29bc9af9f55d4b774bb3898a}{hwlib\+::black} = color( 0, 0, 0 )\hypertarget{namespacehwlib_aa9c056fa29bc9af9f55d4b774bb3898a}{}\label{namespacehwlib_aa9c056fa29bc9af9f55d4b774bb3898a}
+
+\begin{DoxyCompactList}\small\item\em some basic colors \end{DoxyCompactList}\item 
+constexpr color {\bfseries hwlib\+::white} = color( 0x\+F\+F, 0x\+F\+F, 0x\+F\+F )\hypertarget{namespacehwlib_a4ef9e33ddbcac5e4dc5cf3190f9174a9}{}\label{namespacehwlib_a4ef9e33ddbcac5e4dc5cf3190f9174a9}
+
+\item 
+constexpr color {\bfseries hwlib\+::red} = color( 0x\+F\+F, 0, 0 )\hypertarget{namespacehwlib_a5b1deea018f5b78012a5556553740614}{}\label{namespacehwlib_a5b1deea018f5b78012a5556553740614}
+
+\item 
+constexpr color {\bfseries hwlib\+::green} = color( 0, 0x\+F\+F, 0 )\hypertarget{namespacehwlib_a2473de6d95a7df78dac207d1b7e87c5c}{}\label{namespacehwlib_a2473de6d95a7df78dac207d1b7e87c5c}
+
+\item 
+constexpr color {\bfseries hwlib\+::blue} = color( 0, 0, 0x\+F\+F )\hypertarget{namespacehwlib_ae1184edd3998bcdb7061c0b1d38683b7}{}\label{namespacehwlib_ae1184edd3998bcdb7061c0b1d38683b7}
+
+\item 
+constexpr color {\bfseries hwlib\+::gray} = color( 0x80, 0x80, 0x80 )\hypertarget{namespacehwlib_a2e05dcb77590ae391ad3027f4097ec77}{}\label{namespacehwlib_a2e05dcb77590ae391ad3027f4097ec77}
+
+\item 
+constexpr color {\bfseries hwlib\+::yellow} = color( 0x\+F\+F, 0x\+F\+F, 0 )\hypertarget{namespacehwlib_a5f5e78ccc187ac0649358ce77cb7173f}{}\label{namespacehwlib_a5f5e78ccc187ac0649358ce77cb7173f}
+
+\item 
+constexpr color {\bfseries hwlib\+::cyan} = color( 0, 0x\+F\+F, 0x\+F\+F )\hypertarget{namespacehwlib_a2de8bf807b29ec14038fbb448ad4e0e7}{}\label{namespacehwlib_a2de8bf807b29ec14038fbb448ad4e0e7}
+
+\item 
+constexpr color {\bfseries hwlib\+::magenta} = color( 0x\+F\+F, 0, 0x\+F\+F )\hypertarget{namespacehwlib_aa4d44b5166927127648eeae921596181}{}\label{namespacehwlib_aa4d44b5166927127648eeae921596181}
+
+\item 
+constexpr color {\bfseries hwlib\+::transparent} = color( 0, 0, 0, 1 )\hypertarget{namespacehwlib_a5f2e4acc938c57f1e6030e0656510c21}{}\label{namespacehwlib_a5f2e4acc938c57f1e6030e0656510c21}
+
+\item 
+constexpr color {\bfseries hwlib\+::violet} = color( 0x\+E\+E82\+E\+E )\hypertarget{namespacehwlib_a598c038a15212ae56dd81d9708d8a692}{}\label{namespacehwlib_a598c038a15212ae56dd81d9708d8a692}
+
+\item 
+constexpr color {\bfseries hwlib\+::sienna} = color( 0x\+A0522\+D )\hypertarget{namespacehwlib_a02e4f7453a14dadbabef58265598fef8}{}\label{namespacehwlib_a02e4f7453a14dadbabef58265598fef8}
+
+\item 
+constexpr color {\bfseries hwlib\+::purple} = color( 0x800080 )\hypertarget{namespacehwlib_aba67bcd5e03f50432e45dc75fe432d46}{}\label{namespacehwlib_aba67bcd5e03f50432e45dc75fe432d46}
+
+\item 
+constexpr color {\bfseries hwlib\+::pink} = color( 0x\+F\+F\+C8\+C\+B )\hypertarget{namespacehwlib_a2c264d06505f223a3028b1790394849a}{}\label{namespacehwlib_a2c264d06505f223a3028b1790394849a}
+
+\item 
+constexpr color {\bfseries hwlib\+::silver} = color( 0x\+C0\+C0\+C0 )\hypertarget{namespacehwlib_a7d764d6d86f662651b76e55da87b5c8f}{}\label{namespacehwlib_a7d764d6d86f662651b76e55da87b5c8f}
+
+\item 
+constexpr color {\bfseries hwlib\+::brown} = color( 0x\+A52\+A2\+A )\hypertarget{namespacehwlib_ad3126003784f3b5235989591d8264c0d}{}\label{namespacehwlib_ad3126003784f3b5235989591d8264c0d}
+
+\item 
+constexpr color {\bfseries hwlib\+::salmon} = color( 0x\+F\+A8072 )\hypertarget{namespacehwlib_ad15ba22024321378147c49e5dc17cad2}{}\label{namespacehwlib_ad15ba22024321378147c49e5dc17cad2}
+
+\end{DoxyCompactItemize}
+

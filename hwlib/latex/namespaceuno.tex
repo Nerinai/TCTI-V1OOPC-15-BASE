@@ -1,0 +1,104 @@
+\hypertarget{namespaceuno}{}\section{uno Namespace Reference}
+\label{namespaceuno}\index{uno@{uno}}
+
+
+hwlib implementation for the Arduino Uno  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classuno_1_1pin__in}{pin\+\_\+in}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classuno_1_1pin__in}{pin\+\_\+in} implementation for a A\+T\+Mega328P \end{DoxyCompactList}\item 
+class \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classuno_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for a A\+T\+Mega328P \end{DoxyCompactList}\item 
+class \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classuno_1_1pin__oc}{pin\+\_\+oc} implementation for a A\+T\+Mega328P \end{DoxyCompactList}\item 
+class \hyperlink{classuno_1_1pin__out}{pin\+\_\+out}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classuno_1_1pin__out}{pin\+\_\+out} implementation for a A\+T\+Mega328P \end{DoxyCompactList}\item 
+class \hyperlink{classuno_1_1shield__lcd__mcufriend}{shield\+\_\+lcd\+\_\+mcufriend}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}{pins} \{ \\*
+{\bfseries d0}, 
+{\bfseries d1}, 
+{\bfseries d2}, 
+{\bfseries d3}, 
+\\*
+{\bfseries d4}, 
+{\bfseries d5}, 
+{\bfseries d6}, 
+{\bfseries d7}, 
+\\*
+{\bfseries d8}, 
+{\bfseries d9}, 
+{\bfseries d10}, 
+{\bfseries d11}, 
+\\*
+{\bfseries d12}, 
+{\bfseries d13}, 
+{\bfseries a0}, 
+{\bfseries a1}, 
+\\*
+{\bfseries a2}, 
+{\bfseries a3}, 
+{\bfseries a4}, 
+{\bfseries a5}, 
+\\*
+{\bfseries scl}, 
+{\bfseries sda}, 
+{\bfseries tx}, 
+{\bfseries rx}, 
+\\*
+{\bfseries led}, 
+{\bfseries sck}, 
+{\bfseries miso}, 
+{\bfseries mosi}, 
+\\*
+{\bfseries ss}
+ \}\begin{DoxyCompactList}\small\item\em Arduino Uno pin names. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+hwlib implementation for the Arduino Uno 
+
+ and (sotware) U\+A\+RT output for the Arduino Uno (A\+T\+Mega328P chip).
+
+The port and pin parameters to the constructors of the pin classes can either use A\+T\+Mega328P port and pin numbers, or the Arduino names.
+
+The Uno has an on-\/board L\+ED connected to port 1 (= port B) pin 5.
+
+The chip runs at 5 Volt and that is the level on its IO pins.
+
+
+
+The Arduino Nano and Arduino Pro Mini that use the same A\+T\+Mega328P chip can also be used with this library, but have a very different form factor and pinout.
+
+The Nano has an U\+SB connector and an U\+S\+B-\/to-\/serial connector and can run the Arduino bootloader, but is often sold without the bootloader. An A\+V\+Risp2 programmer can be used to program a Nano directly, or you can use it to load the Arduino bootloader and use the Nano as you would use an Uno.
+
+
+
+The Pro Mini is little more than the micro-\/controler chip and a few necessary components (crystal, capacitors). It has neither an U\+S\+B-\/to-\/serial converter nor a standard 6-\/pin A\+V\+Risp2 header, so you must make the correct connections yourself.
+
+
+
+A\+VR microcontrollers use a Hardvard-\/architecture with a strict separation between data memory (R\+AM and special registers) and code memory (Flash). Consequently all data, including constant data, must be stored in R\+AM. Other architectures can store constant data in R\+OM, which is often much larger than R\+AM.
+
+References\+:
+\begin{DoxyItemize}
+\item \href{https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf}{\tt Arduino Uno circuit reference diagram} (pdf)
+\item \href{http://www.atmel.com/images/atmel-8271-8-bit-avr-microcontroller-atmega48a-48pa-88a-88pa-168a-168pa-328-328p_datasheet_complete.pdf}{\tt A\+T\+Mega328P datasheet} (pdf) 
+\end{DoxyItemize}
+
+\subsection{Enumeration Type Documentation}
+\index{uno@{uno}!pins@{pins}}
+\index{pins@{pins}!uno@{uno}}
+\subsubsection[{\texorpdfstring{pins}{pins}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf uno\+::pins}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}{}\label{namespaceuno_a0a859f3512bcc3027a090ae07befd5b2}
+
+
+Arduino Uno pin names. 
+
+These are the pins of an Arduino Uno board. Digital pins d0..d13, analog input pins A0..A5, S\+CL, S\+DA, TX (=D1), RX (=D0), L\+ED (=D13), S\+CK (=D13), M\+I\+SO (=D12), M\+O\+SI (=D11), SS (=D10). 

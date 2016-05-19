@@ -3,6 +3,10 @@
 
 /// @file
 
+///includes for file manipulation
+#include <iostream>
+#include <iomanip>
+
 /// rational ADT
 //
 /// This is an ADT that implements rational (fractional) values.
@@ -41,7 +45,7 @@ public:
    /// with just a whole value.
    rational( int counter, int denominator = 1 ):
      counter( counter ), denominator( denominator )
-   {}
+   {reduce();}
    
    /// compare two rational values
    //
@@ -49,7 +53,7 @@ public:
    /// if and only if the counter and denminator of both
    /// operands are equal.
    bool operator==( const rational & rhs ) const {
-      return ( counter == rhs.counter ) || ( denominator == rhs.denominator );
+      return ( counter == rhs.counter ) && ( denominator == rhs.denominator );
    }
 
    /// output operator for a rational value
@@ -58,29 +62,28 @@ public:
    /// [counter/denominator] where both values are printed as
    /// decimal values.
    friend std::ostream & operator<<( std::ostream & lhs, const rational & rhs ){
-      return lhs 
-         << "[" 
-         << rhs.counter 
-         << "/" 
-         << rhs.denominator
-         << "}";
+      return lhs << "[" << rhs.counter << "/" << rhs.denominator << "]";
    }   
+   
+   /// << operator for printing in hex
+   /*friend std::ostream & operator<<( std::ostream & lhs, const rational & rhs ){
+		lhs << std::hex << std::showbase << std::internal << "[" << std::setw(6) << std::setfill('0') <<  rhs.counter << "/" 
+		<< std::setw(6) << std::setfill('0') << rhs.denominator << "]" << std::noshowbase;
+		return lhs;
+   }*/   
    
    /// multiply a rational by an integer
    //
    /// This operator* multiplies a rational value by an integer value.
    rational operator*( const int rhs ) const {
-      return rational( counter * rhs, denominator * rhs );
+      return rational( counter * rhs, denominator );
    }
    
    /// multiply a rational by a rational
    //
    /// This operator* multiplies a rational value by a rational value.
    rational operator*( const rational & rhs ) const {
-      return rational( 
-         denominator * rhs.denominator,
-         counter * rhs.counter
-      );
+      return rational( counter * rhs.counter, denominator * rhs.denominator);
    }
    
    /// add a rational to another rational
@@ -94,10 +97,10 @@ public:
    }
    
    rational operator*=( const rational & rhs ){
-      counter = counter + rhs.counter;
-      denominator += rhs.denominator;
+      counter *= rhs.counter;
+      denominator *= rhs.denominator;
       reduce();
-      return rhs;
+      return *this;
    }
    
 };

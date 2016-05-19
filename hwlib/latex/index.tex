@@ -1,0 +1,75 @@
+
+
+\begin{DoxyAuthor}{Author}
+Wouter van Ooijen (\href{mailto:wouter@voti.nl}{\tt wouter@voti.\+nl}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 (last modified 2015-\/01-\/21) 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+boost license (some files public domain)
+\end{DoxyCopyright}
+Hwlib is a C++ OO library for close-\/to-\/the-\/hardware programming. It is used in the V1\+I\+P\+A\+S-\/\+TI course at the Hogeschool Utrecht. The library is meant to be used within bmptk. The language is the 2011 C++ standard. (But for compiling for the Arduino Uno the 2011 standard is used because gcc-\/avr doesn\textquotesingle{}t yet support the 2014 standard.)
+
+Hardware pins and ports, and other hardware-\/related interfaces like A/D converters and character streams are represented by abstract interfaces (classes with virtual functions).
+
+Implementations of the hardware abstractions (like pins and delays) are provided for the supported targets\+:
+\begin{DoxyItemize}
+\item Arduino Due (A\+T\+S\+A\+M3\+X8E chip)
+\item D\+B103 (L\+P\+C1114 chip)
+\item Arduino Uno (A\+T\+M\+E\+G\+A328P chip)
+\item Raspberry Pi (under Linux, using direct pin access; must run as root).
+\end{DoxyItemize}
+
+The library is used by including either the header for the target (\hyperlink{hwlib-due_8hpp}{hwlib-\/due.\+hpp}, \hyperlink{hwlib-db103_8hpp}{hwlib-\/db103.\+hpp}, \hyperlink{hwlib-uno_8hpp}{hwlib-\/uno.\+hpp} or \hyperlink{hwlib-pi_8hpp_source}{hwlib-\/pi.\+hpp}), or (preferrably) by including \hyperlink{hwlib_8hpp_source}{hwlib.\+hpp}, which will include the correct target header based on the macro that is set by bmptk (B\+M\+P\+T\+K\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+A\+R\+D\+U\+I\+N\+\_\+\+D\+UE etc.) in the compiler command line.
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The following naming convention is used\+:
+\begin{DoxyItemize}
+\item functions that are called set() and get() (or have set or get as part of their name) deal with entities or effects that are memoryless (behave like a variable)\+: calling set() twice with the same value has the same effect as calling it once; calling get() twice should (when the context has not changed) return the same value. Examples are
+\begin{DoxyItemize}
+\item digital and analog I/O pins
+\item pixels in a graphic window
+\item the value in a pool (synchronization mechanism)
+\end{DoxyItemize}
+\item functions that are called read() and write() (or have those terms as part of their names) deal with entities or effects that have memory or an otherwise lasting effect. Examples are\+:
+\begin{DoxyItemize}
+\item character (and other) streams
+\item channels (queue-\/like synchronization mechanism)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Hwlib must be effective on micro-\/controllers with different word sizes. Hence plain int types are (almost) never used. For single 8-\/bit variables hwlib\+::fast\+\_\+byte is used, which translates to the fastest unsigned integer type that can hold 8 bits (uint\+\_\+fast8\+\_\+t)\+: 8 bit on 8-\/bit targets, 16 bits on 16-\/bit targets, etc. For array variables and parameters hwlib\+::byte (uint8\+\_\+t) will often be a better choice.
+
+Hwlib is meant to be usable and understandable by users with (only) a basic knowledge of C++, specifically\+:
+\begin{DoxyItemize}
+\item basic C\+: types, expressions, control, functions, pointers, declaration versus definition, use of header files
+\item char, short, int, long versus uint\+N\+\_\+t, uint\+\_\+fast\+N\+\_\+t
+\item struct, class, public, private, protected, static
+\item constructors (incl. delegation), destructors
+\item inheritance, virtual, abstract interface, override, final
+\item const, constexpr
+\item static\+\_\+cast$<$$>$
+\item references, object lifetime (danger of dangling references)
+\item for(\+:) used with arrays
+\item the effect of {\bfseries attribute}((weak))
+\item use of $<$$<$ and $>$$>$ for output and input
+\end{DoxyItemize}
+
+The following design patterns are used (extensively) within hwlib\+:
+\begin{DoxyItemize}
+\item adapter, decorator, composite, proxy (grouped because these are variations of the same basic idea)
+\item non-\/virtual interface (N\+VI)
+\item dependency injection
+\item proxy
+\end{DoxyItemize}
+
+The following C++ features are deliberately {\itshape not} used, because they are eiter too advanced, or not appropriate for use on small micro-\/controllers\+:
+\begin{DoxyItemize}
+\item dynamic memory (new, delete)
+\item exception handling (throw, try ... catch)
+\item templates (except static\+\_\+cast$<$$>$)
+\item R\+T\+TI, dynamic\+\_\+cast 
+\end{DoxyItemize}
