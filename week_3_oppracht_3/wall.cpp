@@ -24,7 +24,6 @@ void wall::update()
 
 void wall::draw()
 {
-		rectangle::draw();
 		if (filled == true)
 		{
 			for (int i = location.x; i < end.x + 1; i++)
@@ -34,5 +33,9 @@ void wall::draw()
 					w.draw(vector(i , j));
 				}
 			}
+		}
+		else
+		{
+			rectangle::draw();
 		}
 }

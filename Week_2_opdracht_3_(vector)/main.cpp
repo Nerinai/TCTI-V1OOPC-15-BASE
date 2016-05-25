@@ -22,14 +22,14 @@ TEST_CASE ( "+ operator, 2 vectors and 3 vectors" )
 
 TEST_CASE ( "+ operator, 2 vectors, negative values" )
 {
-	vector v (-1,-3), r(2,1), x (-3,4), res1, res2, res3;
+	vector v (-1,-4), r(2,1), x (-3,4), res1, res2, res3;
 	
 	res1 = v + r;
 	res2 = v + x;
 	res3 = r + x;
 	
-	REQUIRE( res1 == vector(1,-2) );
-	REQUIRE( res2 == vector(-4,1) );
+	REQUIRE( res1 == vector(1,-3) );
+	REQUIRE( res2 == vector(-4,0) );
 	REQUIRE( res3 == vector(-1,5) );
 }
 
@@ -114,5 +114,5 @@ TEST_CASE ( "/= operator, 2 vectors, positive and negative values" )
 	
 	v /= 3;
 	
-	REQUIRE( v == vector(2,3) );
+	REQUIRE( v == vector(1,3) );
 }

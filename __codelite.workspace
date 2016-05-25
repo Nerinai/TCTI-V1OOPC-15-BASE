@@ -312,7 +312,7 @@
       <Project Name="15-10-bounce" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="18-01-blink" Path="18-01-blink/_codelite.project" Active="Yes"/>
+  <Project Name="18-01-blink" Path="18-01-blink/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="18-01-blink" ConfigName="Release"/>
@@ -376,6 +376,12 @@
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="week_3_oppracht_2" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="week_3_oppracht_3" Path="week_3_oppracht_3/_codelite.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="week_3_oppracht_3" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

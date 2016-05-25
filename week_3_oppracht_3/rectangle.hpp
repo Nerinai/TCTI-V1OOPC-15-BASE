@@ -20,6 +20,7 @@ public:
    rectangle( window & w, const vector & start, const vector & end );
    rectangle( window & w, const vector & start, const vector & end, const vector & bounce );
    void draw() override;
+   void update_lines();
 };
 
 

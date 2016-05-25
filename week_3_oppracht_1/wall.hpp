@@ -4,7 +4,6 @@
 #include "stdbool.h"
 #include "vector.hpp"
 #include "rectangle.hpp"
-#include "filled_rectangle.hpp"
 
 class wall : public rectangle
 {

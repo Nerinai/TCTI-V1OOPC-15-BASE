@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="testing" InternalType="Console">
+<CodeLite_Project Name="week_3_oppracht_3" InternalType="Console">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00010001N0005Debug000000000000]]>
@@ -21,7 +21,28 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
-    <File Name="Knooppunt.hpp"/>
+    <File Name="ball.cpp"/>
+    <File Name="ball.hpp"/>
+    <File Name="circle.cpp"/>
+    <File Name="circle.hpp"/>
+    <File Name="drawable.cpp"/>
+    <File Name="drawable.hpp"/>
+    <File Name="filled_rectangle.cpp"/>
+    <File Name="filled_rectangle.hpp"/>
+    <File Name="line.cpp"/>
+    <File Name="line.hpp"/>
+    <File Name="rectangle.cpp"/>
+    <File Name="rectangle.hpp"/>
+    <File Name="vector.cpp"/>
+    <File Name="vector.hpp"/>
+    <File Name="wall.cpp"/>
+    <File Name="wall.hpp"/>
+    <File Name="window.cpp"/>
+    <File Name="window.hpp"/>
+    <File Name="victim.hpp"/>
+    <File Name="victim.cpp"/>
+    <File Name="whelp.hpp"/>
+    <File Name="whelp.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

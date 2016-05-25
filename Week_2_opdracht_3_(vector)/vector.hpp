@@ -23,7 +23,7 @@ public:
 /// Constructor for initializing a vector when no user input has been givien
 /// Vector will be initialized with x = 0 and y = 0.
 	vector():
-		x( 0 ), y( 0 )
+		x(), y()
 	{}
 	
 /// Operator to compare two vectors.
@@ -116,7 +116,7 @@ public:
 };
 /// + Operator for vectors.
 /// Returns the sum of the vectors without changing the original vectors.
-/*	vector operator+(const vector lhs, const vector rhs) const
+	/*vector operator+(const vector lhs, const vector rhs) const
 	{
 		return vector (lhs.x + rhs.x, lhs.y + rhs.y);
 	}*/
