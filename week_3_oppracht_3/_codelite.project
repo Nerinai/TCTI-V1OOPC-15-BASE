@@ -35,14 +35,14 @@
     <File Name="rectangle.hpp"/>
     <File Name="vector.cpp"/>
     <File Name="vector.hpp"/>
+    <File Name="victim.cpp"/>
+    <File Name="victim.hpp"/>
     <File Name="wall.cpp"/>
     <File Name="wall.hpp"/>
+    <File Name="whelp.cpp"/>
+    <File Name="whelp.hpp"/>
     <File Name="window.cpp"/>
     <File Name="window.hpp"/>
-    <File Name="victim.hpp"/>
-    <File Name="victim.cpp"/>
-    <File Name="whelp.hpp"/>
-    <File Name="whelp.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

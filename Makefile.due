@@ -10,7 +10,11 @@
 
 # settings for Arduino Due projects
 TARGET            := arduino_due
+<<<<<<< HEAD
 SERIAL_PORT       := COM5
+=======
+SERIAL_PORT       := COM2
+>>>>>>> upstream/master
 CONSOLE_BAUDRATE  := 2400
 SEARCH            += ../hwlib
 

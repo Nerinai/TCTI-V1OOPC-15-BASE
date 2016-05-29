@@ -324,7 +324,11 @@ public:
       }
    {}    
    
+<<<<<<< HEAD
    virtual void direction_set_input() override {
+=======
+   void direction_set_input() override {
+>>>>>>> upstream/master
       port.PIO_ODR = mask;
    }
    
@@ -332,7 +336,11 @@ public:
       return ( port.PIO_PDSR & mask ) != 0;   
    }   
    
+<<<<<<< HEAD
    virtual void direction_set_output() override {
+=======
+   void direction_set_output() override {
+>>>>>>> upstream/master
       port.PIO_OER  = mask;    
    }
    
