@@ -287,6 +287,32 @@ public:
    }
 };
 
+class pin_out_all : public hwlib::pin_out{
+private:
+	hwlib::pin_out * list[8];
+	
+public:
+
+	pin_out_all(
+	hwlib::pin_out & p0,
+	hwlib::pin_out & p1 = hwlib::pin_out_dummy,
+	hwlib::pin_out & p2 = hwlib::pin_out_dummy,
+	hwlib::pin_out & p3 = hwlib::pin_out_dummy,
+	hwlib::pin_out & p4 = hwlib::pin_out_dummy,
+	hwlib::pin_out & p5 = hwlib::pin_out_dummy,
+	hwlib::pin_out & p6 = hwlib::pin_out_dummy,
+	hwlib::pin_out & p7 = hwlib::pin_out_dummy
+	):
+		list{&p0, &p1, &p2, &p3, &p4, &p5, &p6, &p7}
+	{}
+	
+	void set( bool v ) override{
+		for( auto p : list){
+			p->set( v );
+		}
+	}
+};
+
 /// pin_in_out implementation for a ATSAM3X8E
 class pin_in_out : public hwlib::pin_in_out {
 private:
@@ -324,11 +350,7 @@ public:
       }
    {}    
    
-<<<<<<< HEAD
-   virtual void direction_set_input() override {
-=======
    void direction_set_input() override {
->>>>>>> upstream/master
       port.PIO_ODR = mask;
    }
    
@@ -336,11 +358,8 @@ public:
       return ( port.PIO_PDSR & mask ) != 0;   
    }   
    
-<<<<<<< HEAD
-   virtual void direction_set_output() override {
-=======
+
    void direction_set_output() override {
->>>>>>> upstream/master
       port.PIO_OER  = mask;    
    }
    
@@ -389,7 +408,7 @@ public:
    
    bool get() override {
       // hwlib::cout << "=>" << (int) port.PIO_PDSR << "\n";
-      return ( port.PIO_PDSR & mask ) != 0;   
+      return (( port.PIO_PDSR & mask ) != 0);   
    }   
    
    void set( bool v ) override {

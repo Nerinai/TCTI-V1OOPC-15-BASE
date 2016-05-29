@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="example code" Database="">
-  <Project Name="05-01-xyxy" Path="05-01-xyxy/_codelite.project" Active="Yes"/>
+  <Project Name="05-01-xyxy" Path="05-01-xyxy/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="05-01-xyxy" ConfigName="Release"/>
@@ -468,7 +468,7 @@
       <Project Name="practicum 4 Decorator" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="practicum 5 Knipper" Path="practicum 5 Knipper/_codelite.project" Active="No"/>
+  <Project Name="practicum 5 Knipper" Path="practicum 5 Knipper/_codelite.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="practicum 5 Knipper" ConfigName="Release"/>

@@ -1,5 +1,24 @@
 #include "hwlib.hpp"
 
+class pin_in_and_gate : public hwlib::pin_in{
+private:
+	hwlib::pin_in & pin1;
+	hwlib::pin_in & pin2;
+public:
+	pin_in_and_gate(hwlib::pin_in & pin1, hwlib::pin_in & pin2):
+	pin1(pin1), pin2(pin2){}
+	
+	bool get() override {
+		if ( (! pin1.get()) && (! pin2.get()) ){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	return 0;
+	}
+};
+
 void kitt( hwlib::port_out & leds, int ms = 80){
 	for(;;){
 		for (unsigned int i = 0; i < leds.number_of_pins() -1; i++){
@@ -20,13 +39,16 @@ int main(void)
 	
 	namespace target = hwlib::target;
 	
-	auto led0 = target::pin_out (target::pins::d8);
-	auto led1 = target::pin_out (target::pins::d9);
-	auto led2 = target::pin_out (target::pins::d10);
-	auto led3 = target::pin_out (target::pins::d11);
+	auto buton1 = target::pin_in  (target::pins::d6);
+	auto butona = target::pin_in  (target::pins::d7);
 	
-	auto leds = hwlib::port_out_from_pins(led0, led1, led2, led3);
-	::kitt(leds, 500);
+	pin_in_and_gate gate (buton1, butona);
 	
+	while(1){
+		if(gate.get()){
+			hwlib::cout << hwlib::left  << " Hello world\n";
+			hwlib::wait_ms(300);
+		}
+	}
 	return 0;
 }

@@ -16,25 +16,35 @@ void kitt( hwlib::port_out & leds, int ms = 80){
 
 void input (hwlib::port_out &leds, hwlib::target::pin_in &buton1, hwlib::target::pin_in &buton2){
 	int amount = 0;
-	auto test = buton1.get();
-	
+	unsigned int dummy = 0;
 	while(1){
-		if (test){
+		if ( ! buton1.get()){
 			amount++;
-			printf ("%d\n", amount);
+			if (amount <= 4){
+				for (int i = 0; i < amount; i++){
+					dummy = dummy | 1 << i;
+				}
+			}
+			if (amount > 4){
+				amount = 4;
+			}
+			hwlib::wait_ms(300);
 		}
-	/*	if (buton2.get()){
+		if ( ! buton2.get()){
 			amount--;
-			printf ("%d\n", amount);
+			if (amount >= 0){
+				//for (int i = amount; i > 0; i--){
+					dummy = dummy >> 1 & 0x0F;
+				//}
+			}
+			if (amount < 0){
+				amount = 0;
+			}
+			hwlib::wait_ms(300);
 		}
-		if (amount < 0){
-			amount = 0;
-			printf ("%d\n", amount);
-		}
-		if (amount > 4){
-			amount = 4;
-			printf ("%d\n", amount);
-		}*/
+		leds.set(dummy);
+		
+		
 		
 		
 	}
@@ -47,14 +57,18 @@ int main(void)
 	
 	namespace target = hwlib::target;
 	
+	auto buton1 = target::pin_in  (target::pins::d6);
+	auto buton2 = target::pin_in  (target::pins::d7);
 	auto led0 	= target::pin_out (target::pins::d8);
 	auto led1 	= target::pin_out (target::pins::d9);
 	auto led2 	= target::pin_out (target::pins::d10);
 	auto led3 	= target::pin_out (target::pins::d11);
-	auto buton1 = target::pin_in  (target::pins::d12);
-	auto buton2 = target::pin_in  (target::pins::d13);
+	
  
 	auto leds 		= hwlib::port_out_from_pins(led0, led1, led2, led3);
+	
+	
+	
 	
 	input (leds, buton1, buton2);
 	

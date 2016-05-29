@@ -66,11 +66,7 @@ public:
    /// when the pin level is low the value false is returned.
    ///
    /// Before calling this function the pin direction must have been 
-<<<<<<< HEAD
-   /// set to input by calling pin_direction_set_input().   
-=======
    /// set to input by calling direction_set_input().   
->>>>>>> upstream/master
    virtual bool get() = 0;
 
    /// set the direction of a pin to output
