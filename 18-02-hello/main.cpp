@@ -11,11 +11,13 @@
 int main( void ){	
    // kill the watchdog
    WDT->WDT_MR = WDT_MR_WDDIS;
-
+	
+	int j = 9;
+	
    for( int i = 1; ; ++i ){
       hwlib::wait_ms( 1000 );
       hwlib::cout 
-         << hwlib::left << hwlib::setw( 5 ) << i 
+         << hwlib::left << hwlib::setw( 5 ) << i << j
          << " Hello world\n";  
    }   
    

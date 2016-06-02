@@ -1,5 +1,4 @@
 #include "hwlib.hpp"
-#include "stdio.h"
 
 void kitt( hwlib::port_out & leds, int ms = 80){
 	for(;;){

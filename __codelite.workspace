@@ -444,6 +444,12 @@
       <Project Name="IPASS" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
+  <Project Name="ipass_2" Path="ipass_2/_codelite.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="ipass_2" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
   <Project Name="practicum 1 patroon" Path="practicum 1 patroon/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
@@ -468,7 +474,7 @@
       <Project Name="practicum 4 Decorator" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="practicum 5 Knipper" Path="practicum 5 Knipper/_codelite.project" Active="Yes"/>
+  <Project Name="practicum 5 Knipper" Path="practicum 5 Knipper/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="practicum 5 Knipper" ConfigName="Release"/>
