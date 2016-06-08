@@ -39,8 +39,6 @@
     <File Name="victim.hpp"/>
     <File Name="wall.cpp"/>
     <File Name="wall.hpp"/>
-    <File Name="whelp.cpp"/>
-    <File Name="whelp.hpp"/>
     <File Name="window.cpp"/>
     <File Name="window.hpp"/>
   </VirtualDirectory>
