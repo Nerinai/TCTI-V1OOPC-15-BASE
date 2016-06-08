@@ -182,14 +182,10 @@ public:
 			return 0;
 		}
 		
-		
-		
 		for (int i = 0; i < output_size; i++){
 			output[i] = readRegister(FIFODataReg);
 			//hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)output[i];
 		}
-		
-		
 		
 		return output_size;
 	}
@@ -249,7 +245,7 @@ public:
 		
 		hwlib::cout << "Running selftest" << '\n';
 		writeRegister(CommandReg, CalcCRC);
-		hwlib::wait_ms(5000);
+		hwlib::wait_ms(2000);
 		writeRegister(CommandReg, Idle);
 		writeRegister(AutoTestReg, 0x00);
 		
@@ -380,6 +376,7 @@ public:
 		byte Sel_card[7] = {0x93, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00};
 		byte UID[5];
 		byte Sak[3];
+		byte CRCcheck[2];
 		int SAK_size;
 		int UID_lenght;
 		
@@ -399,6 +396,19 @@ public:
 		
 		
 		communicate(Sel_card, 7, Trancieve, Sak, &SAK_size, true, false);
+		
+		calculateCRC(&Sak[0], 1, CRCcheck);
+		
+		if(Sak[0] == 0x08){
+			if((Sak[1] != CRCcheck[0]) || (Sak[2] != CRCcheck[1])){
+				hwlib::cout << "Selection error. Sak CRC does not match expected";
+			return false;
+			}
+			
+		} else {
+			hwlib::cout << "No valid SAK response";
+			return false;
+		}
 		
 		for(int i = 0; i < 4; i++){
 			Cardserial[i] = UID[i];
@@ -519,7 +529,11 @@ public:
 		writeRegister(CommandReg, Idle);
 		writeRegister(DivIrqReg, 0x04);
 		setRegisterMask(FIFOLevelReg, 0x80);
-		writeFIFO(length, data);
+		if (length == 1){
+			writeFIFO(*data);
+		} else {
+			writeFIFO(length, data);
+		}
 		writeRegister(CommandReg, CalcCRC);
 		
 		int i = 2000;

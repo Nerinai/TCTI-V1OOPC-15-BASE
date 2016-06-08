@@ -17,12 +17,12 @@ int main(void){
 	);
 	
 	RC522 nfc (sda, reset, spi);
-	bool card = false;
-	bool select_success = false;
+	bool card;
+	bool select_success;
 	hwlib::wait_ms(1000);
-	//byte key[] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5};
-	byte key [] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
-	byte data[] = {0x06, 0x57, 0x80, 0x58, 0x65};
+	byte key[] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5};
+	//byte key [] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
+	//byte data[] = {0x06, 0x57, 0x80, 0x58, 0x65};
 	//byte key[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 	byte cardtype[2];
 	byte serial[4];
@@ -31,10 +31,10 @@ int main(void){
 	byte block2 = 0x01;
 	byte block3 = 0x02;
 	byte block4 = 0x03;
-	byte data1[16];
-	byte data2[16];
-	byte data3[16];
-	byte data4[16];
+	byte data1[16] = {};
+	byte data2[16] = {};
+	byte data3[16] = {};
+	byte data4[16] = {};
 	
 	nfc.init_chip();
 	card = nfc.iscard(cardtype);
@@ -45,12 +45,13 @@ int main(void){
 	
 	if (select_success == true){
 		nfc.authenticate_classic(RC522::AuthwithA, &sector, key, serial);
-		nfc.writeBlock(sector, data, 5);
+		//nfc.writeBlock(sector, data, 5);
 		nfc.readblock(block1, data1);
 		nfc.readblock(block2, data2);
 		nfc.readblock(block3, data3);
 		nfc.readblock(block4, data4);
 	}
+	
 	
 	for (int i = 0; i < 16; i++){
 		hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data1[i] << ' ';
