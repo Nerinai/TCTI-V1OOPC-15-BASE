@@ -1,4 +1,5 @@
 #include "RC522.hpp"
+#include "nfccontroler.hpp"
 int main(void){
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	
@@ -44,7 +45,7 @@ int main(void){
 	}
 	
 	if (select_success == true){
-		nfc.authenticate_classic(RC522::AuthwithA, &sector, key, serial);
+		nfc.authenticate_classic(RC522::Keytype::AuthwithA, &sector, key, serial);
 		//nfc.writeBlock(sector, data, 5);
 		nfc.readblock(block1, data1);
 		nfc.readblock(block2, data2);

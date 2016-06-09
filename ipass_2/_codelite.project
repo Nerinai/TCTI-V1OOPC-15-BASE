@@ -35,6 +35,8 @@
     <File Name="nfccontroler.cpp"/>
     <File Name="RC522.hpp"/>
     <File Name="RC522.cpp"/>
+    <File Name="Mifare_Classic.hpp"/>
+    <File Name="Mifare_Classic.cpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

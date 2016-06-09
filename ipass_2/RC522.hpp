@@ -4,28 +4,23 @@
 #include "hwlib.hpp"
 #include "nfccontroler.hpp"
 
-class RC522
+class RC522 : public nfccontroler
 {
 private:
 
-	hwlib::pin_out & sda;
-	hwlib::pin_in_out & reset;
-	hwlib::spi_bus & spi;
-	
-	
 public:
 	
 	RC522(hwlib::pin_out & sda, hwlib::pin_in_out & reset, hwlib::spi_bus & spi):
-	sda(sda), reset(reset), spi(spi)
+	nfccontroler(sda, reset, spi)
 	{}
 	
-	enum Keytype{
+	enum class Keytype{
 		// The 2 types of keys you can authenticate with.
 		AuthwithA	= 0x60, // Starts authentication with key A.
 		AuthwithB	= 0x61  // Starts authentication with key B.
 	};
 	
-	enum CMD {
+	enum class CMD {
 		// commands
 		Idle		= 0x00, // Cancels all running commands.
 		Mem			= 0x01, // Writes 25 bytes from the FIFO buffer to the internal buffer.
@@ -40,7 +35,7 @@ public:
 		SoftReset	= 0x0F, // Resets the MFRC522.
 	};
 	
-	enum Reg {
+	enum class Reg {
 		// register addresses
 		// Page 0 Command and status registers
 		
@@ -117,63 +112,79 @@ public:
 	};
 	
 	byte readRegister( Reg a ){ 
+		return readRegister((byte)a);
+	}
+	
+	byte readRegister( byte a ) override {
 		byte awnser[2];
-		byte Register = ( a | 0x80);
+		byte Register = (a | 0x80);
 		spi.write_and_read(sda, 2, &Register, awnser);
 		return awnser[1];
 	}
 	
-	void writeRegister(Reg a, byte value){
+	void writeRegister(Reg a, byte value) {
+		writeRegister((byte)a, value);
+	}
+	
+	void writeRegister(byte a, byte value) override {
 		byte send[] = {a, value};
 		spi.write_and_read(sda, 2, send, nullptr);
 	}
 	
 	void setRegisterMask(Reg a, byte value){
+		setRegisterMask((byte)a, value);
+	}
+	
+	void setRegisterMask(byte a, byte value)  override  {
 		byte current = readRegister(a);
 		writeRegister(a, current | value);
 	}
 	
 	void clearRegisterMask(Reg a, byte value){
+		clearRegisterMask((byte)a, value);
+	}
+	
+	void clearRegisterMask(byte a, byte value) override {
 		byte current = readRegister(a);
 		writeRegister(a, current & (~value));
 	}
 	
-	byte getAntennaGain(void){
-		return readRegister(RFCfgReg) & (0x07 << 4);
+	byte getAntennaGain(void) override {
+		return readRegister(Reg::RFCfgReg) & (0x07 << 4);
 	}
 	
-	void setAntennaGain(byte value){
+	void setAntennaGain(byte value) override {
 		if(getAntennaGain() != value){
-			clearRegisterMask(RFCfgReg, (0x07<<4));
-			setRegisterMask(RFCfgReg, value & (0x07<<4));
+			clearRegisterMask(Reg::RFCfgReg, (0x07<<4));
+			setRegisterMask(Reg::RFCfgReg, value & (0x07<<4));
 		}
 	}
 
 	
-	void antennaOn(void){
-		byte status = readRegister(TxControlReg);
+	void antennaOn(void) override {
+		byte status = readRegister(Reg::TxControlReg);
 		if((status & 0x03) != 0x03){
-			writeRegister(TxControlReg, status | 0x03);
+			writeRegister(Reg::TxControlReg, status | 0x03);
 		}
 	}
 	
-	void antennaOff(void){
-		clearRegisterMask(TxControlReg, 0x03);
+	void antennaOff(void) override {
+		clearRegisterMask(Reg::TxControlReg, 0x03);
 	}
 	
-	int readFIFO(void){
-		int output_size = (int)readRegister(FIFOLevelReg);
+	int readFIFO(void) override  {
+		int output_size = (int)readRegister(Reg::FIFOLevelReg);
 		
 		if (output_size == 0){
 			hwlib::cout << "The FIFO buffer is empty";
 			return 0;
 		}
-		return (int)readRegister(FIFODataReg);
+		return (int)readRegister(Reg::FIFODataReg);
 	}
 	
-	int readFIFO(byte * output){
+	int readFIFO(byte * output) override {
 		
-		int output_size = (int)readRegister(FIFOLevelReg);
+		int output_size = (int)readRegister(Reg::FIFOLevelReg);
 		
 		//hwlib::cout << output_size; // debug
 		
@@ -183,43 +194,43 @@ public:
 		}
 		
 		for (int i = 0; i < output_size; i++){
-			output[i] = readRegister(FIFODataReg);
+			output[i] = readRegister(Reg::FIFODataReg);
 			//hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)output[i];
 		}
 		
 		return output_size;
 	}
 	
-	int writeFIFO(const byte value){
+	int writeFIFO(const byte value) override {
 		
-		if ((int)readRegister(FIFOLevelReg) == 64){
+		if ((int)readRegister(Reg::FIFOLevelReg) == 64){
 			hwlib::cout << "Cannot Write the fifo buffer is full \n";
 		}
 		
-		writeRegister(FIFODataReg, value);
+		writeRegister(Reg::FIFODataReg, value);
 		return 0;
 	}
 	
-	int writeFIFO(const int byte_amount, const byte * data){
+	int writeFIFO(const int byte_amount, const byte * data) override {
 		
 		if (byte_amount > 64){
 			hwlib::cout << "The FIFO buffer has a maximum size of 64" << '\n';
 			return 1;
 		}
 		
-		if((int)readRegister(FIFOLevelReg) + byte_amount > 64){
+		if((int)readRegister(Reg::FIFOLevelReg) + byte_amount > 64){
 			hwlib::cout << "Overflow warning. \n Writing to much data. \n the FIFO-buffer has " 
-						<< 64 - (int)readRegister(FIFOLevelReg) << "byte(s) of space left to write to \n";
+						<< 64 - (int)readRegister(Reg::FIFOLevelReg) << "byte(s) of space left to write to \n";
 			return 1;
 		}
 		
 		for(int i = 0; i < byte_amount; i++){
-			writeRegister(FIFODataReg, data[i]);
+			writeRegister(Reg::FIFODataReg, data[i]);
 		}
 		return 0;
 	}
 	
-	void selfTest(void){
+	void selfTest(void) override {
 		hwlib::cout << "Initializing selftest" << '\n';
 		
 		byte empty25[25] = {};
@@ -227,27 +238,27 @@ public:
 		
 		
 		hwlib::cout << "Resetting FIFO buffer" << '\n';
-		writeRegister(FIFOLevelReg, 0x80); //flushes the FIFO buffer.
+		writeRegister(Reg::FIFOLevelReg, 0x80); //flushes the FIFO buffer.
 		
 		hwlib::cout << "Resetting chip" << '\n';
-		writeRegister(CommandReg , SoftReset);
+		writeRegister(Reg::CommandReg , (byte)CMD::SoftReset);
 		hwlib::wait_ms(5000);
 		
 		hwlib::cout << "Writing 25 empty bytes to internal memory" << '\n';
 		writeFIFO(25, empty25);
-		writeRegister(CommandReg, Mem);
+		writeRegister(Reg::CommandReg, (byte)CMD::Mem);
  
 		hwlib::cout << "Setting registers for selftest" << '\n';
-		writeRegister(AutoTestReg, 0x09); //Initializes the selftest to run on the CalcCRC command.
+		writeRegister(Reg::AutoTestReg, 0x09); //Initializes the selftest to run on the CalcCRC command.
 		
 		hwlib::cout << "Writing final empty byte FIFO" << '\n';
 		writeFIFO(1, 0x00);
 		
 		hwlib::cout << "Running selftest" << '\n';
-		writeRegister(CommandReg, CalcCRC);
+		writeRegister(Reg::CommandReg, (byte)CMD::CalcCRC);
 		hwlib::wait_ms(2000);
-		writeRegister(CommandReg, Idle);
-		writeRegister(AutoTestReg, 0x00);
+		writeRegister(Reg::CommandReg, (byte)CMD::Idle);
+		writeRegister(Reg::AutoTestReg, 0x00);
 		
 		hwlib::cout << "Test results:" << '\n';
 		int n = readFIFO(result);
@@ -261,20 +272,20 @@ public:
 		hwlib::cout << '\n';
 	}
 	
-	void init_chip(void){
+	void init_chip(void) override {
 		if( ! reset.get()){
 			reset.set(1);
 		} else {
-			writeRegister(CommandReg, SoftReset);
+			writeRegister(Reg::CommandReg, (byte)CMD::SoftReset);
 			hwlib::wait_ms(100);
 		}
 		
-		writeRegister(TmodeReg, 0x80);
-		writeRegister(TPrescalerReg, 0x9A);
-		writeRegister(TReloadRegH, 0x03);
-		writeRegister(TreloadRegL, 0xE8);
-		writeRegister(TxASKreg, 0x40);
-		writeRegister(ModeReg, 0x3D);
+		writeRegister(Reg::TmodeReg, 0x80);
+		writeRegister(Reg::TPrescalerReg, 0x9A);
+		writeRegister(Reg::TReloadRegH, 0x03);
+		writeRegister(Reg::TreloadRegL, 0xE8);
+		writeRegister(Reg::TxASKreg, 0x40);
+		writeRegister(Reg::ModeReg, 0x3D);
 		antennaOn();
 		setAntennaGain(0x70);
 	}
@@ -285,18 +296,28 @@ public:
 					 byte * data_out, 
 					 int * data_out_lenght, 
 					 bool crc = false, 
-					 bool REQA = false){
-						 
+					 bool REQA = false) {
+						
+		return communicate(data_in, data_in_lenght, (byte)command, data_out, data_out_lenght, crc, REQA);
+		}
+	
+	bool communicate(const byte * data_in,
+					 const int data_in_lenght, 
+					 byte command, 
+					 byte * data_out, 
+					 int * data_out_lenght, 
+					 bool crc = false, 
+					 bool REQA = false) override {
 		byte crcresult[2];
 		bool validdata = false;
 		
-		writeRegister(CommandReg, Idle);
-		writeRegister(ComIrqReg, 0x7F);
-		setRegisterMask(FIFOLevelReg, 0x80);
+		writeRegister(Reg::CommandReg, (byte)CMD::Idle);
+		writeRegister(Reg::ComIrqReg, 0x7F);
+		setRegisterMask(Reg::FIFOLevelReg, 0x80);
 		if (REQA == true){
-			writeRegister(BitFramingReg, 0x07);
+			writeRegister(Reg::BitFramingReg, 0x07);
 		} else {
-			writeRegister(BitFramingReg, 0x00);
+			writeRegister(Reg::BitFramingReg, 0x00);
 		}
 		
 		if (data_in_lenght == 1){
@@ -316,14 +337,14 @@ public:
 				writeFIFO(data_in_lenght, data_in);
 			}
 		}
-		writeRegister(CommandReg, command);
-		if(command == Trancieve){
-			setRegisterMask(BitFramingReg, 0x80);
+		writeRegister(Reg::CommandReg, command);
+		if(command == (byte)CMD::Trancieve){
+			setRegisterMask(Reg::BitFramingReg, 0x80);
 		}
 		
 		int waittime = 2000;
 		while(! validdata){
-			byte n = readRegister(ComIrqReg);
+			byte n = readRegister(Reg::ComIrqReg);
 			if (n & 0x30){
 				validdata = true;
 				//hwlib::cout << "valid data recieved\n";
@@ -335,20 +356,20 @@ public:
 			}
 			if (--waittime == 0){
 				hwlib::cout << "general timeout";
-				if ((int)readRegister(FIFOLevelReg) >= 0){
+				if ((int)readRegister(Reg::FIFOLevelReg) >= 0){
 					hwlib::cout << "No data in Fifo buffer";
 					return false;
 				}
 			}
 		}
 		
-		byte error = readRegister(ErrorReg);
+		byte error = readRegister(Reg::ErrorReg);
 		
 		if(error & 0x13){
 			hwlib::cout << "Buffer Pairity or Protocol error";
 			return false;
 		}
-		if (command != MFAuthent){
+		if (command != (byte)CMD::MFAuthent){
 			
 			if (data_out_lenght == nullptr){
 				readFIFO(data_out);
@@ -359,18 +380,18 @@ public:
 		
 		return true;
 	}
-	
-	bool iscard (byte * cardtype){
+					 
+	bool iscard (byte * cardtype) override {
 		byte reqa = 0x26;
 		bool card = false;
 		while(card == false){
 			hwlib::wait_ms(333);
-			card = communicate(&reqa, 1, Trancieve, cardtype, nullptr, false, true);
+			card = communicate(&reqa, 1, CMD::Trancieve, cardtype, nullptr, false, true);
 		}
 		return true;
 	}
 	
-	bool select_card(byte * Cardserial){
+	bool select_card(byte * Cardserial) override {
 		
 		byte Get_UID[2] =  {0x93, 0x20};
 		byte Sel_card[7] = {0x93, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -380,7 +401,7 @@ public:
 		int SAK_size;
 		int UID_lenght;
 		
-		communicate(Get_UID, 2, Trancieve, UID, &UID_lenght, false, false);
+		communicate(Get_UID, 2, CMD::Trancieve, UID, &UID_lenght, false, false);
 		
 		byte CRC_A = UID[0] ^ UID[1] ^ UID[2] ^ UID[3];
 		if (UID[4] != CRC_A){
@@ -395,7 +416,7 @@ public:
 		}
 		
 		
-		communicate(Sel_card, 7, Trancieve, Sak, &SAK_size, true, false);
+		communicate(Sel_card, 7, CMD::Trancieve, Sak, &SAK_size, true, false);
 		
 		calculateCRC(&Sak[0], 1, CRCcheck);
 		
@@ -418,6 +439,10 @@ public:
 	}
 	
 	bool authenticate_classic(Keytype typekey, byte * block_address, byte * key, byte * Cardserial){
+		return authenticate_classic((byte)typekey, block_address, key, Cardserial);
+	}
+	
+	bool authenticate_classic(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
 		int n = 2;
 		byte auth[12];
 		byte dummy[64];
@@ -440,9 +465,9 @@ public:
 			return false;
 		}
 		
-		communicate(auth, 12, MFAuthent, dummy, nullptr, false, false);
+		communicate(auth, 12, CMD::MFAuthent, dummy, nullptr, false, false);
 		
-		if((readRegister(ComIrqReg) == 0x14) && (readRegister(ErrorReg) == 0x00)){
+		if((readRegister(Reg::ComIrqReg) == 0x14) && (readRegister(Reg::ErrorReg) == 0x00)){
 			hwlib::cout << "Authentication Successfull\n";
 			return true;
 		} else {
@@ -454,14 +479,15 @@ public:
 		return true;
 	}
 	
-	bool readblock(byte block_address, byte * data_out){
+	
+	bool readblock(byte block_address, byte * data_out) override {
 		byte read[2] = {0x30, block_address};
 		byte Intermediate[18];
 		byte data_crc[2];
 		byte check_crc[2];
 		byte data[16];
 		
-		communicate(read, 2, Trancieve, Intermediate, nullptr, true, false);
+		communicate(read, 2, CMD::Trancieve, Intermediate, nullptr, true, false);
 		
 		for (int i = 0; i < 16; i++){
 			data[i] = Intermediate[i];
@@ -490,12 +516,12 @@ public:
 		return true;
 	}
 	
-	bool writeBlock(const byte block_address,const byte * data_in,const int lenght){
+	bool writeBlock(const byte block_address,const byte * data_in,const int lenght) override {
 		byte read[2] = {0xA0, block_address};
 		byte Ack, Ack2;
 		byte appended_data[16] = {};
 		
-		communicate(read, 2, Trancieve, &Ack, nullptr, true, false);
+		communicate(read, 2, CMD::Trancieve, &Ack, nullptr, true, false);
 		
 		if (Ack != 0x0A){
 		
@@ -510,7 +536,7 @@ public:
 			}
 		}
 		
-		communicate(appended_data, 16, Trancieve, &Ack2, nullptr, true, false);
+		communicate(appended_data, 16, CMD::Trancieve, &Ack2, nullptr, true, false);
 		
 		
 		if (Ack != 0x0A){
@@ -524,23 +550,23 @@ public:
 	
 	
 	
-	int calculateCRC(const byte * data, const int length, byte * result){
+	int calculateCRC(const byte * data, const int length, byte * result) override {
 		
-		writeRegister(CommandReg, Idle);
-		writeRegister(DivIrqReg, 0x04);
-		setRegisterMask(FIFOLevelReg, 0x80);
+		writeRegister(Reg::CommandReg, (byte)CMD::Idle);
+		writeRegister(Reg::DivIrqReg, 0x04);
+		setRegisterMask(Reg::FIFOLevelReg, 0x80);
 		if (length == 1){
 			writeFIFO(*data);
 		} else {
 			writeFIFO(length, data);
 		}
-		writeRegister(CommandReg, CalcCRC);
+		writeRegister(Reg::CommandReg, (byte)CMD::CalcCRC);
 		
 		int i = 2000;
 		byte n;
 		
 		while(1){
-			n = readRegister(DivIrqReg);
+			n = readRegister(Reg::DivIrqReg);
 			if(n & 0x04){
 				break;
 			}
@@ -548,16 +574,11 @@ public:
 				return 1;
 			}
 		}
-	writeRegister(CommandReg, Idle);
+	writeRegister(Reg::CommandReg, (byte)CMD::Idle);
 	
-	result[0] = readRegister(CRCResultL);
-	result[1] = readRegister(CRCResultH);
+	result[0] = readRegister(Reg::CRCResultL);
+	result[1] = readRegister(Reg::CRCResultH);
 	return 0;
 	}
-	
-	
 };
-
-
-
 #endif // RC522_HPP
