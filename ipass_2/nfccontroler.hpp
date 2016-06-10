@@ -1,21 +1,13 @@
 #ifndef NFCCONTROLER_HPP
 #define NFCCONTROLER_HPP
 #include "hwlib.hpp"
+#include "nfccontroler_limited.hpp"
 
-class nfccontroler
+class nfccontroler : public nfccontroler_limited
 {
 protected:
-
-	hwlib::pin_out & sda;
-	hwlib::pin_in_out & reset;
-	hwlib::spi_bus & spi;
 	
 public:
-	nfccontroler(hwlib::pin_out & sda,
-				 hwlib::pin_in_out & reset,
-				 hwlib::spi_bus & spi):
-	sda(sda), reset(reset), spi(spi)
-	{}
 	
 	virtual byte	readRegister		(byte a ) = 0;
 	virtual void	writeRegister		(byte a, byte value) = 0;
@@ -27,6 +19,8 @@ public:
 	virtual void	antennaOn			(void) = 0;
 	virtual void	antennaOff			(void) = 0;
 	
+	virtual void 	checkErroAndIrq 	(byte * result) = 0;
+	
 	virtual int		readFIFO			(void) = 0;
 	virtual int		readFIFO			(byte * output) = 0;
 	virtual int		writeFIFO			(const byte value) = 0;
@@ -35,8 +29,17 @@ public:
 	virtual void	selfTest			(void) = 0;
 	virtual void	init_chip			(void) = 0;
 	
+	virtual bool	trancieve			(const byte * data_in,
+											const int data_in_lenght, 
+											byte * data_out, 
+											int * data_out_lenght, 
+											bool crc = false, 
+											bool REQA = false) = 0;
+											
+	virtual bool 	authent				(const byte * data_in, const int data_in_lenght) = 0;
+	
 	virtual bool	communicate			(const byte * data_in,
-										 const int data_in_lenght, 
+											const int data_in_lenght, 
 											byte command, 
 											byte * data_out, 
 											int * data_out_lenght, 

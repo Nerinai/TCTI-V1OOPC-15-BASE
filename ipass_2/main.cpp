@@ -1,9 +1,12 @@
 #include "RC522.hpp"
 #include "nfccontroler.hpp"
+#include "Mifare_Classic.hpp"
 int main(void){
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	
 	namespace target = hwlib::target;
+	
+	hwlib::wait_ms(500);
 	
 	target::pin_out sda  (target::pins::d22);
 	target::pin_out sck  (target::pins::d24);
@@ -18,8 +21,10 @@ int main(void){
 	);
 	
 	RC522 nfc (sda, reset, spi);
-	bool card;
-	bool select_success;
+	Mifare_Classic reader (nfc);
+	
+	bool card = false;
+	bool select_success = false;
 	hwlib::wait_ms(1000);
 	byte key[] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5};
 	//byte key [] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
@@ -38,19 +43,19 @@ int main(void){
 	byte data4[16] = {};
 	
 	nfc.init_chip();
-	card = nfc.iscard(cardtype);
+	card = reader.iscard(cardtype);
 	
 	if (card == true){
-		select_success = nfc.select_card(serial);
+		select_success = reader.select_card(serial);
 	}
 	
 	if (select_success == true){
-		nfc.authenticate_classic(RC522::Keytype::AuthwithA, &sector, key, serial);
+		reader.authenticate_classic((byte)RC522::Keytype::AuthwithA, &sector, key, serial);
 		//nfc.writeBlock(sector, data, 5);
-		nfc.readblock(block1, data1);
-		nfc.readblock(block2, data2);
-		nfc.readblock(block3, data3);
-		nfc.readblock(block4, data4);
+		reader.readblock(block1, data1);
+		reader.readblock(block2, data2);
+		reader.readblock(block3, data3);
+		reader.readblock(block4, data4);
 	}
 	
 	

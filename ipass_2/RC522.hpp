@@ -8,10 +8,15 @@ class RC522 : public nfccontroler
 {
 private:
 
+	hwlib::pin_out & sda;
+	hwlib::pin_in_out & reset;
+	hwlib::spi_bus & spi;
+
 public:
 	
+	
 	RC522(hwlib::pin_out & sda, hwlib::pin_in_out & reset, hwlib::spi_bus & spi):
-	nfccontroler(sda, reset, spi)
+	sda(sda), reset(reset), spi(spi)
 	{}
 	
 	enum class Keytype{
@@ -172,6 +177,11 @@ public:
 		clearRegisterMask(Reg::TxControlReg, 0x03);
 	}
 	
+	void checkErroAndIrq (byte * result) override {
+		result[0] = readRegister(Reg::ComIrqReg);
+		result[1] = readRegister(Reg::ErrorReg);
+	}
+	
 	int readFIFO(void) override  {
 		int output_size = (int)readRegister(Reg::FIFOLevelReg);
 		
@@ -290,6 +300,20 @@ public:
 		setAntennaGain(0x70);
 	}
 	
+	bool trancieve(const byte * data_in,
+				   const int data_in_lenght, 
+				   byte * data_out, 
+				   int * data_out_lenght, 
+				   bool crc = false, 
+				   bool REQA = false) override {
+		return communicate(data_in, data_in_lenght, CMD::Trancieve, data_out, data_out_lenght, crc, REQA);
+	}
+	
+	bool authent(const byte * data_in, const int data_in_lenght) override {
+		byte dummy[64];
+		return communicate(data_in, data_in_lenght, CMD::MFAuthent, dummy, nullptr, false, false);
+	}
+	
 	bool communicate(const byte * data_in,
 					 const int data_in_lenght, 
 					 CMD command, 
@@ -382,18 +406,20 @@ public:
 	}
 					 
 	bool iscard (byte * cardtype) override {
-		byte reqa = 0x26;
+/*		byte reqa = 0x26;
 		bool card = false;
 		while(card == false){
 			hwlib::wait_ms(333);
 			card = communicate(&reqa, 1, CMD::Trancieve, cardtype, nullptr, false, true);
 		}
-		return true;
+		return true;*/
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
 	}
 	
 	bool select_card(byte * Cardserial) override {
 		
-		byte Get_UID[2] =  {0x93, 0x20};
+/*		byte Get_UID[2] =  {0x93, 0x20};
 		byte Sel_card[7] = {0x93, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00};
 		byte UID[5];
 		byte Sak[3];
@@ -434,16 +460,19 @@ public:
 		for(int i = 0; i < 4; i++){
 			Cardserial[i] = UID[i];
 		}
-		hwlib::cout << "Card selected\n";
-		return true;
+		hwlib::cout << "Card selected\n";*/
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
 	}
 	
 	bool authenticate_classic(Keytype typekey, byte * block_address, byte * key, byte * Cardserial){
-		return authenticate_classic((byte)typekey, block_address, key, Cardserial);
+		/*return authenticate_classic((byte)typekey, block_address, key, Cardserial);*/
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
 	}
 	
 	bool authenticate_classic(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
-		int n = 2;
+/*		int n = 2;
 		byte auth[12];
 		byte dummy[64];
 		
@@ -473,15 +502,16 @@ public:
 		} else {
 			hwlib::cout << "Authentication Unsuccessfull\n";
 			return false;
-		}
+		}*/
 		
 		//hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)readRegister(ComIrqReg)<< ' ' << (int)readRegister(ErrorReg);
-		return true;
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
 	}
 	
 	
 	bool readblock(byte block_address, byte * data_out) override {
-		byte read[2] = {0x30, block_address};
+	/*	byte read[2] = {0x30, block_address};
 		byte Intermediate[18];
 		byte data_crc[2];
 		byte check_crc[2];
@@ -499,9 +529,6 @@ public:
 		
 		calculateCRC(data, 16, check_crc);
 		
-		/*hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)data_crc[0]<< ' ' << (int)data_crc[1] << '\n';
-		hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)check_crc[0]<< ' ' << (int)check_crc[1];*/
-		
 		for (int i = 0; i < 2; i++){
 			if(data_crc[i] != check_crc[i]){
 				hwlib::cout << "CRC of recieved data does not match\n";
@@ -512,12 +539,13 @@ public:
 		for (int i = 0; i < 16; i++){
 			data_out[i] = data[i];
 		}
-		
-		return true;
+		*/
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
 	}
 	
 	bool writeBlock(const byte block_address,const byte * data_in,const int lenght) override {
-		byte read[2] = {0xA0, block_address};
+		/*byte read[2] = {0xA0, block_address};
 		byte Ack, Ack2;
 		byte appended_data[16] = {};
 		
@@ -544,8 +572,9 @@ public:
 			hwlib::cout << "Write error did not recieve acknowledge after the data was written.\n";
 			return false;
 		}
-		
-		return true;
+		*/
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
 	}
 	
 	

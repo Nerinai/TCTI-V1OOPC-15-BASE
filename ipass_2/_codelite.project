@@ -32,11 +32,9 @@
     <File Name="main.cpp"/>
     <File Name="Makefile"/>
     <File Name="nfccontroler.hpp"/>
-    <File Name="nfccontroler.cpp"/>
     <File Name="RC522.hpp"/>
-    <File Name="RC522.cpp"/>
     <File Name="Mifare_Classic.hpp"/>
-    <File Name="Mifare_Classic.cpp"/>
+    <File Name="nfccontroler_limited.hpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>
