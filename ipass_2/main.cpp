@@ -28,7 +28,7 @@ int main(void){
 	byte cardtype[2];
 	byte key[] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5};
 	byte key2[] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
-	byte writesector[3][16] = {{0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5},
+	byte writesector[3][16] = {{0xFF, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5},
 							   {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7},
 							   {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}};
 	byte sectoraddr = 0x00;
@@ -38,10 +38,10 @@ int main(void){
 	byte serial[4];
 	//byte keya = 0x60;
 	nfc.init_chip();
-	card = reader.iscard(cardtype);
+	card = reader.isCard(cardtype);
 	
 	if (card == true){
-		select_success = reader.select_card(serial);
+		select_success = reader.selectCard(serial);
 	}
 	
 	if (select_success == true){
@@ -50,7 +50,7 @@ int main(void){
 		reader.readSector(4, sector2, 0x60, &sectoraddr2, key2, serial);
 	}
 	
-	/*for(int i = 0; i < 4; i++){
+	for(int i = 0; i < 4; i++){
 		for (int j = 0; j < 16; j++){
 			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)sector[i][j] << ' ';
 		}
@@ -62,7 +62,7 @@ int main(void){
 			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)sector2[i][j] << ' ';
 		}
 		hwlib::cout << '\n';
-	}*/
+	}
 	
 	/*//byte key [] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
 	//byte data[] = {0x06, 0x57, 0x80, 0x58, 0x65};

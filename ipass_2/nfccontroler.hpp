@@ -27,18 +27,18 @@ public:
 	virtual int		writeFIFO			(const int byte_amount, const byte * data) = 0;
 	
 	virtual void	selfTest			(void) = 0;
-	virtual void	init_chip			(void) = 0;
+	virtual void	initChip			(void) = 0;
 	
-	virtual bool	trancieve			(const byte * data_in,
+	virtual bool	trancieveData			(const byte * data_in,
 											const int data_in_lenght, 
 											byte * data_out, 
 											int * data_out_lenght, 
 											bool crc = false, 
 											bool REQA = false) = 0;
 											
-	virtual bool 	authent				(const byte * data_in, const int data_in_lenght) = 0;
+	virtual bool 	authentCard			(const byte * data_in, const int data_in_lenght) = 0;
 	
-	virtual bool	communicate			(const byte * data_in,
+	virtual bool	communicateNFC		(const byte * data_in,
 											const int data_in_lenght, 
 											byte command, 
 											byte * data_out, 
@@ -46,14 +46,14 @@ public:
 											bool crc = false, 
 											bool REQA = false) = 0;
 											
-	virtual bool	iscard 				(byte * cardtype) = 0;
-	virtual bool	select_card			(byte * Cardserial) = 0;
-	virtual bool	authenticate_classic(byte typekey,
+	virtual bool	isCard 				(byte * cardtype) = 0;
+	virtual bool	selectCard			(byte * Cardserial) = 0;
+	virtual bool	authenticateCard	(byte typekey,
 											byte * block_address,
 											byte * key,
 											byte * Cardserial) = 0;
 											
-	virtual bool	readblock			(byte block_address, byte * data_out) = 0;
+	virtual bool	readBlock			(byte block_address, byte * data_out) = 0;
 	virtual bool 	readSector			(const int sectorsize, 
 											byte (*sector_out)[16], 
 											byte typekey, 

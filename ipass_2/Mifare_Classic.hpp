@@ -10,29 +10,29 @@ public:
 	slave(slaaf){}
 	
 	
-	bool trancieve(const byte * data_in, const int data_in_lenght, byte * data_out, int * data_out_lenght, bool crc = false, bool REQA = false) override {
-		return slave.trancieve(data_in, data_in_lenght, data_out, data_out_lenght, crc, REQA);
+	bool trancieveData(const byte * data_in, const int data_in_lenght, byte * data_out, int * data_out_lenght, bool crc = false, bool REQA = false) override {
+		return slave.trancieveData(data_in, data_in_lenght, data_out, data_out_lenght, crc, REQA);
 	}
 	
-	bool authent(const byte * data_in, const int data_in_lenght){
-		return slave.authent(data_in, data_in_lenght);
+	bool authentCard(const byte * data_in, const int data_in_lenght){
+		return slave.authentCard(data_in, data_in_lenght);
 	}
 	
 	void checkErroAndIrq (byte * result)override{
 		slave.checkErroAndIrq(result);
 	}
 	
-	bool iscard (byte * cardtype) override {
+	bool isCard (byte * cardtype) override {
 		byte reqa = 0x26;
 		bool card = false;
 		while(card == false){
 			hwlib::wait_ms(333);
-			card = trancieve(&reqa, 1, cardtype, nullptr, false, true);
+			card = trancieveData(&reqa, 1, cardtype, nullptr, false, true);
 		}
 		return true;
 	}
 	
-	bool select_card(byte * Cardserial) override {
+	bool selectCard(byte * Cardserial) override {
 		
 		byte Get_UID[2] =  {0x93, 0x20};
 		byte Sel_card[7] = {0x93, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -42,7 +42,7 @@ public:
 		int SAK_size;
 		int UID_lenght;
 		
-		trancieve(Get_UID, 2, UID, &UID_lenght, false, false);
+		trancieveData(Get_UID, 2, UID, &UID_lenght, false, false);
 		
 		byte CRC_A = UID[0] ^ UID[1] ^ UID[2] ^ UID[3];
 		if (UID[4] != CRC_A){
@@ -57,7 +57,7 @@ public:
 		}
 		
 		
-		trancieve(Sel_card, 7, Sak, &SAK_size, true, false);
+		trancieveData(Sel_card, 7, Sak, &SAK_size, true, false);
 		
 		calculateCRC(&Sak[0], 1, CRCcheck);
 		
@@ -79,7 +79,7 @@ public:
 		return true;
 	}
 	
-	bool authenticate_classic(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
+	bool authenticateCard(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
 		int n = 2;
 		byte auth[12];
 		byte errandirq[2];
@@ -101,7 +101,7 @@ public:
 			return false;
 		}
 		
-		authent(auth, 12);
+		authentCard(auth, 12);
 		
 		checkErroAndIrq(errandirq);
 		
@@ -116,7 +116,7 @@ public:
 		return true;
 	}
 	
-	bool readblock(byte block_address, byte * data_out) override {
+	bool readBlock(byte block_address, byte * data_out) override {
 		byte read[2] = {0x30, block_address};
 		byte Intermediate[18];
 		byte data_crc[2];
@@ -124,7 +124,7 @@ public:
 		byte data[16];
 		
 		
-		trancieve(read, 2, Intermediate, nullptr, true, false);
+		trancieveData(read, 2, Intermediate, nullptr, true, false);
 		
 		for (int i = 0; i < 16; i++){
 			data[i] = Intermediate[i];
@@ -153,11 +153,11 @@ public:
 		bool authenticate = false;
 		bool readsuccess = false;
 		byte blocknr = *first_block_in_sector;
-		authenticate = authenticate_classic(typekey, first_block_in_sector, key, Cardserial);
+		authenticate = authenticateCard(typekey, first_block_in_sector, key, Cardserial);
 		
 		if (authenticate == true){
 			for (int i = 0; i < sectorsize; i++){
-				readsuccess = readblock(blocknr, sector_out[i]);
+				readsuccess = readBlock(blocknr, sector_out[i]);
 				blocknr++;
 				if (readsuccess == false){
 					return readsuccess;
@@ -173,7 +173,7 @@ public:
 		byte appended_data[16] = {};
 		
 		
-		trancieve(read, 2, &Ack, nullptr, true, false);
+		trancieveData(read, 2, &Ack, nullptr, true, false);
 		
 		if (Ack != 0x0A){
 		
@@ -188,14 +188,7 @@ public:
 			}
 		}
 		
-		/*for(int i = 0; i < 1; i++){
-		for (int j = 0; j < 16; j++){
-			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data_in[j] << ' ';
-		}
-		hwlib::cout << '\n';
-	}*/
-		
-		trancieve(appended_data, 16, &Ack2, nullptr, true, false);
+		trancieveData(appended_data, 16, &Ack2, nullptr, true, false);
 		
 		
 		if (Ack != 0x0A){
@@ -211,14 +204,7 @@ public:
 		bool authenticate = false;
 		bool writesuccess = false;
 		byte blocknr = *first_block_in_sector;
-		authenticate = authenticate_classic(typekey, first_block_in_sector, key, Cardserial);
-		
-		/*for(int i = 0; i < 3; i++){
-		for (int j = 0; j < 16; j++){
-			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)sector_in[i][j] << ' ';
-		}
-		hwlib::cout << '\n';
-	}*/
+		authenticate = authenticateCard(typekey, first_block_in_sector, key, Cardserial);
 		
 		if (authenticate == true){
 			for (int i = 0; i < (sectorsize - 1); i++){

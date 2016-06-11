@@ -279,7 +279,7 @@ public:
 		hwlib::cout << '\n';
 	}
 	
-	void init_chip(void) override {
+	void initChip(void) override {
 		if( ! reset.get()){
 			reset.set(1);
 		} else {
@@ -297,21 +297,21 @@ public:
 		setAntennaGain(0x70);
 	}
 	
-	bool trancieve(const byte * data_in,
+	bool trancieveData(const byte * data_in,
 				   const int data_in_lenght, 
 				   byte * data_out, 
 				   int * data_out_lenght, 
 				   bool crc = false, 
 				   bool REQA = false) override {
-		return communicate(data_in, data_in_lenght, CMD::Trancieve, data_out, data_out_lenght, crc, REQA);
+		return communicateNFC(data_in, data_in_lenght, CMD::Trancieve, data_out, data_out_lenght, crc, REQA);
 	}
 	
-	bool authent(const byte * data_in, const int data_in_lenght) override {
+	bool authentCard(const byte * data_in, const int data_in_lenght) override {
 		byte dummy[64];
-		return communicate(data_in, data_in_lenght, CMD::MFAuthent, dummy, nullptr, false, false);
+		return communicateNFC(data_in, data_in_lenght, CMD::MFAuthent, dummy, nullptr, false, false);
 	}
 	
-	bool communicate(const byte * data_in,
+	bool communicateNFC(const byte * data_in,
 					 const int data_in_lenght, 
 					 CMD command, 
 					 byte * data_out, 
@@ -319,10 +319,10 @@ public:
 					 bool crc = false, 
 					 bool REQA = false) {
 						
-		return communicate(data_in, data_in_lenght, (byte)command, data_out, data_out_lenght, crc, REQA);
+		return communicateNFC(data_in, data_in_lenght, (byte)command, data_out, data_out_lenght, crc, REQA);
 		}
 	
-	bool communicate(const byte * data_in,
+	bool communicateNFC(const byte * data_in,
 					 const int data_in_lenght, 
 					 byte command, 
 					 byte * data_out, 
@@ -402,23 +402,23 @@ public:
 		return true;
 	}
 					 
-	bool iscard (byte * cardtype) override {
+	bool isCard (byte * cardtype) override {
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
-	bool select_card(byte * Cardserial) override {
+	bool selectCard(byte * Cardserial) override {
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
-	bool authenticate_classic(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
+	bool authenticateCard(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
 	
-	bool readblock(byte block_address, byte * data_out) override {
+	bool readBlock(byte block_address, byte * data_out) override {
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
