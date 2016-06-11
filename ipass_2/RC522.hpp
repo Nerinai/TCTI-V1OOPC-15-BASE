@@ -196,8 +196,6 @@ public:
 		
 		int output_size = (int)readRegister(Reg::FIFOLevelReg);
 		
-		//hwlib::cout << output_size; // debug
-		
 		if (output_size == 0){
 			hwlib::cout << "The FIFO buffer is empty";
 			return 0;
@@ -205,7 +203,6 @@ public:
 		
 		for (int i = 0; i < output_size; i++){
 			output[i] = readRegister(Reg::FIFODataReg);
-			//hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)output[i];
 		}
 		
 		return output_size;
@@ -371,13 +368,13 @@ public:
 			byte n = readRegister(Reg::ComIrqReg);
 			if (n & 0x30){
 				validdata = true;
-				//hwlib::cout << "valid data recieved\n";
-				//hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)readRegister(FIFODataReg) << (int)readRegister(FIFODataReg);
 			}
+			
 			if (n & 0x01){
 				hwlib::cout << "timer interupt \n";
 				return false;
 			}
+			
 			if (--waittime == 0){
 				hwlib::cout << "general timeout";
 				if ((int)readRegister(Reg::FIFOLevelReg) >= 0){
@@ -394,7 +391,7 @@ public:
 			return false;
 		}
 		if (command != (byte)CMD::MFAuthent){
-			
+			hwlib::wait_ms(50);
 			if (data_out_lenght == nullptr){
 				readFIFO(data_out);
 			} else {
@@ -406,177 +403,51 @@ public:
 	}
 					 
 	bool iscard (byte * cardtype) override {
-/*		byte reqa = 0x26;
-		bool card = false;
-		while(card == false){
-			hwlib::wait_ms(333);
-			card = communicate(&reqa, 1, CMD::Trancieve, cardtype, nullptr, false, true);
-		}
-		return true;*/
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
 	bool select_card(byte * Cardserial) override {
-		
-/*		byte Get_UID[2] =  {0x93, 0x20};
-		byte Sel_card[7] = {0x93, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00};
-		byte UID[5];
-		byte Sak[3];
-		byte CRCcheck[2];
-		int SAK_size;
-		int UID_lenght;
-		
-		communicate(Get_UID, 2, CMD::Trancieve, UID, &UID_lenght, false, false);
-		
-		byte CRC_A = UID[0] ^ UID[1] ^ UID[2] ^ UID[3];
-		if (UID[4] != CRC_A){
-			hwlib::cout << "Could not select card. UID-CRC does not match expected.\n";
-			return false;
-		}
-		
-		hwlib::wait_ms(333);
-		
-		for(int i = 0; i < 5; i++){
-			Sel_card[i + 2] = UID[i];
-		}
-		
-		
-		communicate(Sel_card, 7, CMD::Trancieve, Sak, &SAK_size, true, false);
-		
-		calculateCRC(&Sak[0], 1, CRCcheck);
-		
-		if(Sak[0] == 0x08){
-			if((Sak[1] != CRCcheck[0]) || (Sak[2] != CRCcheck[1])){
-				hwlib::cout << "Selection error. Sak CRC does not match expected";
-			return false;
-			}
-			
-		} else {
-			hwlib::cout << "No valid SAK response";
-			return false;
-		}
-		
-		for(int i = 0; i < 4; i++){
-			Cardserial[i] = UID[i];
-		}
-		hwlib::cout << "Card selected\n";*/
-		hwlib::cout << "Function requires protocol decoration to be used\n";
-		return false;
-	}
-	
-	bool authenticate_classic(Keytype typekey, byte * block_address, byte * key, byte * Cardserial){
-		/*return authenticate_classic((byte)typekey, block_address, key, Cardserial);*/
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
 	bool authenticate_classic(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
-/*		int n = 2;
-		byte auth[12];
-		byte dummy[64];
-		
-		auth[0] = typekey;
-		auth[1] = *block_address;
-		
-		for(int i = 0; i < 6; i++ ){
-			auth[n] = key[i];
-			n++;
-		}
-		
-		for(int i = 0; i < 4; i++){
-			auth[n] = Cardserial[i];
-			n++;
-		}
-		
-		if (n > 13){
-			hwlib::cout << "Authentication error, to much data\n";
-			return false;
-		}
-		
-		communicate(auth, 12, CMD::MFAuthent, dummy, nullptr, false, false);
-		
-		if((readRegister(Reg::ComIrqReg) == 0x14) && (readRegister(Reg::ErrorReg) == 0x00)){
-			hwlib::cout << "Authentication Successfull\n";
-			return true;
-		} else {
-			hwlib::cout << "Authentication Unsuccessfull\n";
-			return false;
-		}*/
-		
-		//hwlib::cout << hwlib::hex << hwlib::setw(2) << hwlib::setfill('0') << (int)readRegister(ComIrqReg)<< ' ' << (int)readRegister(ErrorReg);
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
 	
 	bool readblock(byte block_address, byte * data_out) override {
-	/*	byte read[2] = {0x30, block_address};
-		byte Intermediate[18];
-		byte data_crc[2];
-		byte check_crc[2];
-		byte data[16];
-		
-		communicate(read, 2, CMD::Trancieve, Intermediate, nullptr, true, false);
-		
-		for (int i = 0; i < 16; i++){
-			data[i] = Intermediate[i];
-		}
-		
-		for (int i = 0; i < 2; i++){
-			data_crc[i] = Intermediate[i + 16];
-		}
-		
-		calculateCRC(data, 16, check_crc);
-		
-		for (int i = 0; i < 2; i++){
-			if(data_crc[i] != check_crc[i]){
-				hwlib::cout << "CRC of recieved data does not match\n";
-				return false;
-			}
-		}
-		
-		for (int i = 0; i < 16; i++){
-			data_out[i] = data[i];
-		}
-		*/
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
+	}
+	
+	bool readSector(const int sectorsize, 
+					byte (*sector_out)[16], 
+					byte typekey, 
+					byte * first_block_in_sector, 
+					byte * key, 
+					byte * Cardserial){
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
 	bool writeBlock(const byte block_address,const byte * data_in,const int lenght) override {
-		/*byte read[2] = {0xA0, block_address};
-		byte Ack, Ack2;
-		byte appended_data[16] = {};
-		
-		communicate(read, 2, CMD::Trancieve, &Ack, nullptr, true, false);
-		
-		if (Ack != 0x0A){
-		
-			hwlib::cout << "Write error did not recieve acknowledge after selecting the block to be written to.\n";
-			return false;
-		}
-		
-		if ( lenght < 16){
-			
-			for (int i = 0; i < lenght; i++){
-				appended_data[i] = data_in[i];
-			}
-		}
-		
-		communicate(appended_data, 16, CMD::Trancieve, &Ack2, nullptr, true, false);
-		
-		
-		if (Ack != 0x0A){
-		
-			hwlib::cout << "Write error did not recieve acknowledge after the data was written.\n";
-			return false;
-		}
-		*/
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}
 	
+	
+	bool writeSector(const int sectorsize, 
+					 byte (*sector_in)[16], 
+					 byte typekey, 
+					 byte * first_block_in_sector, 
+					 byte * key, 
+					 byte * Cardserial){
+		hwlib::cout << "Function requires protocol decoration to be used\n";
+		return false;
+	}	
 	
 	
 	int calculateCRC(const byte * data, const int length, byte * result) override {

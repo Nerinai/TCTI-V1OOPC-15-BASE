@@ -123,6 +123,7 @@ public:
 		byte check_crc[2];
 		byte data[16];
 		
+		
 		trancieve(read, 2, Intermediate, nullptr, true, false);
 		
 		for (int i = 0; i < 16; i++){
@@ -145,14 +146,32 @@ public:
 		for (int i = 0; i < 16; i++){
 			data_out[i] = data[i];
 		}
-		
 		return true;
+	}
+	
+	bool readSector(const int sectorsize, byte (*sector_out)[16], byte typekey, byte * first_block_in_sector, byte * key, byte * Cardserial) override {
+		bool authenticate = false;
+		bool readsuccess = false;
+		byte blocknr = *first_block_in_sector;
+		authenticate = authenticate_classic(typekey, first_block_in_sector, key, Cardserial);
+		
+		if (authenticate == true){
+			for (int i = 0; i < sectorsize; i++){
+				readsuccess = readblock(blocknr, sector_out[i]);
+				blocknr++;
+				if (readsuccess == false){
+					return readsuccess;
+				}
+			}
+		}
+		return readsuccess;
 	}
 	
 	bool writeBlock(const byte block_address,const byte * data_in,const int lenght) override {
 		byte read[2] = {0xA0, block_address};
 		byte Ack, Ack2;
 		byte appended_data[16] = {};
+		
 		
 		trancieve(read, 2, &Ack, nullptr, true, false);
 		
@@ -162,12 +181,19 @@ public:
 			return false;
 		}
 		
-		if ( lenght < 16){
+		if ( lenght <= 16){
 			
 			for (int i = 0; i < lenght; i++){
 				appended_data[i] = data_in[i];
 			}
 		}
+		
+		/*for(int i = 0; i < 1; i++){
+		for (int j = 0; j < 16; j++){
+			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data_in[j] << ' ';
+		}
+		hwlib::cout << '\n';
+	}*/
 		
 		trancieve(appended_data, 16, &Ack2, nullptr, true, false);
 		
@@ -179,6 +205,31 @@ public:
 		}
 		
 		return true;
+	}
+	
+	bool writeSector (const int sectorsize, byte (*sector_in)[16], byte typekey, byte * first_block_in_sector, byte * key, byte * Cardserial) override {
+		bool authenticate = false;
+		bool writesuccess = false;
+		byte blocknr = *first_block_in_sector;
+		authenticate = authenticate_classic(typekey, first_block_in_sector, key, Cardserial);
+		
+		/*for(int i = 0; i < 3; i++){
+		for (int j = 0; j < 16; j++){
+			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)sector_in[i][j] << ' ';
+		}
+		hwlib::cout << '\n';
+	}*/
+		
+		if (authenticate == true){
+			for (int i = 0; i < (sectorsize - 1); i++){
+				writesuccess = writeBlock(blocknr, sector_in[i], 16);
+				blocknr++;
+				if (writesuccess == false){
+					return writesuccess;
+				}
+			}
+		}
+		return writesuccess;
 	}
 	
 	int calculateCRC (const byte * data, const int length, byte * result){

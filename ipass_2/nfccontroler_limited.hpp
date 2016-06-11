@@ -25,9 +25,24 @@ public:
 											byte * Cardserial) = 0;
 											
 	virtual bool	readblock			(byte block_address, byte * data_out) = 0;
+	
+	virtual bool 	readSector			(const int sectorsize, 
+											byte (*sector_out)[16], 
+											byte typekey, 
+											byte * first_block_in_sector, 
+											byte * key, 
+											byte * Cardserial) = 0;
+	
 	virtual bool	writeBlock			(const byte block_address,
 											const byte * data_in,
 											const int lenght) = 0;
+											
+	virtual bool	writeSector			(const int sectorsize, 
+											byte (*sector_in)[16], 
+											byte typekey, 
+											byte * first_block_in_sector, 
+											byte * key, 
+											byte * Cardserial) = 0;
 											
 	virtual int		calculateCRC		(const byte * data,
 											const int length, 
