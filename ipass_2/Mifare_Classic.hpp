@@ -79,7 +79,7 @@ public:
 		return true;
 	}
 	
-	bool authenticateCard(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
+	bool authenticateSector(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
 		int n = 2;
 		byte auth[12];
 		byte errandirq[2];
@@ -153,7 +153,7 @@ public:
 		bool authenticate = false;
 		bool readsuccess = false;
 		byte blocknr = *first_block_in_sector;
-		authenticate = authenticateCard(typekey, first_block_in_sector, key, Cardserial);
+		authenticate = authenticateSector(typekey, first_block_in_sector, key, Cardserial);
 		
 		if (authenticate == true){
 			for (int i = 0; i < sectorsize; i++){
@@ -204,7 +204,7 @@ public:
 		bool authenticate = false;
 		bool writesuccess = false;
 		byte blocknr = *first_block_in_sector;
-		authenticate = authenticateCard(typekey, first_block_in_sector, key, Cardserial);
+		authenticate = authenticateSector(typekey, first_block_in_sector, key, Cardserial);
 		
 		if (authenticate == true){
 			for (int i = 0; i < (sectorsize - 1); i++){

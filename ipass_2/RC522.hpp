@@ -120,9 +120,9 @@ public:
 		return readRegister((byte)a);
 	}
 	
-	byte readRegister( byte a ) override {
+	byte readRegister( byte registerAddress ) override {
 		byte awnser[2];
-		byte Register = (a | 0x80);
+		byte Register = ( registerAddress | 0x80);
 		spi.write_and_read(sda, 2, &Register, awnser);
 		return awnser[1];
 	}
@@ -131,8 +131,8 @@ public:
 		writeRegister((byte)a, value);
 	}
 	
-	void writeRegister(byte a, byte value) override {
-		byte send[] = {a, value};
+	void writeRegister(byte registerAddress, byte value) override {
+		byte send[] = {registerAddress, value};
 		spi.write_and_read(sda, 2, send, nullptr);
 	}
 	
@@ -140,18 +140,18 @@ public:
 		setRegisterMask((byte)a, value);
 	}
 	
-	void setRegisterMask(byte a, byte value)  override  {
-		byte current = readRegister(a);
-		writeRegister(a, current | value);
+	void setRegisterMask(byte registerAddress, byte value)  override  {
+		byte current = readRegister(registerAddress);
+		writeRegister(registerAddress, current | value);
 	}
 	
 	void clearRegisterMask(Reg a, byte value){
 		clearRegisterMask((byte)a, value);
 	}
 	
-	void clearRegisterMask(byte a, byte value) override {
-		byte current = readRegister(a);
-		writeRegister(a, current & (~value));
+	void clearRegisterMask(byte registerAddress, byte value) override {
+		byte current = readRegister(registerAddress);
+		writeRegister(registerAddress, current & (~value));
 	}
 	
 	byte getAntennaGain(void) override {
@@ -182,14 +182,14 @@ public:
 		result[1] = readRegister(Reg::ErrorReg);
 	}
 	
-	int readFIFO(void) override  {
+	byte readFIFO(void) override  {
 		int output_size = (int)readRegister(Reg::FIFOLevelReg);
 		
 		if (output_size == 0){
 			hwlib::cout << "The FIFO buffer is empty";
 			return 0;
 		}
-		return (int)readRegister(Reg::FIFODataReg);
+		return readRegister(Reg::FIFODataReg);
 	}
 	
 	int readFIFO(byte * output) override {
@@ -208,33 +208,34 @@ public:
 		return output_size;
 	}
 	
-	int writeFIFO(const byte value) override {
+	bool writeFIFO(const byte value) override {
 		
 		if ((int)readRegister(Reg::FIFOLevelReg) == 64){
 			hwlib::cout << "Cannot Write the fifo buffer is full \n";
+			return false;
 		}
 		
 		writeRegister(Reg::FIFODataReg, value);
-		return 0;
+		return true;
 	}
 	
-	int writeFIFO(const int byte_amount, const byte * data) override {
+	bool writeFIFO(const int byte_amount, const byte * data) override {
 		
 		if (byte_amount > 64){
 			hwlib::cout << "The FIFO buffer has a maximum size of 64" << '\n';
-			return 1;
+			return false;
 		}
 		
 		if((int)readRegister(Reg::FIFOLevelReg) + byte_amount > 64){
 			hwlib::cout << "Overflow warning. \n Writing to much data. \n the FIFO-buffer has " 
 						<< 64 - (int)readRegister(Reg::FIFOLevelReg) << "byte(s) of space left to write to \n";
-			return 1;
+			return false;
 		}
 		
 		for(int i = 0; i < byte_amount; i++){
 			writeRegister(Reg::FIFODataReg, data[i]);
 		}
-		return 0;
+		return true;
 	}
 	
 	void selfTest(void) override {
@@ -412,7 +413,7 @@ public:
 		return false;
 	}
 	
-	bool authenticateCard(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
+	bool authenticateSector(byte typekey, byte * block_address, byte * key, byte * Cardserial) override {
 		hwlib::cout << "Function requires protocol decoration to be used\n";
 		return false;
 	}

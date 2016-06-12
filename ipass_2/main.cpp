@@ -1,6 +1,5 @@
-#include "RC522.hpp"
-#include "nfccontroler.hpp"
-#include "Mifare_Classic.hpp"
+#include "nfccontroler_all.hpp"
+
 int main(void){
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	
@@ -37,7 +36,7 @@ int main(void){
 	byte sector2[4][16];
 	byte serial[4];
 	//byte keya = 0x60;
-	nfc.init_chip();
+	nfc.initChip();
 	card = reader.isCard(cardtype);
 	
 	if (card == true){

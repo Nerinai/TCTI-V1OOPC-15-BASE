@@ -1,34 +1,172 @@
+// ==========================================================================
+//
+// File      : nfccontroler_limited.hpp
+// Part of   : nfccontroler library for V1IPAS
+// Copyright : David de Jong (c) 2016
+// Contact   : marijn_david@hotmail.com
+//
+// Abstraction layer for functions on the Microcontroler side of the library.
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+/// @file
+
 #ifndef NFCCONTROLER_HPP
 #define NFCCONTROLER_HPP
 #include "hwlib.hpp"
-#include "nfccontroler_limited.hpp"
+#include "nfccontroler_all.hpp"
+
+/// nfccontroler abstraction layer for functions on the microcontroler side of the library.
+///
+/// WARNING the use of most functions in this class requires INTIMATE KNOWLEDGE of the inner workings of the microcontroler
+/// and its registers. 
+/// Do NOT make use of these functions unless you confidently know what you are doing.
+/// The functions in question will be marked with the warning INTIMATE KNOWLEDGE REQUIRED.
+///
+/// This class contains the nfccontroler abstraction for the reading and writing of microcontroler registers.
+/// The setting and clearing of specific bits inside a register.
+/// The the core functionality of communication used by the microcontroler.
+/// And conveinence functions for controlling the antenna of the microcontroler.
 
 class nfccontroler : public nfccontroler_limited
 {
 protected:
 	
 public:
+/// Function for reading the current settings of a register.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function returns the current bits set in an register in the form of a single byte.
+/// The parameter 'byte registerAddress' is used to supply the addres of the register.
+///
+/// WARNING make sure you know if the register you are reading from preserves its data when read.
+/// An example of this is the FIFO-buffer from the RC522 which deletes the byte read from the buffer afterwards.
+/// To prevent dataloss make sure the byte returned is stored somwhere if this situation occurs.
+	virtual byte	readRegister		(byte registerAddress ) = 0;
 	
-	virtual byte	readRegister		(byte a ) = 0;
-	virtual void	writeRegister		(byte a, byte value) = 0;
-	virtual void	setRegisterMask		(byte a, byte value) = 0;
-	virtual void	clearRegisterMask	(byte a, byte value) = 0;
+/// Function for writing a single byte to a register.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function writes a single byte of data to the selected register.
+/// The 'byte registerAddress' parameter is used to select the address of the register.
+/// The 'byte value' parameter is used to provide the byte to be written.
+///
+/// WARNING this function sends the whole byte of data to be written to he register.
+/// It can potentially overwrite previously set settings of that register.
+	virtual void	writeRegister		(byte registerAddress, byte value) = 0;
 	
+/// Function for altering the settings of a register without overwriting all the bits stored in a register.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function sets the given bits in the bite provided. 
+/// It does this WITHOUT altering the other bits in the register.
+/// This means that al ZEROES in the byte will be ignored.
+/// The 'byte registerAddress' parameter is used to select the address of the register.
+/// The 'byte value' parameter is used to provide the bits to be changed in the register.
+	virtual void	setRegisterMask		(byte registerAddress, byte value) = 0;
+
+/// Function for altering the settings of a register without overwriting all the bits stored in a register.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function resets the given bits in the bite provided. 
+/// It does this WITHOUT altering the other bits in the register.
+/// This means that al ZEROES in the byte will be ignored.
+/// The 'byte registerAddress' parameter is used to select the address of the register.
+/// The 'byte value' parameter is used to provide the bits to be changed in the register.
+	virtual void	clearRegisterMask	(byte registerAddress, byte value) = 0;
+
+/// Function for reading the antennas current Gain setting.
+///
+/// This function returns a byte value that represents the current gain setting of the microcontrollers antenna.
+/// The meaning of this byte usualy represented in the microcontrolers apropriate documentation.
+/// Using this function requires some knowledge of the microcontroler in question, caution is advised.
 	virtual byte	getAntennaGain		(void) = 0;
+	
+/// Function for setting the antennas gain.
+///
+/// This funcion sets the gain level of the antenna by sending a byte to the antennas register.
+/// The meaning of the bits contained in the byte is usualy represented in the microcontrolers apropriate documentation.
+/// Using this function requires some knowledge of the moicrocontroller in question, caution is advised.
 	virtual void	setAntennaGain		(byte value) = 0;
+
+/// Function for turning the mircocontrolers antenna on.
+///
+/// Turns the antenna on.
 	virtual void	antennaOn			(void) = 0;
+
+/// Function for turning the microcontrolers antena off
+///
+/// Turns the antenna off.
 	virtual void	antennaOff			(void) = 0;
 	
+/// \cond PLACEHOLDER
 	virtual void 	checkErroAndIrq 	(byte * result) = 0;
-	
-	virtual int		readFIFO			(void) = 0;
+/// \endcond
+
+/// A function that returns a single byte from the FIFO-buffer.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function reads a single byte from the FIFO-buffer and returns this.
+/// WARNING make sure you know if the FIFO-buffer of your microcontroler preserves its data when read.
+/// An example of this is the FIFO-buffer from the RC522 which deletes the byte read from the buffer afterwards.
+/// To prevent dataloss make sure the byte returned is stored somwhere if this situation occurs.
+	virtual byte	readFIFO			(void) = 0;
+
+/// Function for reading data currently stored in the FIFO-buffer.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function reads all data currently stored in the FIFO-buffer.
+/// It inserts this data into the 'output' parameter in array from.
+/// The integer value returned is the amount of bytes about to be read from the buffer
+/// WARNING make sure you know if the FIFO-buffer of your microcontroler preserves its data when read.
+/// An example of this is the FIFO-buffer from the RC522 which deletes the byte read from the buffer afterwards.
+/// To prevent dataloss make sure the data is stored somwhere if this situation occurs.
+/// It is important to know the maximum amount of data the buffer can hold so you can provide apropriate storage.
 	virtual int		readFIFO			(byte * output) = 0;
-	virtual int		writeFIFO			(const byte value) = 0;
-	virtual int		writeFIFO			(const int byte_amount, const byte * data) = 0;
-	
+
+/// A function that writes a single byte to the FIFO-buffer.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function writes a single byte to the FIFO-buffer.
+/// It will return false if the fifo buffer is full. 
+/// The parameter 'value' is used to provide the byte of data that needs to be written to the FIFO-buffer.
+/// It is reccomanded that you know the size of your microcontrolers FIFO-buffer to prevent dataloss.
+	virtual bool	writeFIFO			(const byte value) = 0;
+
+/// A function that writes data to the FIFO-buffer.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+/// This function writes the data provided byte to the FIFO-buffer.
+/// It will return false if the fifo buffer is full or if you provide so much data that the buffer will overflow. 
+/// The 'byte_ammount' parameter is used to provide the ammount of data about to be sent to the fifo buffer.
+/// the 'data' parameter is used to provide the actual data to be written in array form.
+/// It is reccomanded that you know the size of your microcontrolers FIFO-buffer to prevent dataloss.
+	virtual bool	writeFIFO			(const int byte_amount, const byte * data) = 0;
+
+/// A Function that runs the selftest function of the mircocontroller in question.
+///
+/// The results of the selftest are printed to the terminal and can be compared to the expected results usualy defined
+/// in the microcontrolers documentation.
 	virtual void	selfTest			(void) = 0;
+
+/// A Function that readys the microcontroler for sending and recieving data.
+///
+/// This function intitialises the basic functions of the chip and configures the needed registers to start sending and recieving data.
+/// It also performs a soft reset to make sure the initialization always starts off with the same configuration.
+/// The function also turns the antenna on.
 	virtual void	initChip			(void) = 0;
-	
+/// \cond PLACEHOLDER
 	virtual bool	trancieveData			(const byte * data_in,
 											const int data_in_lenght, 
 											byte * data_out, 
@@ -37,7 +175,13 @@ public:
 											bool REQA = false) = 0;
 											
 	virtual bool 	authentCard			(const byte * data_in, const int data_in_lenght) = 0;
-	
+/// \endcond
+
+/// A function that provides the implementation of sending and recieving data.
+///
+/// WARNING INTIMATE KNOWLEDGE REQUIRED
+///
+///
 	virtual bool	communicateNFC		(const byte * data_in,
 											const int data_in_lenght, 
 											byte command, 
@@ -45,10 +189,10 @@ public:
 											int * data_out_lenght, 
 											bool crc = false, 
 											bool REQA = false) = 0;
-											
+/// \cond PLACEHOLDER
 	virtual bool	isCard 				(byte * cardtype) = 0;
 	virtual bool	selectCard			(byte * Cardserial) = 0;
-	virtual bool	authenticateCard	(byte typekey,
+	virtual bool	authenticateSector	(byte typekey,
 											byte * block_address,
 											byte * key,
 											byte * Cardserial) = 0;
@@ -71,7 +215,7 @@ public:
 											byte * first_block_in_sector, 
 											byte * key, 
 											byte * Cardserial) = 0;
-											
+/// \endcond
 	virtual int		calculateCRC		(const byte * data,
 											const int length, 
 											byte * result) = 0;
