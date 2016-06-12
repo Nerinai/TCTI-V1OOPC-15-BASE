@@ -1,0 +1,312 @@
+\hypertarget{classnfccontroler}{}\section{nfccontroler Class Reference}
+\label{classnfccontroler}\index{nfccontroler@{nfccontroler}}
+
+
+{\ttfamily \#include $<$nfccontroler.\+hpp$>$}
+
+Inheritance diagram for nfccontroler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classnfccontroler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual byte \hyperlink{classnfccontroler_aaf3c333dece31c91679bb60a58bf1ef9}{read\+Register} (byte register\+Address)=0
+\item 
+virtual void \hyperlink{classnfccontroler_a0ea9c75e4dbe9dbeb81b49cac5e382db}{write\+Register} (byte register\+Address, byte value)=0
+\item 
+virtual void \hyperlink{classnfccontroler_af35dd99e72c2321c50dec98529e04a83}{set\+Register\+Mask} (byte register\+Address, byte value)=0
+\item 
+virtual void \hyperlink{classnfccontroler_a02cfe73ff95bd107f2020ada91ac7af4}{clear\+Register\+Mask} (byte register\+Address, byte value)=0
+\item 
+virtual byte \hyperlink{classnfccontroler_a99c9451d564a62c525925f8ca79a9d1e}{get\+Antenna\+Gain} (void)=0
+\item 
+virtual void \hyperlink{classnfccontroler_ae76958998275b8e4acc04c1fe61998e5}{set\+Antenna\+Gain} (byte value)=0
+\item 
+virtual void \hyperlink{classnfccontroler_a161af319560127b028504add241a8bc6}{antenna\+On} (void)=0
+\item 
+virtual void \hyperlink{classnfccontroler_a0d8180637c367d223d437a506a641bae}{antenna\+Off} (void)=0
+\item 
+virtual byte \hyperlink{classnfccontroler_afcab6129cc6c97452f998c46e8088d01}{read\+F\+I\+FO} (void)=0
+\item 
+virtual int \hyperlink{classnfccontroler_ac1b18db7bd72cf1a2d6cd995ee3919cb}{read\+F\+I\+FO} (byte $\ast$output)=0
+\item 
+virtual bool \hyperlink{classnfccontroler_aef681b8f4a4a7d982c30ee2d9e8124da}{write\+F\+I\+FO} (const byte value)=0
+\item 
+virtual bool \hyperlink{classnfccontroler_a5e9de8b00b7bea62fe4f422a898018a9}{write\+F\+I\+FO} (const int byte\+\_\+amount, const byte $\ast$data)=0
+\item 
+virtual void \hyperlink{classnfccontroler_adf8ddf5ba68a3d6689f5cdc15e294151}{self\+Test} (void)=0
+\item 
+virtual void \hyperlink{classnfccontroler_a4f5a22e5f25f56abe26ed0034a296135}{init\+Chip} (void)=0
+\item 
+virtual bool \hyperlink{classnfccontroler_a742e67e43b865074c4f23fb6c133cdd7}{communicate\+N\+FC} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte command, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false)=0
+\item 
+virtual bool \hyperlink{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}{calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+nfccontroler abstraction layer for functions on the microcontroller side of the library.
+
+W\+A\+R\+N\+I\+NG the use of most functions in this class requires I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE of the inner workings of the microcontroller and its registers. Do N\+OT make use of these functions unless you confidently know what you are doing. The functions in question will be marked with the warning I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED.
+
+This class contains the nfccontroler abstraction for the reading and writing of microcontroller registers. The setting and clearing of specific bits inside a register. The core functionality of communication used by the microcontroller. And convenience functions for controlling the antenna of the microcontroller. 
+
+\subsection{Member Function Documentation}
+\index{nfccontroler@{nfccontroler}!antenna\+Off@{antenna\+Off}}
+\index{antenna\+Off@{antenna\+Off}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{antenna\+Off(void)=0}{antennaOff(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::antenna\+Off (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a0d8180637c367d223d437a506a641bae}{}\label{classnfccontroler_a0d8180637c367d223d437a506a641bae}
+Function for turning the microcontrollers antena off
+
+Turns the antenna off. 
+
+Implemented in \hyperlink{class_r_c522_a21cce592f19fdbdc440bfec6045eb5ac}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!antenna\+On@{antenna\+On}}
+\index{antenna\+On@{antenna\+On}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{antenna\+On(void)=0}{antennaOn(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::antenna\+On (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a161af319560127b028504add241a8bc6}{}\label{classnfccontroler_a161af319560127b028504add241a8bc6}
+Function for turning the mircocontrollers antenna on.
+
+Turns the antenna on. 
+
+Implemented in \hyperlink{class_r_c522_ae4dbd838876dbd901d811af06e72a448}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!calculate\+C\+RC@{calculate\+C\+RC}}
+\index{calculate\+C\+RC@{calculate\+C\+RC}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{calculate\+C\+R\+C(const byte $\ast$data, const int length, byte $\ast$result)=0}{calculateCRC(const byte *data, const int length, byte *result)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool nfccontroler\+::calculate\+C\+RC (
+\begin{DoxyParamCaption}
+\item[{const byte $\ast$}]{data, }
+\item[{const int}]{length, }
+\item[{byte $\ast$}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}{}\label{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}
+Function that calculates the C\+RC for the given data.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function takes data in array form into the parameter \textquotesingle{}data\textquotesingle{} Together with the integer \textquotesingle{}length\textquotesingle{} which provides the amount of data it calculates the result and inserts it into the parameter \textquotesingle{}result\textquotesingle{} in array format. 
+
+Implemented in \hyperlink{class_r_c522_a851317030e6ad460210c136fd8f961fa}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!clear\+Register\+Mask@{clear\+Register\+Mask}}
+\index{clear\+Register\+Mask@{clear\+Register\+Mask}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{clear\+Register\+Mask(byte register\+Address, byte value)=0}{clearRegisterMask(byte registerAddress, byte value)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::clear\+Register\+Mask (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address, }
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a02cfe73ff95bd107f2020ada91ac7af4}{}\label{classnfccontroler_a02cfe73ff95bd107f2020ada91ac7af4}
+Function for altering the settings of a register without overwriting all the bits stored in a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function resets the given bits in the bite provided. It does this W\+I\+T\+H\+O\+UT altering the other bits in the register. This means that al Z\+E\+R\+O\+ES in the byte will be ignored. The \textquotesingle{}byte register\+Address\textquotesingle{} parameter is used to select the address of the register. The \textquotesingle{}byte value\textquotesingle{} parameter is used to provide the bits to be changed in the register. 
+
+Implemented in \hyperlink{class_r_c522_ac8dda7d6495cd0e79815ba771012b1b4}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!communicate\+N\+FC@{communicate\+N\+FC}}
+\index{communicate\+N\+FC@{communicate\+N\+FC}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{communicate\+N\+F\+C(const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte command, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false)=0}{communicateNFC(const byte *data_in, const int data_in_lenght, byte command, byte *data_out, int *data_out_lenght, bool crc=false, bool Bitwraping=false)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool nfccontroler\+::communicate\+N\+FC (
+\begin{DoxyParamCaption}
+\item[{const byte $\ast$}]{data\+\_\+in, }
+\item[{const int}]{data\+\_\+in\+\_\+lenght, }
+\item[{byte}]{command, }
+\item[{byte $\ast$}]{data\+\_\+out, }
+\item[{int $\ast$}]{data\+\_\+out\+\_\+lenght, }
+\item[{bool}]{crc = {\ttfamily false}, }
+\item[{bool}]{Bitwraping = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a742e67e43b865074c4f23fb6c133cdd7}{}\label{classnfccontroler_a742e67e43b865074c4f23fb6c133cdd7}
+A function that provides the implementation of sending and receiving data.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function provides the core functionality for sending and receiving data. The parameter \textquotesingle{}data\+\_\+in\textquotesingle{} provides the data that is to be sent in array format. In combination with the \textquotesingle{}data\+\_\+in\+\_\+lenght\textquotesingle{} parameter to inform the function the amount of data to be sent. It is important to keep in mind the size of the buffer that transmits the data in order to prevent this from overflowing. When data is received the data itself is inserted into the \textquotesingle{}data\+\_\+out\textquotesingle{} parameter in array form. The amount of bytes received is inserted into the \textquotesingle{}data\+\_\+out\+\_\+lenght\textquotesingle{} parameter.
+
+The Boolean parameter \textquotesingle{}crc\textquotesingle{} tells the function to or not to calculate the C\+RC for the data and add it to the to be sent data. Keep in mind that the C\+RC result itself takes up some space in the buffer.
+
+The Boolean parameter \textquotesingle{}Bitwraping\textquotesingle{} tells the function to or not to use a specified bit-\/frame for sending the data. An example of this is that the \textquotesingle{}M\+I\+F\+A\+RE Classic\textquotesingle{} standard of cards only responds to initial contact when the request command is sent in a seven-\/bit frame.
+
+F\+I\+N\+AL W\+A\+R\+N\+I\+NG this is a complicated function that requires knowledge of both the microcontroller and the card protocol being used. It is recommended that the user first reads the appropriate documentation of both the microcontroller and the protocol in use respectively. U\+SE W\+I\+TH C\+A\+U\+T\+I\+ON 
+
+Implemented in \hyperlink{class_r_c522_aa8ec37f7914b3aa1e3866dda7e08063f}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!get\+Antenna\+Gain@{get\+Antenna\+Gain}}
+\index{get\+Antenna\+Gain@{get\+Antenna\+Gain}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{get\+Antenna\+Gain(void)=0}{getAntennaGain(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual byte nfccontroler\+::get\+Antenna\+Gain (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a99c9451d564a62c525925f8ca79a9d1e}{}\label{classnfccontroler_a99c9451d564a62c525925f8ca79a9d1e}
+Function for reading the antennas current Gain setting.
+
+This function returns a byte value that represents the current gain setting of the microcontrollers antenna. The meaning of this byte usually represented in the microcontrollers appropriate documentation. Using this function requires some knowledge of the microcontroller in question, caution is advised. 
+
+Implemented in \hyperlink{class_r_c522_a08a908f30b995446c40b0ba89cf7a40c}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!init\+Chip@{init\+Chip}}
+\index{init\+Chip@{init\+Chip}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{init\+Chip(void)=0}{initChip(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::init\+Chip (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a4f5a22e5f25f56abe26ed0034a296135}{}\label{classnfccontroler_a4f5a22e5f25f56abe26ed0034a296135}
+A Function that readies the microcontroller for sending and receiving data.
+
+This function initializes the basic functions of the chip and configures the needed registers to start sending and receiving data. It also performs a soft reset to make sure the initialization always starts off with the same configuration. The function also turns the antenna on. 
+
+Implemented in \hyperlink{class_r_c522_a87733717cd499f3d51ad9034f78cda9d}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!read\+F\+I\+FO@{read\+F\+I\+FO}}
+\index{read\+F\+I\+FO@{read\+F\+I\+FO}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{read\+F\+I\+F\+O(void)=0}{readFIFO(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual byte nfccontroler\+::read\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_afcab6129cc6c97452f998c46e8088d01}{}\label{classnfccontroler_afcab6129cc6c97452f998c46e8088d01}
+A function that returns a single byte from the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function reads a single byte from the F\+I\+F\+O-\/buffer and returns this. W\+A\+R\+N\+I\+NG make sure you know if the F\+I\+F\+O-\/buffer of your microcontroller preserves its data when read. An example of this is the F\+I\+F\+O-\/buffer from the \hyperlink{class_r_c522}{R\+C522} which deletes the byte read from the buffer afterwards. To prevent data loss make sure the byte returned is stored somewhere if this situation occurs. 
+
+Implemented in \hyperlink{class_r_c522_a78c18a8805798cda24ed7c35af43f6c3}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!read\+F\+I\+FO@{read\+F\+I\+FO}}
+\index{read\+F\+I\+FO@{read\+F\+I\+FO}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{read\+F\+I\+F\+O(byte $\ast$output)=0}{readFIFO(byte *output)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int nfccontroler\+::read\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_ac1b18db7bd72cf1a2d6cd995ee3919cb}{}\label{classnfccontroler_ac1b18db7bd72cf1a2d6cd995ee3919cb}
+Function for reading data currently stored in the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function reads all data currently stored in the F\+I\+F\+O-\/buffer. It inserts this data into the \textquotesingle{}output\textquotesingle{} parameter in array from. The integer value returned is the amount of bytes about to be read from the buffer W\+A\+R\+N\+I\+NG make sure you know if the F\+I\+F\+O-\/buffer of your microcontroller preserves its data when read. An example of this is the F\+I\+F\+O-\/buffer from the \hyperlink{class_r_c522}{R\+C522} which deletes the byte read from the buffer afterwards. To prevent data loss make sure the data is stored somewhere if this situation occurs. It is important to know the maximum amount of data the buffer can hold so you can provide appropriate storage. 
+
+Implemented in \hyperlink{class_r_c522_a2e5ac8769707047e4064200d1829927c}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!read\+Register@{read\+Register}}
+\index{read\+Register@{read\+Register}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{read\+Register(byte register\+Address)=0}{readRegister(byte registerAddress)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual byte nfccontroler\+::read\+Register (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_aaf3c333dece31c91679bb60a58bf1ef9}{}\label{classnfccontroler_aaf3c333dece31c91679bb60a58bf1ef9}
+Function for reading the current settings of a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function returns the current bits set in a register in the form of a single byte. The parameter \textquotesingle{}byte register\+Address\textquotesingle{} is used to supply the address of the register.
+
+W\+A\+R\+N\+I\+NG make sure you know if the register you are reading from preserves its data when read. An example of this is the F\+I\+F\+O-\/buffer from the \hyperlink{class_r_c522}{R\+C522} which deletes the byte read from the buffer afterwards. To prevent data loss make sure the byte returned is stored somewhere if this situation occurs. 
+
+Implemented in \hyperlink{class_r_c522_a5de4e5d16b9d54c859f6db3de68c8147}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!self\+Test@{self\+Test}}
+\index{self\+Test@{self\+Test}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{self\+Test(void)=0}{selfTest(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::self\+Test (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_adf8ddf5ba68a3d6689f5cdc15e294151}{}\label{classnfccontroler_adf8ddf5ba68a3d6689f5cdc15e294151}
+A Function that runs the self test function of the microcontroller in question.
+
+The results of the self test are printed to the terminal and can be compared to the expected results usually defined in the microcontroller’s documentation. 
+
+Implemented in \hyperlink{class_r_c522_ad21aeb49627a3da99d214798886267b9}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!set\+Antenna\+Gain@{set\+Antenna\+Gain}}
+\index{set\+Antenna\+Gain@{set\+Antenna\+Gain}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{set\+Antenna\+Gain(byte value)=0}{setAntennaGain(byte value)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::set\+Antenna\+Gain (
+\begin{DoxyParamCaption}
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_ae76958998275b8e4acc04c1fe61998e5}{}\label{classnfccontroler_ae76958998275b8e4acc04c1fe61998e5}
+Function for setting the antennas gain.
+
+This function sets the gain level of the antenna by sending a byte to the antennas register. The meaning of the bits contained in the byte is usually represented in the microcontrollers appropriate documentation. Using this function requires some knowledge of the microcontroller in question, caution is advised. 
+
+Implemented in \hyperlink{class_r_c522_aa5a6532f6ef2de5ca9236567ff88d346}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!set\+Register\+Mask@{set\+Register\+Mask}}
+\index{set\+Register\+Mask@{set\+Register\+Mask}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{set\+Register\+Mask(byte register\+Address, byte value)=0}{setRegisterMask(byte registerAddress, byte value)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::set\+Register\+Mask (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address, }
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_af35dd99e72c2321c50dec98529e04a83}{}\label{classnfccontroler_af35dd99e72c2321c50dec98529e04a83}
+Function for altering the settings of a register without overwriting all the bits stored in a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function sets the given bits in the bite provided. It does this W\+I\+T\+H\+O\+UT altering the other bits in the register. This means that al Z\+E\+R\+O\+ES in the byte will be ignored. The \textquotesingle{}byte register\+Address\textquotesingle{} parameter is used to select the address of the register. The \textquotesingle{}byte value\textquotesingle{} parameter is used to provide the bits to be changed in the register. 
+
+Implemented in \hyperlink{class_r_c522_a14cc49cb3afd67164ebceffdb38dd605}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!write\+F\+I\+FO@{write\+F\+I\+FO}}
+\index{write\+F\+I\+FO@{write\+F\+I\+FO}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{write\+F\+I\+F\+O(const byte value)=0}{writeFIFO(const byte value)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool nfccontroler\+::write\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{const byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_aef681b8f4a4a7d982c30ee2d9e8124da}{}\label{classnfccontroler_aef681b8f4a4a7d982c30ee2d9e8124da}
+A function that writes a single byte to the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function writes a single byte to the F\+I\+F\+O-\/buffer. It will return false if the F\+I\+F\+O-\/buffer is full. The parameter \textquotesingle{}value\textquotesingle{} is used to provide the byte of data that needs to be written to the F\+I\+F\+O-\/buffer. It is recommended that you know the size of your microcontroller’s F\+I\+F\+O-\/buffer to prevent data loss. 
+
+Implemented in \hyperlink{class_r_c522_a3923806b946c8e35465faca39095fe05}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!write\+F\+I\+FO@{write\+F\+I\+FO}}
+\index{write\+F\+I\+FO@{write\+F\+I\+FO}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{write\+F\+I\+F\+O(const int byte\+\_\+amount, const byte $\ast$data)=0}{writeFIFO(const int byte_amount, const byte *data)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool nfccontroler\+::write\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{const int}]{byte\+\_\+amount, }
+\item[{const byte $\ast$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a5e9de8b00b7bea62fe4f422a898018a9}{}\label{classnfccontroler_a5e9de8b00b7bea62fe4f422a898018a9}
+A function that writes data to the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function writes the data provided byte to the F\+I\+F\+O-\/buffer. It will return false if the F\+I\+F\+O-\/buffer is full or if you provide so much data that the buffer will overflow. The \textquotesingle{}byte\+\_\+amount\textquotesingle{} parameter is used to provide the amount of data about to be sent to the F\+I\+F\+O-\/buffer. the \textquotesingle{}data\textquotesingle{} parameter is used to provide the actual data to be written in array form. It is recommended that you know the size of your microcontroller’s F\+I\+F\+O-\/buffer to prevent data loss. 
+
+Implemented in \hyperlink{class_r_c522_ac72080585e07afd1d51fbb4dbc6a8e58}{R\+C522}.
+
+\index{nfccontroler@{nfccontroler}!write\+Register@{write\+Register}}
+\index{write\+Register@{write\+Register}!nfccontroler@{nfccontroler}}
+\subsubsection[{\texorpdfstring{write\+Register(byte register\+Address, byte value)=0}{writeRegister(byte registerAddress, byte value)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void nfccontroler\+::write\+Register (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address, }
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a0ea9c75e4dbe9dbeb81b49cac5e382db}{}\label{classnfccontroler_a0ea9c75e4dbe9dbeb81b49cac5e382db}
+Function for writing a single byte to a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function writes a single byte of data to the selected register. The \textquotesingle{}byte register\+Address\textquotesingle{} parameter is used to select the address of the register. The \textquotesingle{}byte value\textquotesingle{} parameter is used to provide the byte to be written.
+
+W\+A\+R\+N\+I\+NG this function sends the whole byte of data to be written to the register. It can potentially overwrite previously set settings of that register. 
+
+Implemented in \hyperlink{class_r_c522_a8860f482253b39808658bf5cdbbe342d}{R\+C522}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nfccontroler_8hpp}{nfccontroler.\+hpp}\end{DoxyCompactItemize}

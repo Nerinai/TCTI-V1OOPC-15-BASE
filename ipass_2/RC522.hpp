@@ -1,3 +1,23 @@
+// ==========================================================================
+//
+// File      : nfccontroler_limited.hpp
+// Part of   : nfccontroler library for V1IPAS
+// Copyright : David de Jong (c) 2016
+// Contact   : marijn_david@hotmail.com
+//
+// Abstraction layer for functions on the Microcontroller side of the library.
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+/// @file
+
+/// Implementation of the microcontroller functions for the NFC-RC522 microcontroller.
+///
+/// This class contains microcontroller specific implementation for working with the NFC-RC522 micrcontroller.
+/// This class follows the Decorator type of datastructure.
 #ifndef RC522_HPP
 #define RC522_HPP
 
@@ -7,37 +27,55 @@
 class RC522 : public nfccontroler
 {
 private:
-
+/// \codn INTERNAL
 	hwlib::pin_out & sda;
 	hwlib::pin_in_out & reset;
 	hwlib::spi_bus & spi;
-
+/// \endcodn
 public:
-	
-	
+
+/// Constructor for the NFC-RC522 mircontroller implementation.
+///
+/// The constructor uses two pin objects and one spi object.
+/// Both of wich are defined in Hwlib.
+/// The sda pin needs to be a pin_out, the reset pin needs to be a pin_in_out.
+/// The spi object needs to be defined according to Hwlib's standard.
 	RC522(hwlib::pin_out & sda, hwlib::pin_in_out & reset, hwlib::spi_bus & spi):
 	sda(sda), reset(reset), spi(spi)
 	{}
 	
+
 	enum class Keytype{
 		// The 2 types of keys you can authenticate with.
-		AuthwithA	= 0x60, // Starts authentication with key A.
-		AuthwithB	= 0x61  // Starts authentication with key B.
+		/// Starts authentication with key A.
+		AuthwithA	= 0x60,
+		/// Starts authentication with key B.
+		AuthwithB	= 0x61  
 	};
 	
 	enum class CMD {
 		// commands
-		Idle		= 0x00, // Cancels all running commands.
-		Mem			= 0x01, // Writes 25 bytes from the FIFO buffer to the internal buffer.
-		RandId		= 0x02, // Generates a 10-byte random ID number.
-		CalcCRC		= 0x03, // Activates the CRC coprocessor or performs a self test.
-		Transmit	= 0x04, // Transmit data from the FIFO buffer
-		NoCmdChange = 0x07, // Can be used to modify the CmdReg bits without chaning the command.
-		Recieve		= 0x08, // Activates the reciever circuits.
-		Trancieve	= 0x0C, // Transmits data from the FIFO buffer and automatically activates the receiver after Transmit.
+		/// Cancels all running commands.
+		Idle		= 0x00,
+		/// Writes 25 bytes from the FIFO buffer to the internal buffer.
+		Mem			= 0x01,
+		/// Generates a 10-byte random ID number.
+		RandId		= 0x02,
+		/// Activates the CRC coprocessor or performs a self test.
+		CalcCRC		= 0x03,
+		/// Transmit data from the FIFO buffer
+		Transmit	= 0x04,
+		/// Can be used to modify the CmdReg bits without chaning the command.
+		NoCmdChange = 0x07,
+		/// Activates the reciever circuits.
+		Recieve		= 0x08,
+		/// Transmits data from the FIFO buffer and automatically activates the receiver after Transmit.
+		Trancieve	= 0x0C,
 		//reserved	= 0x0D, // reserved for future use.
-		MFAuthent	= 0x0E, // Performs the MIFARE standard authentication as a reader.
-		SoftReset	= 0x0F, // Resets the MFRC522.
+		/// Performs the MIFARE standard authentication as a reader.
+		MFAuthent	= 0x0E,
+		/// Resets the MFRC522.
+		SoftReset	= 0x0F, 
 	};
 	
 	enum class Reg {
@@ -45,77 +83,127 @@ public:
 		// Page 0 Command and status registers
 		
 		/*reserved		= 0x00, << 1;// reserved for future use.*/
-		CommandReg 		= 0x01 << 1,// Starts and stops command execution.
-		ComIEnReg		= 0x02 << 1,// Control bits to enable and disable the passing of interrupt requests.
-		DivIEnReg		= 0x03 << 1,// Control bits to enable and disable the passing of interrupt requests.
-		ComIrqReg		= 0x04 << 1,// Interrupt request bits.
-		DivIrqReg		= 0x05 << 1,// Interrupt request bits.
-		ErrorReg		= 0x06 << 1,// Error bit register showing the error status of the last command executed.
-		Status1Reg		= 0x07 << 1,// Contains status bits of the CRC, interupt and FIFO buffer.
-		Status2Reg		= 0x08 << 1,// Contains status bits of the reciver, transmiter and data mode detector.
-		FIFODataReg		= 0x09 << 1,// Input and output of 64 byte FIFO buffer.
-		FIFOLevelReg	= 0x0A << 1,// Indicates the number of bytes stored in the FIFO buffer.
-		WaterLevelReg	= 0x0B << 1,// Defines the level for the FIFO under- and overflow warning.
-		ControlReg		= 0x0C << 1,// Miscellaneous control bits. Start and stop the timer and able to check validity of the last recieved byte.
-		BitFramingReg	= 0x0D << 1,// Adjustments for bit oriented frames.
-		CollReg			= 0x0E << 1,// Defines the first bit-collision detected on the RF interface.
+		/// Starts and stops command execution.
+		CommandReg 		= 0x01 << 1,
+		/// Control bits to enable and disable the passing of interrupt requests.
+		ComIEnReg		= 0x02 << 1,
+		/// Control bits to enable and disable the passing of interrupt requests.
+		DivIEnReg		= 0x03 << 1,
+		/// Interrupt request bits.
+		ComIrqReg		= 0x04 << 1,
+		/// Interrupt request bits.
+		DivIrqReg		= 0x05 << 1,
+		/// Error bit register showing the error status of the last command executed.
+		ErrorReg		= 0x06 << 1,
+		/// Contains status bits of the CRC, interupt and FIFO buffer.
+		Status1Reg		= 0x07 << 1,
+		/// Contains status bits of the reciver, transmiter and data mode detector.
+		Status2Reg		= 0x08 << 1,
+		/// Input and output of 64 byte FIFO buffer.
+		FIFODataReg		= 0x09 << 1,
+		/// Indicates the number of bytes stored in the FIFO buffer.
+		FIFOLevelReg	= 0x0A << 1,
+		/// Defines the level for the FIFO under- and overflow warning.
+		WaterLevelReg	= 0x0B << 1,
+		/// Miscellaneous control bits. Start and stop the timer and able to check validity of the last recieved byte.
+		ControlReg		= 0x0C << 1,
+		/// Adjustments for bit oriented frames.
+		BitFramingReg	= 0x0D << 1,
+		/// Defines the first bit-collision detected on the RF interface.
+		CollReg			= 0x0E << 1,
 		/*reserved		= 0x0F << 1,// reserved for future use.*/
 		
 		// Page 1 Communication
 		/*reserved		= 0x10 << 1,// reserved for future use.*/
-		ModeReg			= 0x11 << 1,// Defines general mode settings for transmitting and recieving.
-		TxModeReg		= 0x12 << 1,// Defines the data rate during transmission.
-		RxModeReg		= 0x13 << 1,// Defines the data rate during reception.
-		TxControlReg	= 0x14 << 1,// Controls the logical behaivior of the antenna driver pins TX1 and TX2.
-		TxASKreg		= 0x15 << 1,// Controls transmit modulation settings.
-		TxSelReg		= 0x16 << 1,// Selects the internal sources for the analog module.
-		RxSelReg 		= 0x17 << 1,// Selects internal receiver settings.
-		RxTresholdReg	= 0x18 << 1,// Selects tresholds for the bit decoder/
-		DemodReg		= 0x19 << 1,// Defines Demodulator settings.
+		/// Defines general mode settings for transmitting and recieving.
+		ModeReg			= 0x11 << 1,
+		/// Defines the data rate during transmission.
+		TxModeReg		= 0x12 << 1,
+		/// Defines the data rate during reception.
+		RxModeReg		= 0x13 << 1,
+		/// Controls the logical behaivior of the antenna driver pins TX1 and TX2.
+		TxControlReg	= 0x14 << 1,
+		/// Controls transmit modulation settings.
+		TxASKreg		= 0x15 << 1,
+		/// Selects the internal sources for the analog module.
+		TxSelReg		= 0x16 << 1,
+		/// Selects internal receiver settings.
+		RxSelReg 		= 0x17 << 1,
+		/// Selects tresholds for the bit decoder/
+		RxTresholdReg	= 0x18 << 1,
+		/// Defines Demodulator settings.
+		DemodReg		= 0x19 << 1,
 		/*reserved		= 0x1A << 1,// reserved for future use.*/
 		/*reserved		= 0x1B << 1,// reserved for future use.*/
-		MfTxReg			= 0x1C << 1,// Controls some MIFARE communication transmit registers.
-		MfRxReg			= 0x1D << 1,// Controls the use of the parity bit for sending and revieving.
+		/// Controls some MIFARE communication transmit registers.
+		MfTxReg			= 0x1C << 1,
+		/// Controls the use of the parity bit for sending and revieving.
+		MfRxReg			= 0x1D << 1,
 		/*reserved		= 0x1E << 1,// reserved for future use.*/
-		SerialSpeedReg	= 0x1F << 1,// Selects the speed for the serial UART interface.
+		/// Selects the speed for the serial UART interface.
+		SerialSpeedReg	= 0x1F << 1,
 		
-		// Page 2 Configuration
+		/// Page 2 Configuration
 		/*reserved		= 0x20 << 1,// reserved for future use.*/
-		CRCResultH		= 0x21 << 1,// Shows the MSB values of the CRC calculation.
-		CRCResultL		= 0x22 << 1,// shows the LSB values of the CRC calculation.
+		/// Shows the MSB values of the CRC calculation.
+		CRCResultH		= 0x21 << 1,
+		/// shows the LSB values of the CRC calculation.
+		CRCResultL		= 0x22 << 1,
 		/*reserved		= 0x23 << 1,// reserved for future use.*/
-		ModWidthReg		= 0x24 << 1,// Sets modulation width.
+		/// Sets modulation width.
+		ModWidthReg		= 0x24 << 1,
 		/*reserved		= 0x25 << 1,// reserved for future use.*/
-		RFCfgReg		= 0x26 << 1,// Configures the receiver gain.
-		GsNReg			= 0x27 << 1,// Defines the conductance of the antenna driver pins TX1 and TX2 for the n-driver when the driver is sitched on.
-		CWGsPReg		= 0x28 << 1,// Defines the conductance of the p-driver output during periods of no modulation.
-		ModGsPReg		= 0x29 << 1,// Defines the conductance of the p-driver output during modulation.
-		TmodeReg		= 0x2A << 1,// Defines the timer settings.
-		TPrescalerReg	= 0x2B << 1,// Defines the timer settings.
-		TReloadRegH		= 0x2C << 1,// Defines the 16-bit timer reload value Higer bits.
-		TreloadRegL		= 0x2D << 1,// Defines the 16-bit timer relaod value Lower bits.
-		TCounterValRegH	= 0x2E << 1,// Contains timer values higher bits.
-		TcounterValRegL = 0x2F << 1,// Contains timer values lower bits.
+		/// Configures the receiver gain.
+		RFCfgReg		= 0x26 << 1,
+		/// Defines the conductance of the antenna driver pins TX1 and TX2 for the n-driver when the driver is sitched on.
+		GsNReg			= 0x27 << 1,
+		/// Defines the conductance of the p-driver output during periods of no modulation.
+		CWGsPReg		= 0x28 << 1,
+		/// Defines the conductance of the p-driver output during modulation.
+		ModGsPReg		= 0x29 << 1,
+		/// Defines the timer settings.
+		TmodeReg		= 0x2A << 1,
+		/// Defines the timer settings.
+		TPrescalerReg	= 0x2B << 1,
+		/// Defines the 16-bit timer reload value Higer bits.
+		TReloadRegH		= 0x2C << 1,
+		/// Defines the 16-bit timer relaod value Lower bits.
+		TreloadRegL		= 0x2D << 1,
+		/// Contains timer values higher bits.
+		TCounterValRegH	= 0x2E << 1,
+		/// Contains timer values lower bits.
+		TcounterValRegL = 0x2F << 1,
 		
-		// page 3 Test
+		/// page 3 Test
 		/*reserved		= 0x30 << 1,// reserved for future use.*/
-		TestSel1Reg		= 0x31 << 1,// General test signal configuration.
-		TestSel2Reg		= 0x32 << 1,// Gereral test signal and PRBS control.
-		TestPinEnReg	= 0x33 << 1,// Enables the test bus pin output driver.
-		TestPinValueReg	= 0x34 << 1,// Defines the HIGH and LOW values for the test port D1 to D7 when it is used as I/O
-		TestBusReg		= 0x35 << 1,// Shows the status of the internal test bus.
-		AutoTestReg 	= 0x36 << 1,// Defines if the self test is starter on CalcCRC command.
-		VersionReg 		= 0x37 << 1,// Returns the version of the chip.. version 2 sould return 92h.
-		AnalogTestReg	= 0x38 << 1,// Determines the analog output signal at, and status of, pins AUX1 and AUX2.
-		TestDAC1Reg		= 0x39 << 1,// Defines the test value for TestDAC1.
-		TestDAC2Reg		= 0x3A << 1,// Defines the test value for TestDAC2.
-		TestADCReg		= 0x3B << 1 // Shows the values of ADC I and Q channels.
+		/// General test signal configuration.
+		TestSel1Reg		= 0x31 << 1,
+		/// Gereral test signal and PRBS control.
+		TestSel2Reg		= 0x32 << 1,
+		/// Enables the test bus pin output driver.
+		TestPinEnReg	= 0x33 << 1,
+		/// Defines the HIGH and LOW values for the test port D1 to D7 when it is used as I/O
+		TestPinValueReg	= 0x34 << 1,
+		/// Shows the status of the internal test bus.
+		TestBusReg		= 0x35 << 1,
+		/// Defines if the self test is starter on CalcCRC command.
+		AutoTestReg 	= 0x36 << 1,
+		/// Returns the version of the microcontroller. For example version 2 sould return 92h.
+		VersionReg 		= 0x37 << 1,
+		/// Determines the analog output signal at, and status of, pins AUX1 and AUX2.
+		AnalogTestReg	= 0x38 << 1,
+		/// Defines the test value for TestDAC1.
+		TestDAC1Reg		= 0x39 << 1,
+		/// Defines the test value for TestDAC2.
+		TestDAC2Reg		= 0x3A << 1,
+		/// Shows the values of ADC I and Q channels.
+		TestADCReg		= 0x3B << 1 
 		/*reserved		= 0x3C << 1,// reserved for future use.*/
 		/*reserved		= 0x3D << 1,// reserved for future use.*/
 		/*reserved		= 0x3E << 1,// reserved for future use.*/
 		/*reserved		= 0x3F << 1 // reserved for future use.*/
 	};
-	
+/// \codn INTERNAL
 	byte readRegister( Reg a ){ 
 		return readRegister((byte)a);
 	}
@@ -303,8 +391,8 @@ public:
 				   byte * data_out, 
 				   int * data_out_lenght, 
 				   bool crc = false, 
-				   bool REQA = false) override {
-		return communicateNFC(data_in, data_in_lenght, CMD::Trancieve, data_out, data_out_lenght, crc, REQA);
+				   bool Bitwraping = false) override {
+		return communicateNFC(data_in, data_in_lenght, CMD::Trancieve, data_out, data_out_lenght, crc, Bitwraping);
 	}
 	
 	bool authentCard(const byte * data_in, const int data_in_lenght) override {
@@ -318,9 +406,9 @@ public:
 					 byte * data_out, 
 					 int * data_out_lenght, 
 					 bool crc = false, 
-					 bool REQA = false) {
+					 bool Bitwraping = false) {
 						
-		return communicateNFC(data_in, data_in_lenght, (byte)command, data_out, data_out_lenght, crc, REQA);
+		return communicateNFC(data_in, data_in_lenght, (byte)command, data_out, data_out_lenght, crc, Bitwraping);
 		}
 	
 	bool communicateNFC(const byte * data_in,
@@ -329,14 +417,14 @@ public:
 					 byte * data_out, 
 					 int * data_out_lenght, 
 					 bool crc = false, 
-					 bool REQA = false) override {
+					 bool Bitwraping = false) override {
 		byte crcresult[2];
 		bool validdata = false;
 		
 		writeRegister(Reg::CommandReg, (byte)CMD::Idle);
 		writeRegister(Reg::ComIrqReg, 0x7F);
 		setRegisterMask(Reg::FIFOLevelReg, 0x80);
-		if (REQA == true){
+		if (Bitwraping == true){
 			writeRegister(Reg::BitFramingReg, 0x07);
 		} else {
 			writeRegister(Reg::BitFramingReg, 0x00);
@@ -344,6 +432,10 @@ public:
 		
 		if (data_in_lenght == 1){
 			if (crc == true){
+				if ((data_in_lenght + (int)readRegister(Reg::FIFOLevelReg)) > 62){
+					hwlib::cout << "Writing to much data to add CRC calculation results\n CRC results need TWO bytes of room to be added\n"; 
+					return false;
+				}
 				calculateCRC(data_in, data_in_lenght, crcresult);
 				writeFIFO(*data_in);
 				writeFIFO(2, crcresult);
@@ -352,6 +444,10 @@ public:
 			}
 		} else {
 			if (crc == true){
+				if ((data_in_lenght + (int)readRegister(Reg::FIFOLevelReg)) > 62){
+					hwlib::cout << "Writing to much data to add CRC calculation results\n CRC results need TWO bytes of room to be added\n"; 
+					return false;
+				}
 				calculateCRC(data_in, data_in_lenght, crcresult);
 				writeFIFO(data_in_lenght, data_in);
 				writeFIFO(2, crcresult);
@@ -451,7 +547,7 @@ public:
 	}	
 	
 	
-	int calculateCRC(const byte * data, const int length, byte * result) override {
+	bool calculateCRC(const byte * data, const int length, byte * result) override {
 		
 		writeRegister(Reg::CommandReg, (byte)CMD::Idle);
 		writeRegister(Reg::DivIrqReg, 0x04);
@@ -469,7 +565,7 @@ public:
 		while(1){
 			n = readRegister(Reg::DivIrqReg);
 			if(n & 0x04){
-				break;
+				return false;
 			}
 			if(--i == 0){
 				return 1;
@@ -479,7 +575,8 @@ public:
 	
 	result[0] = readRegister(Reg::CRCResultL);
 	result[1] = readRegister(Reg::CRCResultH);
-	return 0;
+	return true;
 	}
+/// \endcodn
 };
 #endif // RC522_HPP

@@ -1,17 +1,44 @@
+// ==========================================================================
+//
+// File      : nfccontroler_limited.hpp
+// Part of   : nfccontroler library for V1IPAS
+// Copyright : David de Jong (c) 2016
+// Contact   : marijn_david@hotmail.com
+//
+// Abstraction layer for functions on the Microcontroller side of the library.
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+/// @file
+
+
 #ifndef MIFARE_CLASSIC_HPP
 #define MIFARE_CLASSIC_HPP
 #include "nfccontroler_limited.hpp"
 
+/// Implementation of the card protocol functions for the MIFARE-classic protocol.
+///
+/// This class contains the protocol specific implementation for communicating with MIFARE-classic NFC cards.
+/// This class follows the Decorator type of datastructure.
 class Mifare_Classic : public nfccontroler_limited {
 private:
+/// \codn INTERNAL
 	nfccontroler_limited & slave;
+/// \endcond
 public:
-	Mifare_Classic(nfccontroler_limited & slaaf): 
-	slave(slaaf){}
+
+/// Constructor for the MIFARE-classic protocol decorator.
+///
+/// The constructor uses a microcontroler object (slave) to add protocol specific implementation functionality.
+	Mifare_Classic(nfccontroler_limited & slave): 
+	slave(slave){}
 	
-	
-	bool trancieveData(const byte * data_in, const int data_in_lenght, byte * data_out, int * data_out_lenght, bool crc = false, bool REQA = false) override {
-		return slave.trancieveData(data_in, data_in_lenght, data_out, data_out_lenght, crc, REQA);
+/// \codn INTERNAL
+	bool trancieveData(const byte * data_in, const int data_in_lenght, byte * data_out, int * data_out_lenght, bool crc = false, bool Bitwraping = false) override {
+		return slave.trancieveData(data_in, data_in_lenght, data_out, data_out_lenght, crc, Bitwraping);
 	}
 	
 	bool authentCard(const byte * data_in, const int data_in_lenght){
@@ -23,11 +50,11 @@ public:
 	}
 	
 	bool isCard (byte * cardtype) override {
-		byte reqa = 0x26;
+		byte REQA = 0x26;
 		bool card = false;
 		while(card == false){
 			hwlib::wait_ms(333);
-			card = trancieveData(&reqa, 1, cardtype, nullptr, false, true);
+			card = trancieveData(&REQA, 1, cardtype, nullptr, false, true);
 		}
 		return true;
 	}
@@ -218,9 +245,10 @@ public:
 		return writesuccess;
 	}
 	
-	int calculateCRC (const byte * data, const int length, byte * result){
+	bool calculateCRC (const byte * data, const int length, byte * result){
 		return slave.calculateCRC(data, length, result);
 	}
+/// \endcodn
 
 };
 

@@ -1,0 +1,744 @@
+\hypertarget{class_r_c522}{}\section{R\+C522 Class Reference}
+\label{class_r_c522}\index{R\+C522@{R\+C522}}
+
+
+{\ttfamily \#include $<$R\+C522.\+hpp$>$}
+
+Inheritance diagram for R\+C522\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_r_c522}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_r_c522_a3dcadf9d9544de3a436a34018dea676b}{Keytype} \{ \hyperlink{class_r_c522_a3dcadf9d9544de3a436a34018dea676ba1e7b8f8d328f24fb6773e9656f1ed5be}{Keytype\+::\+AuthwithA} = 0x60, 
+\hyperlink{class_r_c522_a3dcadf9d9544de3a436a34018dea676baceae6de53afe58721569fa62b289a3cd}{Keytype\+::\+AuthwithB} = 0x61
+ \}
+\item 
+enum \hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968}{C\+MD} \{ \\*
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968ae599161956d626eda4cb0a5ffb85271c}{C\+M\+D\+::\+Idle} = 0x00, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968adba5553473d129a7985fb532dc249ff4}{C\+M\+D\+::\+Mem} = 0x01, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a0f15bdc78a60f6b39a945102fb09e119}{C\+M\+D\+::\+Rand\+Id} = 0x02, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a3b8f7ce3dcfe31207ffafa7a9226411b}{C\+M\+D\+::\+Calc\+C\+RC} = 0x03, 
+\\*
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a6c2958de5e2295b8cb67bac908244879}{C\+M\+D\+::\+Transmit} = 0x04, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a523f1f3bda25793f86274cedffbaf328}{C\+M\+D\+::\+No\+Cmd\+Change} = 0x07, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968aac3e7dbb9d8e868b27d027b446205fb7}{C\+M\+D\+::\+Recieve} = 0x08, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a78ce6db44d32bafcbbe666722f86e46a}{C\+M\+D\+::\+Trancieve} = 0x0C, 
+\\*
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968abc03250648b1ad2b406fe3f4934b98b7}{C\+M\+D\+::\+M\+F\+Authent} = 0x0E, 
+\hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a109e0d0bf2b42091e997ddc4d49bab8d}{C\+M\+D\+::\+Soft\+Reset} = 0x0F
+ \}
+\item 
+enum \hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}{Reg} \{ \\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a11450bdf07b4ea5cc6ad0e81c8d44527}{Reg\+::\+Command\+Reg} = 0x01 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1845d2c6205cbc45e80752935163eb9b}{Reg\+::\+Com\+I\+En\+Reg} = 0x02 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aab1dc60f00e0544f9497198c1d3fae89}{Reg\+::\+Div\+I\+En\+Reg} = 0x03 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1db3ec7619e0d21b8dfb996d4ddeeda4}{Reg\+::\+Com\+Irq\+Reg} = 0x04 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7892fc58b473802b634afaefd31bbe00}{Reg\+::\+Div\+Irq\+Reg} = 0x05 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa66722964ad21187ec3874c513c04718}{Reg\+::\+Error\+Reg} = 0x06 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a10ec4b900ce861cd1e1d8be2cd914f13}{Reg\+::\+Status1\+Reg} = 0x07 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4c81dff53f5608e5e4eb93616699e953}{Reg\+::\+Status2\+Reg} = 0x08 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a8ef9fd587fd6567688f467a414073432}{Reg\+::\+F\+I\+F\+O\+Data\+Reg} = 0x09 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a5c1d7d189a703ace5301ce9abfa9faf9}{Reg\+::\+F\+I\+F\+O\+Level\+Reg} = 0x0A $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a9ee43b33a46d131d74a9d7c7e458a010}{Reg\+::\+Water\+Level\+Reg} = 0x0B $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1148f8c668fcd879ff66e69d3de5ef33}{Reg\+::\+Control\+Reg} = 0x0C $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3f2ed081137698e3d6c2c11dfd5129e4}{Reg\+::\+Bit\+Framing\+Reg} = 0x0D $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a55430b019624dd5a86e471c934139089}{Reg\+::\+Coll\+Reg} = 0x0E $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a23737bf73ba9ce1cd431609c8ad992c4}{Reg\+::\+Mode\+Reg} = 0x11 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ae3d612e672d6744b5d42be5431051c4f}{Reg\+::\+Tx\+Mode\+Reg} = 0x12 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4130d37867b7dd3c1b02f59bf6959cb1}{Reg\+::\+Rx\+Mode\+Reg} = 0x13 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a6c8f580c01ab6001603875bff483c9ef}{Reg\+::\+Tx\+Control\+Reg} = 0x14 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a21705b51ad85eac525b44f6b2b23600f}{Reg\+::\+Tx\+A\+S\+Kreg} = 0x15 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a56b78c8b98c5181a519acb0115191b4a}{Reg\+::\+Tx\+Sel\+Reg} = 0x16 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a52763be9e2839e0840ed522b6694158e}{Reg\+::\+Rx\+Sel\+Reg} = 0x17 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ad301eadb31d2c942b737d4f2d8922e66}{Reg\+::\+Rx\+Treshold\+Reg} = 0x18 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431adf65e1aa787f21e363c7836a6472f36c}{Reg\+::\+Demod\+Reg} = 0x19 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3304b7831b381f707b0f717c58bc6248}{Reg\+::\+Mf\+Tx\+Reg} = 0x1C $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a6adc9fc085ea36a1b2f69468bc1b7403}{Reg\+::\+Mf\+Rx\+Reg} = 0x1D $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ab5f45bb3dfaf437ce8afb34039d97696}{Reg\+::\+Serial\+Speed\+Reg} = 0x1F $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a15158ec76a6b7554960616739a09510c}{Reg\+::\+C\+R\+C\+ResultH} = 0x21 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431abb777b58a054709c49fb8af8dd20dd29}{Reg\+::\+C\+R\+C\+ResultL} = 0x22 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ae85967fc09d21a10fdf99a2717c7f3f6}{Reg\+::\+Mod\+Width\+Reg} = 0x24 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a2e8033091c806e68d5715040aa056a03}{Reg\+::\+R\+F\+Cfg\+Reg} = 0x26 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a2512f36505f04da7da175efa353a8ade}{Reg\+::\+Gs\+N\+Reg} = 0x27 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a490ac2ae01c21e11e5179a310a62dc5f}{Reg\+::\+C\+W\+Gs\+P\+Reg} = 0x28 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa92f706ed8fef333b4c27e7a42ae352f}{Reg\+::\+Mod\+Gs\+P\+Reg} = 0x29 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ada66ccec6aaeb51563fa663e70c624de}{Reg\+::\+Tmode\+Reg} = 0x2A $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a237cdeaf894c23f3b97eccb8b1bb1479}{Reg\+::\+T\+Prescaler\+Reg} = 0x2B $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431acd32b2f19f1ff8fa06c27e80905889db}{Reg\+::\+T\+Reload\+RegH} = 0x2C $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a826b0794c3eb52306f986d77c33cefc3}{Reg\+::\+Treload\+RegL} = 0x2D $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a0c4f9c6c6e2ba8f0b6d6588ef349bd48}{Reg\+::\+T\+Counter\+Val\+RegH} = 0x2E $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a33f1fbc6309d3834fc37226c580b9adc}{Reg\+::\+Tcounter\+Val\+RegL} = 0x2F $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a811968268647fd653da56235d50f7230}{Reg\+::\+Test\+Sel1\+Reg} = 0x31 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3711da806ac5795db2d9976bf4135d6c}{Reg\+::\+Test\+Sel2\+Reg} = 0x32 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1b2193d53aab9432941d5d4ed43c218f}{Reg\+::\+Test\+Pin\+En\+Reg} = 0x33 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a0931bf23372e032b001f9f7e80da1282}{Reg\+::\+Test\+Pin\+Value\+Reg} = 0x34 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa330a75dd97586750bf25f0aa81f63c7}{Reg\+::\+Test\+Bus\+Reg} = 0x35 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a9ff9256cf4bb95b3434218c6eec62cb1}{Reg\+::\+Auto\+Test\+Reg} = 0x36 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4c239ecd6090284f00aaf1770acca869}{Reg\+::\+Version\+Reg} = 0x37 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa62f2f135975e5ec12aa3c84947483d8}{Reg\+::\+Analog\+Test\+Reg} = 0x38 $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3377b4f6d4e22395f4fedb90b92d91cf}{Reg\+::\+Test\+D\+A\+C1\+Reg} = 0x39 $<$$<$ 1, 
+\\*
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7a6dff9f6044c8c1a342630cc3801eac}{Reg\+::\+Test\+D\+A\+C2\+Reg} = 0x3A $<$$<$ 1, 
+\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7af8dac0f44d29c07a4bb35304eff59b}{Reg\+::\+Test\+A\+D\+C\+Reg} = 0x3B $<$$<$ 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_r_c522_afe9b5dc493a0768dae120a869dc5af12}{R\+C522} (hwlib\+::pin\+\_\+out \&sda, hwlib\+::pin\+\_\+in\+\_\+out \&reset, hwlib\+::spi\+\_\+bus \&spi)
+\item 
+byte \hyperlink{class_r_c522_ad824f9c57546a79af49cdd9da960275b}{read\+Register} (\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}{Reg} a)\hypertarget{class_r_c522_ad824f9c57546a79af49cdd9da960275b}{}\label{class_r_c522_ad824f9c57546a79af49cdd9da960275b}
+
+\begin{DoxyCompactList}\small\item\em I\+N\+T\+E\+R\+N\+AL \end{DoxyCompactList}\item 
+byte \hyperlink{class_r_c522_a5de4e5d16b9d54c859f6db3de68c8147}{read\+Register} (byte register\+Address) override
+\item 
+void {\bfseries write\+Register} (\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}{Reg} a, byte value)\hypertarget{class_r_c522_a91323f954046f4753c05baded14042dc}{}\label{class_r_c522_a91323f954046f4753c05baded14042dc}
+
+\item 
+void \hyperlink{class_r_c522_a8860f482253b39808658bf5cdbbe342d}{write\+Register} (byte register\+Address, byte value) override
+\item 
+void {\bfseries set\+Register\+Mask} (\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}{Reg} a, byte value)\hypertarget{class_r_c522_ab16643abb4c08a913eeb416e65a7f739}{}\label{class_r_c522_ab16643abb4c08a913eeb416e65a7f739}
+
+\item 
+void \hyperlink{class_r_c522_a14cc49cb3afd67164ebceffdb38dd605}{set\+Register\+Mask} (byte register\+Address, byte value) override
+\item 
+void {\bfseries clear\+Register\+Mask} (\hyperlink{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}{Reg} a, byte value)\hypertarget{class_r_c522_a4c29b2496dcb91f20b0b4ec253768473}{}\label{class_r_c522_a4c29b2496dcb91f20b0b4ec253768473}
+
+\item 
+void \hyperlink{class_r_c522_ac8dda7d6495cd0e79815ba771012b1b4}{clear\+Register\+Mask} (byte register\+Address, byte value) override
+\item 
+byte \hyperlink{class_r_c522_a08a908f30b995446c40b0ba89cf7a40c}{get\+Antenna\+Gain} (void) override
+\item 
+void \hyperlink{class_r_c522_aa5a6532f6ef2de5ca9236567ff88d346}{set\+Antenna\+Gain} (byte value) override
+\item 
+void \hyperlink{class_r_c522_ae4dbd838876dbd901d811af06e72a448}{antenna\+On} (void) override
+\item 
+void \hyperlink{class_r_c522_a21cce592f19fdbdc440bfec6045eb5ac}{antenna\+Off} (void) override
+\item 
+void \hyperlink{class_r_c522_a8797a7dcb6e4a7e3e30bf476ef47e894}{check\+Erro\+And\+Irq} (byte $\ast$result) override
+\item 
+byte \hyperlink{class_r_c522_a78c18a8805798cda24ed7c35af43f6c3}{read\+F\+I\+FO} (void) override
+\item 
+int \hyperlink{class_r_c522_a2e5ac8769707047e4064200d1829927c}{read\+F\+I\+FO} (byte $\ast$output) override
+\item 
+bool \hyperlink{class_r_c522_a3923806b946c8e35465faca39095fe05}{write\+F\+I\+FO} (const byte value) override
+\item 
+bool \hyperlink{class_r_c522_ac72080585e07afd1d51fbb4dbc6a8e58}{write\+F\+I\+FO} (const int byte\+\_\+amount, const byte $\ast$data) override
+\item 
+void \hyperlink{class_r_c522_ad21aeb49627a3da99d214798886267b9}{self\+Test} (void) override
+\item 
+void \hyperlink{class_r_c522_a87733717cd499f3d51ad9034f78cda9d}{init\+Chip} (void) override
+\item 
+bool \hyperlink{class_r_c522_a8204221660aea7c393eb49340d29876a}{trancieve\+Data} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false) override
+\item 
+bool {\bfseries authent\+Card} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght) override\hypertarget{class_r_c522_ab1cc4858ae90d050daba5ba6e2d49240}{}\label{class_r_c522_ab1cc4858ae90d050daba5ba6e2d49240}
+
+\item 
+bool {\bfseries communicate\+N\+FC} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, \hyperlink{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968}{C\+MD} command, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false)\hypertarget{class_r_c522_ab691cb4a0238846da16356e391cf2a60}{}\label{class_r_c522_ab691cb4a0238846da16356e391cf2a60}
+
+\item 
+bool \hyperlink{class_r_c522_aa8ec37f7914b3aa1e3866dda7e08063f}{communicate\+N\+FC} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte command, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false) override
+\item 
+bool \hyperlink{class_r_c522_a6cef2c82c923eeed59bd3cb5e7a42090}{is\+Card} (byte $\ast$cardtype) override
+\item 
+bool \hyperlink{class_r_c522_a2b41c31a04a41b6098945b0fddcf1476}{select\+Card} (byte $\ast$Cardserial) override
+\item 
+bool \hyperlink{class_r_c522_a84000801a44a02cf59601400b809f5a3}{authenticate\+Sector} (byte typekey, byte $\ast$block\+\_\+address, byte $\ast$key, byte $\ast$Cardserial) override
+\item 
+bool \hyperlink{class_r_c522_a4a9843ee47bd24f6446bb8c327411076}{read\+Block} (byte block\+\_\+address, byte $\ast$data\+\_\+out) override
+\item 
+bool \hyperlink{class_r_c522_a6c6409ef5f4385e9d1efac5b2f9caed0}{read\+Sector} (const int sectorsize, byte($\ast$sector\+\_\+out)\mbox{[}16\mbox{]}, byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$Cardserial)
+\item 
+bool \hyperlink{class_r_c522_a42c197d61571667a97176f7294b0a8dd}{write\+Block} (const byte block\+\_\+address, const byte $\ast$data\+\_\+in, const int lenght) override
+\item 
+bool \hyperlink{class_r_c522_a11e060e686331017873edd877c3255cd}{write\+Sector} (const int sectorsize, byte($\ast$sector\+\_\+in)\mbox{[}16\mbox{]}, byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$Cardserial)
+\item 
+bool \hyperlink{class_r_c522_a851317030e6ad460210c136fd8f961fa}{calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of the microcontroller functions for the N\+F\+C-\/\+R\+C522 microcontroller.
+
+This class contains microcontroller specific implementation for working with the N\+F\+C-\/\+R\+C522 micrcontroller. This class follows the Decorator type of datastructure. 
+
+\subsection{Member Enumeration Documentation}
+\index{R\+C522@{R\+C522}!C\+MD@{C\+MD}}
+\index{C\+MD@{C\+MD}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{C\+MD}{CMD}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf R\+C522\+::\+C\+MD}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Idle@{Idle}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Idle@{Idle}}\item[{\em 
+Idle\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968ae599161956d626eda4cb0a5ffb85271c}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968ae599161956d626eda4cb0a5ffb85271c}
+}]Cancels all running commands. \index{Mem@{Mem}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Mem@{Mem}}\item[{\em 
+Mem\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968adba5553473d129a7985fb532dc249ff4}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968adba5553473d129a7985fb532dc249ff4}
+}]Writes 25 bytes from the F\+I\+FO buffer to the internal buffer. \index{Rand\+Id@{Rand\+Id}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Rand\+Id@{Rand\+Id}}\item[{\em 
+Rand\+Id\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a0f15bdc78a60f6b39a945102fb09e119}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a0f15bdc78a60f6b39a945102fb09e119}
+}]Generates a 10-\/byte random ID number. \index{Calc\+C\+RC@{Calc\+C\+RC}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Calc\+C\+RC@{Calc\+C\+RC}}\item[{\em 
+Calc\+C\+RC\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a3b8f7ce3dcfe31207ffafa7a9226411b}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a3b8f7ce3dcfe31207ffafa7a9226411b}
+}]Activates the C\+RC coprocessor or performs a self test. \index{Transmit@{Transmit}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Transmit@{Transmit}}\item[{\em 
+Transmit\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a6c2958de5e2295b8cb67bac908244879}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a6c2958de5e2295b8cb67bac908244879}
+}]Transmit data from the F\+I\+FO buffer. \index{No\+Cmd\+Change@{No\+Cmd\+Change}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!No\+Cmd\+Change@{No\+Cmd\+Change}}\item[{\em 
+No\+Cmd\+Change\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a523f1f3bda25793f86274cedffbaf328}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a523f1f3bda25793f86274cedffbaf328}
+}]Can be used to modify the Cmd\+Reg bits without chaning the command. \index{Recieve@{Recieve}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Recieve@{Recieve}}\item[{\em 
+Recieve\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968aac3e7dbb9d8e868b27d027b446205fb7}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968aac3e7dbb9d8e868b27d027b446205fb7}
+}]Activates the reciever circuits. \index{Trancieve@{Trancieve}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Trancieve@{Trancieve}}\item[{\em 
+Trancieve\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a78ce6db44d32bafcbbe666722f86e46a}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a78ce6db44d32bafcbbe666722f86e46a}
+}]Transmits data from the F\+I\+FO buffer and automatically activates the receiver after Transmit. \index{M\+F\+Authent@{M\+F\+Authent}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!M\+F\+Authent@{M\+F\+Authent}}\item[{\em 
+M\+F\+Authent\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968abc03250648b1ad2b406fe3f4934b98b7}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968abc03250648b1ad2b406fe3f4934b98b7}
+}]Performs the M\+I\+F\+A\+RE standard authentication as a reader. \index{Soft\+Reset@{Soft\+Reset}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Soft\+Reset@{Soft\+Reset}}\item[{\em 
+Soft\+Reset\hypertarget{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a109e0d0bf2b42091e997ddc4d49bab8d}{}\label{class_r_c522_a8d2b2b09cb1978142f8c31b89049d968a109e0d0bf2b42091e997ddc4d49bab8d}
+}]Resets the M\+F\+R\+C522. \end{description}
+\end{Desc}
+\index{R\+C522@{R\+C522}!Keytype@{Keytype}}
+\index{Keytype@{Keytype}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{Keytype}{Keytype}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf R\+C522\+::\+Keytype}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_r_c522_a3dcadf9d9544de3a436a34018dea676b}{}\label{class_r_c522_a3dcadf9d9544de3a436a34018dea676b}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{AuthwithA@{AuthwithA}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!AuthwithA@{AuthwithA}}\item[{\em 
+AuthwithA\hypertarget{class_r_c522_a3dcadf9d9544de3a436a34018dea676ba1e7b8f8d328f24fb6773e9656f1ed5be}{}\label{class_r_c522_a3dcadf9d9544de3a436a34018dea676ba1e7b8f8d328f24fb6773e9656f1ed5be}
+}]Starts authentication with key A. \index{AuthwithB@{AuthwithB}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!AuthwithB@{AuthwithB}}\item[{\em 
+AuthwithB\hypertarget{class_r_c522_a3dcadf9d9544de3a436a34018dea676baceae6de53afe58721569fa62b289a3cd}{}\label{class_r_c522_a3dcadf9d9544de3a436a34018dea676baceae6de53afe58721569fa62b289a3cd}
+}]Starts authentication with key B. \end{description}
+\end{Desc}
+\index{R\+C522@{R\+C522}!Reg@{Reg}}
+\index{Reg@{Reg}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{Reg}{Reg}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf R\+C522\+::\+Reg}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Command\+Reg@{Command\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Command\+Reg@{Command\+Reg}}\item[{\em 
+Command\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a11450bdf07b4ea5cc6ad0e81c8d44527}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a11450bdf07b4ea5cc6ad0e81c8d44527}
+}]Starts and stops command execution. \index{Com\+I\+En\+Reg@{Com\+I\+En\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Com\+I\+En\+Reg@{Com\+I\+En\+Reg}}\item[{\em 
+Com\+I\+En\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1845d2c6205cbc45e80752935163eb9b}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1845d2c6205cbc45e80752935163eb9b}
+}]Control bits to enable and disable the passing of interrupt requests. \index{Div\+I\+En\+Reg@{Div\+I\+En\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Div\+I\+En\+Reg@{Div\+I\+En\+Reg}}\item[{\em 
+Div\+I\+En\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aab1dc60f00e0544f9497198c1d3fae89}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aab1dc60f00e0544f9497198c1d3fae89}
+}]Control bits to enable and disable the passing of interrupt requests. \index{Com\+Irq\+Reg@{Com\+Irq\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Com\+Irq\+Reg@{Com\+Irq\+Reg}}\item[{\em 
+Com\+Irq\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1db3ec7619e0d21b8dfb996d4ddeeda4}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1db3ec7619e0d21b8dfb996d4ddeeda4}
+}]Interrupt request bits. \index{Div\+Irq\+Reg@{Div\+Irq\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Div\+Irq\+Reg@{Div\+Irq\+Reg}}\item[{\em 
+Div\+Irq\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7892fc58b473802b634afaefd31bbe00}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7892fc58b473802b634afaefd31bbe00}
+}]Interrupt request bits. \index{Error\+Reg@{Error\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Error\+Reg@{Error\+Reg}}\item[{\em 
+Error\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa66722964ad21187ec3874c513c04718}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa66722964ad21187ec3874c513c04718}
+}]Error bit register showing the error status of the last command executed. \index{Status1\+Reg@{Status1\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Status1\+Reg@{Status1\+Reg}}\item[{\em 
+Status1\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a10ec4b900ce861cd1e1d8be2cd914f13}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a10ec4b900ce861cd1e1d8be2cd914f13}
+}]Contains status bits of the C\+RC, interupt and F\+I\+FO buffer. \index{Status2\+Reg@{Status2\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Status2\+Reg@{Status2\+Reg}}\item[{\em 
+Status2\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4c81dff53f5608e5e4eb93616699e953}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4c81dff53f5608e5e4eb93616699e953}
+}]Contains status bits of the reciver, transmiter and data mode detector. \index{F\+I\+F\+O\+Data\+Reg@{F\+I\+F\+O\+Data\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!F\+I\+F\+O\+Data\+Reg@{F\+I\+F\+O\+Data\+Reg}}\item[{\em 
+F\+I\+F\+O\+Data\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a8ef9fd587fd6567688f467a414073432}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a8ef9fd587fd6567688f467a414073432}
+}]Input and output of 64 byte F\+I\+FO buffer. \index{F\+I\+F\+O\+Level\+Reg@{F\+I\+F\+O\+Level\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!F\+I\+F\+O\+Level\+Reg@{F\+I\+F\+O\+Level\+Reg}}\item[{\em 
+F\+I\+F\+O\+Level\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a5c1d7d189a703ace5301ce9abfa9faf9}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a5c1d7d189a703ace5301ce9abfa9faf9}
+}]Indicates the number of bytes stored in the F\+I\+FO buffer. \index{Water\+Level\+Reg@{Water\+Level\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Water\+Level\+Reg@{Water\+Level\+Reg}}\item[{\em 
+Water\+Level\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a9ee43b33a46d131d74a9d7c7e458a010}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a9ee43b33a46d131d74a9d7c7e458a010}
+}]Defines the level for the F\+I\+FO under-\/ and overflow warning. \index{Control\+Reg@{Control\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Control\+Reg@{Control\+Reg}}\item[{\em 
+Control\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1148f8c668fcd879ff66e69d3de5ef33}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1148f8c668fcd879ff66e69d3de5ef33}
+}]Miscellaneous control bits. Start and stop the timer and able to check validity of the last recieved byte. \index{Bit\+Framing\+Reg@{Bit\+Framing\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Bit\+Framing\+Reg@{Bit\+Framing\+Reg}}\item[{\em 
+Bit\+Framing\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3f2ed081137698e3d6c2c11dfd5129e4}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3f2ed081137698e3d6c2c11dfd5129e4}
+}]Adjustments for bit oriented frames. \index{Coll\+Reg@{Coll\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Coll\+Reg@{Coll\+Reg}}\item[{\em 
+Coll\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a55430b019624dd5a86e471c934139089}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a55430b019624dd5a86e471c934139089}
+}]Defines the first bit-\/collision detected on the RF interface. \index{Mode\+Reg@{Mode\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Mode\+Reg@{Mode\+Reg}}\item[{\em 
+Mode\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a23737bf73ba9ce1cd431609c8ad992c4}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a23737bf73ba9ce1cd431609c8ad992c4}
+}]Defines general mode settings for transmitting and recieving. \index{Tx\+Mode\+Reg@{Tx\+Mode\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Tx\+Mode\+Reg@{Tx\+Mode\+Reg}}\item[{\em 
+Tx\+Mode\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ae3d612e672d6744b5d42be5431051c4f}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ae3d612e672d6744b5d42be5431051c4f}
+}]Defines the data rate during transmission. \index{Rx\+Mode\+Reg@{Rx\+Mode\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Rx\+Mode\+Reg@{Rx\+Mode\+Reg}}\item[{\em 
+Rx\+Mode\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4130d37867b7dd3c1b02f59bf6959cb1}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4130d37867b7dd3c1b02f59bf6959cb1}
+}]Defines the data rate during reception. \index{Tx\+Control\+Reg@{Tx\+Control\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Tx\+Control\+Reg@{Tx\+Control\+Reg}}\item[{\em 
+Tx\+Control\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a6c8f580c01ab6001603875bff483c9ef}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a6c8f580c01ab6001603875bff483c9ef}
+}]Controls the logical behaivior of the antenna driver pins T\+X1 and T\+X2. \index{Tx\+A\+S\+Kreg@{Tx\+A\+S\+Kreg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Tx\+A\+S\+Kreg@{Tx\+A\+S\+Kreg}}\item[{\em 
+Tx\+A\+S\+Kreg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a21705b51ad85eac525b44f6b2b23600f}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a21705b51ad85eac525b44f6b2b23600f}
+}]Controls transmit modulation settings. \index{Tx\+Sel\+Reg@{Tx\+Sel\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Tx\+Sel\+Reg@{Tx\+Sel\+Reg}}\item[{\em 
+Tx\+Sel\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a56b78c8b98c5181a519acb0115191b4a}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a56b78c8b98c5181a519acb0115191b4a}
+}]Selects the internal sources for the analog module. \index{Rx\+Sel\+Reg@{Rx\+Sel\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Rx\+Sel\+Reg@{Rx\+Sel\+Reg}}\item[{\em 
+Rx\+Sel\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a52763be9e2839e0840ed522b6694158e}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a52763be9e2839e0840ed522b6694158e}
+}]Selects internal receiver settings. \index{Rx\+Treshold\+Reg@{Rx\+Treshold\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Rx\+Treshold\+Reg@{Rx\+Treshold\+Reg}}\item[{\em 
+Rx\+Treshold\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ad301eadb31d2c942b737d4f2d8922e66}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ad301eadb31d2c942b737d4f2d8922e66}
+}]Selects tresholds for the bit decoder/. \index{Demod\+Reg@{Demod\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Demod\+Reg@{Demod\+Reg}}\item[{\em 
+Demod\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431adf65e1aa787f21e363c7836a6472f36c}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431adf65e1aa787f21e363c7836a6472f36c}
+}]Defines Demodulator settings. \index{Mf\+Tx\+Reg@{Mf\+Tx\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Mf\+Tx\+Reg@{Mf\+Tx\+Reg}}\item[{\em 
+Mf\+Tx\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3304b7831b381f707b0f717c58bc6248}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3304b7831b381f707b0f717c58bc6248}
+}]Controls some M\+I\+F\+A\+RE communication transmit registers. \index{Mf\+Rx\+Reg@{Mf\+Rx\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Mf\+Rx\+Reg@{Mf\+Rx\+Reg}}\item[{\em 
+Mf\+Rx\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a6adc9fc085ea36a1b2f69468bc1b7403}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a6adc9fc085ea36a1b2f69468bc1b7403}
+}]Controls the use of the parity bit for sending and revieving. \index{Serial\+Speed\+Reg@{Serial\+Speed\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Serial\+Speed\+Reg@{Serial\+Speed\+Reg}}\item[{\em 
+Serial\+Speed\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ab5f45bb3dfaf437ce8afb34039d97696}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ab5f45bb3dfaf437ce8afb34039d97696}
+}]Selects the speed for the serial U\+A\+RT interface. \index{C\+R\+C\+ResultH@{C\+R\+C\+ResultH}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!C\+R\+C\+ResultH@{C\+R\+C\+ResultH}}\item[{\em 
+C\+R\+C\+ResultH\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a15158ec76a6b7554960616739a09510c}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a15158ec76a6b7554960616739a09510c}
+}]Page 2 Configuration. Shows the M\+SB values of the C\+RC calculation. \index{C\+R\+C\+ResultL@{C\+R\+C\+ResultL}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!C\+R\+C\+ResultL@{C\+R\+C\+ResultL}}\item[{\em 
+C\+R\+C\+ResultL\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431abb777b58a054709c49fb8af8dd20dd29}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431abb777b58a054709c49fb8af8dd20dd29}
+}]shows the L\+SB values of the C\+RC calculation. \index{Mod\+Width\+Reg@{Mod\+Width\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Mod\+Width\+Reg@{Mod\+Width\+Reg}}\item[{\em 
+Mod\+Width\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ae85967fc09d21a10fdf99a2717c7f3f6}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ae85967fc09d21a10fdf99a2717c7f3f6}
+}]Sets modulation width. \index{R\+F\+Cfg\+Reg@{R\+F\+Cfg\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!R\+F\+Cfg\+Reg@{R\+F\+Cfg\+Reg}}\item[{\em 
+R\+F\+Cfg\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a2e8033091c806e68d5715040aa056a03}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a2e8033091c806e68d5715040aa056a03}
+}]Configures the receiver gain. \index{Gs\+N\+Reg@{Gs\+N\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Gs\+N\+Reg@{Gs\+N\+Reg}}\item[{\em 
+Gs\+N\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a2512f36505f04da7da175efa353a8ade}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a2512f36505f04da7da175efa353a8ade}
+}]Defines the conductance of the antenna driver pins T\+X1 and T\+X2 for the n-\/driver when the driver is sitched on. \index{C\+W\+Gs\+P\+Reg@{C\+W\+Gs\+P\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!C\+W\+Gs\+P\+Reg@{C\+W\+Gs\+P\+Reg}}\item[{\em 
+C\+W\+Gs\+P\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a490ac2ae01c21e11e5179a310a62dc5f}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a490ac2ae01c21e11e5179a310a62dc5f}
+}]Defines the conductance of the p-\/driver output during periods of no modulation. \index{Mod\+Gs\+P\+Reg@{Mod\+Gs\+P\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Mod\+Gs\+P\+Reg@{Mod\+Gs\+P\+Reg}}\item[{\em 
+Mod\+Gs\+P\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa92f706ed8fef333b4c27e7a42ae352f}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa92f706ed8fef333b4c27e7a42ae352f}
+}]Defines the conductance of the p-\/driver output during modulation. \index{Tmode\+Reg@{Tmode\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Tmode\+Reg@{Tmode\+Reg}}\item[{\em 
+Tmode\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ada66ccec6aaeb51563fa663e70c624de}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431ada66ccec6aaeb51563fa663e70c624de}
+}]Defines the timer settings. \index{T\+Prescaler\+Reg@{T\+Prescaler\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!T\+Prescaler\+Reg@{T\+Prescaler\+Reg}}\item[{\em 
+T\+Prescaler\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a237cdeaf894c23f3b97eccb8b1bb1479}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a237cdeaf894c23f3b97eccb8b1bb1479}
+}]Defines the timer settings. \index{T\+Reload\+RegH@{T\+Reload\+RegH}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!T\+Reload\+RegH@{T\+Reload\+RegH}}\item[{\em 
+T\+Reload\+RegH\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431acd32b2f19f1ff8fa06c27e80905889db}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431acd32b2f19f1ff8fa06c27e80905889db}
+}]Defines the 16-\/bit timer reload value Higer bits. \index{Treload\+RegL@{Treload\+RegL}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Treload\+RegL@{Treload\+RegL}}\item[{\em 
+Treload\+RegL\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a826b0794c3eb52306f986d77c33cefc3}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a826b0794c3eb52306f986d77c33cefc3}
+}]Defines the 16-\/bit timer relaod value Lower bits. \index{T\+Counter\+Val\+RegH@{T\+Counter\+Val\+RegH}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!T\+Counter\+Val\+RegH@{T\+Counter\+Val\+RegH}}\item[{\em 
+T\+Counter\+Val\+RegH\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a0c4f9c6c6e2ba8f0b6d6588ef349bd48}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a0c4f9c6c6e2ba8f0b6d6588ef349bd48}
+}]Contains timer values higher bits. \index{Tcounter\+Val\+RegL@{Tcounter\+Val\+RegL}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Tcounter\+Val\+RegL@{Tcounter\+Val\+RegL}}\item[{\em 
+Tcounter\+Val\+RegL\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a33f1fbc6309d3834fc37226c580b9adc}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a33f1fbc6309d3834fc37226c580b9adc}
+}]Contains timer values lower bits. \index{Test\+Sel1\+Reg@{Test\+Sel1\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+Sel1\+Reg@{Test\+Sel1\+Reg}}\item[{\em 
+Test\+Sel1\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a811968268647fd653da56235d50f7230}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a811968268647fd653da56235d50f7230}
+}]page 3 Test General test signal configuration. \index{Test\+Sel2\+Reg@{Test\+Sel2\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+Sel2\+Reg@{Test\+Sel2\+Reg}}\item[{\em 
+Test\+Sel2\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3711da806ac5795db2d9976bf4135d6c}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3711da806ac5795db2d9976bf4135d6c}
+}]Gereral test signal and P\+R\+BS control. \index{Test\+Pin\+En\+Reg@{Test\+Pin\+En\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+Pin\+En\+Reg@{Test\+Pin\+En\+Reg}}\item[{\em 
+Test\+Pin\+En\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1b2193d53aab9432941d5d4ed43c218f}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a1b2193d53aab9432941d5d4ed43c218f}
+}]Enables the test bus pin output driver. \index{Test\+Pin\+Value\+Reg@{Test\+Pin\+Value\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+Pin\+Value\+Reg@{Test\+Pin\+Value\+Reg}}\item[{\em 
+Test\+Pin\+Value\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a0931bf23372e032b001f9f7e80da1282}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a0931bf23372e032b001f9f7e80da1282}
+}]Defines the H\+I\+GH and L\+OW values for the test port D1 to D7 when it is used as I/O. \index{Test\+Bus\+Reg@{Test\+Bus\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+Bus\+Reg@{Test\+Bus\+Reg}}\item[{\em 
+Test\+Bus\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa330a75dd97586750bf25f0aa81f63c7}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa330a75dd97586750bf25f0aa81f63c7}
+}]Shows the status of the internal test bus. \index{Auto\+Test\+Reg@{Auto\+Test\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Auto\+Test\+Reg@{Auto\+Test\+Reg}}\item[{\em 
+Auto\+Test\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a9ff9256cf4bb95b3434218c6eec62cb1}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a9ff9256cf4bb95b3434218c6eec62cb1}
+}]Defines if the self test is starter on Calc\+C\+RC command. \index{Version\+Reg@{Version\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Version\+Reg@{Version\+Reg}}\item[{\em 
+Version\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4c239ecd6090284f00aaf1770acca869}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a4c239ecd6090284f00aaf1770acca869}
+}]Returns the version of the microcontroller. For example version 2 sould return 92h. \index{Analog\+Test\+Reg@{Analog\+Test\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Analog\+Test\+Reg@{Analog\+Test\+Reg}}\item[{\em 
+Analog\+Test\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa62f2f135975e5ec12aa3c84947483d8}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431aa62f2f135975e5ec12aa3c84947483d8}
+}]Determines the analog output signal at, and status of, pins A\+U\+X1 and A\+U\+X2. \index{Test\+D\+A\+C1\+Reg@{Test\+D\+A\+C1\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+D\+A\+C1\+Reg@{Test\+D\+A\+C1\+Reg}}\item[{\em 
+Test\+D\+A\+C1\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3377b4f6d4e22395f4fedb90b92d91cf}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a3377b4f6d4e22395f4fedb90b92d91cf}
+}]Defines the test value for Test\+D\+A\+C1. \index{Test\+D\+A\+C2\+Reg@{Test\+D\+A\+C2\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+D\+A\+C2\+Reg@{Test\+D\+A\+C2\+Reg}}\item[{\em 
+Test\+D\+A\+C2\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7a6dff9f6044c8c1a342630cc3801eac}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7a6dff9f6044c8c1a342630cc3801eac}
+}]Defines the test value for Test\+D\+A\+C2. \index{Test\+A\+D\+C\+Reg@{Test\+A\+D\+C\+Reg}!R\+C522@{R\+C522}}\index{R\+C522@{R\+C522}!Test\+A\+D\+C\+Reg@{Test\+A\+D\+C\+Reg}}\item[{\em 
+Test\+A\+D\+C\+Reg\hypertarget{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7af8dac0f44d29c07a4bb35304eff59b}{}\label{class_r_c522_a7bf90c1bc00e047a687a30948f18a431a7af8dac0f44d29c07a4bb35304eff59b}
+}]Shows the values of A\+DC I and Q channels. \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+C522@{R\+C522}!R\+C522@{R\+C522}}
+\index{R\+C522@{R\+C522}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{R\+C522(hwlib\+::pin\+\_\+out \&sda, hwlib\+::pin\+\_\+in\+\_\+out \&reset, hwlib\+::spi\+\_\+bus \&spi)}{RC522(hwlib::pin_out &sda, hwlib::pin_in_out &reset, hwlib::spi_bus &spi)}}]{\setlength{\rightskip}{0pt plus 5cm}R\+C522\+::\+R\+C522 (
+\begin{DoxyParamCaption}
+\item[{hwlib\+::pin\+\_\+out \&}]{sda, }
+\item[{hwlib\+::pin\+\_\+in\+\_\+out \&}]{reset, }
+\item[{hwlib\+::spi\+\_\+bus \&}]{spi}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_r_c522_afe9b5dc493a0768dae120a869dc5af12}{}\label{class_r_c522_afe9b5dc493a0768dae120a869dc5af12}
+
+
+
+
+Constructor for the N\+F\+C-\/\+R\+C522 mircontroller implementation.
+
+The constructor uses two pin objects and one spi object. Both of wich are defined in Hwlib. The sda pin needs to be a pin\+\_\+out, the reset pin needs to be a pin\+\_\+in\+\_\+out. The spi object needs to be defined according to Hwlib\textquotesingle{}s standard. 
+
+\subsection{Member Function Documentation}
+\index{R\+C522@{R\+C522}!antenna\+Off@{antenna\+Off}}
+\index{antenna\+Off@{antenna\+Off}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{antenna\+Off(void) override}{antennaOff(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::antenna\+Off (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a21cce592f19fdbdc440bfec6045eb5ac}{}\label{class_r_c522_a21cce592f19fdbdc440bfec6045eb5ac}
+Function for turning the microcontrollers antena off
+
+Turns the antenna off. 
+
+Implements \hyperlink{classnfccontroler_a0d8180637c367d223d437a506a641bae}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!antenna\+On@{antenna\+On}}
+\index{antenna\+On@{antenna\+On}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{antenna\+On(void) override}{antennaOn(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::antenna\+On (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_ae4dbd838876dbd901d811af06e72a448}{}\label{class_r_c522_ae4dbd838876dbd901d811af06e72a448}
+Function for turning the mircocontrollers antenna on.
+
+Turns the antenna on. 
+
+Implements \hyperlink{classnfccontroler_a161af319560127b028504add241a8bc6}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!authenticate\+Sector@{authenticate\+Sector}}
+\index{authenticate\+Sector@{authenticate\+Sector}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{authenticate\+Sector(byte typekey, byte $\ast$block\+\_\+address, byte $\ast$key, byte $\ast$\+Cardserial) override}{authenticateSector(byte typekey, byte *block_address, byte *key, byte *Cardserial) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::authenticate\+Sector (
+\begin{DoxyParamCaption}
+\item[{byte}]{typekey, }
+\item[{byte $\ast$}]{block\+\_\+address, }
+\item[{byte $\ast$}]{key, }
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a84000801a44a02cf59601400b809f5a3}{}\label{class_r_c522_a84000801a44a02cf59601400b809f5a3}
+Function for authenticating access to a sector.
+
+This function grants access to the specified sector of the card. The typekey parameter is used to specify which key is used for authentication. The block\+\_\+address parameter is used to select which sector is authenticated for. The key parameter is used to provide they key in byte array form to the specified sector. Any block in a sector may be targeted for authentication and will grant access to all blocks in that sector. This function returns true after successful authentication. 
+
+Implements \hyperlink{classnfccontroler__limited_a4eec4cf702e4c0062c33657e81a2069f}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!calculate\+C\+RC@{calculate\+C\+RC}}
+\index{calculate\+C\+RC@{calculate\+C\+RC}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{calculate\+C\+R\+C(const byte $\ast$data, const int length, byte $\ast$result) override}{calculateCRC(const byte *data, const int length, byte *result) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::calculate\+C\+RC (
+\begin{DoxyParamCaption}
+\item[{const byte $\ast$}]{data, }
+\item[{const int}]{length, }
+\item[{byte $\ast$}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a851317030e6ad460210c136fd8f961fa}{}\label{class_r_c522_a851317030e6ad460210c136fd8f961fa}
+Function that calculates the C\+RC for the given data.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function takes data in array form into the parameter \textquotesingle{}data\textquotesingle{} Together with the integer \textquotesingle{}length\textquotesingle{} which provides the amount of data it calculates the result and inserts it into the parameter \textquotesingle{}result\textquotesingle{} in array format. 
+
+Implements \hyperlink{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!check\+Erro\+And\+Irq@{check\+Erro\+And\+Irq}}
+\index{check\+Erro\+And\+Irq@{check\+Erro\+And\+Irq}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{check\+Erro\+And\+Irq(byte $\ast$result) override}{checkErroAndIrq(byte *result) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::check\+Erro\+And\+Irq (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a8797a7dcb6e4a7e3e30bf476ef47e894}{}\label{class_r_c522_a8797a7dcb6e4a7e3e30bf476ef47e894}
+Function checking the error and I\+RQ results after sending or receiving data.
+
+This function inserts the status of the registers in a byte array that is given to the function as a parameter.
+
+The use function requires knowledge of how the chip returns these results. 
+
+Implements \hyperlink{classnfccontroler__limited_a97f279888626df09059338d149a3dcf1}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!clear\+Register\+Mask@{clear\+Register\+Mask}}
+\index{clear\+Register\+Mask@{clear\+Register\+Mask}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{clear\+Register\+Mask(byte register\+Address, byte value) override}{clearRegisterMask(byte registerAddress, byte value) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::clear\+Register\+Mask (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address, }
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_ac8dda7d6495cd0e79815ba771012b1b4}{}\label{class_r_c522_ac8dda7d6495cd0e79815ba771012b1b4}
+Function for altering the settings of a register without overwriting all the bits stored in a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function resets the given bits in the bite provided. It does this W\+I\+T\+H\+O\+UT altering the other bits in the register. This means that al Z\+E\+R\+O\+ES in the byte will be ignored. The \textquotesingle{}byte register\+Address\textquotesingle{} parameter is used to select the address of the register. The \textquotesingle{}byte value\textquotesingle{} parameter is used to provide the bits to be changed in the register. 
+
+Implements \hyperlink{classnfccontroler_a02cfe73ff95bd107f2020ada91ac7af4}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!communicate\+N\+FC@{communicate\+N\+FC}}
+\index{communicate\+N\+FC@{communicate\+N\+FC}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{communicate\+N\+F\+C(const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte command, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false) override}{communicateNFC(const byte *data_in, const int data_in_lenght, byte command, byte *data_out, int *data_out_lenght, bool crc=false, bool Bitwraping=false) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::communicate\+N\+FC (
+\begin{DoxyParamCaption}
+\item[{const byte $\ast$}]{data\+\_\+in, }
+\item[{const int}]{data\+\_\+in\+\_\+lenght, }
+\item[{byte}]{command, }
+\item[{byte $\ast$}]{data\+\_\+out, }
+\item[{int $\ast$}]{data\+\_\+out\+\_\+lenght, }
+\item[{bool}]{crc = {\ttfamily false}, }
+\item[{bool}]{Bitwraping = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_aa8ec37f7914b3aa1e3866dda7e08063f}{}\label{class_r_c522_aa8ec37f7914b3aa1e3866dda7e08063f}
+A function that provides the implementation of sending and receiving data.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function provides the core functionality for sending and receiving data. The parameter \textquotesingle{}data\+\_\+in\textquotesingle{} provides the data that is to be sent in array format. In combination with the \textquotesingle{}data\+\_\+in\+\_\+lenght\textquotesingle{} parameter to inform the function the amount of data to be sent. It is important to keep in mind the size of the buffer that transmits the data in order to prevent this from overflowing. When data is received the data itself is inserted into the \textquotesingle{}data\+\_\+out\textquotesingle{} parameter in array form. The amount of bytes received is inserted into the \textquotesingle{}data\+\_\+out\+\_\+lenght\textquotesingle{} parameter.
+
+The Boolean parameter \textquotesingle{}crc\textquotesingle{} tells the function to or not to calculate the C\+RC for the data and add it to the to be sent data. Keep in mind that the C\+RC result itself takes up some space in the buffer.
+
+The Boolean parameter \textquotesingle{}Bitwraping\textquotesingle{} tells the function to or not to use a specified bit-\/frame for sending the data. An example of this is that the \textquotesingle{}M\+I\+F\+A\+RE Classic\textquotesingle{} standard of cards only responds to initial contact when the request command is sent in a seven-\/bit frame.
+
+F\+I\+N\+AL W\+A\+R\+N\+I\+NG this is a complicated function that requires knowledge of both the microcontroller and the card protocol being used. It is recommended that the user first reads the appropriate documentation of both the microcontroller and the protocol in use respectively. U\+SE W\+I\+TH C\+A\+U\+T\+I\+ON 
+
+Implements \hyperlink{classnfccontroler_a742e67e43b865074c4f23fb6c133cdd7}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!get\+Antenna\+Gain@{get\+Antenna\+Gain}}
+\index{get\+Antenna\+Gain@{get\+Antenna\+Gain}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{get\+Antenna\+Gain(void) override}{getAntennaGain(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}byte R\+C522\+::get\+Antenna\+Gain (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a08a908f30b995446c40b0ba89cf7a40c}{}\label{class_r_c522_a08a908f30b995446c40b0ba89cf7a40c}
+Function for reading the antennas current Gain setting.
+
+This function returns a byte value that represents the current gain setting of the microcontrollers antenna. The meaning of this byte usually represented in the microcontrollers appropriate documentation. Using this function requires some knowledge of the microcontroller in question, caution is advised. 
+
+Implements \hyperlink{classnfccontroler_a99c9451d564a62c525925f8ca79a9d1e}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!init\+Chip@{init\+Chip}}
+\index{init\+Chip@{init\+Chip}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{init\+Chip(void) override}{initChip(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::init\+Chip (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a87733717cd499f3d51ad9034f78cda9d}{}\label{class_r_c522_a87733717cd499f3d51ad9034f78cda9d}
+A Function that readies the microcontroller for sending and receiving data.
+
+This function initializes the basic functions of the chip and configures the needed registers to start sending and receiving data. It also performs a soft reset to make sure the initialization always starts off with the same configuration. The function also turns the antenna on. 
+
+Implements \hyperlink{classnfccontroler_a4f5a22e5f25f56abe26ed0034a296135}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!is\+Card@{is\+Card}}
+\index{is\+Card@{is\+Card}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{is\+Card(byte $\ast$cardtype) override}{isCard(byte *cardtype) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::is\+Card (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{cardtype}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a6cef2c82c923eeed59bd3cb5e7a42090}{}\label{class_r_c522_a6cef2c82c923eeed59bd3cb5e7a42090}
+Function for detecting if a card is in the EM field.
+
+This function constantly polls for a card in the EM field When a card responds it inserts the response (Sak) in the cardtype byte array. This response can be used to identify the type of card. Before a card responds to this function it will not respond to any other command. It is currently not supported to have multiple cards in the EM field at the same time. Function will return true on successful detection of a card. 
+
+Implements \hyperlink{classnfccontroler__limited_ae1e689d34ba8bcd933c696b3f852dad6}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!read\+Block@{read\+Block}}
+\index{read\+Block@{read\+Block}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{read\+Block(byte block\+\_\+address, byte $\ast$data\+\_\+out) override}{readBlock(byte block_address, byte *data_out) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::read\+Block (
+\begin{DoxyParamCaption}
+\item[{byte}]{block\+\_\+address, }
+\item[{byte $\ast$}]{data\+\_\+out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a4a9843ee47bd24f6446bb8c327411076}{}\label{class_r_c522_a4a9843ee47bd24f6446bb8c327411076}
+Function for reading a block of data from the card.
+
+This function reads data from a single block of data inside the card. After reading the data it inserts this in the data\+\_\+out array parameter. It is required to authenticate for the sector that the block resides in before attempting to read. Upon successful reading of data this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_a5a8f607de57023a90962f6ac4fa2b5f1}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!read\+F\+I\+FO@{read\+F\+I\+FO}}
+\index{read\+F\+I\+FO@{read\+F\+I\+FO}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{read\+F\+I\+F\+O(void) override}{readFIFO(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}byte R\+C522\+::read\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a78c18a8805798cda24ed7c35af43f6c3}{}\label{class_r_c522_a78c18a8805798cda24ed7c35af43f6c3}
+A function that returns a single byte from the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function reads a single byte from the F\+I\+F\+O-\/buffer and returns this. W\+A\+R\+N\+I\+NG make sure you know if the F\+I\+F\+O-\/buffer of your microcontroller preserves its data when read. An example of this is the F\+I\+F\+O-\/buffer from the \hyperlink{class_r_c522}{R\+C522} which deletes the byte read from the buffer afterwards. To prevent data loss make sure the byte returned is stored somewhere if this situation occurs. 
+
+Implements \hyperlink{classnfccontroler_afcab6129cc6c97452f998c46e8088d01}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!read\+F\+I\+FO@{read\+F\+I\+FO}}
+\index{read\+F\+I\+FO@{read\+F\+I\+FO}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{read\+F\+I\+F\+O(byte $\ast$output) override}{readFIFO(byte *output) override}}]{\setlength{\rightskip}{0pt plus 5cm}int R\+C522\+::read\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a2e5ac8769707047e4064200d1829927c}{}\label{class_r_c522_a2e5ac8769707047e4064200d1829927c}
+Function for reading data currently stored in the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function reads all data currently stored in the F\+I\+F\+O-\/buffer. It inserts this data into the \textquotesingle{}output\textquotesingle{} parameter in array from. The integer value returned is the amount of bytes about to be read from the buffer W\+A\+R\+N\+I\+NG make sure you know if the F\+I\+F\+O-\/buffer of your microcontroller preserves its data when read. An example of this is the F\+I\+F\+O-\/buffer from the \hyperlink{class_r_c522}{R\+C522} which deletes the byte read from the buffer afterwards. To prevent data loss make sure the data is stored somewhere if this situation occurs. It is important to know the maximum amount of data the buffer can hold so you can provide appropriate storage. 
+
+Implements \hyperlink{classnfccontroler_ac1b18db7bd72cf1a2d6cd995ee3919cb}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!read\+Register@{read\+Register}}
+\index{read\+Register@{read\+Register}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{read\+Register(byte register\+Address) override}{readRegister(byte registerAddress) override}}]{\setlength{\rightskip}{0pt plus 5cm}byte R\+C522\+::read\+Register (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a5de4e5d16b9d54c859f6db3de68c8147}{}\label{class_r_c522_a5de4e5d16b9d54c859f6db3de68c8147}
+Function for reading the current settings of a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function returns the current bits set in a register in the form of a single byte. The parameter \textquotesingle{}byte register\+Address\textquotesingle{} is used to supply the address of the register.
+
+W\+A\+R\+N\+I\+NG make sure you know if the register you are reading from preserves its data when read. An example of this is the F\+I\+F\+O-\/buffer from the \hyperlink{class_r_c522}{R\+C522} which deletes the byte read from the buffer afterwards. To prevent data loss make sure the byte returned is stored somewhere if this situation occurs. 
+
+Implements \hyperlink{classnfccontroler_aaf3c333dece31c91679bb60a58bf1ef9}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!read\+Sector@{read\+Sector}}
+\index{read\+Sector@{read\+Sector}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{read\+Sector(const int sectorsize, byte($\ast$sector\+\_\+out)[16], byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$\+Cardserial)}{readSector(const int sectorsize, byte(*sector_out)[16], byte typekey, byte *first_block_in_sector, byte *key, byte *Cardserial)}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::read\+Sector (
+\begin{DoxyParamCaption}
+\item[{const int}]{sectorsize, }
+\item[{byte($\ast$)}]{sector\+\_\+out\mbox{[}16\mbox{]}, }
+\item[{byte}]{typekey, }
+\item[{byte $\ast$}]{first\+\_\+block\+\_\+in\+\_\+sector, }
+\item[{byte $\ast$}]{key, }
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a6c6409ef5f4385e9d1efac5b2f9caed0}{}\label{class_r_c522_a6c6409ef5f4385e9d1efac5b2f9caed0}
+Function for reading an entire sector of data from the card.
+
+This function reads an entire sector of data. After reading the data it inserts this in the sector\+\_\+out 2d matrix parameter. Authentication is built in for this function. The typekey parameter is used to specify which key is used for authentication. The first\+\_\+block\+\_\+in\+\_\+sector parameter is used to select which sector is authenticated for. The key parameter is used to provide they key in byte array form to the specified sector. Upon successful reading of the sector this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_a70d6de379a501af2272da775c5d27c9e}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!select\+Card@{select\+Card}}
+\index{select\+Card@{select\+Card}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{select\+Card(byte $\ast$\+Cardserial) override}{selectCard(byte *Cardserial) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::select\+Card (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a2b41c31a04a41b6098945b0fddcf1476}{}\label{class_r_c522_a2b41c31a04a41b6098945b0fddcf1476}
+Function for the selection of the card.
+
+This function requests the U\+ID (Unique Identifier) from the card and then uses the U\+ID to select the card. It inserts the U\+ID into the Cardserial array. When a card has been successfully selected its U\+ID can be used to send other data and commands towards the card. This function returns true after the successful selection of a card. 
+
+Implements \hyperlink{classnfccontroler__limited_a195f3de8d1529e00998f60ddf8058f6b}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!self\+Test@{self\+Test}}
+\index{self\+Test@{self\+Test}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{self\+Test(void) override}{selfTest(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::self\+Test (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_ad21aeb49627a3da99d214798886267b9}{}\label{class_r_c522_ad21aeb49627a3da99d214798886267b9}
+A Function that runs the self test function of the microcontroller in question.
+
+The results of the self test are printed to the terminal and can be compared to the expected results usually defined in the microcontroller’s documentation. 
+
+Implements \hyperlink{classnfccontroler_adf8ddf5ba68a3d6689f5cdc15e294151}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!set\+Antenna\+Gain@{set\+Antenna\+Gain}}
+\index{set\+Antenna\+Gain@{set\+Antenna\+Gain}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{set\+Antenna\+Gain(byte value) override}{setAntennaGain(byte value) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::set\+Antenna\+Gain (
+\begin{DoxyParamCaption}
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_aa5a6532f6ef2de5ca9236567ff88d346}{}\label{class_r_c522_aa5a6532f6ef2de5ca9236567ff88d346}
+Function for setting the antennas gain.
+
+This function sets the gain level of the antenna by sending a byte to the antennas register. The meaning of the bits contained in the byte is usually represented in the microcontrollers appropriate documentation. Using this function requires some knowledge of the microcontroller in question, caution is advised. 
+
+Implements \hyperlink{classnfccontroler_ae76958998275b8e4acc04c1fe61998e5}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!set\+Register\+Mask@{set\+Register\+Mask}}
+\index{set\+Register\+Mask@{set\+Register\+Mask}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{set\+Register\+Mask(byte register\+Address, byte value) override}{setRegisterMask(byte registerAddress, byte value) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::set\+Register\+Mask (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address, }
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a14cc49cb3afd67164ebceffdb38dd605}{}\label{class_r_c522_a14cc49cb3afd67164ebceffdb38dd605}
+Function for altering the settings of a register without overwriting all the bits stored in a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function sets the given bits in the bite provided. It does this W\+I\+T\+H\+O\+UT altering the other bits in the register. This means that al Z\+E\+R\+O\+ES in the byte will be ignored. The \textquotesingle{}byte register\+Address\textquotesingle{} parameter is used to select the address of the register. The \textquotesingle{}byte value\textquotesingle{} parameter is used to provide the bits to be changed in the register. 
+
+Implements \hyperlink{classnfccontroler_af35dd99e72c2321c50dec98529e04a83}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!trancieve\+Data@{trancieve\+Data}}
+\index{trancieve\+Data@{trancieve\+Data}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{trancieve\+Data(const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false) override}{trancieveData(const byte *data_in, const int data_in_lenght, byte *data_out, int *data_out_lenght, bool crc=false, bool Bitwraping=false) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::trancieve\+Data (
+\begin{DoxyParamCaption}
+\item[{const byte $\ast$}]{data\+\_\+in, }
+\item[{const int}]{data\+\_\+in\+\_\+lenght, }
+\item[{byte $\ast$}]{data\+\_\+out, }
+\item[{int $\ast$}]{data\+\_\+out\+\_\+lenght, }
+\item[{bool}]{crc = {\ttfamily false}, }
+\item[{bool}]{Bitwraping = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a8204221660aea7c393eb49340d29876a}{}\label{class_r_c522_a8204221660aea7c393eb49340d29876a}
+Function for using the simultaneous sending and receiving of data.
+
+This function is used for sending data and commands to the card in the form of bytes. It sends the data stored in a byte array. After sending the data it inserts any received data in the data\+\_\+out array. It will also supply the amount of bytes received unless a nullptr is given to data\+\_\+out\+\_\+lenght. The crc and Bitwraping Booleans are used to trigger the additional functionality of Calculating and adding the crc and the use of a specialised bit frame for certain commands respectively. It is recommended to at least have a basic understanding of the card-\/protocol and microcontroller in use when using this function. 
+
+Implements \hyperlink{classnfccontroler__limited_a35a7cc1d586511b6a35294bc234530e0}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!write\+Block@{write\+Block}}
+\index{write\+Block@{write\+Block}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{write\+Block(const byte block\+\_\+address, const byte $\ast$data\+\_\+in, const int lenght) override}{writeBlock(const byte block_address, const byte *data_in, const int lenght) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::write\+Block (
+\begin{DoxyParamCaption}
+\item[{const byte}]{block\+\_\+address, }
+\item[{const byte $\ast$}]{data\+\_\+in, }
+\item[{const int}]{lenght}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a42c197d61571667a97176f7294b0a8dd}{}\label{class_r_c522_a42c197d61571667a97176f7294b0a8dd}
+Function for writing a block of data to the card.
+
+This function writes data to a single block of data inside the card. The parameter data\+\_\+in is used to provide the data to write in byte array form. The data given to the function is appended with zeroes so a full block is always written. It is required to authenticate for the sector that the block resides in before attempting to write. Upon successful writing of data this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_aeeeb82c8b45881239c7b2d9b4bce9ef5}{nfccontroler\+\_\+limited}.
+
+\index{R\+C522@{R\+C522}!write\+F\+I\+FO@{write\+F\+I\+FO}}
+\index{write\+F\+I\+FO@{write\+F\+I\+FO}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{write\+F\+I\+F\+O(const byte value) override}{writeFIFO(const byte value) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::write\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{const byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a3923806b946c8e35465faca39095fe05}{}\label{class_r_c522_a3923806b946c8e35465faca39095fe05}
+A function that writes a single byte to the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function writes a single byte to the F\+I\+F\+O-\/buffer. It will return false if the F\+I\+F\+O-\/buffer is full. The parameter \textquotesingle{}value\textquotesingle{} is used to provide the byte of data that needs to be written to the F\+I\+F\+O-\/buffer. It is recommended that you know the size of your microcontroller’s F\+I\+F\+O-\/buffer to prevent data loss. 
+
+Implements \hyperlink{classnfccontroler_aef681b8f4a4a7d982c30ee2d9e8124da}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!write\+F\+I\+FO@{write\+F\+I\+FO}}
+\index{write\+F\+I\+FO@{write\+F\+I\+FO}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{write\+F\+I\+F\+O(const int byte\+\_\+amount, const byte $\ast$data) override}{writeFIFO(const int byte_amount, const byte *data) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::write\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{const int}]{byte\+\_\+amount, }
+\item[{const byte $\ast$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_ac72080585e07afd1d51fbb4dbc6a8e58}{}\label{class_r_c522_ac72080585e07afd1d51fbb4dbc6a8e58}
+A function that writes data to the F\+I\+F\+O-\/buffer.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function writes the data provided byte to the F\+I\+F\+O-\/buffer. It will return false if the F\+I\+F\+O-\/buffer is full or if you provide so much data that the buffer will overflow. The \textquotesingle{}byte\+\_\+amount\textquotesingle{} parameter is used to provide the amount of data about to be sent to the F\+I\+F\+O-\/buffer. the \textquotesingle{}data\textquotesingle{} parameter is used to provide the actual data to be written in array form. It is recommended that you know the size of your microcontroller’s F\+I\+F\+O-\/buffer to prevent data loss. 
+
+Implements \hyperlink{classnfccontroler_a5e9de8b00b7bea62fe4f422a898018a9}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!write\+Register@{write\+Register}}
+\index{write\+Register@{write\+Register}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{write\+Register(byte register\+Address, byte value) override}{writeRegister(byte registerAddress, byte value) override}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+C522\+::write\+Register (
+\begin{DoxyParamCaption}
+\item[{byte}]{register\+Address, }
+\item[{byte}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a8860f482253b39808658bf5cdbbe342d}{}\label{class_r_c522_a8860f482253b39808658bf5cdbbe342d}
+Function for writing a single byte to a register.
+
+W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
+
+This function writes a single byte of data to the selected register. The \textquotesingle{}byte register\+Address\textquotesingle{} parameter is used to select the address of the register. The \textquotesingle{}byte value\textquotesingle{} parameter is used to provide the byte to be written.
+
+W\+A\+R\+N\+I\+NG this function sends the whole byte of data to be written to the register. It can potentially overwrite previously set settings of that register. 
+
+Implements \hyperlink{classnfccontroler_a0ea9c75e4dbe9dbeb81b49cac5e382db}{nfccontroler}.
+
+\index{R\+C522@{R\+C522}!write\+Sector@{write\+Sector}}
+\index{write\+Sector@{write\+Sector}!R\+C522@{R\+C522}}
+\subsubsection[{\texorpdfstring{write\+Sector(const int sectorsize, byte($\ast$sector\+\_\+in)[16], byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$\+Cardserial)}{writeSector(const int sectorsize, byte(*sector_in)[16], byte typekey, byte *first_block_in_sector, byte *key, byte *Cardserial)}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::write\+Sector (
+\begin{DoxyParamCaption}
+\item[{const int}]{sectorsize, }
+\item[{byte($\ast$)}]{sector\+\_\+in\mbox{[}16\mbox{]}, }
+\item[{byte}]{typekey, }
+\item[{byte $\ast$}]{first\+\_\+block\+\_\+in\+\_\+sector, }
+\item[{byte $\ast$}]{key, }
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a11e060e686331017873edd877c3255cd}{}\label{class_r_c522_a11e060e686331017873edd877c3255cd}
+Function for writing an entire sector of data to the card.
+
+This function writes an entire sector of data. The sector\+\_\+in parameter is used to provide the data to be written in 2d matrix form. Authentication is built in for this function. The typekey parameter is used to specify which key is used for authentication. The first\+\_\+block\+\_\+in\+\_\+sector parameter is used to select which sector is authenticated for. The key parameter is used to provide they key in byte array form to the specified sector. Upon successful writing of the sector this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_ad4d31d46ee21766eaaa0a4f1916cc8d8}{nfccontroler\+\_\+limited}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_r_c522_8hpp}{R\+C522.\+hpp}\end{DoxyCompactItemize}

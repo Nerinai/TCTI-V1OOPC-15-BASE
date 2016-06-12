@@ -1,0 +1,41 @@
+nfccontroler library
+
+\begin{DoxyAuthor}{Author}
+David de Jong (\href{mailto:marijn_david@hotmail.com}{\tt marijn\+\_\+david@hotmail.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 (last modified 2016-\/06-\/11) 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+Published under the boost licence.
+\end{DoxyCopyright}
+nfccontroller is a library for the use of controlling N\+FC reader microcontrollers. This library was made as part of the V1\+I\+P\+A\+S-\/\+TI course at the Hogeschool Utrecht. This library is intended to be used with Hwlib ((c) Wouter van Ooien (\href{mailto:wouter@voti.nl}{\tt wouter@voti.\+nl}). The language is C++ from the 2011 standard.
+
+This library currently supports the following N\+FC microcontrollers\+:
+\begin{DoxyItemize}
+\item R\+F\+ID -\/ \hyperlink{class_r_c522}{R\+C522}
+\end{DoxyItemize}
+
+And the following card protocols\+:
+\begin{DoxyItemize}
+\item Mifare Classic. which uses parts of the (I\+S\+O/\+I\+EC 14443-\/3 Type A) standard.
+\end{DoxyItemize}
+
+The library is used by including either \hyperlink{nfccontroler__all_8hpp_source}{nfccontroler\+\_\+all.\+hpp} or, preferably, by including the N\+FC chip and card protocol you want to use.
+
+Naming convention\+:
+
+
+\begin{DoxyItemize}
+\item Functions that have \textquotesingle{}register\textquotesingle{} as part of their name are used to manipulate the internal registers of the N\+FC microcontroller. These functions are low level and O\+N\+LY meant to be used if the user has I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE of the internal workings of the microcontroller in question. These functions set, get or alter the variables currently available in the register. Using such a function twice in the same context will not alter the effect. The only exception to this is the F\+I\+F\+O-\/buffer because this register is used to store data.
+\item Functions with more descriptive names such as \textquotesingle{}antenna\+On\textquotesingle{} or \textquotesingle{}calc\+C\+RC\textquotesingle{} are used to perform standard operations of the microcontroller. Caution is advised since some if these functions require advanced knowledge of the internal workings of the card protocol or microcontroller.
+\item Functions that contain the words \textquotesingle{}block\textquotesingle{} or \textquotesingle{}sector\textquotesingle{} as part of their name are functions that deal with sending and receiving information to the card in coherence with the used protocol. These functions are the top level of the library and are intended for general use.
+\end{DoxyItemize}
+
+Usability\+:
+
+
+\begin{DoxyItemize}
+\item The top level of this library is meant to be usable and understandable by people with a basic understanding of C++ and the card protocol they are using.
+\item The low level functions are meant to be usable and understandable by people with a more advanced understanding of the microcontrollers functionality. 
+\end{DoxyItemize}

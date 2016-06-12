@@ -1,0 +1,189 @@
+\hypertarget{class_mifare___classic}{}\section{Mifare\+\_\+\+Classic Class Reference}
+\label{class_mifare___classic}\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+
+
+{\ttfamily \#include $<$Mifare\+\_\+\+Classic.\+hpp$>$}
+
+Inheritance diagram for Mifare\+\_\+\+Classic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mifare___classic}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mifare___classic_a91dc3f7490d536582dd5e584cbd6ed58}{Mifare\+\_\+\+Classic} (\hyperlink{classnfccontroler__limited}{nfccontroler\+\_\+limited} \&slave)
+\item 
+bool \hyperlink{class_mifare___classic_ac35863ec691f0a118156bea44c4cd7a7}{trancieve\+Data} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false) override\hypertarget{class_mifare___classic_ac35863ec691f0a118156bea44c4cd7a7}{}\label{class_mifare___classic_ac35863ec691f0a118156bea44c4cd7a7}
+
+\begin{DoxyCompactList}\small\item\em I\+N\+T\+E\+R\+N\+AL \end{DoxyCompactList}\item 
+bool {\bfseries authent\+Card} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght)\hypertarget{class_mifare___classic_aa39b8fbbb2b8a66f062c02a94a43c814}{}\label{class_mifare___classic_aa39b8fbbb2b8a66f062c02a94a43c814}
+
+\item 
+void \hyperlink{class_mifare___classic_a9377d560c083320ad3b605df464a29e4}{check\+Erro\+And\+Irq} (byte $\ast$result) override
+\item 
+bool \hyperlink{class_mifare___classic_ae02721fc8b9268e93778fdc47d06d162}{is\+Card} (byte $\ast$cardtype) override
+\item 
+bool \hyperlink{class_mifare___classic_aaa549c00df8619bb2f5a96bba093f005}{select\+Card} (byte $\ast$Cardserial) override
+\item 
+bool \hyperlink{class_mifare___classic_a2e79d1842e44e1600f59fdfba4b22470}{authenticate\+Sector} (byte typekey, byte $\ast$block\+\_\+address, byte $\ast$key, byte $\ast$Cardserial) override
+\item 
+bool \hyperlink{class_mifare___classic_a6401f278760213b5c53e3c41aa5b0c98}{read\+Block} (byte block\+\_\+address, byte $\ast$data\+\_\+out) override
+\item 
+bool \hyperlink{class_mifare___classic_a7caca9ec9a0cdc116f8056753ecc438c}{read\+Sector} (const int sectorsize, byte($\ast$sector\+\_\+out)\mbox{[}16\mbox{]}, byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$Cardserial) override
+\item 
+bool \hyperlink{class_mifare___classic_adb793958d3f2601d336165e383a456f6}{write\+Block} (const byte block\+\_\+address, const byte $\ast$data\+\_\+in, const int lenght) override
+\item 
+bool \hyperlink{class_mifare___classic_a127803e07c148fe8d447a00e28be4a90}{write\+Sector} (const int sectorsize, byte($\ast$sector\+\_\+in)\mbox{[}16\mbox{]}, byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$Cardserial) override
+\item 
+bool {\bfseries calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result)\hypertarget{class_mifare___classic_a915b02fa2f126741de96ce6224503ff6}{}\label{class_mifare___classic_a915b02fa2f126741de96ce6224503ff6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of the card protocol functions for the M\+I\+F\+A\+R\+E-\/classic protocol.
+
+This class contains the protocol specific implementation for communicating with M\+I\+F\+A\+R\+E-\/classic N\+FC cards. This class follows the Decorator type of datastructure. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{Mifare\+\_\+\+Classic(nfccontroler\+\_\+limited \&slave)}{Mifare_Classic(nfccontroler_limited &slave)}}]{\setlength{\rightskip}{0pt plus 5cm}Mifare\+\_\+\+Classic\+::\+Mifare\+\_\+\+Classic (
+\begin{DoxyParamCaption}
+\item[{{\bf nfccontroler\+\_\+limited} \&}]{slave}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_mifare___classic_a91dc3f7490d536582dd5e584cbd6ed58}{}\label{class_mifare___classic_a91dc3f7490d536582dd5e584cbd6ed58}
+Constructor for the M\+I\+F\+A\+R\+E-\/classic protocol decorator.
+
+The constructor uses a microcontroler object (slave) to add protocol specific implementation functionality. 
+
+\subsection{Member Function Documentation}
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!authenticate\+Sector@{authenticate\+Sector}}
+\index{authenticate\+Sector@{authenticate\+Sector}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{authenticate\+Sector(byte typekey, byte $\ast$block\+\_\+address, byte $\ast$key, byte $\ast$\+Cardserial) override}{authenticateSector(byte typekey, byte *block_address, byte *key, byte *Cardserial) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::authenticate\+Sector (
+\begin{DoxyParamCaption}
+\item[{byte}]{typekey, }
+\item[{byte $\ast$}]{block\+\_\+address, }
+\item[{byte $\ast$}]{key, }
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_a2e79d1842e44e1600f59fdfba4b22470}{}\label{class_mifare___classic_a2e79d1842e44e1600f59fdfba4b22470}
+Function for authenticating access to a sector.
+
+This function grants access to the specified sector of the card. The typekey parameter is used to specify which key is used for authentication. The block\+\_\+address parameter is used to select which sector is authenticated for. The key parameter is used to provide they key in byte array form to the specified sector. Any block in a sector may be targeted for authentication and will grant access to all blocks in that sector. This function returns true after successful authentication. 
+
+Implements \hyperlink{classnfccontroler__limited_a4eec4cf702e4c0062c33657e81a2069f}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!check\+Erro\+And\+Irq@{check\+Erro\+And\+Irq}}
+\index{check\+Erro\+And\+Irq@{check\+Erro\+And\+Irq}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{check\+Erro\+And\+Irq(byte $\ast$result) override}{checkErroAndIrq(byte *result) override}}]{\setlength{\rightskip}{0pt plus 5cm}void Mifare\+\_\+\+Classic\+::check\+Erro\+And\+Irq (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_a9377d560c083320ad3b605df464a29e4}{}\label{class_mifare___classic_a9377d560c083320ad3b605df464a29e4}
+Function checking the error and I\+RQ results after sending or receiving data.
+
+This function inserts the status of the registers in a byte array that is given to the function as a parameter.
+
+The use function requires knowledge of how the chip returns these results. 
+
+Implements \hyperlink{classnfccontroler__limited_a97f279888626df09059338d149a3dcf1}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!is\+Card@{is\+Card}}
+\index{is\+Card@{is\+Card}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{is\+Card(byte $\ast$cardtype) override}{isCard(byte *cardtype) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::is\+Card (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{cardtype}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_ae02721fc8b9268e93778fdc47d06d162}{}\label{class_mifare___classic_ae02721fc8b9268e93778fdc47d06d162}
+Function for detecting if a card is in the EM field.
+
+This function constantly polls for a card in the EM field When a card responds it inserts the response (Sak) in the cardtype byte array. This response can be used to identify the type of card. Before a card responds to this function it will not respond to any other command. It is currently not supported to have multiple cards in the EM field at the same time. Function will return true on successful detection of a card. 
+
+Implements \hyperlink{classnfccontroler__limited_ae1e689d34ba8bcd933c696b3f852dad6}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!read\+Block@{read\+Block}}
+\index{read\+Block@{read\+Block}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{read\+Block(byte block\+\_\+address, byte $\ast$data\+\_\+out) override}{readBlock(byte block_address, byte *data_out) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::read\+Block (
+\begin{DoxyParamCaption}
+\item[{byte}]{block\+\_\+address, }
+\item[{byte $\ast$}]{data\+\_\+out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_a6401f278760213b5c53e3c41aa5b0c98}{}\label{class_mifare___classic_a6401f278760213b5c53e3c41aa5b0c98}
+Function for reading a block of data from the card.
+
+This function reads data from a single block of data inside the card. After reading the data it inserts this in the data\+\_\+out array parameter. It is required to authenticate for the sector that the block resides in before attempting to read. Upon successful reading of data this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_a5a8f607de57023a90962f6ac4fa2b5f1}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!read\+Sector@{read\+Sector}}
+\index{read\+Sector@{read\+Sector}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{read\+Sector(const int sectorsize, byte($\ast$sector\+\_\+out)[16], byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$\+Cardserial) override}{readSector(const int sectorsize, byte(*sector_out)[16], byte typekey, byte *first_block_in_sector, byte *key, byte *Cardserial) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::read\+Sector (
+\begin{DoxyParamCaption}
+\item[{const int}]{sectorsize, }
+\item[{byte($\ast$)}]{sector\+\_\+out\mbox{[}16\mbox{]}, }
+\item[{byte}]{typekey, }
+\item[{byte $\ast$}]{first\+\_\+block\+\_\+in\+\_\+sector, }
+\item[{byte $\ast$}]{key, }
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_a7caca9ec9a0cdc116f8056753ecc438c}{}\label{class_mifare___classic_a7caca9ec9a0cdc116f8056753ecc438c}
+Function for reading an entire sector of data from the card.
+
+This function reads an entire sector of data. After reading the data it inserts this in the sector\+\_\+out 2d matrix parameter. Authentication is built in for this function. The typekey parameter is used to specify which key is used for authentication. The first\+\_\+block\+\_\+in\+\_\+sector parameter is used to select which sector is authenticated for. The key parameter is used to provide they key in byte array form to the specified sector. Upon successful reading of the sector this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_a70d6de379a501af2272da775c5d27c9e}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!select\+Card@{select\+Card}}
+\index{select\+Card@{select\+Card}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{select\+Card(byte $\ast$\+Cardserial) override}{selectCard(byte *Cardserial) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::select\+Card (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_aaa549c00df8619bb2f5a96bba093f005}{}\label{class_mifare___classic_aaa549c00df8619bb2f5a96bba093f005}
+Function for the selection of the card.
+
+This function requests the U\+ID (Unique Identifier) from the card and then uses the U\+ID to select the card. It inserts the U\+ID into the Cardserial array. When a card has been successfully selected its U\+ID can be used to send other data and commands towards the card. This function returns true after the successful selection of a card. 
+
+Implements \hyperlink{classnfccontroler__limited_a195f3de8d1529e00998f60ddf8058f6b}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!write\+Block@{write\+Block}}
+\index{write\+Block@{write\+Block}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{write\+Block(const byte block\+\_\+address, const byte $\ast$data\+\_\+in, const int lenght) override}{writeBlock(const byte block_address, const byte *data_in, const int lenght) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::write\+Block (
+\begin{DoxyParamCaption}
+\item[{const byte}]{block\+\_\+address, }
+\item[{const byte $\ast$}]{data\+\_\+in, }
+\item[{const int}]{lenght}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_adb793958d3f2601d336165e383a456f6}{}\label{class_mifare___classic_adb793958d3f2601d336165e383a456f6}
+Function for writing a block of data to the card.
+
+This function writes data to a single block of data inside the card. The parameter data\+\_\+in is used to provide the data to write in byte array form. The data given to the function is appended with zeroes so a full block is always written. It is required to authenticate for the sector that the block resides in before attempting to write. Upon successful writing of data this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_aeeeb82c8b45881239c7b2d9b4bce9ef5}{nfccontroler\+\_\+limited}.
+
+\index{Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}!write\+Sector@{write\+Sector}}
+\index{write\+Sector@{write\+Sector}!Mifare\+\_\+\+Classic@{Mifare\+\_\+\+Classic}}
+\subsubsection[{\texorpdfstring{write\+Sector(const int sectorsize, byte($\ast$sector\+\_\+in)[16], byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$\+Cardserial) override}{writeSector(const int sectorsize, byte(*sector_in)[16], byte typekey, byte *first_block_in_sector, byte *key, byte *Cardserial) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mifare\+\_\+\+Classic\+::write\+Sector (
+\begin{DoxyParamCaption}
+\item[{const int}]{sectorsize, }
+\item[{byte($\ast$)}]{sector\+\_\+in\mbox{[}16\mbox{]}, }
+\item[{byte}]{typekey, }
+\item[{byte $\ast$}]{first\+\_\+block\+\_\+in\+\_\+sector, }
+\item[{byte $\ast$}]{key, }
+\item[{byte $\ast$}]{Cardserial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_mifare___classic_a127803e07c148fe8d447a00e28be4a90}{}\label{class_mifare___classic_a127803e07c148fe8d447a00e28be4a90}
+Function for writing an entire sector of data to the card.
+
+This function writes an entire sector of data. The sector\+\_\+in parameter is used to provide the data to be written in 2d matrix form. Authentication is built in for this function. The typekey parameter is used to specify which key is used for authentication. The first\+\_\+block\+\_\+in\+\_\+sector parameter is used to select which sector is authenticated for. The key parameter is used to provide they key in byte array form to the specified sector. Upon successful writing of the sector this function returns true. 
+
+Implements \hyperlink{classnfccontroler__limited_ad4d31d46ee21766eaaa0a4f1916cc8d8}{nfccontroler\+\_\+limited}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_mifare___classic_8hpp}{Mifare\+\_\+\+Classic.\+hpp}\end{DoxyCompactItemize}
