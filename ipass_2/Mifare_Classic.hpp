@@ -1,11 +1,11 @@
 // ==========================================================================
 //
-// File      : nfccontroler_limited.hpp
+// File      : Mifare_Classic.hpp
 // Part of   : nfccontroler library for V1IPAS
 // Copyright : David de Jong (c) 2016
 // Contact   : marijn_david@hotmail.com
 //
-// Abstraction layer for functions on the Microcontroller side of the library.
+// Implementation for functions on the Microcontroller side of the library.
 //
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt or copy at 

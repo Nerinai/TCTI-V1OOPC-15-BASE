@@ -1,11 +1,11 @@
 // ==========================================================================
 //
-// File      : nfccontroler_limited.hpp
+// File      : RC522.hpp
 // Part of   : nfccontroler library for V1IPAS
 // Copyright : David de Jong (c) 2016
 // Contact   : marijn_david@hotmail.com
 //
-// Abstraction layer for functions on the Microcontroller side of the library.
+// Implementation for functions on the Microcontroller side of the library.
 //
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt or copy at 
@@ -143,7 +143,7 @@ public:
 		/// Selects the speed for the serial UART interface.
 		SerialSpeedReg	= 0x1F << 1,
 		
-		/// Page 2 Configuration
+		// Page 2 Configuration
 		/*reserved		= 0x20 << 1,// reserved for future use.*/
 		/// Shows the MSB values of the CRC calculation.
 		CRCResultH		= 0x21 << 1,
@@ -174,7 +174,7 @@ public:
 		/// Contains timer values lower bits.
 		TcounterValRegL = 0x2F << 1,
 		
-		/// page 3 Test
+		// page 3 Test
 		/*reserved		= 0x30 << 1,// reserved for future use.*/
 		/// General test signal configuration.
 		TestSel1Reg		= 0x31 << 1,

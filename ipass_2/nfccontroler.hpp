@@ -1,6 +1,6 @@
 // ==========================================================================
 //
-// File      : nfccontroler_limited.hpp
+// File      : nfccontroler.hpp
 // Part of   : nfccontroler library for V1IPAS
 // Copyright : David de Jong (c) 2016
 // Contact   : marijn_david@hotmail.com

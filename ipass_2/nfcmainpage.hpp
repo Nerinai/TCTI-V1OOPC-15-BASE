@@ -20,7 +20,9 @@
 ///
 /// \author David de Jong (marijn_david@hotmail.com)
 /// \version 1.0 (last modified 2016-06-11)
-/// \copyright Published under the boost licence. 
+/// \copyright Published under the boost licence (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt).
+///
+/// This library is provided with NO WARANTY WHATSOEVER
 ///
 /// nfccontroller is a library for the use of controlling NFC reader microcontrollers.
 /// This library was made as part of the V1IPAS-TI course at the Hogeschool Utrecht.
