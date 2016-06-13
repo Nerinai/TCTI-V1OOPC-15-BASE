@@ -261,9 +261,9 @@ public:
    /// The foreground and background color are copied from the larger
    /// window.
    window_part( window &w, location start, location size ):
-      window{ size, w.foreground, w.background },
-      w{ w },
-      start{ start }
+      window( size, w.foreground, w.background ),
+      w( w ),
+      start( start )
    {}   
       
 };
@@ -290,8 +290,8 @@ public:
    /// window, but writes to the window_invert write the invert
    /// pixel to the underlying window.
    window_invert( window &w ):
-      window{ w.size, w.foreground, w.background },
-      w{ w }
+      window( w.size, w.foreground, w.background ),
+      w( w )
    {}   
       
 };

@@ -25,6 +25,7 @@
 /// because Doxygen can't handle __attribute__.
 #define HWLIB_NORETURN __attribute__((noreturn))
 
+
 /// mark a function definition as weak
 //
 /// This allowed the function definition to be overruled by an 
@@ -37,6 +38,7 @@
 /// This must be done by a macro 
 /// because Doxygen can't handle __attribute__.
 #define HWLIB_WEAK __attribute__((weak))
+
 
 /// mark a function definition as to be (always) inlined
 //

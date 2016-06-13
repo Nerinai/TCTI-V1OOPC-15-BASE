@@ -25,4 +25,8 @@
    #include "hwlib-uno.hpp"
 #endif
 
+#ifndef BMPTK_TARGET
+   #include "hwlib-all.hpp"
+#endif
+
 #endif // HWLIB_ALL_H

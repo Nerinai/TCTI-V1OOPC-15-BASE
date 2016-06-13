@@ -54,6 +54,8 @@ class \hyperlink{classhwlib_1_1i2c__bus}{i2c\+\_\+bus}
 \begin{DoxyCompactList}\small\item\em i2c bus master interface \end{DoxyCompactList}\item 
 class \hyperlink{classhwlib_1_1i2c__bus__bit__banged__scl__sda}{i2c\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+scl\+\_\+sda}
 \begin{DoxyCompactList}\small\item\em bit-\/banged i2c bus implementation \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1istream}{istream}
+\item 
 class \hyperlink{classhwlib_1_1line}{line}
 \item 
 class \hyperlink{classhwlib_1_1location}{location}
@@ -139,6 +141,10 @@ void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I
 \begin{DoxyCompactList}\small\item\em random lines demo \end{DoxyCompactList}\item 
 void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{hwlib-defines_8hpp_aef311f1f416fdcbd1fa22376dcc01029}{H\+W\+L\+I\+B\+\_\+\+N\+O\+R\+E\+T\+U\+RN} \hyperlink{namespacehwlib_a51b02af57df1cd71b9bea0bf5f9fdc63}{graphics\+\_\+random\+\_\+circles} (\hyperlink{classhwlib_1_1window}{window} \&w)
 \begin{DoxyCompactList}\small\item\em random circles demo \end{DoxyCompactList}\item 
+char \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a0f433c14b5302d476ed723a38862d9d3}{uart\+\_\+getc} ()
+\begin{DoxyCompactList}\small\item\em console character input function \end{DoxyCompactList}\item 
+long long int \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_aa96fdf113860b88c1d99f4152c7bf28f}{now\+\_\+us} ()
+\begin{DoxyCompactList}\small\item\em current time in microseconds. \end{DoxyCompactList}\item 
 constexpr \hyperlink{structhwlib_1_1__setbase}{\+\_\+setbase} \hyperlink{namespacehwlib_a2f624a643c9c8d30b5e4f3dca914e28e}{bin} (2)
 \begin{DoxyCompactList}\small\item\em set ostream radix to 2 \end{DoxyCompactList}\item 
 constexpr \hyperlink{structhwlib_1_1__setbase}{\+\_\+setbase} \hyperlink{namespacehwlib_a9711974fb746e16a55e130b461cad619}{oct} (8)
@@ -160,8 +166,10 @@ constexpr \hyperlink{structhwlib_1_1__boolalpha}{\+\_\+boolalpha} \hyperlink{nam
 constexpr \hyperlink{structhwlib_1_1__boolalpha}{\+\_\+boolalpha} \hyperlink{namespacehwlib_a6fe77cc67d9850cb262eb6e15e37724d}{noboolalpha} (false)
 \begin{DoxyCompactList}\small\item\em print a bool value as \textquotesingle{}false\textquotesingle{} or \textquotesingle{}true\textquotesingle{} \end{DoxyCompactList}\item 
 void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a10ed5b50cabfea49044e22331ac6f284}{uart\+\_\+putc\+\_\+bit\+\_\+banged\+\_\+pin} (char c, \hyperlink{classhwlib_1_1pin__out}{pin\+\_\+out} \&pin)
-\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT putc \end{DoxyCompactList}\item 
-void {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak)) \hyperlink{namespacehwlib_adc07d80c1eeeabf8c96b6acbd5dce78f}{panic}(const char $\ast$file\hypertarget{namespacehwlib_a6a24122eb10e075b9bb82755a2ecd525}{}\label{namespacehwlib_a6a24122eb10e075b9bb82755a2ecd525}
+\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT char output \end{DoxyCompactList}\item 
+char \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a7dcb57f59ee55d80c76b7b7c09044a2f}{uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin} (\hyperlink{classhwlib_1_1pin__in}{pin\+\_\+in} \&pin)
+\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT char input \end{DoxyCompactList}\item 
+void {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak)) \hyperlink{namespacehwlib_adc07d80c1eeeabf8c96b6acbd5dce78f}{panic}(const char $\ast$file\hypertarget{namespacehwlib_a6f9dea9719c9e4afb73c62ea9f54cf64}{}\label{namespacehwlib_a6f9dea9719c9e4afb73c62ea9f54cf64}
 
 \item 
 void \hyperlink{hwlib-defines_8hpp_aef311f1f416fdcbd1fa22376dcc01029}{H\+W\+L\+I\+B\+\_\+\+N\+O\+R\+E\+T\+U\+RN} \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_adc07d80c1eeeabf8c96b6acbd5dce78f}{panic} (const char $\ast$file, int \hyperlink{classhwlib_1_1line}{line})
@@ -171,7 +179,7 @@ void \hyperlink{hwlib-defines_8hpp_aef311f1f416fdcbd1fa22376dcc01029}{H\+W\+L\+I
 \item 
 constexpr char \hyperlink{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}{endl} = \textquotesingle{}\textbackslash{}n\textquotesingle{}\hypertarget{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}{}\label{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}
 
-\begin{DoxyCompactList}\small\item\em end-\/of-\/linbe constant \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em end-\/of-\/line constant \end{DoxyCompactList}\item 
 constexpr char \hyperlink{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}{ends} = \textquotesingle{}\textbackslash{}0\textquotesingle{}\hypertarget{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}{}\label{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}
 
 \begin{DoxyCompactList}\small\item\em 0-\/character constant \end{DoxyCompactList}\item 
@@ -183,7 +191,22 @@ constexpr \hyperlink{structhwlib_1_1__flush}{\+\_\+flush} \hyperlink{namespacehw
 \begin{DoxyCompactList}\small\item\em flush an stream \end{DoxyCompactList}\item 
 cout\+\_\+using\+\_\+uart\+\_\+putc \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_ac985c212834e4eb219aedede6efff2dc}{cout}
 \begin{DoxyCompactList}\small\item\em embedded output console \end{DoxyCompactList}\item 
+cin\+\_\+using\+\_\+uart\+\_\+getc \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} {\bfseries cin}\hypertarget{namespacehwlib_a8f672f745fb7a27fe652c442779bd65d}{}\label{namespacehwlib_a8f672f745fb7a27fe652c442779bd65d}
+
+\item 
 void int {\bfseries line}
+\item 
+\hyperlink{classhwlib_1_1__pin__in__dummy__class}{\+\_\+pin\+\_\+in\+\_\+dummy\+\_\+class} \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} {\bfseries pin\+\_\+in\+\_\+dummy}\hypertarget{namespacehwlib_af4a61043143177f6af8e0284e4524433}{}\label{namespacehwlib_af4a61043143177f6af8e0284e4524433}
+
+\item 
+\hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{classhwlib_1_1__pin__out__dummy__class}{\+\_\+pin\+\_\+out\+\_\+dummy\+\_\+class} {\bfseries pin\+\_\+out\+\_\+dummy}\hypertarget{namespacehwlib_acaf0b10a2f1c9765e1b91a98453adb20}{}\label{namespacehwlib_acaf0b10a2f1c9765e1b91a98453adb20}
+
+\item 
+\hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{classhwlib_1_1__pin__in__out__dummy__class}{\+\_\+pin\+\_\+in\+\_\+out\+\_\+dummy\+\_\+class} {\bfseries pin\+\_\+in\+\_\+out\+\_\+dummy}\hypertarget{namespacehwlib_a166a4bea8640903b2141ede3e703eb60}{}\label{namespacehwlib_a166a4bea8640903b2141ede3e703eb60}
+
+\item 
+\hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{classhwlib_1_1__pin__oc__dummy__class}{\+\_\+pin\+\_\+oc\+\_\+dummy\+\_\+class} {\bfseries pin\+\_\+oc\+\_\+dummy}\hypertarget{namespacehwlib_a297be6e8b97db1f338641a5d2864e741}{}\label{namespacehwlib_a297be6e8b97db1f338641a5d2864e741}
+
 \end{DoxyCompactItemize}
 {\bf }\par
 \begin{DoxyCompactItemize}
@@ -382,7 +405,18 @@ When this manipulator is written to an ostream no a leading radix indication wil
 
 disable printing of a leading \textquotesingle{}+\textquotesingle{} 
 
-When this manipulator is written to an ostream the a leading \textquotesingle{}+\textquotesingle{} will be printed when a positive value is printed. This is the initial situation. \index{hwlib@{hwlib}!oct@{oct}}
+When this manipulator is written to an ostream the a leading \textquotesingle{}+\textquotesingle{} will be printed when a positive value is printed. This is the initial situation. \index{hwlib@{hwlib}!now\+\_\+us@{now\+\_\+us}}
+\index{now\+\_\+us@{now\+\_\+us}!hwlib@{hwlib}}
+\subsubsection[{\texorpdfstring{now\+\_\+us()}{now_us()}}]{\setlength{\rightskip}{0pt plus 5cm}long long int hwlib\+::now\+\_\+us (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacehwlib_aa96fdf113860b88c1d99f4152c7bf28f}{}\label{namespacehwlib_aa96fdf113860b88c1d99f4152c7bf28f}
+
+
+current time in microseconds. 
+
+A call of this function returns the number of microseconds since some arbitrary moment (in most cases the first call to this function). \index{hwlib@{hwlib}!oct@{oct}}
 \index{oct@{oct}!hwlib@{hwlib}}
 \subsubsection[{\texorpdfstring{oct(8)}{oct(8)}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr {\bf \+\_\+setbase} hwlib\+::oct (
 \begin{DoxyParamCaption}
@@ -436,7 +470,29 @@ When this manipulator is written to an ostream a leading radix indication (0b, 0
 
 enable printing of a leading \textquotesingle{}+\textquotesingle{} 
 
-When this manipulator is written to an ostream the a leading \textquotesingle{}+\textquotesingle{} will be printed when a positive value is printed. \index{hwlib@{hwlib}!uart\+\_\+putc@{uart\+\_\+putc}}
+When this manipulator is written to an ostream the a leading \textquotesingle{}+\textquotesingle{} will be printed when a positive value is printed. \index{hwlib@{hwlib}!uart\+\_\+getc@{uart\+\_\+getc}}
+\index{uart\+\_\+getc@{uart\+\_\+getc}!hwlib@{hwlib}}
+\subsubsection[{\texorpdfstring{uart\+\_\+getc()}{uart_getc()}}]{\setlength{\rightskip}{0pt plus 5cm}char hwlib\+::uart\+\_\+getc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacehwlib_a0f433c14b5302d476ed723a38862d9d3}{}\label{namespacehwlib_a0f433c14b5302d476ed723a38862d9d3}
+
+
+console character input function 
+
+This is the function used for console (istream) input. The embedded targets provide an implementation that reads from the serial port. This definition is weak, which allows an application to provide its own definition. \index{hwlib@{hwlib}!uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin@{uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin}}
+\index{uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin@{uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin}!hwlib@{hwlib}}
+\subsubsection[{\texorpdfstring{uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin(pin\+\_\+in \&pin)}{uart_getc_bit_banged_pin(pin_in &pin)}}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} hwlib\+::uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin (
+\begin{DoxyParamCaption}
+\item[{{\bf pin\+\_\+in} \&}]{pin}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacehwlib_a7dcb57f59ee55d80c76b7b7c09044a2f}{}\label{namespacehwlib_a7dcb57f59ee55d80c76b7b7c09044a2f}
+
+
+a bit-\/banged U\+A\+RT char input 
+
+This function implements a bit-\/banged input U\+A\+RT pin using the B\+M\+P\+T\+K\+\_\+\+B\+A\+U\+D\+R\+A\+TE. \index{hwlib@{hwlib}!uart\+\_\+putc@{uart\+\_\+putc}}
 \index{uart\+\_\+putc@{uart\+\_\+putc}!hwlib@{hwlib}}
 \subsubsection[{\texorpdfstring{uart\+\_\+putc(char c)}{uart_putc(char c)}}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} hwlib\+::uart\+\_\+putc (
 \begin{DoxyParamCaption}
@@ -457,9 +513,9 @@ This is the function used for console (ostream) output. The embedded targets pro
 )}\hypertarget{namespacehwlib_a10ed5b50cabfea49044e22331ac6f284}{}\label{namespacehwlib_a10ed5b50cabfea49044e22331ac6f284}
 
 
-a bit-\/banged U\+A\+RT putc 
+a bit-\/banged U\+A\+RT char output 
 
-This function implements a bit-\/banged output-\/only U\+A\+RT using the B\+M\+P\+T\+K\+\_\+\+B\+A\+U\+D\+R\+A\+TE. \index{hwlib@{hwlib}!wait\+\_\+ms@{wait\+\_\+ms}}
+This function implements a bit-\/banged output U\+A\+RT pin using the B\+M\+P\+T\+K\+\_\+\+B\+A\+U\+D\+R\+A\+TE. \index{hwlib@{hwlib}!wait\+\_\+ms@{wait\+\_\+ms}}
 \index{wait\+\_\+ms@{wait\+\_\+ms}!hwlib@{hwlib}}
 \subsubsection[{\texorpdfstring{wait\+\_\+ms(int\+\_\+fast32\+\_\+t n)}{wait_ms(int_fast32_t n)}}]{\setlength{\rightskip}{0pt plus 5cm}void hwlib\+::wait\+\_\+ms (
 \begin{DoxyParamCaption}

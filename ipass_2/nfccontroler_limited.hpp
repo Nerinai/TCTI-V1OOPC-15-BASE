@@ -137,7 +137,7 @@ public:
 											byte * key, 
 											byte * Cardserial) = 0;
 /// \cond INTERNAL
-	virtual bool	calculateCRC		(const byte * data,
+	virtual int	calculateCRC		(const byte * data,
 											const int length, 
 											byte * result) = 0;
 /// \endcond

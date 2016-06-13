@@ -245,7 +245,7 @@ public:
 		return writesuccess;
 	}
 	
-	bool calculateCRC (const byte * data, const int length, byte * result){
+	int calculateCRC (const byte * data, const int length, byte * result){
 		return slave.calculateCRC(data, length, result);
 	}
 /// \endcodn

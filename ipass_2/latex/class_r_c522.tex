@@ -168,7 +168,7 @@ bool \hyperlink{class_r_c522_a42c197d61571667a97176f7294b0a8dd}{write\+Block} (c
 \item 
 bool \hyperlink{class_r_c522_a11e060e686331017873edd877c3255cd}{write\+Sector} (const int sectorsize, byte($\ast$sector\+\_\+in)\mbox{[}16\mbox{]}, byte typekey, byte $\ast$first\+\_\+block\+\_\+in\+\_\+sector, byte $\ast$key, byte $\ast$Cardserial)
 \item 
-bool \hyperlink{class_r_c522_a851317030e6ad460210c136fd8f961fa}{calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result) override
+int \hyperlink{class_r_c522_a97d66d97883cf728889098e4a2522f27}{calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result) override
 \end{DoxyCompactItemize}
 
 
@@ -391,20 +391,20 @@ Implements \hyperlink{classnfccontroler__limited_a4eec4cf702e4c0062c33657e81a206
 
 \index{R\+C522@{R\+C522}!calculate\+C\+RC@{calculate\+C\+RC}}
 \index{calculate\+C\+RC@{calculate\+C\+RC}!R\+C522@{R\+C522}}
-\subsubsection[{\texorpdfstring{calculate\+C\+R\+C(const byte $\ast$data, const int length, byte $\ast$result) override}{calculateCRC(const byte *data, const int length, byte *result) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+C522\+::calculate\+C\+RC (
+\subsubsection[{\texorpdfstring{calculate\+C\+R\+C(const byte $\ast$data, const int length, byte $\ast$result) override}{calculateCRC(const byte *data, const int length, byte *result) override}}]{\setlength{\rightskip}{0pt plus 5cm}int R\+C522\+::calculate\+C\+RC (
 \begin{DoxyParamCaption}
 \item[{const byte $\ast$}]{data, }
 \item[{const int}]{length, }
 \item[{byte $\ast$}]{result}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a851317030e6ad460210c136fd8f961fa}{}\label{class_r_c522_a851317030e6ad460210c136fd8f961fa}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_r_c522_a97d66d97883cf728889098e4a2522f27}{}\label{class_r_c522_a97d66d97883cf728889098e4a2522f27}
 Function that calculates the C\+RC for the given data.
 
 W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
 
-This function takes data in array form into the parameter \textquotesingle{}data\textquotesingle{} Together with the integer \textquotesingle{}length\textquotesingle{} which provides the amount of data it calculates the result and inserts it into the parameter \textquotesingle{}result\textquotesingle{} in array format. 
+This function takes data in array form into the parameter \textquotesingle{}data\textquotesingle{} Together with the integer \textquotesingle{}length\textquotesingle{} which provides the amount of data it calculates the result and inserts it into the parameter \textquotesingle{}result\textquotesingle{} in array format. this function returns 0 on successfull C\+RC calculation. Otherwise it returns 1; 
 
-Implements \hyperlink{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}{nfccontroler}.
+Implements \hyperlink{classnfccontroler_a0a04b877e9de8677b5bfe9e28424cbca}{nfccontroler}.
 
 \index{R\+C522@{R\+C522}!check\+Erro\+And\+Irq@{check\+Erro\+And\+Irq}}
 \index{check\+Erro\+And\+Irq@{check\+Erro\+And\+Irq}!R\+C522@{R\+C522}}

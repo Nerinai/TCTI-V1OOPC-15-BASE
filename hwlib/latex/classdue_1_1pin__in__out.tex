@@ -1,0 +1,139 @@
+\hypertarget{classdue_1_1pin__in__out}{}\section{due\+:\+:pin\+\_\+in\+\_\+out Class Reference}
+\label{classdue_1_1pin__in__out}\index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+
+
+\hyperlink{classdue_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for a A\+T\+S\+A\+M3\+X8E  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/due.\+hpp$>$}
+
+Inheritance diagram for due\+:\+:pin\+\_\+in\+\_\+out\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdue_1_1pin__in__out}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdue_1_1pin__in__out_a12f008036b3594228749c70f45cbdf9a}{pin\+\_\+in\+\_\+out} (int port\+\_\+number, int pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classdue_1_1pin__in__out_a228da28eb609b180235db2a0ed249469}{pin\+\_\+in\+\_\+out} (\hyperlink{namespacedue_a8ffa3ec309934ff9db34317e504bcc92}{pins} name)
+\begin{DoxyCompactList}\small\item\em Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor from a Due pin name. \end{DoxyCompactList}\item 
+void \hyperlink{classdue_1_1pin__in__out_a2ca0c81a7e1059a171c997d5015d99ea}{direction\+\_\+set\+\_\+input} () override
+\begin{DoxyCompactList}\small\item\em set the direction of a pin to input. \end{DoxyCompactList}\item 
+bool \hyperlink{classdue_1_1pin__in__out_a09142f62d25f903475be52da0b3fe8a9}{get} () override
+\begin{DoxyCompactList}\small\item\em read the pin \end{DoxyCompactList}\item 
+void \hyperlink{classdue_1_1pin__in__out_a45f7cf2e7f71638337f82ecf1852f884}{direction\+\_\+set\+\_\+output} () override
+\begin{DoxyCompactList}\small\item\em set the direction of a pin to output \end{DoxyCompactList}\item 
+void \hyperlink{classdue_1_1pin__in__out_ad3a74cb13af59d4a5be3cc40a8f894b8}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classdue_1_1pin__in__out}{pin\+\_\+in\+\_\+out} implementation for a A\+T\+S\+A\+M3\+X8E 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}!pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}}
+\index{pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}!due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in\+\_\+out(int port\+\_\+number, int pin\+\_\+number)}{pin_in_out(int port_number, int pin_number)}}]{\setlength{\rightskip}{0pt plus 5cm}due\+::pin\+\_\+in\+\_\+out\+::pin\+\_\+in\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{int}]{port\+\_\+number, }
+\item[{int}]{pin\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdue_1_1pin__in__out_a12f008036b3594228749c70f45cbdf9a}{}\label{classdue_1_1pin__in__out_a12f008036b3594228749c70f45cbdf9a}
+
+
+Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor. 
+
+Constructor for a A\+T\+S\+A\+M3\+X8E input pin.
+
+The port\+\_\+number and pin\+\_\+number refer to the chip, not to the Arduino board pin names.
+
+This constructor doesn\textquotesingle{}t set the pin direction to input or output, a direction\+\_\+set function must be called to do so. \index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}!pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}}
+\index{pin\+\_\+in\+\_\+out@{pin\+\_\+in\+\_\+out}!due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+in\+\_\+out(pins name)}{pin_in_out(pins name)}}]{\setlength{\rightskip}{0pt plus 5cm}due\+::pin\+\_\+in\+\_\+out\+::pin\+\_\+in\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{{\bf pins}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdue_1_1pin__in__out_a228da28eb609b180235db2a0ed249469}{}\label{classdue_1_1pin__in__out_a228da28eb609b180235db2a0ed249469}
+
+
+Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor from a Due pin name. 
+
+This call creates a \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} from an Arduino Due pin name.
+
+This constructor doesn\textquotesingle{}t set the pin direction to input or output, a direction\+\_\+set function must be called to do so. 
+
+\subsection{Member Function Documentation}
+\index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}!direction\+\_\+set\+\_\+input@{direction\+\_\+set\+\_\+input}}
+\index{direction\+\_\+set\+\_\+input@{direction\+\_\+set\+\_\+input}!due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{direction\+\_\+set\+\_\+input() override}{direction_set_input() override}}]{\setlength{\rightskip}{0pt plus 5cm}void due\+::pin\+\_\+in\+\_\+out\+::direction\+\_\+set\+\_\+input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdue_1_1pin__in__out_a2ca0c81a7e1059a171c997d5015d99ea}{}\label{classdue_1_1pin__in__out_a2ca0c81a7e1059a171c997d5015d99ea}
+
+
+set the direction of a pin to input. 
+
+Calling this function sets the pin identified by p to input. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a54ce1a5086d3c9e7b868511b1d46acd0}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}!direction\+\_\+set\+\_\+output@{direction\+\_\+set\+\_\+output}}
+\index{direction\+\_\+set\+\_\+output@{direction\+\_\+set\+\_\+output}!due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{direction\+\_\+set\+\_\+output() override}{direction_set_output() override}}]{\setlength{\rightskip}{0pt plus 5cm}void due\+::pin\+\_\+in\+\_\+out\+::direction\+\_\+set\+\_\+output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdue_1_1pin__in__out_a45f7cf2e7f71638337f82ecf1852f884}{}\label{classdue_1_1pin__in__out_a45f7cf2e7f71638337f82ecf1852f884}
+
+
+set the direction of a pin to output 
+
+Calling this function sets the pin identified by p to output. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_ad08a5f5e9a4c3aadaa7c665b98f2418e}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}!get@{get}}
+\index{get@{get}!due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{get() override}{get() override}}]{\setlength{\rightskip}{0pt plus 5cm}bool due\+::pin\+\_\+in\+\_\+out\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdue_1_1pin__in__out_a09142f62d25f903475be52da0b3fe8a9}{}\label{classdue_1_1pin__in__out_a09142f62d25f903475be52da0b3fe8a9}
+
+
+read the pin 
+
+This function returns the level of the pin. When the pin level is high the value true is returned, when the pin level is low the value false is returned.
+
+Before calling this function the pin direction must have been set to input by calling \hyperlink{classdue_1_1pin__in__out_a2ca0c81a7e1059a171c997d5015d99ea}{direction\+\_\+set\+\_\+input()}. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a298d32c19a8f94b730d34d4496bcf3ae}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+\index{due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}!set@{set}}
+\index{set@{set}!due\+::pin\+\_\+in\+\_\+out@{due\+::pin\+\_\+in\+\_\+out}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void due\+::pin\+\_\+in\+\_\+out\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdue_1_1pin__in__out_ad3a74cb13af59d4a5be3cc40a8f894b8}{}\label{classdue_1_1pin__in__out_ad3a74cb13af59d4a5be3cc40a8f894b8}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin high, a value of false makes it low.
+
+Before calling this function the pin direction must have been set to output by calling \hyperlink{classdue_1_1pin__in__out_a45f7cf2e7f71638337f82ecf1852f884}{direction\+\_\+set\+\_\+output()}. 
+
+Implements \hyperlink{classhwlib_1_1pin__in__out_a198c4d27a9783f4c17e8f5dfd9aca6a9}{hwlib\+::pin\+\_\+in\+\_\+out}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-due_8hpp}{hwlib-\/due.\+hpp}\end{DoxyCompactItemize}

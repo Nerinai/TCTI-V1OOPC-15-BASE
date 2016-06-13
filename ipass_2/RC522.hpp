@@ -547,7 +547,7 @@ public:
 	}	
 	
 	
-	bool calculateCRC(const byte * data, const int length, byte * result) override {
+	int calculateCRC(const byte * data, const int length, byte * result) override {
 		
 		writeRegister(Reg::CommandReg, (byte)CMD::Idle);
 		writeRegister(Reg::DivIrqReg, 0x04);
@@ -565,7 +565,7 @@ public:
 		while(1){
 			n = readRegister(Reg::DivIrqReg);
 			if(n & 0x04){
-				return false;
+				break;
 			}
 			if(--i == 0){
 				return 1;
@@ -575,7 +575,7 @@ public:
 	
 	result[0] = readRegister(Reg::CRCResultL);
 	result[1] = readRegister(Reg::CRCResultH);
-	return true;
+	return 0;
 	}
 /// \endcodn
 };

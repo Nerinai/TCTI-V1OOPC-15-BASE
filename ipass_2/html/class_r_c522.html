@@ -264,8 +264,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>communicateNFC</b> (c
 <tr class="separator:a42c197d61571667a97176f7294b0a8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e060e686331017873edd877c3255cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_c522.html#a11e060e686331017873edd877c3255cd">writeSector</a> (const int sectorsize, byte(*sector_in)[16], byte typekey, byte *first_block_in_sector, byte *key, byte *Cardserial)</td></tr>
 <tr class="separator:a11e060e686331017873edd877c3255cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a851317030e6ad460210c136fd8f961fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_c522.html#a851317030e6ad460210c136fd8f961fa">calculateCRC</a> (const byte *data, const int length, byte *result) override</td></tr>
-<tr class="separator:a851317030e6ad460210c136fd8f961fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d66d97883cf728889098e4a2522f27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_c522.html#a97d66d97883cf728889098e4a2522f27">calculateCRC</a> (const byte *data, const int length, byte *result) override</td></tr>
+<tr class="separator:a97d66d97883cf728889098e4a2522f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the microcontroller functions for the NFC-RC522 microcontroller.</p>
@@ -675,7 +675,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>communicateNFC</b> (c
 
 </div>
 </div>
-<a class="anchor" id="a851317030e6ad460210c136fd8f961fa"></a>
+<a class="anchor" id="a97d66d97883cf728889098e4a2522f27"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -683,7 +683,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>communicateNFC</b> (c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RC522::calculateCRC </td>
+          <td class="memname">int RC522::calculateCRC </td>
           <td>(</td>
           <td class="paramtype">const byte *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -714,9 +714,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>communicateNFC</b> (c
 </div><div class="memdoc">
 <p>Function that calculates the CRC for the given data.</p>
 <p>WARNING INTIMATE KNOWLEDGE REQUIRED</p>
-<p>This function takes data in array form into the parameter 'data' Together with the integer 'length' which provides the amount of data it calculates the result and inserts it into the parameter 'result' in array format. </p>
+<p>This function takes data in array form into the parameter 'data' Together with the integer 'length' which provides the amount of data it calculates the result and inserts it into the parameter 'result' in array format. this function returns 0 on successfull CRC calculation. Otherwise it returns 1; </p>
 
-<p>Implements <a class="el" href="classnfccontroler.html#ab03f284aa4ce7e327b61134e5473c869">nfccontroler</a>.</p>
+<p>Implements <a class="el" href="classnfccontroler.html#a0a04b877e9de8677b5bfe9e28424cbca">nfccontroler</a>.</p>
 
 </div>
 </div>

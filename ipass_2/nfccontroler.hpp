@@ -241,7 +241,8 @@ public:
 /// This function takes data in array form into the parameter 'data'
 /// Together with the integer 'length' which provides the amount of data
 /// it calculates the result and inserts it into the parameter 'result' in array format.
-	virtual bool	calculateCRC		(const byte * data,
+/// this function returns 0 on successfull CRC calculation. Otherwise it returns 1;
+	virtual int	calculateCRC		(const byte * data,
 											const int length, 
 											byte * result) = 0;
 };

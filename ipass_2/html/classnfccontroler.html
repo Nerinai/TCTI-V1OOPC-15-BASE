@@ -135,8 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4f5a22e5f25f56abe26ed0034a296135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a742e67e43b865074c4f23fb6c133cdd7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfccontroler.html#a742e67e43b865074c4f23fb6c133cdd7">communicateNFC</a> (const byte *data_in, const int data_in_lenght, byte command, byte *data_out, int *data_out_lenght, bool crc=false, bool Bitwraping=false)=0</td></tr>
 <tr class="separator:a742e67e43b865074c4f23fb6c133cdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab03f284aa4ce7e327b61134e5473c869"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfccontroler.html#ab03f284aa4ce7e327b61134e5473c869">calculateCRC</a> (const byte *data, const int length, byte *result)=0</td></tr>
-<tr class="separator:ab03f284aa4ce7e327b61134e5473c869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a04b877e9de8677b5bfe9e28424cbca"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfccontroler.html#a0a04b877e9de8677b5bfe9e28424cbca">calculateCRC</a> (const byte *data, const int length, byte *result)=0</td></tr>
+<tr class="separator:a0a04b877e9de8677b5bfe9e28424cbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classnfccontroler__limited"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnfccontroler__limited')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classnfccontroler__limited.html">nfccontroler_limited</a></td></tr>
 <tr class="memitem:a97f279888626df09059338d149a3dcf1 inherit pub_methods_classnfccontroler__limited"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfccontroler__limited.html#a97f279888626df09059338d149a3dcf1">checkErroAndIrq</a> (byte *result)=0</td></tr>
 <tr class="separator:a97f279888626df09059338d149a3dcf1 inherit pub_methods_classnfccontroler__limited"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,7 +218,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab03f284aa4ce7e327b61134e5473c869"></a>
+<a class="anchor" id="a0a04b877e9de8677b5bfe9e28424cbca"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -226,7 +226,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool nfccontroler::calculateCRC </td>
+          <td class="memname">virtual int nfccontroler::calculateCRC </td>
           <td>(</td>
           <td class="paramtype">const byte *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -257,9 +257,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Function that calculates the CRC for the given data.</p>
 <p>WARNING INTIMATE KNOWLEDGE REQUIRED</p>
-<p>This function takes data in array form into the parameter 'data' Together with the integer 'length' which provides the amount of data it calculates the result and inserts it into the parameter 'result' in array format. </p>
+<p>This function takes data in array form into the parameter 'data' Together with the integer 'length' which provides the amount of data it calculates the result and inserts it into the parameter 'result' in array format. this function returns 0 on successfull CRC calculation. Otherwise it returns 1; </p>
 
-<p>Implemented in <a class="el" href="class_r_c522.html#a851317030e6ad460210c136fd8f961fa">RC522</a>.</p>
+<p>Implemented in <a class="el" href="class_r_c522.html#a97d66d97883cf728889098e4a2522f27">RC522</a>.</p>
 
 </div>
 </div>

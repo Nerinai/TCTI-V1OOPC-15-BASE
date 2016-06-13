@@ -1,0 +1,84 @@
+\hypertarget{classdue_1_1pin__out}{}\section{due\+:\+:pin\+\_\+out Class Reference}
+\label{classdue_1_1pin__out}\index{due\+::pin\+\_\+out@{due\+::pin\+\_\+out}}
+
+
+\hyperlink{classdue_1_1pin__out}{pin\+\_\+out} implementation for a A\+T\+S\+A\+M3\+X8E  
+
+
+
+
+{\ttfamily \#include $<$hwlib-\/due.\+hpp$>$}
+
+Inheritance diagram for due\+:\+:pin\+\_\+out\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdue_1_1pin__out}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdue_1_1pin__out_aed112fcb4fa183b5114eeb90385b03f3}{pin\+\_\+out} (int port\+\_\+number, int pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classdue_1_1pin__out_ad0ede1c3e5e7501ae0dd045d83578c6c}{pin\+\_\+out} (\hyperlink{namespacedue_a8ffa3ec309934ff9db34317e504bcc92}{pins} name)
+\begin{DoxyCompactList}\small\item\em Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor from a Due pin name. \end{DoxyCompactList}\item 
+void \hyperlink{classdue_1_1pin__out_a65a516d8139c1efb217d90f5bdffe0a4}{set} (bool v) override
+\begin{DoxyCompactList}\small\item\em write the pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classdue_1_1pin__out}{pin\+\_\+out} implementation for a A\+T\+S\+A\+M3\+X8E 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{due\+::pin\+\_\+out@{due\+::pin\+\_\+out}!pin\+\_\+out@{pin\+\_\+out}}
+\index{pin\+\_\+out@{pin\+\_\+out}!due\+::pin\+\_\+out@{due\+::pin\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+out(int port\+\_\+number, int pin\+\_\+number)}{pin_out(int port_number, int pin_number)}}]{\setlength{\rightskip}{0pt plus 5cm}due\+::pin\+\_\+out\+::pin\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{int}]{port\+\_\+number, }
+\item[{int}]{pin\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdue_1_1pin__out_aed112fcb4fa183b5114eeb90385b03f3}{}\label{classdue_1_1pin__out_aed112fcb4fa183b5114eeb90385b03f3}
+
+
+Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor. 
+
+Constructor for a A\+T\+S\+A\+M3\+X8E input pin.
+
+The port\+\_\+number and pin\+\_\+number refer to the chip, not to the Arduino board pin names.
+
+This constructor sets the pin direction to output. \index{due\+::pin\+\_\+out@{due\+::pin\+\_\+out}!pin\+\_\+out@{pin\+\_\+out}}
+\index{pin\+\_\+out@{pin\+\_\+out}!due\+::pin\+\_\+out@{due\+::pin\+\_\+out}}
+\subsubsection[{\texorpdfstring{pin\+\_\+out(pins name)}{pin_out(pins name)}}]{\setlength{\rightskip}{0pt plus 5cm}due\+::pin\+\_\+out\+::pin\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{{\bf pins}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdue_1_1pin__out_ad0ede1c3e5e7501ae0dd045d83578c6c}{}\label{classdue_1_1pin__out_ad0ede1c3e5e7501ae0dd045d83578c6c}
+
+
+Arduino Due \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} constructor from a Due pin name. 
+
+This call creates a \hyperlink{classdue_1_1pin__out}{pin\+\_\+out} from an Arduino Due pin name.
+
+This constructor sets the pin direction to output. 
+
+\subsection{Member Function Documentation}
+\index{due\+::pin\+\_\+out@{due\+::pin\+\_\+out}!set@{set}}
+\index{set@{set}!due\+::pin\+\_\+out@{due\+::pin\+\_\+out}}
+\subsubsection[{\texorpdfstring{set(bool v) override}{set(bool v) override}}]{\setlength{\rightskip}{0pt plus 5cm}void due\+::pin\+\_\+out\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classdue_1_1pin__out_a65a516d8139c1efb217d90f5bdffe0a4}{}\label{classdue_1_1pin__out_a65a516d8139c1efb217d90f5bdffe0a4}
+
+
+write the pin 
+
+This function sets the level of the pin to the value v. A value of true makes the pin high, a value of false makes it low. 
+
+Implements \hyperlink{classhwlib_1_1pin__out_af5c3a533f1a00ba973e37e60fb8c08c6}{hwlib\+::pin\+\_\+out}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hwlib-due_8hpp}{hwlib-\/due.\+hpp}\end{DoxyCompactItemize}

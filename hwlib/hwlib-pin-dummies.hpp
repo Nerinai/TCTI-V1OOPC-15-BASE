@@ -23,7 +23,7 @@ class _pin_in_dummy_class : public pin_in {
 public:
    bool get() override { return 0; }
 };   
-__attribute__((weak)) _pin_in_dummy_class pin_in_dummy;
+_pin_in_dummy_class HWLIB_WEAK pin_in_dummy;
 
 
 /// a dummy (do-nothing) pin_out
@@ -31,7 +31,7 @@ class _pin_out_dummy_class : public pin_out {
 public:
    void set( bool v ) override {}
 };   
-__attribute__((weak)) _pin_out_dummy_class pin_out_dummy;
+HWLIB_WEAK _pin_out_dummy_class pin_out_dummy;
 
 
 /// a dummy (do-nothing) pin_in_out
@@ -42,7 +42,7 @@ public:
    void direction_set_input() override {}
    void direction_set_output() override{}
 };   
-__attribute__((weak)) _pin_in_out_dummy_class pin_in_out_dummy;
+HWLIB_WEAK _pin_in_out_dummy_class pin_in_out_dummy;
 
 
 /// a dummy (do-nothing) pin_oc
@@ -51,7 +51,7 @@ public:
    void set( bool v ) override {}
    bool get() override { return 0; }
 };   
-__attribute__((weak)) _pin_oc_dummy_class pin_oc_dummy;
+HWLIB_WEAK _pin_oc_dummy_class pin_oc_dummy;
 
 }; // namespace hwlib
 

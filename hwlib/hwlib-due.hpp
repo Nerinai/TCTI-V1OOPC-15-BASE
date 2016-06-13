@@ -53,7 +53,7 @@
 ///
 namespace due {
 
-/// Arduino Due pin names
+/// Arduino Due GPIO pin names
 //
 /// These are the pins of an Arduino Due board.
 /// Digital pins d0..d13, analog input pins A0..A5, 
@@ -81,110 +81,187 @@ enum class pins {
 struct pin_info_type { 
    uint8_t port; 
    uint8_t pin; 
-};
+};  
 
-const pin_info_type pin_info_array[ (int) pins::SIZE_THIS_IS_NOT_A_PIN ] = {
-   { 0,  8 },  // d0
-   { 0,  9 },  // d1
-   { 1, 25 },  // d2
-   { 2, 28 },  // d3
-   { 2, 26 },  // d4
-   { 2, 25 },  // d5
-   { 2, 24 },  // d6
-   { 2, 23 },  // d7
-   { 2, 22 },  // d8
-   { 2, 21 },  // d9
-   { 2, 29 },  // d10
+const HWLIB_WEAK pin_info_type & pin_info( pins name ){
    
-   { 3,  7 },  // d11
-   { 3,  8 },  // d12
-   { 1, 17 },  // d13
-   { 3,  4 },  // d14
-   { 3,  5 },  // d15
-   { 0, 13 },  // d16
-   { 0, 12 },  // d17
-   { 0, 11 },  // d18
-   { 0, 10 },  // d19
-   { 1, 12 },  // d20
+   static const pin_info_type pin_info_array[ (int) pins::SIZE_THIS_IS_NOT_A_PIN ] = {
+      { 0,  8 },  // d0
+      { 0,  9 },  // d1
+      { 1, 25 },  // d2
+      { 2, 28 },  // d3
+      { 2, 26 },  // d4
+      { 2, 25 },  // d5
+      { 2, 24 },  // d6
+      { 2, 23 },  // d7
+      { 2, 22 },  // d8
+      { 2, 21 },  // d9
+      { 2, 29 },  // d10
    
-   { 1, 13 },  // d21
-   { 1, 26 },  // d22
-   { 0, 14 },  // d23
-   { 0, 15 },  // d24
-   { 3,  0 },  // d25
-   { 3,  1 },  // d26
-   { 3,  2 },  // d27
-   { 3,  3 },  // d28
-   { 3,  6 },  // d29
-   { 3,  9 },  // d30
+      { 3,  7 },  // d11
+      { 3,  8 },  // d12
+      { 1, 17 },  // d13
+      { 3,  4 },  // d14
+      { 3,  5 },  // d15
+      { 0, 13 },  // d16
+      { 0, 12 },  // d17
+      { 0, 11 },  // d18
+      { 0, 10 },  // d19
+      { 1, 12 },  // d20
+   
+      { 1, 13 },  // d21
+      { 1, 26 },  // d22
+      { 0, 14 },  // d23
+      { 0, 15 },  // d24
+      { 3,  0 },  // d25
+      { 3,  1 },  // d26
+      { 3,  2 },  // d27
+      { 3,  3 },  // d28
+      { 3,  6 },  // d29
+      { 3,  9 },  // d30
 
-   { 0,  7 },  // d31
-   { 3, 10 },  // d32
-   { 2,  1 },  // d33
-   { 2,  2 },  // d34
-   { 2,  3 },  // d35
-   { 3,  4 },  // d36
-   { 3,  5 },  // d37
-   { 3,  6 },  // d38
-   { 3,  7 },  // d39
-   { 3,  8 },  // d40
+      { 0,  7 },  // d31
+      { 3, 10 },  // d32
+      { 2,  1 },  // d33
+      { 2,  2 },  // d34
+      { 2,  3 },  // d35
+      { 3,  4 },  // d36
+      { 3,  5 },  // d37
+      { 3,  6 },  // d38
+      { 3,  7 },  // d39
+      { 3,  8 },  // d40
 
-   { 3,  9 },  // d41
-   { 0, 19 },  // d42
-   { 0, 20 },  // d43
-   { 2, 19 },  // d44
-   { 2, 18 },  // d45
-   { 2, 17 },  // d46
-   { 2, 16 },  // d47
-   { 2, 15 },  // d48
-   { 2, 14 },  // d49
-   { 2, 13 },  // d50
+      { 3,  9 },  // d41
+      { 0, 19 },  // d42
+      { 0, 20 },  // d43
+      { 2, 19 },  // d44
+      { 2, 18 },  // d45
+      { 2, 17 },  // d46
+      { 2, 16 },  // d47
+      { 2, 15 },  // d48
+      { 2, 14 },  // d49
+      { 2, 13 },  // d50
    
-   { 2, 12 },  // d51
-   { 1, 21 },  // d52
-   { 1, 14 },  // d53
+      { 2, 12 },  // d51
+      { 1, 21 },  // d52
+      { 1, 14 },  // d53
    
-   { 0, 16 },  // a0
-   { 0, 24 },  // a1
-   { 0, 23 },  // a2
-   { 0, 22 },  // a3
-   { 0,  6 },  // a4
-   { 0,  4 },  // a5
-   { 0,  3 },  // a6
-   { 0,  2 },  // a7
-   { 1, 17 },  // a8
-   { 1, 18 },  // a9
-   { 1, 19 },  // a10
-   { 1, 20 },  // a11
+      { 0, 16 },  // a0
+      { 0, 24 },  // a1
+      { 0, 23 },  // a2
+      { 0, 22 },  // a3
+      { 0,  6 },  // a4
+      { 0,  4 },  // a5
+      { 0,  3 },  // a6
+      { 0,  2 },  // a7
+      { 1, 17 },  // a8
+      { 1, 18 },  // a9
+      { 1, 19 },  // a10
+      { 1, 20 },  // a11
    
-   { 1, 15 },  // dac0
-   { 1, 16 },  // dac1
-   { 0,  1 },  // cantx
-   { 0,  0 },  // canrx
+      { 1, 15 },  // dac0
+      { 1, 16 },  // dac1
+      { 0,  1 },  // cantx
+      { 0,  0 },  // canrx
    
-   { 1, 13 },  // scl
-   { 1, 12 },  // sda
-   { 0, 18 },  // scl1
-   { 0, 17 },  // sda1
+      { 1, 13 },  // scl
+      { 1, 12 },  // sda
+      { 0, 18 },  // scl1
+      { 0, 17 },  // sda1
    
-   { 0,  9 },  // tx
-   { 0,  8 },  // rx
-   { 1, 27 },  // led
+      { 0,  9 },  // tx
+      { 0,  8 },  // rx
+      { 1, 27 },  // led
 
-   { 0, 27 },  // sck
-   { 0, 25 },  // miso
-   { 0, 26 },  // mosi
-   { 2, 29 },  // cs0
-   { 2, 26 }   // cs1
-};   
-
-const pin_info_type & pin_info( pins name ){
+      { 0, 27 },  // sck
+      { 0, 25 },  // miso
+      { 0, 26 },  // mosi
+      { 2, 29 },  // cs0
+      { 2, 26 }   // cs1
+   };    
+   
    uint_fast8_t n = static_cast< uint_fast8_t>( name );
    if( n >= static_cast< uint_fast8_t>( pins::SIZE_THIS_IS_NOT_A_PIN )){
       HWLIB_PANIC_WITH_LOCATION;
    }
    return pin_info_array[ n ];
 }
+
+/// \endcond  
+
+/// Arduino Due pin names
+//
+/// These are the ADC pins of an Arduino Due board.
+enum class ad_pins {
+   a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11
+/// \cond INTERNAL    
+   ,AD_SIZE_THIS_IS_NOT_A_PIN
+/// \endcond   
+};
+
+struct ad_pin_info_type {
+   uint8_t channel;
+};
+
+/// \cond INTERNAL
+
+const HWLIB_WEAK ad_pin_info_type & ad_pin_info( ad_pins name ){
+    
+   static const ad_pin_info_type ad_pin_info_array[ (int) ad_pins::AD_SIZE_THIS_IS_NOT_A_PIN ] = {
+      {  7 },   // a0
+      {  6 },   // a1
+      {  5 },   // a2
+      {  4 },   // a3
+      {  3 },   // a4
+      {  2 },   // a5
+      {  1 },   // a6
+      {  0 },   // a7
+      { 10 },   // a8
+      { 11 },   // a9
+      { 12 },   // a10    
+      { 13 },   // a11    
+   };
+   
+   uint_fast8_t n = static_cast< uint_fast8_t>( name );
+   if( n >= static_cast< uint_fast8_t>( ad_pins::AD_SIZE_THIS_IS_NOT_A_PIN )){
+      HWLIB_PANIC_WITH_LOCATION;
+   }   
+   return ad_pin_info_array[ n ];
+}   
+
+struct ad_seq_type {
+   uint32_t seq1;
+   uint32_t seq2;
+};
+
+const HWLIB_WEAK ad_seq_type & ad_seq_info( int channel ){
+    
+   static constexpr int n_seq = 14;
+    
+   static const ad_seq_type ad_seq_array[ n_seq ] = {
+      {  0xFFFF'FFF0, 0xFFFF'FFFF },   // 0
+      {  0xFFFF'FF1F, 0xFFFF'FFFF },   // 1
+      {  0xFFFF'F2FF, 0xFFFF'FFFF },   // 2
+      {  0xFFFF'3FFF, 0xFFFF'FFFF },   // 3
+      {  0xFFF4'FFFF, 0xFFFF'FFFF },   // 4
+      {  0xFF5F'FFFF, 0xFFFF'FFFF },   // 5
+      {  0xF6FF'FFFF, 0xFFFF'FFFF },   // 6
+      {  0x7FFF'FFFF, 0xFFFF'FFFF },   // 7
+      {  0xFFFF'FFFF, 0xFFFF'FFF8 },   // 8
+      {  0xFFFF'FFFF, 0xFFFF'FF9F },   // 9
+      {  0xFFFF'FFFF, 0xFFFF'FAFF },   // 10
+      {  0xFFFF'FFFF, 0xFFFF'BFFF },   // 11
+      {  0xFFFF'FFFF, 0xFFFC'FFFF },   // 12   
+      {  0xFFFF'FFFF, 0xFFDF'FFFF }    // 13  
+   };
+   
+   if( channel >= n_seq ){
+      HWLIB_PANIC_WITH_LOCATION;
+   }   
+   return ad_seq_array[ channel ];
+} 
+
+/// \endcond 
  
 Pio & __attribute__((weak)) port_registers( int port ){
    // a bit of a cludge to put this here:
@@ -287,32 +364,6 @@ public:
    }
 };
 
-class pin_out_all : public hwlib::pin_out{
-private:
-	hwlib::pin_out * list[8];
-	
-public:
-
-	pin_out_all(
-	hwlib::pin_out & p0,
-	hwlib::pin_out & p1 = hwlib::pin_out_dummy,
-	hwlib::pin_out & p2 = hwlib::pin_out_dummy,
-	hwlib::pin_out & p3 = hwlib::pin_out_dummy,
-	hwlib::pin_out & p4 = hwlib::pin_out_dummy,
-	hwlib::pin_out & p5 = hwlib::pin_out_dummy,
-	hwlib::pin_out & p6 = hwlib::pin_out_dummy,
-	hwlib::pin_out & p7 = hwlib::pin_out_dummy
-	):
-		list{&p0, &p1, &p2, &p3, &p4, &p5, &p6, &p7}
-	{}
-	
-	void set( bool v ) override{
-		for( auto p : list){
-			p->set( v );
-		}
-	}
-};
-
 /// pin_in_out implementation for a ATSAM3X8E
 class pin_in_out : public hwlib::pin_in_out {
 private:
@@ -358,7 +409,6 @@ public:
       return ( port.PIO_PDSR & mask ) != 0;   
    }   
    
-
    void direction_set_output() override {
       port.PIO_OER  = mask;    
    }
@@ -408,7 +458,7 @@ public:
    
    bool get() override {
       // hwlib::cout << "=>" << (int) port.PIO_PDSR << "\n";
-      return (( port.PIO_PDSR & mask ) != 0);   
+      return ( port.PIO_PDSR & mask ) != 0;   
    }   
    
    void set( bool v ) override {
@@ -421,6 +471,199 @@ public:
    }
 
 };
+
+
+#ifdef NONO
+/// pin_adc implementation for a ATSAM3X8E
+class pin_adc_try single : public hwlib::adc {
+private:
+   int channel;
+   const ad_seq_type & seq;   
+   
+public:
+
+   /// Constructor for a ATSAM3X8E AD channel number.
+   ///
+   /// This constructor initializes the pin to be an ADC input. 
+   pin_adc( int channel ): 
+      adc( 12 ),
+      channel( channel ),
+      seq( ad_seq_info( channel ))
+   {
+   
+      // enable the clock to the ADC (peripheral # 37)
+      PMC->PMC_PCER1 = ( 0x01 << ( 37 - 32 ) );
+   
+      // timing
+      ADC->ADC_MR = 
+              0 << 8    //  clock prescaler
+         |   15 << 16   // startup clocks
+         |    3 << 20   // settling clocks
+         |    3 << 24   // tracking clocks
+         |    3 << 28   // transfer
+         | 0x01 << 31;  // user sequence enabled  
+      
+      // disable all interrupts
+      ADC->ADC_IDR = 0x1FFF'FFFF;
+      
+      // set gains to 1, offsets to 0
+      ADC->ADC_CGR = 0;
+      ADC->ADC_COR = 0;
+   
+     }
+   
+   /// Arduino Due pin_adc constructor from a Due pin name
+   //
+   /// This call creates a pin_adc from an Arduino Due pin name.
+   ///
+   /// This constructor initializes the pin to be an ADC input.
+   pin_adc( ad_pins name ): 
+      pin_adc{ 
+         ad_pin_info( name ).channel
+      }
+   {}  
+   
+   /// get an adc reading
+   ///
+   /// This function performs and ADC conversion and returns the result.
+   adc_value_type get() override {
+       
+      // select this one channel
+      ADC->ADC_CHER = 0x01 << channel;  
+      ADC->ADC_SEQR1 = seq.seq1;
+      ADC->ADC_SEQR2 = seq.seq2;
+
+      // wait 
+      hwlib::wait_us( 1000 );
+
+      // start the conversion 
+      ADC->ADC_CR = 0x0000'0002;
+      
+      // wait for the conversion to complete
+      // should wait on some flag!!
+      hwlib::wait_us( 1000 );
+      
+      // de-select this one channel
+      ADC->ADC_CHDR = 0x01 << channel;      
+ 
+      // return the conversion result
+      return ADC->ADC_LCDR & 0x0000'0FFF;
+   }
+};
+#endif
+
+/// pin_adc implementation for a ATSAM3X8E
+class pin_adc : public hwlib::adc {
+private:
+   int channel;
+   const ad_seq_type & seq;   
+   
+public:
+
+   /// Constructor for a ATSAM3X8E AD channel number.
+   ///
+   /// This constructor initializes the pin to be an ADC input. 
+   pin_adc( int channel ): 
+      adc( 12 ),
+      channel( channel ),
+      seq( ad_seq_info( channel ))
+   {
+   
+      // enable the clock to the ADC (peripheral # 37)
+      PMC->PMC_PCER1 = ( 0x01 << ( 37 - 32 ) );
+      
+      // select this one channel
+      ADC->ADC_CHER = 0x01 << channel;      
+      
+      //ADC->ADC_SEQR1 = 0x7654'3210;
+      //ADC->ADC_SEQR2 = 0xFEDC'BA98;   
+   
+      // timing
+      ADC->ADC_MR = 0;
+      /*
+              0 << 8    //  clock prescaler
+         |   15 << 16   // startup clocks
+         |    3 << 20   // settling clocks
+         |    3 << 24   // tracking clocks
+         |    3 << 28   // transfer
+         | 0x00 << 31;  // user sequence enabled  
+      */
+      
+      // disable all interrupts
+      ADC->ADC_IDR = 0x1FFF'FFFF;
+      
+      // set gains to 1, offsets to 0
+      ADC->ADC_CGR = 0;
+      ADC->ADC_COR = 0;
+   
+     }
+   
+   /// Arduino Due pin_adc constructor from a Due pin name
+   //
+   /// This call creates a pin_adc from an Arduino Due pin name.
+   ///
+   /// This constructor initializes the pin to be an ADC input.
+   pin_adc( ad_pins name ): 
+      pin_adc{ 
+         ad_pin_info( name ).channel
+      }
+   {}  
+   
+   /// get an adc reading
+   ///
+   /// This function performs and ADC conversion and returns the result.
+   /// For the SAM3X, a conversion is done for all pins that are configured
+   /// as ADC inputs, but only the value for the pin itself is returned.
+   /// This is wastefull, but it seems to be how this chip must be used.
+   adc_value_type get() override {
+       
+      // wait 
+      // hwlib::wait_us( 1000 );
+
+      // start the conversion 
+      ADC->ADC_CR = 0x0000'0002;
+      
+      // wait for the conversion to complete
+      // should wait on some flag!!
+      hwlib::wait_us( 100 );     
+ 
+      // return the conversion result
+      return ADC->ADC_CDR[ channel ] & 0x0000'0FFF;
+   }
+};
+
+long long int HWLIB_WEAK now_us(){
+   static bool init_done = false;
+   if( ! init_done ){
+      
+      // use the 12 MHz internal RC clock
+      PMC->CKGR_MOR = 0x00370028;
+      
+      SysTick->CTRL  = 0;         // stop the timer
+      SysTick->LOAD  = 0xFFFFFF;  // use its as a 24-bit timer
+      SysTick->VAL   = 0;         // clear the timer
+      SysTick->CTRL  = 5;         // start the timer, 1:1
+
+      init_done = true;      
+   }
+   
+   static unsigned int last_low = 0;
+   static unsigned long long int high = 0;
+
+   // the timer ticks down, but we want an up counter
+   unsigned int low = 0xFFFFFF - ( SysTick->VAL & 0xFFFFFF );
+   if( low < last_low ){
+   
+      // the timer rolled over, so increment the high part
+      high += 0x1ULL << 24;
+   }
+   last_low = low;
+
+   // return the aggregated ticks value
+   // the counter runs at 12 MHz 
+   return ( low | high ) / 12; 
+
+} 
 
 }; // namespace due
 
@@ -468,6 +711,15 @@ void HWLIB_WEAK uart_putc( char c ){
    static target::pin_out pin( 0, 9 );
    uart_putc_bit_banged_pin( c, pin );
 }
+
+char HWLIB_WEAK uart_getc( ){
+   static target::pin_in pin( 0, 8 );
+   return uart_getc_bit_banged_pin( pin );
+}
+
+long long int HWLIB_WEAK now_us(){
+   return target::now_us();
+}   
 
 }; //namespace hwlib   
 

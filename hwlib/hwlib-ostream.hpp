@@ -16,7 +16,7 @@
 
 namespace hwlib {
 
-   /// end-of-linbe constant
+   /// end-of-line constant
    constexpr char endl = '\n';
    
    /// 0-character constant
@@ -612,11 +612,24 @@ namespace hwlib {
       
    }; // class ostream  
    
-   /// a bit-banged UART putc
+   class istream {     
+   public:        
+      virtual char getc() = 0;
+        
+      /// input operator for char
+      friend istream & operator>>( istream & stream, char & x ){
+         x = stream.getc();            
+         return stream;   
+      }           
+   };
+   
+   /// a bit-banged UART char output
    //
-   /// This function implements a bit-banged output-only UART 
+   /// This function implements a bit-banged output UART pin
    /// using the BMPTK_BAUDRATE.
    void HWLIB_WEAK uart_putc_bit_banged_pin( char c, pin_out & pin ){
+   
+   #ifdef BMPTK_TARGET
       const auto bit_cel = ( ( 1000L * 1000L ) / BMPTK_BAUDRATE );
    
       pin.set( 1 );
@@ -636,6 +649,43 @@ namespace hwlib {
       // 2 stop bits
       pin.set( 1 );
       wait_us( 2 * bit_cel );
+   #else
+   #endif   
+   
+   }      
+   
+   /// a bit-banged UART char input
+   //
+   /// This function implements a bit-banged input UART pin
+   /// using the BMPTK_BAUDRATE.   
+   char HWLIB_WEAK uart_getc_bit_banged_pin( pin_in & pin ){
+      char c = 0;        
+   
+   #ifdef BMPTK_TARGET
+      const auto bit_cel = ( ( 1000L * 1000L ) / BMPTK_BAUDRATE );
+      
+      // wait for start of startbit
+      while( pin.get() ){}
+      
+      // wait until halfway the first data bit
+      auto t = now_us();
+      t += bit_cel + ( bit_cel / 2 );
+      while( now_us() < t ){};
+      
+      // 8 data bits
+      for( int i = 0; i < 8; ++i ){
+         c = c >> 1;            
+         if( pin.get() ){
+            c = c | 0x80;                
+         }
+         
+         t+= bit_cel;
+         while( now_us() < t ){};
+      }   
+   
+   #else
+   #endif   
+      return c;
    }      
    
    /// console character output function
@@ -647,12 +697,29 @@ namespace hwlib {
    /// an application to provide its own definition.
    void uart_putc( char c );
    
+   /// console character input function
+   //
+   /// This is the function used for console (istream) input.
+   /// The embedded targets provide an implementation that reads
+   /// from the serial port. 
+   /// This definition is weak, which allows 
+   /// an application to provide its own definition.
+   char uart_getc();
+   
    /// \cond INTERNAL 
+   
    class cout_using_uart_putc : public ostream {
       void putc( char c ) override {
          uart_putc( c );
       }
    };
+   
+   class cin_using_uart_getc : public istream {
+      char getc() override {
+         return uart_getc();
+      }
+   };
+   
    /// \endcond    
    
 /// embedded output console
@@ -663,6 +730,8 @@ namespace hwlib {
 /// This definition is weak, which allows 
 /// an application to provide its own definition.
 cout_using_uart_putc HWLIB_WEAK  cout;   
+
+cin_using_uart_getc HWLIB_WEAK  cin;  
 
 }; // namespace hwlib
 

@@ -20,8 +20,12 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="Mifare_Classic.hpp"/>
+    <File Name="nfccontroler.hpp"/>
+    <File Name="nfccontroler_limited.hpp"/>
+    <File Name="RC522.hpp"/>
     <File Name="main.cpp"/>
-    <File Name="Knooppunt.hpp"/>
+    <File Name="Makefile"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -111,4 +115,6 @@
       </Completion>
     </Configuration>
   </Settings>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>

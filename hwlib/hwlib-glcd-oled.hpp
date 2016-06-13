@@ -145,10 +145,10 @@ private:
 public:
    
    glcd_oled( i2c_bus & bus, fast_byte address = 0x3C ):
-      window{ location{ 128, 64 }, black, white },
-      bus{ bus },
-      address{ address },
-      cursor_x{ 255 }, cursor_y{ 255 }
+      window( location( 128, 64 ), black, white ),
+      bus( bus ),
+      address( address ),
+      cursor_x( 255 ), cursor_y( 255 )
    {
       static constexpr const byte init_sequence[] = {
          0x80,  DISPLAYOFF,                   

@@ -1,5 +1,13 @@
 Archive member included to satisfy reference by file (symbol)
 
+c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+                              main.o (__aeabi_ldivmod)
+c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+                              main.o (__aeabi_uldivmod)
+c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                              c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o) (__udivmoddi4)
+c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
                               main.o (memset)
 
@@ -10,6 +18,10 @@ __dso_handle        0x4               bmptk_cortex.o
 
 Discarded input sections
 
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
@@ -116,8 +128,10 @@ Discarded input sections
                 0x00000000       0x20 main.o
  .text._ZN5hwlib15random_in_rangeEjj
                 0x00000000       0x1a main.o
- .text._ZN3due8pin_infoENS_4pinsE
-                0x00000000       0x18 main.o
+ .text._ZN3due11ad_pin_infoENS_7ad_pinsE
+                0x00000000       0x1c main.o
+ .text._ZN3due11ad_seq_infoEi
+                0x00000000       0x20 main.o
  .text._ZN5hwlib7wait_nsEi
                 0x00000000       0x10 main.o
  .text._ZN5hwlib5blinkERNS_7pin_outEi
@@ -132,6 +146,12 @@ Discarded input sections
                 0x00000000       0xe8 main.o
  .text._ZN5hwlib23graphics_random_circlesERNS_6windowE
                 0x00000000       0x8c main.o
+ .text._ZN5hwlib24uart_getc_bit_banged_pinERNS_6pin_inE
+                0x00000000       0x6c main.o
+ .text._ZN5hwlib9uart_getcEv
+                0x00000000       0x38 main.o
+ .text._ZN5hwlib19cin_using_uart_getc4getcEv
+                0x00000000        0x8 main.o
  .rodata._ZTVN5hwlib19_pin_in_dummy_classE
                 0x00000000        0xc main.o
  .rodata._ZTVN5hwlib20_pin_out_dummy_classE
@@ -140,6 +160,8 @@ Discarded input sections
                 0x00000000       0x18 main.o
  .rodata._ZTVN5hwlib19_pin_oc_dummy_classE
                 0x00000000       0x10 main.o
+ .rodata._ZTVN5hwlib19cin_using_uart_getcE
+                0x00000000        0xc main.o
  .rodata._ZTVN5hwlib4lineE
                 0x00000000        0xc main.o
  .rodata._ZTVN5hwlib6circleE
@@ -148,11 +170,21 @@ Discarded input sections
                 0x00000000        0x4 main.o
  .data._ZN5hwlib16pin_in_out_dummyE
                 0x00000000        0x4 main.o
+ .data._ZN5hwlib3cinE
+                0x00000000        0x4 main.o
+ .bss._ZZN5hwlib9uart_getcEvE3pin
+                0x00000000        0xc main.o
  .bss._ZZN5hwlib4randEvE1n
                 0x00000000        0x4 main.o
- .data._ZN5hwlib13pin_out_dummyE
+ .rodata._ZZN3due11ad_pin_infoENS_7ad_pinsEE17ad_pin_info_array
+                0x00000000        0xc main.o
+ .bss._ZGVZN5hwlib9uart_getcEvE3pin
                 0x00000000        0x4 main.o
  .data._ZN5hwlib12pin_oc_dummyE
+                0x00000000        0x4 main.o
+ .rodata._ZZN3due11ad_seq_infoEiE12ad_seq_array
+                0x00000000       0x70 main.o
+ .data._ZN5hwlib13pin_out_dummyE
                 0x00000000        0x4 main.o
  .text          0x00000000        0x0 bmptk_cortex.o
  .data          0x00000000        0x0 bmptk_cortex.o
@@ -170,6 +202,15 @@ Discarded input sections
  .text          0x00000000        0x0 bmptk_fixed_size_stack.o
  .data          0x00000000        0x0 bmptk_fixed_size_stack.o
  .bss           0x00000000        0x0 bmptk_fixed_size_stack.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
  .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
  .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
@@ -208,7 +249,7 @@ END GROUP
                 [!provide]                PROVIDE (__ram_size, __ram_size)
                 [!provide]                PROVIDE (__ram_end, __ram_end)
 
-.text           0x00000000     0x1740
+.text           0x00000000     0x1c7c
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                __text_start = .
                 [!provide]                PROVIDE (__text_start, __text_start)
@@ -269,219 +310,245 @@ END GROUP
  .text._ZN5RC52217clearRegisterMaskEhh
                 0x000001a2       0x22 main.o
                 0x000001a2                RC522::clearRegisterMask(unsigned char, unsigned char)
- .text._ZN5RC52213trancieveDataEPKhiPhPibb
-                0x000001c4       0x22 main.o
-                0x000001c4                RC522::trancieveData(unsigned char const*, int, unsigned char*, int*, bool, bool)
- *fill*         0x000001e6        0x2 
- .text.unlikely._ZN3due8pin_infoENS_4pinsE.part.6
-                0x000001e8       0x10 main.o
- .text._ZN5RC52210antennaOffEv
-                0x000001f8        0xa main.o
-                0x000001f8                RC522::antennaOff()
  .text._ZN5RC52211authentCardEPKhi
-                0x00000202       0x1c main.o
-                0x00000202                RC522::authentCard(unsigned char const*, int)
+                0x000001c4       0x1c main.o
+                0x000001c4                RC522::authentCard(unsigned char const*, int)
+ .text._ZN5hwlib7ostream7reverse10add_prefixERKS0_.part.1.constprop.17
+                0x000001e0       0x4c main.o
+ .text._ZN5RC52210antennaOffEv
+                0x0000022c        0xa main.o
+                0x0000022c                RC522::antennaOff()
+ .text._ZN5RC52213trancieveDataEPKhiPhPibb
+                0x00000236       0x22 main.o
+                0x00000236                RC522::trancieveData(unsigned char const*, int, unsigned char*, int*, bool, bool)
  .text._ZN5hwlib7ostreamlsEc
-                0x0000021e        0xe main.o
-                0x0000021e                hwlib::ostream::operator<<(char)
+                0x00000258        0xe main.o
+                0x00000258                hwlib::ostream::operator<<(char)
  .text._ZN5hwliblsERNS_7ostreamEPKc
-                0x0000022c       0x68 main.o
-                0x0000022c                hwlib::operator<<(hwlib::ostream&, char const*)
+                0x00000266       0x68 main.o
+                0x00000266                hwlib::operator<<(hwlib::ostream&, char const*)
+ *fill*         0x000002ce        0x2 
  .text._ZN5RC52211writeSectorEiPA16_hhPhS2_S2_
-                0x00000294       0x18 main.o
-                0x00000294                RC522::writeSector(int, unsigned char (*) [16], unsigned char, unsigned char*, unsigned char*, unsigned char*)
+                0x000002d0       0x18 main.o
+                0x000002d0                RC522::writeSector(int, unsigned char (*) [16], unsigned char, unsigned char*, unsigned char*, unsigned char*)
  .text._ZN5RC52210writeBlockEhPKhi
-                0x000002ac       0x18 main.o
-                0x000002ac                RC522::writeBlock(unsigned char, unsigned char const*, int)
+                0x000002e8       0x18 main.o
+                0x000002e8                RC522::writeBlock(unsigned char, unsigned char const*, int)
  .text._ZN5RC52210readSectorEiPA16_hhPhS2_S2_
-                0x000002c4       0x18 main.o
-                0x000002c4                RC522::readSector(int, unsigned char (*) [16], unsigned char, unsigned char*, unsigned char*, unsigned char*)
+                0x00000300       0x18 main.o
+                0x00000300                RC522::readSector(int, unsigned char (*) [16], unsigned char, unsigned char*, unsigned char*, unsigned char*)
  .text._ZN5RC5229readBlockEhPh
-                0x000002dc       0x18 main.o
-                0x000002dc                RC522::readBlock(unsigned char, unsigned char*)
+                0x00000318       0x18 main.o
+                0x00000318                RC522::readBlock(unsigned char, unsigned char*)
  .text._ZN5RC52218authenticateSectorEhPhS0_S0_
-                0x000002f4       0x18 main.o
-                0x000002f4                RC522::authenticateSector(unsigned char, unsigned char*, unsigned char*, unsigned char*)
+                0x00000330       0x18 main.o
+                0x00000330                RC522::authenticateSector(unsigned char, unsigned char*, unsigned char*, unsigned char*)
  .text._ZN5RC52210selectCardEPh
-                0x0000030c       0x18 main.o
-                0x0000030c                RC522::selectCard(unsigned char*)
+                0x00000348       0x18 main.o
+                0x00000348                RC522::selectCard(unsigned char*)
  .text._ZN5RC5226isCardEPh
-                0x00000324       0x18 main.o
-                0x00000324                RC522::isCard(unsigned char*)
+                0x00000360       0x18 main.o
+                0x00000360                RC522::isCard(unsigned char*)
  .text._ZN14Mifare_Classic10writeBlockEhPKhi
-                0x0000033c       0xa8 main.o
-                0x0000033c                Mifare_Classic::writeBlock(unsigned char, unsigned char const*, int)
+                0x00000378       0xa8 main.o
+                0x00000378                Mifare_Classic::writeBlock(unsigned char, unsigned char const*, int)
  .text._ZN14Mifare_Classic9readBlockEhPh
-                0x000003e4       0x8c main.o
-                0x000003e4                Mifare_Classic::readBlock(unsigned char, unsigned char*)
+                0x00000420       0x8c main.o
+                0x00000420                Mifare_Classic::readBlock(unsigned char, unsigned char*)
  .text._ZN14Mifare_Classic18authenticateSectorEhPhS0_S0_
-                0x00000470       0x78 main.o
-                0x00000470                Mifare_Classic::authenticateSector(unsigned char, unsigned char*, unsigned char*, unsigned char*)
+                0x000004ac       0x78 main.o
+                0x000004ac                Mifare_Classic::authenticateSector(unsigned char, unsigned char*, unsigned char*, unsigned char*)
  .text._ZN5hwliblsERNS_7ostreamEi
-                0x000004e8       0xd4 main.o
-                0x000004e8                hwlib::operator<<(hwlib::ostream&, int)
+                0x00000524       0x92 main.o
+                0x00000524                hwlib::operator<<(hwlib::ostream&, int)
+ *fill*         0x000005b6        0x2 
+ .text._ZN3due8pin_infoENS_4pinsE
+                0x000005b8       0x20 main.o
+                0x000005b8                due::pin_info(due::pins)
  .text._ZN3due14port_registersEi
-                0x000005bc       0x48 main.o
-                0x000005bc                due::port_registers(int)
+                0x000005d8       0x48 main.o
+                0x000005d8                due::port_registers(int)
  .text._ZN3due7pin_outC2ENS_4pinsE
-                0x00000604       0x38 main.o
-                0x00000604                due::pin_out::pin_out(due::pins)
-                0x00000604                due::pin_out::pin_out(due::pins)
- *fill*         0x0000063c        0x4 
+                0x00000620       0x34 main.o
+                0x00000620                due::pin_out::pin_out(due::pins)
+                0x00000620                due::pin_out::pin_out(due::pins)
+ .text._ZN3due6now_usEv
+                0x00000654       0x78 main.o
+                0x00000654                due::now_us()
+ *fill*         0x000006cc        0x4 
  .text._ZN5hwlib7wait_usEi
-                0x00000640       0x28 main.o
-                0x00000640                hwlib::wait_us(int)
+                0x000006d0       0x28 main.o
+                0x000006d0                hwlib::wait_us(int)
  .text._ZN5hwlib24uart_putc_bit_banged_pinEcRNS_7pin_outE
-                0x00000668       0x5c main.o
-                0x00000668                hwlib::uart_putc_bit_banged_pin(char, hwlib::pin_out&)
+                0x000006f8       0x5c main.o
+                0x000006f8                hwlib::uart_putc_bit_banged_pin(char, hwlib::pin_out&)
  .text._ZN5hwlib33spi_bus_bit_banged_sclk_mosi_miso14write_and_readERNS_7pin_outEiPKhPh
-                0x000006c4       0xa2 main.o
-                0x000006c4                hwlib::spi_bus_bit_banged_sclk_mosi_miso::write_and_read(hwlib::pin_out&, int, unsigned char const*, unsigned char*)
+                0x00000754       0xa2 main.o
+                0x00000754                hwlib::spi_bus_bit_banged_sclk_mosi_miso::write_and_read(hwlib::pin_out&, int, unsigned char const*, unsigned char*)
  .text._ZN5hwlib7wait_msEi
-                0x00000766       0x16 main.o
-                0x00000766                hwlib::wait_ms(int)
- .text._ZN14Mifare_Classic6isCardEPh
-                0x0000077c       0x42 main.o
-                0x0000077c                Mifare_Classic::isCard(unsigned char*)
- *fill*         0x000007be        0x2 
+                0x000007f6       0x16 main.o
+                0x000007f6                hwlib::wait_ms(int)
  .text._ZN14Mifare_Classic10selectCardEPh
-                0x000007c0      0x110 main.o
-                0x000007c0                Mifare_Classic::selectCard(unsigned char*)
+                0x0000080c      0x110 main.o
+                0x0000080c                Mifare_Classic::selectCard(unsigned char*)
+ .text._ZN14Mifare_Classic6isCardEPh
+                0x0000091c       0x42 main.o
+                0x0000091c                Mifare_Classic::isCard(unsigned char*)
+ *fill*         0x0000095e        0x2 
  .text._ZN5hwlib9uart_putcEc
-                0x000008d0       0x3c main.o
-                0x000008d0                hwlib::uart_putc(char)
+                0x00000960       0x3c main.o
+                0x00000960                hwlib::uart_putc(char)
  .text._ZN5hwlib20cout_using_uart_putc4putcEc
-                0x0000090c        0xa main.o
-                0x0000090c                hwlib::cout_using_uart_putc::putc(char)
+                0x0000099c        0xa main.o
+                0x0000099c                hwlib::cout_using_uart_putc::putc(char)
+ .text._ZN5hwlib6now_usEv
+                0x000009a6        0x8 main.o
+                0x000009a6                hwlib::now_us()
  .text._ZN5RC52212readRegisterENS_3RegE
-                0x00000916        0x8 main.o
-                0x00000916                RC522::readRegister(RC522::Reg)
- *fill*         0x0000091e        0x2 
+                0x000009ae        0x8 main.o
+                0x000009ae                RC522::readRegister(RC522::Reg)
+ *fill*         0x000009b6        0x2 
  .text._ZN5RC5228readFIFOEPh
-                0x00000920       0x3c main.o
-                0x00000920                RC522::readFIFO(unsigned char*)
+                0x000009b8       0x3c main.o
+                0x000009b8                RC522::readFIFO(unsigned char*)
  .text._ZN5RC5228readFIFOEv
-                0x0000095c       0x30 main.o
-                0x0000095c                RC522::readFIFO()
+                0x000009f4       0x30 main.o
+                0x000009f4                RC522::readFIFO()
  .text._ZN5RC52214getAntennaGainEv
-                0x0000098c        0xe main.o
-                0x0000098c                RC522::getAntennaGain()
+                0x00000a24        0xe main.o
+                0x00000a24                RC522::getAntennaGain()
  .text._ZN5RC52215checkErroAndIrqEPh
-                0x0000099a       0x1a main.o
-                0x0000099a                RC522::checkErroAndIrq(unsigned char*)
+                0x00000a32       0x1a main.o
+                0x00000a32                RC522::checkErroAndIrq(unsigned char*)
  .text._ZN5RC52213writeRegisterENS_3RegEh
-                0x000009b4        0x8 main.o
-                0x000009b4                RC522::writeRegister(RC522::Reg, unsigned char)
- .text._ZN5RC5228selfTestEv
-                0x000009bc      0x164 main.o
-                0x000009bc                RC522::selfTest()
- .text._ZN5RC5229writeFIFOEiPKh
-                0x00000b20       0x78 main.o
-                0x00000b20                RC522::writeFIFO(int, unsigned char const*)
- .text._ZN5RC5229writeFIFOEh
-                0x00000b98       0x34 main.o
-                0x00000b98                RC522::writeFIFO(unsigned char)
- .text._ZN5RC5229antennaOnEv
-                0x00000bcc       0x22 main.o
-                0x00000bcc                RC522::antennaOn()
+                0x00000a4c        0x8 main.o
+                0x00000a4c                RC522::writeRegister(RC522::Reg, unsigned char)
  .text._ZN5RC5228initChipEv
-                0x00000bee       0x7c main.o
-                0x00000bee                RC522::initChip()
+                0x00000a54       0x7c main.o
+                0x00000a54                RC522::initChip()
+ .text._ZN5RC5229writeFIFOEiPKh
+                0x00000ad0       0x78 main.o
+                0x00000ad0                RC522::writeFIFO(int, unsigned char const*)
+ .text._ZN5RC5229writeFIFOEh
+                0x00000b48       0x34 main.o
+                0x00000b48                RC522::writeFIFO(unsigned char)
+ .text._ZN5RC5229antennaOnEv
+                0x00000b7c       0x22 main.o
+                0x00000b7c                RC522::antennaOn()
+ *fill*         0x00000b9e        0x2 
+ .text._ZN5RC5228selfTestEv
+                0x00000ba0      0x164 main.o
+                0x00000ba0                RC522::selfTest()
  .text._ZN5RC52215setRegisterMaskENS_3RegEh
-                0x00000c6a        0x8 main.o
-                0x00000c6a                RC522::setRegisterMask(RC522::Reg, unsigned char)
- *fill*         0x00000c72        0x2 
+                0x00000d04        0x8 main.o
+                0x00000d04                RC522::setRegisterMask(RC522::Reg, unsigned char)
  .text._ZN5RC52214communicateNFCEPKhihPhPibb
-                0x00000c74      0x17c main.o
-                0x00000c74                RC522::communicateNFC(unsigned char const*, int, unsigned char, unsigned char*, int*, bool, bool)
+                0x00000d0c      0x17c main.o
+                0x00000d0c                RC522::communicateNFC(unsigned char const*, int, unsigned char, unsigned char*, int*, bool, bool)
  .text._ZN5RC52212calculateCRCEPKhiPh
-                0x00000df0       0x64 main.o
-                0x00000df0                RC522::calculateCRC(unsigned char const*, int, unsigned char*)
+                0x00000e88       0x84 main.o
+                0x00000e88                RC522::calculateCRC(unsigned char const*, int, unsigned char*)
  .text._ZN5RC52214setAntennaGainEh
-                0x00000e54       0x2a main.o
-                0x00000e54                RC522::setAntennaGain(unsigned char)
- *fill*         0x00000e7e        0x2 
+                0x00000f0c       0x2a main.o
+                0x00000f0c                RC522::setAntennaGain(unsigned char)
+ *fill*         0x00000f36        0x2 
+ .text._ZN5Stand14read_timestampEv
+                0x00000f38      0x134 main.o
+                0x00000f38                Stand::read_timestamp()
+ .text._ZN5Stand14standTimeStampEv
+                0x0000106c       0x66 main.o
+                0x0000106c                Stand::standTimeStamp()
+ *fill*         0x000010d2        0x2 
  .text.startup.main
-                0x00000e80      0x214 main.o
-                0x00000e80                main
+                0x000010d4      0x140 main.o
+                0x000010d4                main
  .text.__startup
-                0x00001094       0x48 bmptk_cortex.o
-                0x00001094                __startup
- .text.memset   0x000010dc       0x9c c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
-                0x000010dc                memset
-                0x00001178                . = ALIGN (0x4)
+                0x00001214       0x48 bmptk_cortex.o
+                0x00001214                __startup
+ .text          0x0000125c       0xa0 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+                0x0000125c                __aeabi_ldivmod
+ .text          0x000012fc       0x30 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+                0x000012fc                __aeabi_uldivmod
+ .text          0x0000132c      0x2ec c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                0x0000132c                __udivmoddi4
+ .text          0x00001618        0x4 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_dvmd_tls.o)
+                0x00001618                __aeabi_ldiv0
+ .text.memset   0x0000161c       0x9c c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
+                0x0000161c                memset
+                0x000016b8                . = ALIGN (0x4)
  *(.glue_7t .glue_7)
- .glue_7        0x00001178        0x0 linker stubs
- .glue_7t       0x00001178        0x0 linker stubs
-                0x00001178                . = ALIGN (0x4)
+ .glue_7        0x000016b8        0x0 linker stubs
+ .glue_7t       0x000016b8        0x0 linker stubs
+                0x000016b8                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata._ZTVN5hwlib20cout_using_uart_putcE
-                0x00001178       0x10 main.o
-                0x00001178                vtable for hwlib::cout_using_uart_putc
+                0x000016b8       0x10 main.o
+                0x000016b8                vtable for hwlib::cout_using_uart_putc
  .rodata._ZTVN5hwlib33spi_bus_bit_banged_sclk_mosi_misoE
-                0x00001188        0xc main.o
-                0x00001188                vtable for hwlib::spi_bus_bit_banged_sclk_mosi_miso
+                0x000016c8        0xc main.o
+                0x000016c8                vtable for hwlib::spi_bus_bit_banged_sclk_mosi_miso
  .rodata._ZTVN3due6pin_inE
-                0x00001194        0xc main.o
-                0x00001194                vtable for due::pin_in
+                0x000016d4        0xc main.o
+                0x000016d4                vtable for due::pin_in
  .rodata._ZTVN3due7pin_outE
-                0x000011a0        0xc main.o
-                0x000011a0                vtable for due::pin_out
+                0x000016e0        0xc main.o
+                0x000016e0                vtable for due::pin_out
  .rodata._ZTVN3due10pin_in_outE
-                0x000011ac       0x18 main.o
-                0x000011ac                vtable for due::pin_in_out
+                0x000016ec       0x18 main.o
+                0x000016ec                vtable for due::pin_in_out
  .rodata._ZTV14Mifare_Classic
-                0x000011c4       0x34 main.o
-                0x000011c4                vtable for Mifare_Classic
+                0x00001704       0x34 main.o
+                0x00001704                vtable for Mifare_Classic
  .rodata._ZTV5RC522
-                0x000011f8       0x70 main.o
-                0x000011f8                vtable for RC522
- .rodata        0x00001268       0x15 main.o
+                0x00001738       0x70 main.o
+                0x00001738                vtable for RC522
+ .rodata        0x000017a8        0xf main.o
  .rodata.str1.1
-                0x0000127d      0x41e main.o
- .rodata._ZN3dueL14pin_info_arrayE
-                0x0000169b       0xa4 main.o
-                0x00001740                . = ALIGN (0x4)
- *fill*         0x0000173f        0x1 
+                0x000017b7      0x41e main.o
+ .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
+                0x00001bd5       0xa4 main.o
+                0x00001c7c                . = ALIGN (0x4)
+ *fill*         0x00001c79        0x3 
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00001740                . = ALIGN (0x4)
+                0x00001c7c                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x00001740                . = ALIGN (0x4)
+                0x00001c7c                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x00001740                . = ALIGN (0x4)
+                0x00001c7c                . = ALIGN (0x4)
  *(.eh_frame)
-                0x00001740                . = ALIGN (0x4)
-                0x00001740                __text_end = .
+                0x00001c7c                . = ALIGN (0x4)
+                0x00001c7c                __text_end = .
                 [!provide]                PROVIDE (__text_end, __text_end)
 
-.vfp11_veneer   0x00001740        0x0
- .vfp11_veneer  0x00001740        0x0 linker stubs
+.vfp11_veneer   0x00001c7c        0x0
+ .vfp11_veneer  0x00001c7c        0x0 linker stubs
 
-.v4_bx          0x00001740        0x0
- .v4_bx         0x00001740        0x0 linker stubs
+.v4_bx          0x00001c7c        0x0
+ .v4_bx         0x00001c7c        0x0 linker stubs
 
-.iplt           0x00001740        0x0
- .iplt          0x00001740        0x0 main.o
-
-.rel.dyn        0x00001740        0x0
- .rel.iplt      0x00001740        0x0 main.o
+.iplt           0x00001c7c        0x0
+ .iplt          0x00001c7c        0x0 main.o
 
 .IF_YOU_SEE_THIS_YOU_HAVE_ONE_OR_MORE_GLOBAL_OBJECT_CONSTRUCTORS
  *(.init)
  *(.preinit_array)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x00001740                . = ALIGN (0x4)
-                0x00001740                __exidx_start = .
+                0x00001c7c                . = ALIGN (0x4)
+                0x00001c7c                __exidx_start = .
                 [!provide]                PROVIDE (__exidx_start, __exidx_start)
 
-.ARM.exidx
+.ARM.exidx      0x00001c7c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00001740                . = ALIGN (0x4)
-                0x00001740                __exidx_end = .
+ .ARM.exidx     0x00001c7c        0x8 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+
+.rel.dyn        0x00001c84        0x0
+ .rel.iplt      0x00001c84        0x0 main.o
+                0x00001c84                . = ALIGN (0x4)
+                0x00001c84                __exidx_end = .
                 [!provide]                PROVIDE (__exidx_end, __exidx_end)
 
-.bss            0x20000000    0x12010
+.bss            0x20000000    0x12024
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __stack_start = .
                 [!provide]                PROVIDE (__stack_start, __stack_start)
@@ -502,40 +569,48 @@ END GROUP
  *(.bss .bss.* .gnu.linkonce.b.*)
  .bss._ZZN5hwlib9uart_putcEcE3pin
                 0x20012000        0xc main.o
- .bss._ZGVZN5hwlib9uart_putcEcE3pin
+ .bss._ZZN3due6now_usEvE8last_low
                 0x2001200c        0x4 main.o
-                0x20012010                . = ALIGN (0x4)
+ .bss._ZGVZN5hwlib9uart_putcEcE3pin
+                0x20012010        0x4 main.o
+ *fill*         0x20012014        0x4 
+ .bss._ZZN3due6now_usEvE4high
+                0x20012018        0x8 main.o
+ .bss._ZZN3due6now_usEvE9init_done
+                0x20012020        0x1 main.o
+                0x20012024                . = ALIGN (0x4)
+ *fill*         0x20012021        0x3 
  *(COMMON)
-                0x20012010                . = ALIGN (0x4)
-                0x20012010                __bss_end = .
+                0x20012024                . = ALIGN (0x4)
+                0x20012024                __bss_end = .
                 [!provide]                PROVIDE (__bss_end, __bss_end)
 
-.data           0x20012010       0x14 load address 0x00001740
-                0x20012010                . = ALIGN (0x4)
-                0x00001740                __data_init_start = LOADADDR (.data)
+.data           0x20012024       0x14 load address 0x00001c84
+                0x20012024                . = ALIGN (0x4)
+                0x00001c84                __data_init_start = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_start, __data_init_start)
-                0x20012010                __data_start = .
+                0x20012024                __data_start = .
                 [!provide]                PROVIDE (__data_start, __data_start)
-                0x20012010                . = ALIGN (0x4)
+                0x20012024                . = ALIGN (0x4)
  *(.data .data.* .gnu.linkonce.d.*)
  .data._ZN5hwlib4coutE
-                0x20012010       0x14 main.o
-                0x20012010                hwlib::cout
-                0x20012024                . = ALIGN (0x4)
-                0x20012024                __data_end = .
+                0x20012024       0x14 main.o
+                0x20012024                hwlib::cout
+                0x20012038                . = ALIGN (0x4)
+                0x20012038                __data_end = .
                 [!provide]                PROVIDE (__data_end, __data_end)
-                0x00001740                __data_init_end = LOADADDR (.data)
+                0x00001c84                __data_init_end = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_end, __data_init_end)
                 0x00000014                PROVIDE (__data_size, (__data_end - __data_start))
                 0x00000014                PROVIDE (__data_init_size, __data_size)
                 [!provide]                PROVIDE (__data_init_end, (__data_init_start + __data_init_size))
 
-.igot.plt       0x20012024        0x0 load address 0x00001754
- .igot.plt      0x20012024        0x0 main.o
-                0x20012024                . = ALIGN (0x4)
-                0x20012024                __heap_start = .
+.igot.plt       0x20012038        0x0 load address 0x00001c98
+ .igot.plt      0x20012038        0x0 main.o
+                0x20012038                . = ALIGN (0x4)
+                0x20012038                __heap_start = .
                 [!provide]                PROVIDE (__heap_start, __heap_start)
-                0x20012024                . = ALIGN (0x4)
+                0x20012038                . = ALIGN (0x4)
                 0x20018000                __heap_end = __ram_end
                 [!provide]                PROVIDE (__heap_end, __heap_end)
 
@@ -572,9 +647,12 @@ END GROUP
 .debug_line
  *(.debug_line)
 
-.debug_frame    0x00000000       0x34
+.debug_frame    0x00000000       0xdc
  *(.debug_frame)
- .debug_frame   0x00000000       0x34 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
+ .debug_frame   0x00000000       0x44 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .debug_frame   0x00000044       0x2c c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00000070       0x38 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000000a8       0x34 c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
 
 .comment        0x00000000       0x6e
  .comment       0x00000000       0x6e main.o
@@ -619,7 +697,15 @@ END GROUP
  .ARM.attributes
                 0x00000099       0x33 bmptk_fixed_size_stack.o
  .ARM.attributes
-                0x000000cc       0x2d c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
+                0x000000cc       0x1d c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .ARM.attributes
+                0x000000e9       0x1d c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000106       0x2d c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x00000133       0x1d c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/armv7-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000150       0x2d c:/program files (x86)/gnu tools arm embedded/5.3 2016q1/bin/../lib/gcc/arm-none-eabi/5.3.1/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
 
 /DISCARD/
  *(.note.GNU-stack)

@@ -22,7 +22,9 @@ struct \hyperlink{structhwlib_1_1__left}{hwlib\+::\+\_\+left}
 struct \hyperlink{structhwlib_1_1__flush}{hwlib\+::\+\_\+flush}
 \item 
 class \hyperlink{classhwlib_1_1ostream}{hwlib\+::ostream}
-\begin{DoxyCompactList}\small\item\em formatted character output \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em formatted character output \end{DoxyCompactList}\item 
+class \hyperlink{classhwlib_1_1istream}{hwlib\+::istream}
+\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,15 +54,19 @@ constexpr \+\_\+boolalpha \hyperlink{namespacehwlib_a499e8cd6806e66c4c425b64c951
 constexpr \+\_\+boolalpha \hyperlink{namespacehwlib_a6fe77cc67d9850cb262eb6e15e37724d}{hwlib\+::noboolalpha} (false)
 \begin{DoxyCompactList}\small\item\em print a bool value as \textquotesingle{}false\textquotesingle{} or \textquotesingle{}true\textquotesingle{} \end{DoxyCompactList}\item 
 void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a10ed5b50cabfea49044e22331ac6f284}{hwlib\+::uart\+\_\+putc\+\_\+bit\+\_\+banged\+\_\+pin} (char c, pin\+\_\+out \&pin)
-\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT putc \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT char output \end{DoxyCompactList}\item 
+char \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a7dcb57f59ee55d80c76b7b7c09044a2f}{hwlib\+::uart\+\_\+getc\+\_\+bit\+\_\+banged\+\_\+pin} (pin\+\_\+in \&pin)
+\begin{DoxyCompactList}\small\item\em a bit-\/banged U\+A\+RT char input \end{DoxyCompactList}\item 
 void \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_ae568ebef4b8d8a77cecae8cea595896f}{hwlib\+::uart\+\_\+putc} (char c)
-\begin{DoxyCompactList}\small\item\em console character output function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em console character output function \end{DoxyCompactList}\item 
+char \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_a0f433c14b5302d476ed723a38862d9d3}{hwlib\+::uart\+\_\+getc} ()
+\begin{DoxyCompactList}\small\item\em console character input function \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 constexpr char \hyperlink{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}{hwlib\+::endl} = \textquotesingle{}\textbackslash{}n\textquotesingle{}\hypertarget{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}{}\label{namespacehwlib_a89ce110cc897f61657f1edca18e4cef7}
 
-\begin{DoxyCompactList}\small\item\em end-\/of-\/linbe constant \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em end-\/of-\/line constant \end{DoxyCompactList}\item 
 constexpr char \hyperlink{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}{hwlib\+::ends} = \textquotesingle{}\textbackslash{}0\textquotesingle{}\hypertarget{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}{}\label{namespacehwlib_ac708935d0fc9beb71bb55a7c35e69a16}
 
 \begin{DoxyCompactList}\small\item\em 0-\/character constant \end{DoxyCompactList}\item 
@@ -71,4 +77,7 @@ constexpr \+\_\+left \hyperlink{namespacehwlib_a7d9a4ef3e66da75048c5b3e67cf401d8
 constexpr \+\_\+flush \hyperlink{namespacehwlib_a648fe94ca9899747a632c23f97007732}{hwlib\+::flush}
 \begin{DoxyCompactList}\small\item\em flush an stream \end{DoxyCompactList}\item 
 cout\+\_\+using\+\_\+uart\+\_\+putc \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} \hyperlink{namespacehwlib_ac985c212834e4eb219aedede6efff2dc}{hwlib\+::cout}
-\begin{DoxyCompactList}\small\item\em embedded output console \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em embedded output console \end{DoxyCompactList}\item 
+cin\+\_\+using\+\_\+uart\+\_\+getc \hyperlink{hwlib-defines_8hpp_a04be4340016df60d6636c1d1c6d94fc9}{H\+W\+L\+I\+B\+\_\+\+W\+E\+AK} {\bfseries hwlib\+::cin}\hypertarget{namespacehwlib_a8f672f745fb7a27fe652c442779bd65d}{}\label{namespacehwlib_a8f672f745fb7a27fe652c442779bd65d}
+
+\end{DoxyCompactItemize}

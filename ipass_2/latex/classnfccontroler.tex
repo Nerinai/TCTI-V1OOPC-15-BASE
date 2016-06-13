@@ -43,7 +43,7 @@ virtual void \hyperlink{classnfccontroler_a4f5a22e5f25f56abe26ed0034a296135}{ini
 \item 
 virtual bool \hyperlink{classnfccontroler_a742e67e43b865074c4f23fb6c133cdd7}{communicate\+N\+FC} (const byte $\ast$data\+\_\+in, const int data\+\_\+in\+\_\+lenght, byte command, byte $\ast$data\+\_\+out, int $\ast$data\+\_\+out\+\_\+lenght, bool crc=false, bool Bitwraping=false)=0
 \item 
-virtual bool \hyperlink{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}{calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result)=0
+virtual int \hyperlink{classnfccontroler_a0a04b877e9de8677b5bfe9e28424cbca}{calculate\+C\+RC} (const byte $\ast$data, const int length, byte $\ast$result)=0
 \end{DoxyCompactItemize}
 
 
@@ -83,20 +83,20 @@ Implemented in \hyperlink{class_r_c522_ae4dbd838876dbd901d811af06e72a448}{R\+C52
 
 \index{nfccontroler@{nfccontroler}!calculate\+C\+RC@{calculate\+C\+RC}}
 \index{calculate\+C\+RC@{calculate\+C\+RC}!nfccontroler@{nfccontroler}}
-\subsubsection[{\texorpdfstring{calculate\+C\+R\+C(const byte $\ast$data, const int length, byte $\ast$result)=0}{calculateCRC(const byte *data, const int length, byte *result)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool nfccontroler\+::calculate\+C\+RC (
+\subsubsection[{\texorpdfstring{calculate\+C\+R\+C(const byte $\ast$data, const int length, byte $\ast$result)=0}{calculateCRC(const byte *data, const int length, byte *result)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int nfccontroler\+::calculate\+C\+RC (
 \begin{DoxyParamCaption}
 \item[{const byte $\ast$}]{data, }
 \item[{const int}]{length, }
 \item[{byte $\ast$}]{result}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}{}\label{classnfccontroler_ab03f284aa4ce7e327b61134e5473c869}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classnfccontroler_a0a04b877e9de8677b5bfe9e28424cbca}{}\label{classnfccontroler_a0a04b877e9de8677b5bfe9e28424cbca}
 Function that calculates the C\+RC for the given data.
 
 W\+A\+R\+N\+I\+NG I\+N\+T\+I\+M\+A\+TE K\+N\+O\+W\+L\+E\+D\+GE R\+E\+Q\+U\+I\+R\+ED
 
-This function takes data in array form into the parameter \textquotesingle{}data\textquotesingle{} Together with the integer \textquotesingle{}length\textquotesingle{} which provides the amount of data it calculates the result and inserts it into the parameter \textquotesingle{}result\textquotesingle{} in array format. 
+This function takes data in array form into the parameter \textquotesingle{}data\textquotesingle{} Together with the integer \textquotesingle{}length\textquotesingle{} which provides the amount of data it calculates the result and inserts it into the parameter \textquotesingle{}result\textquotesingle{} in array format. this function returns 0 on successfull C\+RC calculation. Otherwise it returns 1; 
 
-Implemented in \hyperlink{class_r_c522_a851317030e6ad460210c136fd8f961fa}{R\+C522}.
+Implemented in \hyperlink{class_r_c522_a97d66d97883cf728889098e4a2522f27}{R\+C522}.
 
 \index{nfccontroler@{nfccontroler}!clear\+Register\+Mask@{clear\+Register\+Mask}}
 \index{clear\+Register\+Mask@{clear\+Register\+Mask}!nfccontroler@{nfccontroler}}

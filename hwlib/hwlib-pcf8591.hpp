@@ -132,8 +132,8 @@ public:
    one_adc adc3{ *this, 3 };   
    //@}
       
-   /// the A/D converter channels of the chip
-   one_dac dac{ *this };   
+   /// the D/A converter channel of the chip
+   one_dac dac0{ *this };   
 
 }; // class pcf8591
    

@@ -1,5 +1,82 @@
 #include "nfccontroler_all.hpp"
 
+class Stand
+{
+private:
+	byte standid;
+	byte standsector;
+	byte * sectorkey;
+	RC522 & controller;
+	Mifare_Classic & protocol;
+public:
+	Stand(byte standid, byte standsector, byte * sectorkey, RC522 & controller, Mifare_Classic & protocol):
+	standid(standid), standsector(standsector), sectorkey(sectorkey), controller(controller), protocol(protocol)
+	{}
+	
+	union timestamp{
+		long long int as_l_l_int;
+		byte 		  as_byte_array[8] = {};
+	}timestamp;
+	
+	void set_standid(byte id){
+		standid = id;
+	}
+	
+	byte get_standid(void){
+		return standid;
+	}
+	
+	void set_standsector(byte sector){
+		standsector = sector;
+	}
+	
+	byte get_standsector(void){
+		return standsector;
+	}
+	
+	long long int timer (void){
+		return hwlib::now_us();
+	}
+	
+	void read_timestamp (void){
+		byte sector [4][16] = {};
+		byte cardtype[2];
+		byte serial[4];
+		controller.initChip();
+		
+		if(protocol.isCard(cardtype)){
+			if(protocol.selectCard(serial)){
+				if(protocol.readSector(4, sector, 0x60, &standsector, sectorkey, serial)){
+					for (int i = 0; i < 8; i++){
+						timestamp.as_byte_array[i] = sector[1][i];
+					}
+				}
+			}
+		}
+		long long int time = timestamp.as_l_l_int;
+		
+		hwlib::cout << hwlib::dec << time << '\n';
+	}
+	
+	void standTimeStamp (void){
+		byte cardtype[2];
+		byte serial[4];
+		byte block = standsector;
+		timestamp.as_l_l_int = timer();
+		controller.initChip();
+		
+		if(protocol.isCard(cardtype)){
+			if(protocol.selectCard(serial)){
+				if(protocol.authenticateSector(0x60, &standsector, sectorkey, serial)){
+					protocol.writeBlock(standsector, &standid, 1);
+					protocol.writeBlock(++block, timestamp.as_byte_array, 8);
+				}
+			}
+		}
+	}
+
+};
+
 int main(void){
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	
@@ -22,11 +99,28 @@ int main(void){
 	RC522 nfc (sda, reset, spi);
 	Mifare_Classic reader (nfc);
 	
-	bool card = false;
+	nfc.selfTest();
+	
+	byte stand1_key[] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
+	
+	Stand stand1 (0x01, 0x08, stand1_key, nfc, reader);
+	Stand stand2 (0x02, 0x0C, stand1_key, nfc, reader);
+	
+	stand1.timer();
+	while(1){
+		hwlib::wait_ms(300);
+		stand1.standTimeStamp();
+		hwlib::wait_ms(300);
+		stand2.standTimeStamp();
+		hwlib::wait_ms(300);
+		stand1.read_timestamp();
+		stand2.read_timestamp();
+	}
+	/*bool card = false;
 	bool select_success = false;
 	byte cardtype[2];
 	byte key[] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5};
-	byte key2[] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
+	byte key[] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
 	byte writesector[3][16] = {{0xFF, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5},
 							   {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7},
 							   {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}};
@@ -61,74 +155,6 @@ int main(void){
 			hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)sector2[i][j] << ' ';
 		}
 		hwlib::cout << '\n';
-	}
-	
-	/*//byte key [] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7};
-	//byte data[] = {0x06, 0x57, 0x80, 0x58, 0x65};
-	//byte key[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
-	byte cardtype[2];
-	byte serial[4];
-	byte sector = 0x00;
-	byte block1 = 0x00;
-	byte block2 = 0x01;
-	byte block3 = 0x02;
-	byte block4 = 0x03;
-	byte data1[16] = {};
-	byte data2[16] = {};
-	byte data3[16] = {};
-	byte data4[16] = {};
-	
-	nfc.init_chip();
-	card = reader.iscard(cardtype);
-	
-	if (card == true){
-		select_success = reader.select_card(serial);
-	}
-	
-	if (select_success == true){
-		reader.authenticate_classic((byte)RC522::Keytype::AuthwithA, &sector, key, serial);
-		//nfc.writeBlock(sector, data, 5);
-		reader.readblock(block1, data1);
-		reader.readblock(block2, data2);
-		reader.readblock(block3, data3);
-		reader.readblock(block4, data4);
-	}
-	
-	
-	for (int i = 0; i < 16; i++){
-		hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data1[i] << ' ';
-	}
-	hwlib::cout << '\n';
-	for (int i = 0; i < 16; i++){
-		hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data2[i] << ' ';
-	}
-	hwlib::cout << '\n';
-	for (int i = 0; i < 16; i++){
-		hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data3[i] << ' ';
-	}
-	hwlib::cout << '\n';
-	for (int i = 0; i < 16; i++){
-		hwlib::cout << hwlib::hex << hwlib::setfill('0') << hwlib::setw(2) << (int)data4[i] << ' ';
-	}
-	hwlib::cout << '\n';*/
-	//nfc.cardPoll();
-	
-	/*byte array[] = {0xFF, 0xAA, 0xBB};
-	int result[64];
-	
-	nfc.writeFIFO(3, array);
-	int n = nfc.readFIFO(result);
-	
-	for (int i = 0; i < n; i++){
-		hwlib::cout << hwlib::hex << result[i] << ' ';
 	}*/
-	/*
-	hwlib::cout << hwlib::hex << (int)nfc.readRegister(RC522::FIFODataReg) << ' ';
-	hwlib::cout << hwlib::hex << (int)nfc.readRegister(RC522::FIFOLevelReg) << ' ';
-	hwlib::cout << hwlib::hex << (int)nfc.readRegister(RC522::FIFODataReg) << ' ';
-	hwlib::cout << hwlib::hex << (int)nfc.readRegister(RC522::FIFOLevelReg) << ' ';
-	hwlib::cout << hwlib::hex << (int)nfc.readRegister(RC522::FIFODataReg) << ' ';
-	hwlib::cout << hwlib::hex << (int)nfc.readRegister(RC522::FIFOLevelReg) << ' ';*/
-	
 	return 0;
 }
