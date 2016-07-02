@@ -1,0 +1,56 @@
+\hypertarget{classvector}{}\section{vector Class Reference}
+\label{classvector}\index{vector@{vector}}
+
+
+2D integer vector A\+DT  
+
+
+
+
+{\ttfamily \#include $<$vector.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvector_a28ed60409cde794caea6a40ec8d832b2}{vector} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{classvector}{vector} \hyperlink{classvector_af5eb8137df41617181487e49d85df888}{operator$\ast$} (int rhs) const 
+\begin{DoxyCompactList}\small\item\em multiply vector by integer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+2D integer vector A\+DT 
+
+This is 2D vector A\+DT that stores its two components as (signed) integers. The x and y components are public attributes. The appropriate constructors and operators are provided. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{vector@{vector}!vector@{vector}}
+\index{vector@{vector}!vector@{vector}}
+\subsubsection[{\texorpdfstring{vector()}{vector()}}]{\setlength{\rightskip}{0pt plus 5cm}vector\+::vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classvector_a28ed60409cde794caea6a40ec8d832b2}{}\label{classvector_a28ed60409cde794caea6a40ec8d832b2}
+
+
+default constructor 
+
+This constructor does not initialize the x and y attributes. 
+
+\subsection{Member Function Documentation}
+\index{vector@{vector}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!vector@{vector}}
+\subsubsection[{\texorpdfstring{operator$\ast$(int rhs) const }{operator*(int rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector} vector\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{int}]{rhs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classvector_af5eb8137df41617181487e49d85df888}{}\label{classvector_af5eb8137df41617181487e49d85df888}
+
+
+multiply vector by integer 
+
+This operator multiplies a vector by an integer, yielding a vector. The resulting vector points in the same direction as the original, but its length is rhs times longer than the original. In other words, the x and y attributes of the result are the x and y of the original, multiplied by the rhs. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vector_8hpp}{vector.\+hpp}\end{DoxyCompactItemize}
